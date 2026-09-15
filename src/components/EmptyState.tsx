@@ -20,7 +20,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
   return (
     <div
       data-testid={testId}
-      className="flex flex-col items-center justify-center py-16 px-4 text-center rounded-2xl bg-cyber-card/40 border border-cyber-border my-4"
+      className="flex flex-col items-center justify-center py-10 px-4 text-center rounded-2xl bg-cyber-card/40 border border-cyber-border my-3"
     >
       <div className="w-12 h-12 rounded-xl bg-slate-800/80 flex items-center justify-center mb-3 text-slate-400">
         <span className="text-xl" aria-hidden="true">

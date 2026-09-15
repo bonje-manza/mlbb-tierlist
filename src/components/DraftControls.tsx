@@ -60,7 +60,7 @@ export const DraftControls: React.FC<DraftControlsProps> = ({
     <div
       role="search"
       aria-label="Draft controls and search"
-      className="w-full max-w-5xl mx-auto px-2 sm:px-4 py-2 flex items-center gap-2"
+      className="w-full max-w-5xl mx-auto px-2 sm:px-4 py-1.5 flex items-center gap-2"
     >
       {/* Search Input Container */}
       <div className="relative flex-1 flex items-center">

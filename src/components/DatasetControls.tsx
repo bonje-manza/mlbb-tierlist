@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import type { RankTier, TimeWindow } from '../types/index.ts';
 
 export interface DatasetControlsProps {
@@ -21,6 +21,8 @@ interface SegmentGroupProps<T extends string> {
   onChange: (val: T) => void;
   disabled?: boolean;
   activeColorTheme: 'cyan' | 'purple';
+  title?: string;
+  describedBy?: string;
 }
 
 function SegmentGroup<T extends string>({
@@ -30,33 +32,67 @@ function SegmentGroup<T extends string>({
   onChange,
   disabled = false,
   activeColorTheme,
+  title,
+  describedBy,
 }: SegmentGroupProps<T>) {
   const activeStyle =
     activeColorTheme === 'cyan'
       ? 'bg-cyan-500/20 text-cyan-300 border-cyan-400/50 shadow-sm shadow-cyan-500/20'
       : 'bg-purple-500/20 text-purple-300 border-purple-400/50 shadow-sm shadow-purple-500/20';
 
+  const optionRefs = useRef<Array<HTMLButtonElement | null>>([]);
+
+  const handleKeyDown = (e: React.KeyboardEvent, currentIndex: number) => {
+    let nextIndex: number | null = null;
+
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      nextIndex = (currentIndex + 1) % options.length;
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      nextIndex = (currentIndex - 1 + options.length) % options.length;
+    } else if (e.key === 'Home') {
+      nextIndex = 0;
+    } else if (e.key === 'End') {
+      nextIndex = options.length - 1;
+    }
+
+    if (nextIndex !== null) {
+      e.preventDefault();
+      const next = options[nextIndex];
+      if (!disabled && next.value !== selectedValue) {
+        onChange(next.value);
+      }
+      optionRefs.current[nextIndex]?.focus();
+    }
+  };
+
   return (
     <div
       role="radiogroup"
       aria-label={groupLabel}
+      aria-describedby={describedBy}
+      title={title}
       className="inline-flex p-0.5 rounded-xl bg-cyber-card/60 border border-cyber-border"
     >
-      {options.map(({ value, label }) => {
+      {options.map(({ value, label }, index) => {
         const isSelected = selectedValue === value;
         return (
           <button
             key={value}
+            ref={(el) => {
+              optionRefs.current[index] = el;
+            }}
             type="button"
             role="radio"
             aria-checked={isSelected}
             aria-label={label}
+            tabIndex={isSelected ? 0 : -1}
             disabled={disabled}
             onClick={() => {
               if (!disabled && !isSelected) {
                 onChange(value);
               }
             }}
+            onKeyDown={(e) => handleKeyDown(e, index)}
             className={`min-h-[44px] min-w-[44px] px-3 sm:px-4 py-2 rounded-lg text-xs font-bold transition-all duration-150 select-none flex items-center justify-center border ${
               isSelected
                 ? activeStyle
@@ -91,7 +127,7 @@ export const DatasetControls: React.FC<DatasetControlsProps> = ({
   return (
     <div
       aria-label="Dataset filters"
-      className="w-full max-w-5xl mx-auto px-2 sm:px-4 py-1.5 flex items-center justify-between gap-2"
+      className="w-full max-w-5xl mx-auto px-2 sm:px-4 py-1 flex items-center justify-between gap-2"
     >
       <SegmentGroup<RankTier>
         groupLabel="Rank Tier"
@@ -100,6 +136,8 @@ export const DatasetControls: React.FC<DatasetControlsProps> = ({
         onChange={onRankTierChange}
         disabled={disabled}
         activeColorTheme="cyan"
+        title="Mythic: top-rank meta. All Ranks: every tier blended."
+        describedBy="rank-tier-hint"
       />
 
       <SegmentGroup<TimeWindow>
@@ -109,7 +147,15 @@ export const DatasetControls: React.FC<DatasetControlsProps> = ({
         onChange={onTimeWindowChange}
         disabled={disabled}
         activeColorTheme="purple"
+        title="1 Day: volatile daily meta. 7 Days: stable weekly trend."
+        describedBy="time-window-hint"
       />
+      <p id="rank-tier-hint" className="sr-only">
+        Mythic shows the top-rank meta. All Ranks blends every tier.
+      </p>
+      <p id="time-window-hint" className="sr-only">
+        1 Day captures the volatile daily meta. 7 Days shows the stable weekly trend.
+      </p>
     </div>
   );
 };

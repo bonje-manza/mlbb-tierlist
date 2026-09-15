@@ -48,7 +48,7 @@ export const LaneCarousel: React.FC<LaneCarouselProps> = ({
   return (
     <nav
       aria-label="Lane selection"
-      className={`sticky top-0 z-20 w-full border-b border-cyber-border bg-cyber-ground/95 backdrop-blur-md px-2 sm:px-4 py-2 overflow-x-auto no-scrollbar scroll-smooth ${className}`}
+      className={`sticky top-0 z-20 w-full border-b border-cyber-border bg-cyber-ground/95 backdrop-blur-md px-2 sm:px-4 py-1.5 overflow-x-auto no-scrollbar scroll-smooth ${className}`}
     >
       <div
         role="tablist"

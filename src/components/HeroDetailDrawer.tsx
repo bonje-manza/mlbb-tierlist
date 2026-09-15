@@ -22,12 +22,12 @@ const TIER_VISUALS: Record<Tier, TierVisualMeta> = {
     avatarRing: 'ring-2 ring-tier-s-plus/40',
   },
   'S': {
-    badgeClass: 'bg-tier-s text-slate-950 shadow-lg shadow-tier-s/30',
+    badgeClass: 'bg-tier-s text-white shadow-lg shadow-tier-s/30',
     avatarBorder: 'border-tier-s',
     avatarRing: 'ring-2 ring-tier-s/40',
   },
   'A': {
-    badgeClass: 'bg-tier-a text-white shadow-lg shadow-tier-a/30',
+    badgeClass: 'bg-tier-a text-slate-950 shadow-lg shadow-tier-a/30',
     avatarBorder: 'border-tier-a',
     avatarRing: 'ring-2 ring-tier-a/40',
   },
@@ -37,12 +37,12 @@ const TIER_VISUALS: Record<Tier, TierVisualMeta> = {
     avatarRing: 'ring-2 ring-tier-b/40',
   },
   'C': {
-    badgeClass: 'bg-tier-c text-white',
+    badgeClass: 'bg-tier-c text-slate-950',
     avatarBorder: 'border-tier-c',
     avatarRing: 'ring-2 ring-tier-c/40',
   },
   'D': {
-    badgeClass: 'bg-tier-d text-slate-300',
+    badgeClass: 'bg-tier-d text-slate-100',
     avatarBorder: 'border-tier-d',
     avatarRing: 'ring-2 ring-tier-d/40',
   },
@@ -104,6 +104,8 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
   const [avatarError, setAvatarError] = useState(false);
   const [partnerErrors, setPartnerErrors] = useState<Record<number, boolean>>({});
   const touchStartYRef = useRef<number | null>(null);
+  const panelRef = useRef<HTMLDivElement | null>(null);
+  const closeBtnRef = useRef<HTMLButtonElement | null>(null);
 
   // Reset avatar state when selected hero changes
   useEffect(() => {
@@ -111,16 +113,34 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
     setAvatarError(false);
   }, [hero?.id]);
 
-  // Lock background body scroll while active & handle Escape key
+  // Lock background body scroll while active, handle Escape key,
+  // trap focus inside the dialog, and return focus on close.
   useEffect(() => {
     if (!hero) return;
 
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    closeBtnRef.current?.focus();
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         onClose();
+        return;
+      }
+      if (e.key !== 'Tab' || !panelRef.current) return;
+      const focusables = panelRef.current.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
       }
     };
 
@@ -129,6 +149,7 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
     return () => {
       document.body.style.overflow = originalOverflow;
       window.removeEventListener('keydown', handleKeyDown);
+      previouslyFocused?.focus?.();
     };
   }, [hero, onClose]);
 
@@ -178,6 +199,7 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
     >
       {/* Drawer Content Panel */}
       <div
+        ref={panelRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby="drawer-hero-name"
@@ -200,6 +222,7 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
 
           {/* Close Button */}
           <button
+            ref={closeBtnRef}
             type="button"
             onClick={onClose}
             aria-label="Close hero details"
@@ -297,9 +320,15 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
             </p>
 
             {/* Power Score Badge */}
-            <div className="inline-flex items-center">
-              <span className="text-xs font-mono font-bold text-cyan-300 bg-cyan-950/40 border border-cyan-800/60 px-2 py-0.5 rounded">
+            <div className="inline-flex flex-col items-start">
+              <span
+                title="Power Score: composite of win rate (50%), pick rate (25%) and ban rate (25%)"
+                className="text-xs font-mono font-bold tabular-nums text-cyan-300 bg-cyan-950/40 border border-cyan-800/60 px-2 py-0.5 rounded"
+              >
                 Power Score: {hero.powerScore.toFixed(1)}
+              </span>
+              <span className="text-[10px] font-mono tabular-nums text-slate-500 mt-1">
+                Win 50 · Pick 25 · Ban 25
               </span>
             </div>
           </div>
@@ -308,7 +337,10 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
         {/* Telemetry Benchmark Cards */}
         <div className="py-4 border-b border-slate-800/80">
           <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-400 mb-2.5">
-            Telemetry Benchmarks
+            Telemetry Benchmarks{' '}
+            <span className="normal-case font-medium tracking-normal text-slate-500">
+              · bars scaled to hero pool
+            </span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
