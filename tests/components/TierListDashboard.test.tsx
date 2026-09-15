@@ -2,7 +2,15 @@ import { describe, it, expect, vi } from 'vitest';
 import { render, screen, waitFor, fireEvent, act, within } from '@testing-library/react';
 import React from 'react';
 import { TierListDashboard } from '../../src/components/TierListDashboard.tsx';
-import { mockDataset, mockMultiLaneDataset, mockSynergyDataset } from './mockHeroes.ts';
+import {
+  mockDataset,
+  mockMultiLaneDataset,
+  mockSynergyDataset,
+  mockMythic1dDataset,
+  mockMythic7dDataset,
+  mockAll1dDataset,
+  mockAll7dDataset
+} from './mockHeroes.ts';
 
 describe('TierListDashboard', () => {
   describe('Core Dashboard (Seam 1)', () => {
@@ -383,6 +391,220 @@ describe('TierListDashboard', () => {
 
       expect(handleSelect).toHaveBeenCalledTimes(1);
       expect(handleSelect).toHaveBeenCalledWith(mockDataset.heroes[0]);
+    });
+  });
+
+  describe('Rank & Time Toggles and Multi-Dataset Management (Seam 5)', () => {
+    it('renders DatasetControls with default Mythic and 1 Day selected', () => {
+      render(<TierListDashboard dataset={mockMythic1dDataset} />);
+      const mythicRadio = screen.getByRole('radio', { name: /mythic/i });
+      const oneDayRadio = screen.getByRole('radio', { name: /1 day/i });
+      expect(mythicRadio).toHaveAttribute('aria-checked', 'true');
+      expect(oneDayRadio).toHaveAttribute('aria-checked', 'true');
+    });
+
+    it('switches to All Ranks dataset in-memory when clicking All Ranks', () => {
+      render(
+        <TierListDashboard
+          datasets={{
+            'mythic-1d': mockMythic1dDataset,
+            'all-1d': mockAll1dDataset
+          }}
+        />
+      );
+
+      // Initially mythic-1d: Rafaela is S+ (88.4), Miya is A (73.1)
+      expect(screen.getByTestId('tier-grid-S+')).toHaveTextContent('Rafaela');
+      expect(screen.getByTestId('tier-grid-A')).toHaveTextContent('Miya');
+
+      // Click All Ranks
+      fireEvent.click(screen.getByRole('radio', { name: /all ranks/i }));
+
+      // Now all-1d: Miya is S (79.5), Rafaela is A (64.0)
+      expect(screen.getByTestId('tier-grid-S')).toHaveTextContent('Miya');
+      expect(screen.getByTestId('tier-grid-A')).toHaveTextContent('Rafaela');
+    });
+
+    it('switches to 7 Days dataset in-memory when clicking 7 Days', () => {
+      render(
+        <TierListDashboard
+          datasets={{
+            'mythic-1d': mockMythic1dDataset,
+            'mythic-7d': mockMythic7dDataset
+          }}
+        />
+      );
+
+      // Initially mythic 1d: Rafaela WR is 57.95% (in tile badge: 58.0%)
+      expect(screen.getByText('58.0%')).toBeInTheDocument();
+
+      // Click 7 Days
+      fireEvent.click(screen.getByRole('radio', { name: /7 days/i }));
+
+      // Now mythic 7d: Rafaela WR is 56.20% (in tile badge: 56.2%)
+      expect(screen.getByText('56.2%')).toBeInTheDocument();
+    });
+
+    it('preserves active Lane filter when toggling rank or time window', () => {
+      render(
+        <TierListDashboard
+          datasets={{
+            'mythic-1d': mockMythic1dDataset,
+            'all-1d': mockAll1dDataset
+          }}
+        />
+      );
+
+      // Filter by Gold Lane (Miya is Gold Lane)
+      fireEvent.click(screen.getByTestId('lane-tab-Gold'));
+      expect(screen.getByText('Miya')).toBeInTheDocument();
+      expect(screen.queryByText('Rafaela')).not.toBeInTheDocument();
+
+      // Switch rank to All Ranks
+      fireEvent.click(screen.getByRole('radio', { name: /all ranks/i }));
+
+      // Lane filter remains active: Gold Lane still selected, Miya still shown, Rafaela still excluded
+      expect(screen.getByTestId('lane-tab-Gold')).toHaveAttribute('aria-selected', 'true');
+      expect(screen.getByText('Miya')).toBeInTheDocument();
+      expect(screen.queryByText('Rafaela')).not.toBeInTheDocument();
+    });
+
+    it('preserves active search query when toggling rank or time window', () => {
+      vi.useFakeTimers();
+      render(
+        <TierListDashboard
+          datasets={{
+            'mythic-1d': mockMythic1dDataset,
+            'mythic-7d': mockMythic7dDataset
+          }}
+        />
+      );
+
+      const searchInput = screen.getByRole('textbox', { name: /search hero/i });
+      fireEvent.change(searchInput, { target: { value: 'Chou' } });
+      act(() => {
+        vi.advanceTimersByTime(150);
+      });
+
+      expect(screen.getByText('Chou')).toBeInTheDocument();
+      expect(screen.queryByText('Miya')).not.toBeInTheDocument();
+
+      // Switch to 7 Days
+      fireEvent.click(screen.getByRole('radio', { name: /7 days/i }));
+
+      // Search remains active
+      expect(screen.getByRole('textbox', { name: /search hero/i })).toHaveValue('Chou');
+      expect(screen.getByText('Chou')).toBeInTheDocument();
+      expect(screen.queryByText('Miya')).not.toBeInTheDocument();
+      vi.useRealTimers();
+    });
+
+    it('updates inspected hero stats in open bottom sheet when toggling dataset', () => {
+      render(
+        <TierListDashboard
+          datasets={{
+            'mythic-1d': mockMythic1dDataset,
+            'all-1d': mockAll1dDataset
+          }}
+        />
+      );
+
+      // Open Miya's drawer in Mythic 1d (WR 53.81%, Tier A)
+      fireEvent.click(screen.getByRole('button', { name: /Miya/i }));
+      expect(screen.getByRole('dialog')).toBeInTheDocument();
+      expect(screen.getByTestId('metric-winrate-value')).toHaveTextContent('53.81%');
+      expect(screen.getByText('A TIER')).toBeInTheDocument();
+
+      // Toggle to All Ranks while drawer is open
+      fireEvent.click(screen.getByRole('radio', { name: /all ranks/i }));
+
+      // Drawer stays open and updates to All Ranks Miya (WR 55.60%, Tier S)
+      expect(screen.getByRole('dialog')).toBeInTheDocument();
+      expect(screen.getByTestId('metric-winrate-value')).toHaveTextContent('55.60%');
+      expect(screen.getByText('S TIER')).toBeInTheDocument();
+    });
+
+    it('fetches remote static dataset file when not present in memory cache', async () => {
+      const fetchSpy = vi.spyOn(globalThis, 'fetch').mockImplementation(async (url) => {
+        if (url.toString().includes('tierlist-all-1d.json')) {
+          return new Response(JSON.stringify(mockAll1dDataset), { status: 200 });
+        }
+        return new Response(JSON.stringify(mockMythic1dDataset), { status: 200 });
+      });
+
+      render(<TierListDashboard dataset={mockMythic1dDataset} />);
+
+      // Switch to All Ranks (uncached)
+      fireEvent.click(screen.getByRole('radio', { name: /all ranks/i }));
+
+      await waitFor(() => {
+        expect(screen.getByTestId('tier-grid-S')).toHaveTextContent('Miya');
+      });
+
+      expect(fetchSpy).toHaveBeenCalledWith(expect.stringContaining('tierlist-all-1d.json'));
+      fetchSpy.mockRestore();
+    });
+
+    it('maintains zero layout jumps: hero grid remains mounted with loading bar during uncached fetch', async () => {
+      let resolvePromise: (res: Response) => void;
+      const delayedResponse = new Promise<Response>((resolve) => {
+        resolvePromise = resolve;
+      });
+
+      vi.spyOn(globalThis, 'fetch').mockReturnValue(delayedResponse);
+
+      render(<TierListDashboard dataset={mockMythic1dDataset} />);
+
+      // Initial grid is visible with Rafaela
+      expect(screen.getByText('Rafaela')).toBeInTheDocument();
+
+      // Switch to All Ranks (uncached)
+      fireEvent.click(screen.getByRole('radio', { name: /all ranks/i }));
+
+      // Hero grid remains mounted (no full-page spinner unmounting heroes)
+      expect(screen.getByText('Rafaela')).toBeInTheDocument();
+      expect(screen.getByTestId('dataset-loading-bar')).toBeInTheDocument();
+
+      // Resolve the fetch
+      act(() => {
+        resolvePromise(new Response(JSON.stringify(mockAll1dDataset), { status: 200 }));
+      });
+
+      await waitFor(() => {
+        expect(screen.queryByTestId('dataset-loading-bar')).not.toBeInTheDocument();
+      });
+      expect(screen.getByText('Miya')).toBeInTheDocument();
+      vi.restoreAllMocks();
+    });
+
+    it('prevents race conditions: slow stale response does not overwrite newer selection', async () => {
+      const fetchSpy = vi.spyOn(globalThis, 'fetch').mockImplementation(async (url) => {
+        const urlStr = url.toString();
+        if (urlStr.includes('tierlist-all-1d.json')) {
+          // Slow response
+          await new Promise((r) => setTimeout(r, 80));
+          return new Response(JSON.stringify(mockAll1dDataset), { status: 200 });
+        }
+        return new Response(JSON.stringify(mockMythic7dDataset), { status: 200 });
+      });
+
+      render(<TierListDashboard dataset={mockMythic1dDataset} />);
+
+      // Rapidly click All Ranks then 7 Days
+      fireEvent.click(screen.getByRole('radio', { name: /all ranks/i }));
+      fireEvent.click(screen.getByRole('radio', { name: /7 days/i }));
+
+      await waitFor(() => {
+        expect(screen.getByText('56.2%')).toBeInTheDocument(); // Mythic 7d
+      });
+
+      // Wait past slow response completion
+      await new Promise((r) => setTimeout(r, 100));
+
+      // Grid must still display Mythic 7d
+      expect(screen.getByText('56.2%')).toBeInTheDocument();
+
+      fetchSpy.mockRestore();
     });
   });
 });

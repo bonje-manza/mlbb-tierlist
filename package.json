@@ -12,7 +12,8 @@
     "typecheck": "tsc --noEmit",
     "test:pipeline": "node --experimental-strip-types --test tests/*.test.ts",
     "test:ui": "vitest run",
-    "test": "npm run test:pipeline && npm run test:ui"
+    "test": "npm run test:pipeline && npm run test:ui",
+    "check:bundle": "node scripts/check-bundle-size.mjs"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^7.0.1",

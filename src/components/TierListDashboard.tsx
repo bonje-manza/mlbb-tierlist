@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import type { Tier, TierListDataset, NormalizedHero, LaneFilter } from '../types/index.ts';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
+import type { Tier, TierListDataset, NormalizedHero, LaneFilter, RankTier, TimeWindow } from '../types/index.ts';
 import { Header } from './Header.tsx';
+import { DatasetControls } from './DatasetControls.tsx';
 import { LaneCarousel } from './LaneCarousel.tsx';
 import { DraftControls } from './DraftControls.tsx';
 import { TierSection } from './TierSection.tsx';
@@ -10,8 +11,38 @@ import { HeroDetailDrawer } from './HeroDetailDrawer.tsx';
 import { filterHeroesByLane, calculateLaneCounts } from '../utils/laneFilter.ts';
 import { filterHeroesBySearch, sortHeroesByBanRate } from '../utils/draftFilter.ts';
 
+export type DatasetKey = `${RankTier}-${TimeWindow}`;
+
+export function getDatasetKey(rank: RankTier, window: TimeWindow): DatasetKey {
+  return `${rank}-${window}`;
+}
+
+export function getDatasetUrl(
+  rank: RankTier,
+  window: TimeWindow,
+  customDataUrl?: string
+): string {
+  // If custom dataUrl is provided and we are requesting initial default mythic-1d:
+  if (customDataUrl && rank === 'mythic' && window === '1d') {
+    return customDataUrl;
+  }
+
+  if (
+    customDataUrl &&
+    !customDataUrl.endsWith('/tierlist-mythic-1d.json') &&
+    !customDataUrl.endsWith('meta-tierlist.json')
+  ) {
+    const lastSlash = customDataUrl.lastIndexOf('/');
+    const baseDir = lastSlash > 0 ? customDataUrl.substring(0, lastSlash) : '/data';
+    return `${baseDir}/tierlist-${rank}-${window}.json`;
+  }
+
+  return `/data/tierlist-${rank}-${window}.json`;
+}
+
 export interface TierListDashboardProps {
   dataset?: TierListDataset;
+  datasets?: Partial<Record<DatasetKey, TierListDataset>>;
   dataUrl?: string;
   onSelectHero?: (hero: NormalizedHero) => void;
 }
@@ -20,49 +51,162 @@ const ORDERED_TIERS: Tier[] = ['S+', 'S', 'A', 'B', 'C', 'D'];
 
 export const TierListDashboard: React.FC<TierListDashboardProps> = ({
   dataset: initialDataset,
+  datasets,
   dataUrl = '/data/tierlist-mythic-1d.json',
   onSelectHero,
 }) => {
-  const [data, setData] = useState<TierListDataset | null>(initialDataset || null);
-  const [loading, setLoading] = useState<boolean>(!initialDataset);
+  const [rankTier, setRankTier] = useState<RankTier>(
+    initialDataset?.rankTier || 'mythic'
+  );
+  const [timeWindow, setTimeWindow] = useState<TimeWindow>(
+    initialDataset?.timeWindow || '1d'
+  );
+
+  const initialKey = getDatasetKey(
+    initialDataset?.rankTier || 'mythic',
+    initialDataset?.timeWindow || '1d'
+  );
+
+  const [datasetCache, setDatasetCache] = useState<Record<DatasetKey, TierListDataset>>(() => {
+    const map = {} as Record<DatasetKey, TierListDataset>;
+    if (datasets) {
+      for (const [k, v] of Object.entries(datasets)) {
+        if (v) map[k as DatasetKey] = v;
+      }
+    }
+    if (initialDataset) {
+      const key = getDatasetKey(initialDataset.rankTier, initialDataset.timeWindow);
+      map[key] = initialDataset;
+    }
+    return map;
+  });
+
+  const [data, setData] = useState<TierListDataset | null>(() => {
+    if (initialDataset) return initialDataset;
+    if (datasets && datasets[initialKey]) return datasets[initialKey]!;
+    return null;
+  });
+
+  const [loading, setLoading] = useState<boolean>(
+    !initialDataset && !(datasets && datasets[initialKey])
+  );
   const [error, setError] = useState<string | null>(null);
   const [selectedLane, setSelectedLane] = useState<LaneFilter>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isBanPriority, setIsBanPriority] = useState<boolean>(false);
   const [selectedHero, setSelectedHero] = useState<NormalizedHero | null>(null);
 
+  const activeRequestKeyRef = useRef<DatasetKey | null>(null);
+
   const handleSelectHero = (hero: NormalizedHero) => {
     setSelectedHero(hero);
     onSelectHero?.(hero);
   };
 
-  const loadData = async (url: string) => {
+  const loadDataset = async (rank: RankTier, window: TimeWindow) => {
+    const key = getDatasetKey(rank, window);
+    if (datasetCache[key]) {
+      setData(datasetCache[key]);
+      setLoading(false);
+      setError(null);
+      return;
+    }
+
+    activeRequestKeyRef.current = key;
     setLoading(true);
     setError(null);
     try {
+      const url = getDatasetUrl(rank, window, dataUrl);
       const res = await fetch(url);
       if (!res.ok) {
         throw new Error(`Failed to load tier list telemetry: HTTP ${res.status} ${res.statusText}`);
       }
       const json: TierListDataset = await res.json();
+      if (activeRequestKeyRef.current !== key) return;
+      setDatasetCache((prev) => ({ ...prev, [key]: json }));
       setData(json);
     } catch (err: unknown) {
+      if (activeRequestKeyRef.current !== key) return;
       const message = err instanceof Error ? err.message : 'Failed to load tier list telemetry';
       setError(message);
     } finally {
-      setLoading(false);
+      if (activeRequestKeyRef.current === key) {
+        setLoading(false);
+      }
     }
   };
 
   useEffect(() => {
     if (initialDataset) {
+      const key = getDatasetKey(initialDataset.rankTier, initialDataset.timeWindow);
+      setDatasetCache((prev) => ({ ...prev, [key]: initialDataset }));
       setData(initialDataset);
+      setLoading(false);
+      setError(null);
+    }
+  }, [initialDataset]);
+
+  useEffect(() => {
+    if (datasets) {
+      setDatasetCache((prev) => {
+        const next = { ...prev };
+        for (const [k, v] of Object.entries(datasets)) {
+          if (v) next[k as DatasetKey] = v;
+        }
+        return next;
+      });
+    }
+  }, [datasets]);
+
+  useEffect(() => {
+    let ignore = false;
+    const key = getDatasetKey(rankTier, timeWindow);
+    if (datasetCache[key]) {
+      setData(datasetCache[key]);
       setLoading(false);
       setError(null);
       return;
     }
-    loadData(dataUrl);
-  }, [initialDataset, dataUrl]);
+
+    activeRequestKeyRef.current = key;
+    setLoading(true);
+    setError(null);
+    const url = getDatasetUrl(rankTier, timeWindow, dataUrl);
+
+    fetch(url)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Failed to load tier list telemetry: HTTP ${res.status} ${res.statusText}`);
+        }
+        return res.json();
+      })
+      .then((json: TierListDataset) => {
+        if (ignore || activeRequestKeyRef.current !== key) return;
+        setDatasetCache((prev) => ({ ...prev, [key]: json }));
+        setData(json);
+        setLoading(false);
+      })
+      .catch((err: unknown) => {
+        if (ignore || activeRequestKeyRef.current !== key) return;
+        const message = err instanceof Error ? err.message : 'Failed to load tier list telemetry';
+        setError(message);
+        setLoading(false);
+      });
+
+    return () => {
+      ignore = true;
+    };
+  }, [rankTier, timeWindow]);
+
+  // Synchronize open hero detail drawer when dataset changes
+  useEffect(() => {
+    if (selectedHero && data?.heroes) {
+      const updatedHero = data.heroes.find((h) => h.id === selectedHero.id);
+      if (updatedHero && updatedHero !== selectedHero) {
+        setSelectedHero(updatedHero);
+      }
+    }
+  }, [data]);
 
   const heroCounts = useMemo(() => {
     if (!data?.heroes) return undefined;
@@ -115,6 +259,13 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
         updatedAt={data?.updatedAt}
         patchVersion={data?.patchVersion}
       />
+      <DatasetControls
+        rankTier={rankTier}
+        onRankTierChange={(nextRank) => setRankTier(nextRank)}
+        timeWindow={timeWindow}
+        onTimeWindowChange={(nextWindow) => setTimeWindow(nextWindow)}
+        disabled={loading && !data}
+      />
       <LaneCarousel
         selectedLane={selectedLane}
         onSelectLane={setSelectedLane}
@@ -129,13 +280,22 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
       />
 
       <main className="flex-1 max-w-5xl w-full mx-auto px-2 sm:px-4 py-2 sm:py-4">
-        {loading && (
+        {/* Initial full-page spinner only when no data is loaded yet */}
+        {loading && !data && (
           <div className="flex flex-col items-center justify-center py-20 gap-3">
             <div className="w-10 h-10 border-2 border-pink-500 border-t-transparent rounded-full animate-spin" />
             <p className="text-xs font-mono tracking-widest text-slate-400 uppercase">
               Loading Meta Telemetry...
             </p>
           </div>
+        )}
+
+        {/* Subtle loading bar when switching datasets with existing data (Zero Layout Jump) */}
+        {loading && data && (
+          <div
+            data-testid="dataset-loading-bar"
+            className="h-1 w-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 animate-pulse rounded-full mb-3"
+          />
         )}
 
         {error && !loading && (
@@ -146,7 +306,7 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
             <p className="text-xs font-mono text-slate-400 mb-3">{error}</p>
             <button
               type="button"
-              onClick={() => loadData(dataUrl)}
+              onClick={() => loadDataset(rankTier, timeWindow)}
               className="min-h-[44px] min-w-[44px] px-5 py-2 inline-flex items-center justify-center rounded-lg bg-red-800/60 hover:bg-red-700 text-xs font-semibold text-white border border-red-700 transition-colors active:scale-95"
             >
               Retry
@@ -155,7 +315,7 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
         )}
 
         {/* Empty Search State */}
-        {!loading && !error && data && filteredHeroes.length === 0 && searchQuery.trim() !== '' && (
+        {!error && data && filteredHeroes.length === 0 && searchQuery.trim() !== '' && (
           <EmptyState
             testId="search-empty-state"
             icon="🔍"
@@ -167,7 +327,7 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
         )}
 
         {/* Empty Lane State (when search is empty but lane has no matching heroes) */}
-        {!loading && !error && data && filteredHeroes.length === 0 && searchQuery.trim() === '' && (
+        {!error && data && filteredHeroes.length === 0 && searchQuery.trim() === '' && (
           <EmptyState
             testId="lane-empty-state"
             icon="🛡️"
@@ -179,7 +339,7 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
         )}
 
         {/* Ban Priority View */}
-        {!loading && !error && data && filteredHeroes.length > 0 && isBanPriority && (
+        {!error && data && filteredHeroes.length > 0 && isBanPriority && (
           <section
             aria-labelledby="ban-priority-heading"
             className="relative mb-4 rounded-xl border border-rose-500/40 bg-gradient-to-b from-rose-500/10 to-cyber-card/60 p-2.5 sm:p-3.5 backdrop-blur-sm"
@@ -212,7 +372,7 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
         )}
 
         {/* Standard Tier Bands View */}
-        {!loading && !error && data && filteredHeroes.length > 0 && !isBanPriority && (
+        {!error && data && filteredHeroes.length > 0 && !isBanPriority && (
           <div className="space-y-4">
             {ORDERED_TIERS.map((tier) => (
               <TierSection
