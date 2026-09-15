@@ -7,6 +7,7 @@ export interface DatasetControlsProps {
   timeWindow: TimeWindow;
   onTimeWindowChange: (window: TimeWindow) => void;
   disabled?: boolean;
+  className?: string;
 }
 
 interface SegmentOption<T extends string> {
@@ -37,8 +38,8 @@ function SegmentGroup<T extends string>({
 }: SegmentGroupProps<T>) {
   const activeStyle =
     activeColorTheme === 'cyan'
-      ? 'bg-slate-800 text-cyan-400 border-slate-700/80 shadow-none'
-      : 'bg-slate-800 text-purple-300 border-slate-700/80 shadow-none';
+      ? 'bg-slate-800 text-cyan-300 border-slate-700/90 shadow-sm'
+      : 'bg-slate-800 text-purple-300 border-slate-700/90 shadow-sm';
 
   const optionRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
@@ -71,7 +72,7 @@ function SegmentGroup<T extends string>({
       aria-label={groupLabel}
       aria-describedby={describedBy}
       title={title}
-      className="inline-flex p-0.5 rounded-xl bg-cyber-card/60 border border-cyber-border"
+      className="inline-flex p-1 rounded-xl bg-slate-900/90 border border-slate-800 shadow-inner"
     >
       {options.map(({ value, label }, index) => {
         const isSelected = selectedValue === value;
@@ -93,7 +94,7 @@ function SegmentGroup<T extends string>({
               }
             }}
             onKeyDown={(e) => handleKeyDown(e, index)}
-            className={`min-h-[44px] min-w-[44px] px-3 sm:px-4 py-2 rounded-lg text-xs font-bold transition-all duration-150 select-none flex items-center justify-center border ${
+            className={`min-h-[44px] min-w-[44px] px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 select-none flex items-center justify-center border ${
               isSelected
                 ? activeStyle
                 : 'text-slate-400 hover:text-slate-200 border-transparent active:scale-95'
@@ -123,11 +124,12 @@ export const DatasetControls: React.FC<DatasetControlsProps> = ({
   timeWindow,
   onTimeWindowChange,
   disabled = false,
+  className = '',
 }) => {
   return (
     <div
       aria-label="Dataset filters"
-      className="w-full max-w-6xl mx-auto px-2 sm:px-4 py-1.5 flex items-center justify-between gap-2"
+      className={`flex items-center gap-2 ${className || 'w-full max-w-7xl mx-auto px-2 sm:px-4 py-1.5 justify-between'}`}
     >
       <SegmentGroup<RankTier>
         groupLabel="Rank Tier"

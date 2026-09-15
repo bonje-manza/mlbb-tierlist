@@ -67,19 +67,19 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
   textColor,
   testIdPrefix,
 }) => (
-  <div className="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80 flex flex-col justify-between">
-    <div className="flex items-center justify-between mb-1.5">
-      <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wide">
+  <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 flex flex-col justify-between shadow-xs">
+    <div className="flex items-center justify-between mb-2">
+      <span className="text-xs font-semibold text-slate-400 uppercase tracking-wide">
         {label}
       </span>
       <span
         data-testid={`metric-${testIdPrefix}-value`}
-        className={`text-xs font-mono font-bold ${textColor}`}
+        className={`text-sm font-mono font-bold tabular-nums ${textColor}`}
       >
         {valueFormatted}
       </span>
     </div>
-    <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+    <div className="w-full bg-slate-800/80 h-2 rounded-full overflow-hidden">
       <div
         data-testid={`progress-bar-${testIdPrefix}`}
         role="progressbar"
@@ -195,9 +195,9 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
       role="presentation"
       data-testid="drawer-backdrop"
       onClick={onClose}
-      className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex justify-center items-end animate-fade-in"
+      className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex justify-center items-end md:items-center p-0 md:p-6 animate-fade-in"
     >
-      {/* Drawer Content Panel */}
+      {/* Drawer / Modal Content Panel */}
       <div
         ref={panelRef}
         role="dialog"
@@ -205,19 +205,19 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
         aria-labelledby="drawer-hero-name"
         data-testid="drawer-panel"
         onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-t-2xl bg-cyber-card border-t border-cyber-border shadow-2xl flex flex-col p-4 sm:p-5 text-slate-100 animate-slide-up"
+        className="w-full max-w-lg md:max-w-2xl max-h-[90vh] overflow-y-auto rounded-t-2xl md:rounded-2xl bg-slate-900 border-t md:border border-slate-800 shadow-2xl flex flex-col p-4 sm:p-6 text-slate-100 animate-slide-up md:animate-scale-in"
       >
-        {/* Top Drag Handle & Close Row */}
-        <div className="relative w-full flex items-center justify-center pb-2">
-          {/* Visual Drag Handle with >= 44px touch detection target */}
+        {/* Top Header Row with mobile drag handle and close button */}
+        <div className="relative w-full flex items-center justify-between pb-2">
+          {/* Visual Drag Handle for mobile touch screens */}
           <div
             data-testid="drawer-drag-handle"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
-            className="w-full h-11 min-h-[44px] flex items-center justify-center cursor-grab active:cursor-grabbing"
+            className="w-full h-11 min-h-[44px] md:hidden flex items-center justify-center cursor-grab active:cursor-grabbing"
           >
-            <div className="w-12 h-1.5 bg-slate-600 rounded-full hover:bg-slate-500 transition-colors" />
+            <div className="w-12 h-1.5 bg-slate-700 rounded-full hover:bg-slate-600 transition-colors" />
           </div>
 
           {/* Close Button */}
@@ -226,7 +226,7 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
             type="button"
             onClick={onClose}
             aria-label="Close hero details"
-            className="absolute right-0 top-0 min-h-[44px] min-w-[44px] p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white border border-slate-700/60 transition-colors flex items-center justify-center active:scale-95"
+            className="ml-auto min-h-[44px] min-w-[44px] p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white border border-slate-700/60 transition-colors flex items-center justify-center active:scale-95 cursor-pointer"
           >
             <svg
               className="w-5 h-5"
@@ -246,7 +246,7 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
         </div>
 
         {/* Hero Profile Header */}
-        <div className="flex items-start gap-3.5 sm:gap-4 pb-4 border-b border-slate-800/80">
+        <div className="flex items-start gap-4 pb-4 border-b border-slate-800">
           {/* Avatar Container */}
           <div
             className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden bg-slate-900 border-2 ${visuals.avatarBorder} ${visuals.avatarRing} shrink-0 shadow-lg`}
@@ -320,26 +320,28 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
             </p>
 
             {/* Power Score Badge */}
-            <div className="inline-flex flex-col items-start">
+            <div className="inline-flex flex-col items-start mt-1">
               <span
                 title="Power Score: composite of win rate (50%), pick rate (25%) and ban rate (25%)"
-                className="text-xs font-mono font-bold tabular-nums text-cyan-300 bg-cyan-950/40 border border-cyan-800/60 px-2 py-0.5 rounded"
+                className="text-xs font-mono font-bold tabular-nums text-cyan-300 bg-cyan-950/60 border border-cyan-700/60 px-2.5 py-1 rounded-lg shadow-sm"
               >
                 Power Score: {hero.powerScore.toFixed(1)}
               </span>
               <span className="text-[10px] font-mono tabular-nums text-slate-500 mt-1">
-                Win 50 · Pick 25 · Ban 25
+                Weights: 50% WR · 25% PR · 25% BR
               </span>
             </div>
           </div>
         </div>
 
         {/* Telemetry Benchmark Cards */}
-        <div className="py-4 border-b border-slate-800/80">
-          <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-400 mb-2.5">
-            Telemetry Benchmarks{' '}
-            <span className="normal-case font-medium tracking-normal text-slate-500">
-              · bars scaled to hero pool
+        <div className="py-4 border-b border-slate-800">
+          <div className="flex items-center justify-between mb-3">
+            <div className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-300">
+              Telemetry Benchmarks
+            </div>
+            <span className="text-xs font-mono text-slate-500">
+              Pool relative
             </span>
           </div>
 
@@ -376,17 +378,17 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
 
         {/* Top 3 Synergistic Teammates */}
         <div className="pt-4">
-          <div className="flex items-center justify-between mb-2.5">
+          <div className="flex items-center justify-between mb-3">
             <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-200">
               Top Duo Synergies
             </h3>
-            <span className="text-[10px] font-mono text-slate-400">
+            <span className="text-xs font-mono text-emerald-400 font-semibold">
               Win Rate Boost
             </span>
           </div>
 
           {hero.synergies && hero.synergies.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
               {hero.synergies.slice(0, 3).map((partner) => {
                 const partnerHasError = partnerErrors[partner.heroId];
                 const deltaFormatted = (partner.winRateDelta * 100).toFixed(2);
@@ -398,9 +400,9 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
                     type="button"
                     onClick={() => onSelectPartner?.(partner.heroId)}
                     aria-label={`${partner.name}, synergy ${deltaSign}${deltaFormatted}% Win Rate`}
-                    className="min-h-[48px] min-w-[44px] flex items-center gap-2.5 p-2 rounded-xl bg-cyber-ground/80 hover:bg-slate-800 border border-cyber-border hover:border-slate-600 transition-all text-left group active:scale-95"
+                    className="min-h-[48px] min-w-[44px] flex items-center gap-3 p-2.5 rounded-xl bg-slate-950/60 hover:bg-slate-800/80 border border-slate-800 hover:border-slate-700 transition-all text-left group active:scale-95 cursor-pointer shadow-xs"
                   >
-                    <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-slate-900 border border-slate-700/80 shrink-0">
+                    <div className="relative w-11 h-11 rounded-lg overflow-hidden bg-slate-900 border border-slate-700/80 shrink-0">
                       {!partnerHasError ? (
                         <img
                           src={partner.avatarUrl}
@@ -409,7 +411,7 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
                           onError={() =>
                             setPartnerErrors((prev) => ({ ...prev, [partner.heroId]: true }))
                           }
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center bg-slate-800 text-[10px] font-mono font-bold text-slate-400 uppercase">
@@ -419,10 +421,10 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
                     </div>
 
                     <div className="flex flex-col min-w-0 flex-1">
-                      <span className="text-xs font-bold text-slate-200 group-hover:text-white truncate">
+                      <span className="text-xs sm:text-sm font-bold text-slate-200 group-hover:text-white truncate">
                         {partner.name}
                       </span>
-                      <span className="inline-flex items-center text-[10px] font-mono font-bold text-emerald-400">
+                      <span className="inline-flex items-center text-xs font-mono font-bold text-emerald-400">
                         {deltaSign}{deltaFormatted}% WR
                       </span>
                     </div>
@@ -433,7 +435,7 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
           ) : (
             <div
               data-testid="synergy-empty-state"
-              className="p-4 rounded-xl bg-slate-900/50 border border-slate-800/80 text-center text-xs text-slate-400"
+              className="p-6 rounded-xl bg-slate-950/50 border border-slate-800/80 text-center text-xs sm:text-sm text-slate-400"
             >
               No positive duo synergies recorded for this hero.
             </div>

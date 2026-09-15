@@ -60,7 +60,7 @@ export const DraftControls: React.FC<DraftControlsProps> = ({
     <div
       role="search"
       aria-label="Draft controls and search"
-      className="w-full max-w-6xl mx-auto px-2 sm:px-4 py-1.5 flex items-center gap-2"
+      className="w-full flex items-center gap-2"
     >
       {/* Search Input Container */}
       <div className="relative flex-1 flex items-center">
@@ -123,20 +123,31 @@ export const DraftControls: React.FC<DraftControlsProps> = ({
         onClick={onToggleBanPriority}
         aria-pressed={isBanPriority}
         aria-label="Toggle Ban Priority"
-        className={`min-h-[44px] min-w-[44px] px-3 sm:px-4 flex items-center justify-center gap-1.5 rounded-xl text-xs font-semibold transition-all duration-150 select-none border active:scale-95 whitespace-nowrap ${
+        className={`min-h-[44px] min-w-[44px] px-3.5 sm:px-4 flex items-center justify-center gap-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-150 select-none border active:scale-95 whitespace-nowrap cursor-pointer ${
           isBanPriority
-            ? 'bg-red-950/40 border-red-800/60 text-red-300'
-            : 'bg-slate-900/40 border-slate-800/60 text-slate-400 hover:text-slate-200 hover:border-slate-700/60'
+            ? 'bg-rose-950/50 border-rose-600/60 text-rose-300 shadow-sm shadow-rose-950/50'
+            : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 hover:border-slate-700'
         }`}
       >
-        <span className="text-sm leading-none opacity-80" aria-hidden="true">
-          🛡️
-        </span>
+        <svg
+          className={`w-4 h-4 shrink-0 transition-colors ${isBanPriority ? 'text-rose-400' : 'text-slate-400'}`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          strokeWidth="2"
+          aria-hidden="true"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
+          />
+        </svg>
         <span>Ban Priority</span>
         {isBanPriority && (
           <span
             data-testid="ban-priority-active-dot"
-            className="w-1.5 h-1.5 rounded-full bg-red-400 ml-0.5"
+            className="w-1.5 h-1.5 rounded-full bg-rose-400 ml-0.5"
             aria-hidden="true"
           />
         )}

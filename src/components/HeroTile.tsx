@@ -39,9 +39,9 @@ export const HeroTile: React.FC<HeroTileProps> = ({
       type="button"
       onClick={() => onSelect?.(hero)}
       aria-label={`${hero.name}, ${hero.tier} Tier, ${overlayLabel} ${overlayMetric}, Power Score ${powerScoreFormatted}`}
-      className="group relative flex flex-col items-center w-full min-h-[48px] min-w-[44px] p-1 rounded-xl bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 hover:bg-slate-900/90 focus:border-slate-500 focus:outline-none active:scale-[0.98] transition-all duration-150 select-none overflow-hidden"
+      className="group relative flex flex-col items-center w-full min-h-[48px] min-w-[44px] p-1 sm:p-1.5 rounded-xl bg-slate-900/70 hover:bg-slate-800/80 border border-slate-800/90 hover:border-slate-600/80 focus-visible:ring-2 focus-visible:ring-cyan-400 focus:outline-none active:scale-[0.97] transition-all duration-200 select-none overflow-hidden cursor-pointer shadow-sm hover:shadow-md"
     >
-      {/* Avatar Container with fixed 1:1 aspect ratio to avoid layout shift */}
+      {/* Avatar Container with fixed 1:1 aspect ratio */}
       <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-slate-950 border border-slate-800/60">
         {/* Shimmering loading skeleton while image loads on slow network */}
         {!imgLoaded && !imgError && (
@@ -58,7 +58,7 @@ export const HeroTile: React.FC<HeroTileProps> = ({
             loading="lazy"
             onLoad={() => setImgLoaded(true)}
             onError={() => setImgError(true)}
-            className={`w-full h-full object-cover transform group-hover:scale-105 transition-all duration-200 ${
+            className={`w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300 ease-out ${
               imgLoaded ? 'opacity-100' : 'opacity-0'
             }`}
           />
@@ -89,41 +89,43 @@ export const HeroTile: React.FC<HeroTileProps> = ({
 
         {/* Tier chip (Top Left) — shown when tier grouping is hidden, e.g. Ban Priority */}
         {showTierChip && (
-          <div className="absolute top-0.5 left-0.5 bg-slate-950/80 px-1 py-0.5 rounded border border-slate-800 leading-none">
+          <div className="absolute top-1 left-1 bg-slate-950/85 backdrop-blur-xs px-1 py-0.5 rounded border border-slate-800 leading-none shadow-sm">
             <span
-              className={`text-[10px] font-bold tabular-nums px-0.5 rounded-sm ${TIER_CHIP[hero.tier] || TIER_CHIP['D']}`}
+              className={`text-[10px] font-bold tabular-nums px-0.5 rounded-xs ${TIER_CHIP[hero.tier] || TIER_CHIP['D']}`}
             >
               {hero.tier}
             </span>
           </div>
         )}
 
-        {/* Power Score Badge (Top Right) - ADR 0003 */}
+        {/* Power Score Badge (Top Right) */}
         <div
-          className="absolute top-0.5 right-0.5 bg-slate-950/80 px-1.5 py-0.5 rounded border border-slate-800/80 leading-none"
+          className="absolute top-1 right-1 bg-slate-950/85 backdrop-blur-xs px-1.5 py-0.5 rounded border border-slate-800/80 leading-none shadow-sm"
           title="Power Score: composite of win rate (50%), pick rate (25%) and ban rate (25%)"
         >
           <span
             data-testid="hero-power-score"
-            className="text-[10px] sm:text-[10px] font-mono font-medium tabular-nums text-slate-300"
+            className="text-[10px] font-mono font-medium tabular-nums text-slate-300"
           >
             {powerScoreFormatted}
           </span>
         </div>
 
-        {/* Win/Ban Rate Overlay Pill */}
-        <div className="absolute bottom-0 inset-x-0 bg-slate-950/90 py-0.5 px-1 border-t border-slate-800/80 flex items-center justify-center">
+        {/* Win/Ban Rate Overlay Gradient Pill */}
+        <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/95 via-slate-950/80 to-transparent pt-3 pb-1 px-1 flex items-center justify-center">
           <span
             data-testid={metric === 'banRate' ? 'hero-ban-rate' : 'hero-win-rate'}
-            className={`text-[11px] sm:text-[11px] font-mono font-semibold tracking-tight tabular-nums ${metric === 'banRate' ? 'text-rose-400/90' : 'text-emerald-400/90'}`}
+            className={`text-[11px] font-mono font-bold tracking-tight tabular-nums ${
+              metric === 'banRate' ? 'text-rose-400' : 'text-emerald-400'
+            }`}
           >
             {overlayMetric}
           </span>
         </div>
       </div>
 
-      {/* Hero Name Label (11px, truncated) */}
-      <span className="w-full text-center text-[11px] sm:text-[11px] font-medium text-slate-300 group-hover:text-slate-100 truncate mt-1 leading-tight tracking-tight">
+      {/* Hero Name Label */}
+      <span className="w-full text-center text-xs font-semibold text-slate-300 group-hover:text-white truncate mt-1 leading-tight tracking-tight px-0.5">
         {hero.name}
       </span>
     </button>
