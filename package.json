@@ -4,6 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "prototype": "node prototype/prototype_direct_fetch.mjs"
+    "prototype": "node prototype/prototype_direct_fetch.mjs",
+    "sync": "node --experimental-strip-types src/pipeline/sync.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test tests/**/*.test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^26.5.1",
+    "typescript": "^7.0.2"
   }
 }

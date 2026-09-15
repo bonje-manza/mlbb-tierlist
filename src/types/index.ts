@@ -1,0 +1,96 @@
+﻿export type RankTier = 'mythic' | 'all';
+export type TimeWindow = '1d' | '7d';
+export type Tier = 'S+' | 'S' | 'A' | 'B' | 'C' | 'D';
+export type Lane = 'Gold Lane' | 'EXP Lane' | 'Mid Lane' | 'Roam' | 'Jungle';
+
+export interface SynergyPartner {
+  heroId: number;
+  name: string;
+  avatarUrl: string;
+  winRateDelta: number; // e.g. 0.0637 (+6.37%)
+}
+
+export interface NormalizedHero {
+  id: number;
+  name: string;
+  avatarUrl: string;
+  roles: string[];
+  lanes: string[]; // e.g. ["EXP Lane", "Roam"]
+  winRate: number; // e.g. 0.5795
+  pickRate: number; // e.g. 0.0089
+  banRate: number; // e.g. 0.1091
+  powerScore: number; // e.g. 88.4
+  tier: Tier;
+  synergies: SynergyPartner[];
+}
+
+export interface TierListDataset {
+  updatedAt: string; // ISO 8601 UTC
+  patchVersion: string; // e.g. "2.1.41"
+  rankTier: RankTier;
+  timeWindow: TimeWindow;
+  heroes: NormalizedHero[];
+}
+
+export interface RawSubHero {
+  heroid: number;
+  hero?: {
+    data?: {
+      head?: string;
+    };
+  };
+  hero_channel?: {
+    id?: number;
+  };
+  increase_win_rate: number;
+}
+
+export interface RawGmsRecordData {
+  main_hero?: {
+    data?: {
+      name?: string;
+      head?: string;
+    };
+  };
+  main_heroid: number;
+  main_hero_win_rate: number;
+  main_hero_appearance_rate: number;
+  main_hero_ban_rate: number;
+  main_hero_channel?: {
+    id?: number;
+  };
+  sub_hero?: RawSubHero[];
+}
+
+export interface RawGmsRecord {
+  _updatedAt?: number | string;
+  data: RawGmsRecordData;
+}
+
+export interface RawGmsResponse {
+  code: number;
+  message: string;
+  data?: {
+    records: RawGmsRecord[];
+    total?: number;
+  };
+}
+
+export interface RawCatalogHero {
+  heroid: number;
+  name: string;
+  story?: string;
+  head: string;
+  squarehead?: string;
+  squareheadbig?: string;
+  sortid?: string[];
+  sortlabel?: string[];
+  roadsort?: string[];
+  roadsortlabel?: string[];
+}
+
+export interface RawCatalogResponse {
+  type?: string;
+  lan?: string;
+  hero_list: RawCatalogHero[];
+}
