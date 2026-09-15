@@ -272,6 +272,9 @@ describe('HeroDetailDrawer (Ticket 05)', () => {
 
       const partnerBtn = screen.getByRole('button', { name: /faramis/i });
       expect(partnerBtn.className).toMatch(/min-h-\[(44px|48px)\]|h-/);
+
+      const dragHandle = screen.getByTestId('drawer-drag-handle');
+      expect(dragHandle.className).toMatch(/min-h-\[(44px|48px)\]|h-11|h-12/);
     });
   });
 });

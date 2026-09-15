@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import type { NormalizedHero, Tier } from '../types/index.ts';
+import { calculateTelemetryBounds, calculateBenchmarkFill } from '../utils/telemetry.ts';
 
 export interface HeroDetailDrawerProps {
   hero: NormalizedHero | null;
@@ -47,6 +48,52 @@ const TIER_VISUALS: Record<Tier, TierVisualMeta> = {
   },
 };
 
+interface BenchmarkCardProps {
+  label: string;
+  valueFormatted: string;
+  metricValue: number;
+  fillPercent: number;
+  barColor: string;
+  textColor: string;
+  testIdPrefix: string;
+}
+
+const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
+  label,
+  valueFormatted,
+  metricValue,
+  fillPercent,
+  barColor,
+  textColor,
+  testIdPrefix,
+}) => (
+  <div className="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80 flex flex-col justify-between">
+    <div className="flex items-center justify-between mb-1.5">
+      <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wide">
+        {label}
+      </span>
+      <span
+        data-testid={`metric-${testIdPrefix}-value`}
+        className={`text-xs font-mono font-bold ${textColor}`}
+      >
+        {valueFormatted}
+      </span>
+    </div>
+    <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+      <div
+        data-testid={`progress-bar-${testIdPrefix}`}
+        role="progressbar"
+        aria-valuenow={Math.round(metricValue)}
+        aria-valuetext={valueFormatted}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        style={{ width: `${fillPercent}%` }}
+        className={`h-full ${barColor} rounded-full transition-all duration-300`}
+      />
+    </div>
+  </div>
+);
+
 export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
   hero,
   heroPool,
@@ -86,36 +133,7 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
   }, [hero, onClose]);
 
   // Pool min/max calculation for benchmark progress bars
-  const bounds = useMemo(() => {
-    if (!heroPool || heroPool.length === 0) {
-      return {
-        minWr: 0.40,
-        maxWr: 0.60,
-        minPr: 0.00,
-        maxPr: 0.10,
-        minBr: 0.00,
-        maxBr: 1.00,
-      };
-    }
-
-    let minWr = Infinity;
-    let maxWr = -Infinity;
-    let minPr = Infinity;
-    let maxPr = -Infinity;
-    let minBr = Infinity;
-    let maxBr = -Infinity;
-
-    for (const h of heroPool) {
-      if (h.winRate < minWr) minWr = h.winRate;
-      if (h.winRate > maxWr) maxWr = h.winRate;
-      if (h.pickRate < minPr) minPr = h.pickRate;
-      if (h.pickRate > maxPr) maxPr = h.pickRate;
-      if (h.banRate < minBr) minBr = h.banRate;
-      if (h.banRate > maxBr) maxBr = h.banRate;
-    }
-
-    return { minWr, maxWr, minPr, maxPr, minBr, maxBr };
-  }, [heroPool]);
+  const bounds = useMemo(() => calculateTelemetryBounds(heroPool), [heroPool]);
 
   if (!hero) return null;
 
@@ -126,17 +144,9 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
   const brPercent = (hero.banRate * 100).toFixed(2);
 
   // Progress bar fill percentages relative to hero pool
-  const wrFill = bounds.maxWr > bounds.minWr
-    ? Math.min(100, Math.max(5, ((hero.winRate - bounds.minWr) / (bounds.maxWr - bounds.minWr)) * 100))
-    : 100;
-
-  const prFill = bounds.maxPr > bounds.minPr
-    ? Math.min(100, Math.max(5, ((hero.pickRate - bounds.minPr) / (bounds.maxPr - bounds.minPr)) * 100))
-    : 100;
-
-  const brFill = bounds.maxBr > bounds.minBr
-    ? Math.min(100, Math.max(5, ((hero.banRate - bounds.minBr) / (bounds.maxBr - bounds.minBr)) * 100))
-    : 100;
+  const wrFill = calculateBenchmarkFill(hero.winRate, bounds.minWr, bounds.maxWr);
+  const prFill = calculateBenchmarkFill(hero.pickRate, bounds.minPr, bounds.maxPr);
+  const brFill = calculateBenchmarkFill(hero.banRate, bounds.minBr, bounds.maxBr);
 
   // Swipe/drag handle touch handlers
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -177,13 +187,13 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
       >
         {/* Top Drag Handle & Close Row */}
         <div className="relative w-full flex items-center justify-center pb-2">
-          {/* Visual Drag Handle with touch detection */}
+          {/* Visual Drag Handle with >= 44px touch detection target */}
           <div
             data-testid="drawer-drag-handle"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
-            className="w-16 h-4 flex items-center justify-center cursor-grab active:cursor-grabbing py-1"
+            className="w-full h-11 min-h-[44px] flex items-center justify-center cursor-grab active:cursor-grabbing"
           >
             <div className="w-12 h-1.5 bg-slate-600 rounded-full hover:bg-slate-500 transition-colors" />
           </div>
@@ -277,11 +287,13 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
 
             {/* Roles & Lanes Subtitle */}
             <p className="text-xs text-slate-400 mb-1.5 flex items-center gap-1.5 flex-wrap">
-              <span>{hero.roles.length > 0 ? hero.roles.join(' / ') : 'General'}</span>
-              <span className="text-slate-600">•</span>
-              <span className="text-slate-300 font-medium">
-                {hero.lanes.length > 0 ? hero.lanes.join(', ') : 'All Lanes'}
-              </span>
+              {hero.roles.length > 0 && <span>{hero.roles.join(' / ')}</span>}
+              {hero.roles.length > 0 && hero.lanes.length > 0 && (
+                <span className="text-slate-600">•</span>
+              )}
+              {hero.lanes.length > 0 && (
+                <span className="text-slate-300 font-medium">{hero.lanes.join(', ')}</span>
+              )}
             </p>
 
             {/* Power Score Badge */}
@@ -300,83 +312,33 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-            {/* Win Rate Card */}
-            <div className="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80 flex flex-col justify-between">
-              <div className="flex items-center justify-between mb-1.5">
-                <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wide">
-                  Win Rate
-                </span>
-                <span
-                  data-testid="metric-winrate-value"
-                  className="text-xs font-mono font-bold text-emerald-400"
-                >
-                  {wrPercent}%
-                </span>
-              </div>
-              <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                <div
-                  data-testid="progress-bar-winrate"
-                  role="progressbar"
-                  aria-valuenow={Math.round(wrFill)}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  style={{ width: `${wrFill}%` }}
-                  className="h-full bg-emerald-500 rounded-full transition-all duration-300"
-                />
-              </div>
-            </div>
-
-            {/* Pick Rate Card */}
-            <div className="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80 flex flex-col justify-between">
-              <div className="flex items-center justify-between mb-1.5">
-                <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wide">
-                  Pick Rate
-                </span>
-                <span
-                  data-testid="metric-pickrate-value"
-                  className="text-xs font-mono font-bold text-cyan-400"
-                >
-                  {prPercent}%
-                </span>
-              </div>
-              <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                <div
-                  data-testid="progress-bar-pickrate"
-                  role="progressbar"
-                  aria-valuenow={Math.round(prFill)}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  style={{ width: `${prFill}%` }}
-                  className="h-full bg-cyan-500 rounded-full transition-all duration-300"
-                />
-              </div>
-            </div>
-
-            {/* Ban Rate Card */}
-            <div className="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80 flex flex-col justify-between">
-              <div className="flex items-center justify-between mb-1.5">
-                <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wide">
-                  Ban Rate
-                </span>
-                <span
-                  data-testid="metric-banrate-value"
-                  className="text-xs font-mono font-bold text-rose-400"
-                >
-                  {brPercent}%
-                </span>
-              </div>
-              <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                <div
-                  data-testid="progress-bar-banrate"
-                  role="progressbar"
-                  aria-valuenow={Math.round(brFill)}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  style={{ width: `${brFill}%` }}
-                  className="h-full bg-rose-500 rounded-full transition-all duration-300"
-                />
-              </div>
-            </div>
+            <BenchmarkCard
+              label="Win Rate"
+              valueFormatted={`${wrPercent}%`}
+              metricValue={hero.winRate * 100}
+              fillPercent={wrFill}
+              barColor="bg-emerald-500"
+              textColor="text-emerald-400"
+              testIdPrefix="winrate"
+            />
+            <BenchmarkCard
+              label="Pick Rate"
+              valueFormatted={`${prPercent}%`}
+              metricValue={hero.pickRate * 100}
+              fillPercent={prFill}
+              barColor="bg-cyan-500"
+              textColor="text-cyan-400"
+              testIdPrefix="pickrate"
+            />
+            <BenchmarkCard
+              label="Ban Rate"
+              valueFormatted={`${brPercent}%`}
+              metricValue={hero.banRate * 100}
+              fillPercent={brFill}
+              barColor="bg-rose-500"
+              textColor="text-rose-400"
+              testIdPrefix="banrate"
+            />
           </div>
         </div>
 
@@ -396,13 +358,14 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
               {hero.synergies.slice(0, 3).map((partner) => {
                 const partnerHasError = partnerErrors[partner.heroId];
                 const deltaFormatted = (partner.winRateDelta * 100).toFixed(2);
+                const deltaSign = partner.winRateDelta > 0 ? '+' : '';
 
                 return (
                   <button
                     key={partner.heroId}
                     type="button"
                     onClick={() => onSelectPartner?.(partner.heroId)}
-                    aria-label={`${partner.name}, synergy +${deltaFormatted}% Win Rate`}
+                    aria-label={`${partner.name}, synergy ${deltaSign}${deltaFormatted}% Win Rate`}
                     className="min-h-[48px] min-w-[44px] flex items-center gap-2.5 p-2 rounded-xl bg-cyber-ground/80 hover:bg-slate-800 border border-cyber-border hover:border-slate-600 transition-all text-left group active:scale-95"
                   >
                     <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-slate-900 border border-slate-700/80 shrink-0">
@@ -428,7 +391,7 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
                         {partner.name}
                       </span>
                       <span className="inline-flex items-center text-[10px] font-mono font-bold text-emerald-400">
-                        +{deltaFormatted}% WR
+                        {deltaSign}{deltaFormatted}% WR
                       </span>
                     </div>
                   </button>
