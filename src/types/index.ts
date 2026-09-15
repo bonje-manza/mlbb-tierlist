@@ -1,7 +1,8 @@
-﻿export type RankTier = 'mythic' | 'all';
+export type RankTier = 'mythic' | 'all';
 export type TimeWindow = '1d' | '7d';
 export type Tier = 'S+' | 'S' | 'A' | 'B' | 'C' | 'D';
 export type Lane = 'Gold Lane' | 'EXP Lane' | 'Mid Lane' | 'Roam' | 'Jungle';
+export type Role = 'Tank' | 'Fighter' | 'Assassin' | 'Mage' | 'Marksman' | 'Support';
 
 export interface SynergyPartner {
   heroId: number;
@@ -14,8 +15,8 @@ export interface NormalizedHero {
   id: number;
   name: string;
   avatarUrl: string;
-  roles: string[];
-  lanes: string[]; // e.g. ["EXP Lane", "Roam"]
+  roles: (Role | string)[];
+  lanes: Lane[];
   winRate: number; // e.g. 0.5795
   pickRate: number; // e.g. 0.0089
   banRate: number; // e.g. 0.1091

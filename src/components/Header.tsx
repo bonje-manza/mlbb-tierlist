@@ -24,8 +24,7 @@ export function formatUtcFreshness(isoString?: string): string {
 
 export const Header: React.FC<HeaderProps> = ({
   updatedAt,
-  patchVersion = '2.1.88',
-  title = 'MLBB Meta Radar',
+  patchVersion,
 }) => {
   const freshnessText = formatUtcFreshness(updatedAt);
 
@@ -38,11 +37,8 @@ export const Header: React.FC<HeaderProps> = ({
             <span className="text-xs font-black tracking-tighter text-white">M</span>
           </div>
           <div>
-            <h1 className="text-sm sm:text-base font-black tracking-tight text-white flex items-center gap-1.5 leading-none">
-              <span>{title}</span>
-              <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-pink-500/20 text-pink-400 border border-pink-500/30 uppercase tracking-wider">
-                Live
-              </span>
+            <h1 className="text-sm sm:text-base font-black tracking-tight text-white leading-none">
+              MLBB Meta Radar
             </h1>
             <p className="text-[10px] font-medium text-slate-400 leading-tight mt-0.5">
               Empirical Moonton GMS Meta
@@ -57,14 +53,14 @@ export const Header: React.FC<HeaderProps> = ({
               data-testid="patch-version-tag"
               className="text-[10px] sm:text-xs font-mono font-semibold px-2 py-0.5 rounded-md bg-slate-800/90 text-cyan-300 border border-cyan-500/30"
             >
-              Patch {patchVersion}
+              {patchVersion ? `Patch ${patchVersion}` : 'Patch --'}
             </span>
           </div>
           <span
             data-testid="data-freshness-badge"
             className="text-[9px] sm:text-[10px] font-mono text-slate-400 flex items-center gap-1"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
             {freshnessText}
           </span>
         </div>

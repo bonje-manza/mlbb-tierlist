@@ -1,43 +1,8 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import { TierListDashboard } from '../../src/components/TierListDashboard.tsx';
-import type { TierListDataset } from '../../src/types/index.ts';
-
-const mockDataset: TierListDataset = {
-  updatedAt: '2026-09-14T14:55:00.629Z',
-  patchVersion: '2.1.88',
-  rankTier: 'mythic',
-  timeWindow: '1d',
-  heroes: [
-    {
-      id: 14,
-      name: 'Rafaela',
-      avatarUrl: 'https://akmweb.youngjoygame.com/web/svnres/img/test/rafaela.png',
-      roles: ['Support'],
-      lanes: ['Roam'],
-      winRate: 0.5795,
-      pickRate: 0.0089,
-      banRate: 0.1091,
-      powerScore: 88.4,
-      tier: 'S+',
-      synergies: []
-    },
-    {
-      id: 1,
-      name: 'Miya',
-      avatarUrl: 'https://akmweb.youngjoygame.com/web/svnres/img/test/miya.png',
-      roles: ['Marksman'],
-      lanes: ['Gold Lane'],
-      winRate: 0.5381,
-      pickRate: 0.0402,
-      banRate: 0.2487,
-      powerScore: 73.1,
-      tier: 'A',
-      synergies: []
-    }
-  ]
-};
+import { mockDataset } from './mockHeroes.ts';
 
 describe('TierListDashboard (Seam 1)', () => {
   it('renders header with dynamic UTC freshness and patch version from dataset prop', () => {

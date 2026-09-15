@@ -12,7 +12,6 @@ interface TierMeta {
   label: string;
   descriptor: string;
   badgeBg: string;
-  badgeText: string;
   borderAccent: string;
   glowClass: string;
 }
@@ -21,50 +20,44 @@ const TIER_METADATA: Record<Tier, TierMeta> = {
   'S+': {
     label: 'S+',
     descriptor: 'Must Pick or Ban',
-    badgeBg: 'bg-tier-s-plus text-white shadow-lg shadow-pink-600/30',
-    badgeText: 'text-pink-400',
-    borderAccent: 'border-pink-500/40',
-    glowClass: 'from-pink-950/20',
+    badgeBg: 'bg-tier-s-plus text-white shadow-lg shadow-tier-s-plus/30',
+    borderAccent: 'border-tier-s-plus/40',
+    glowClass: 'from-tier-s-plus/10',
   },
   'S': {
     label: 'S',
-    descriptor: 'Top Meta Priority',
-    badgeBg: 'bg-tier-s text-slate-950 shadow-lg shadow-amber-500/30',
-    badgeText: 'text-amber-400',
-    borderAccent: 'border-amber-500/40',
-    glowClass: 'from-amber-950/20',
+    descriptor: 'Top Meta / High Priority',
+    badgeBg: 'bg-tier-s text-slate-950 shadow-lg shadow-tier-s/30',
+    borderAccent: 'border-tier-s/40',
+    glowClass: 'from-tier-s/10',
   },
   'A': {
     label: 'A',
     descriptor: 'Strong & Reliable',
-    badgeBg: 'bg-tier-a text-white shadow-lg shadow-purple-600/30',
-    badgeText: 'text-purple-400',
-    borderAccent: 'border-purple-500/40',
-    glowClass: 'from-purple-950/20',
+    badgeBg: 'bg-tier-a text-white shadow-lg shadow-tier-a/30',
+    borderAccent: 'border-tier-a/40',
+    glowClass: 'from-tier-a/10',
   },
   'B': {
     label: 'B',
     descriptor: 'Balanced / Situational',
-    badgeBg: 'bg-tier-b text-slate-950 shadow-lg shadow-cyan-500/30',
-    badgeText: 'text-cyan-400',
-    borderAccent: 'border-cyan-500/40',
-    glowClass: 'from-cyan-950/20',
+    badgeBg: 'bg-tier-b text-slate-950 shadow-lg shadow-tier-b/30',
+    borderAccent: 'border-tier-b/40',
+    glowClass: 'from-tier-b/10',
   },
   'C': {
     label: 'C',
     descriptor: 'Underperforming',
     badgeBg: 'bg-tier-c text-white',
-    badgeText: 'text-slate-400',
-    borderAccent: 'border-slate-600/40',
-    glowClass: 'from-slate-900/20',
+    borderAccent: 'border-tier-c/40',
+    glowClass: 'from-tier-c/10',
   },
   'D': {
     label: 'D',
     descriptor: 'Weak / Avoid in Ranked',
     badgeBg: 'bg-tier-d text-slate-300',
-    badgeText: 'text-slate-500',
-    borderAccent: 'border-slate-700/40',
-    glowClass: 'from-slate-950/20',
+    borderAccent: 'border-tier-d/40',
+    glowClass: 'from-tier-d/10',
   },
 };
 

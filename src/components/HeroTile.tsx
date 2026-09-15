@@ -7,25 +7,38 @@ export interface HeroTileProps {
 }
 
 export const HeroTile: React.FC<HeroTileProps> = ({ hero, onSelect }) => {
+  const [imgLoaded, setImgLoaded] = useState(false);
   const [imgError, setImgError] = useState(false);
   const winRateFormatted = (hero.winRate * 100).toFixed(1) + '%';
+  const powerScoreFormatted = hero.powerScore.toFixed(1);
 
   return (
     <button
       type="button"
       onClick={() => onSelect?.(hero)}
-      aria-label={`${hero.name}, ${hero.tier} Tier, Win Rate ${winRateFormatted}`}
+      aria-label={`${hero.name}, ${hero.tier} Tier, Win Rate ${winRateFormatted}, Power Score ${powerScoreFormatted}`}
       className="group relative flex flex-col items-center w-full min-h-[48px] min-w-[44px] p-1 rounded-lg bg-cyber-card/90 border border-cyber-border hover:border-slate-500 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 active:scale-95 transition-all duration-150 select-none overflow-hidden"
     >
       {/* Avatar Container with fixed 1:1 aspect ratio to avoid layout shift */}
       <div className="relative w-full aspect-square rounded-md overflow-hidden bg-slate-900 border border-slate-800/80">
+        {/* Shimmering loading skeleton while image loads on slow network */}
+        {!imgLoaded && !imgError && (
+          <div
+            data-testid="hero-avatar-skeleton"
+            className="absolute inset-0 bg-slate-800 animate-pulse"
+          />
+        )}
+
         {!imgError ? (
           <img
             src={hero.avatarUrl}
             alt={hero.name}
             loading="lazy"
+            onLoad={() => setImgLoaded(true)}
             onError={() => setImgError(true)}
-            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-200"
+            className={`w-full h-full object-cover transform group-hover:scale-105 transition-all duration-200 ${
+              imgLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
           />
         ) : (
           <div
@@ -51,6 +64,16 @@ export const HeroTile: React.FC<HeroTileProps> = ({ hero, onSelect }) => {
             </span>
           </div>
         )}
+
+        {/* Power Score Badge (Top Right) - ADR 0003 */}
+        <div className="absolute top-0.5 right-0.5 bg-cyber-ground/90 backdrop-blur-[2px] px-1 py-0.2 rounded border border-slate-700/60 leading-none">
+          <span
+            data-testid="hero-power-score"
+            className="text-[8px] sm:text-[9px] font-mono font-bold text-cyan-300"
+          >
+            {powerScoreFormatted}
+          </span>
+        </div>
 
         {/* Win Rate Overlay Pill */}
         <div className="absolute bottom-0 inset-x-0 bg-cyber-ground/85 backdrop-blur-[2px] py-0.5 px-1 border-t border-slate-700/50 flex items-center justify-center">
