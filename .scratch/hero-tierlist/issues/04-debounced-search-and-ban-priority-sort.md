@@ -1,7 +1,7 @@
 # 04: Debounced Search and Ban Priority Sort
 
 Type: task  
-Status: ready-for-agent  
+Status: resolved  
 Blocked by: 02  
 
 **What to build:**  
@@ -39,10 +39,45 @@ Implement instant debounced hero search with a 1-tap clear button, an empty stat
 
 ### Acceptance Criteria
 
-- [ ] Typing in the search input updates the visible hero grid with 150ms debounce.
-- [ ] Tapping the clear `X` button immediately empties the search input and restores the full tier list.
-- [ ] Searching for a non-existent hero displays the empty state with a 1-tap reset button.
-- [ ] Toggling "Ban Priority" reorders heroes in descending order of Ban Rate.
-- [ ] Deactivating "Ban Priority" restores the standard tier group ordering.
-- [ ] Active lane filtering remains applied when Ban Priority is toggled or when searching.
-- [ ] Component tests verify debounced input handling, clear action, empty state, and ban sort order.
+- [x] Typing in the search input updates the visible hero grid with 150ms debounce.
+- [x] Tapping the clear `X` button immediately empties the search input and restores the full tier list.
+- [x] Searching for a non-existent hero displays the empty state with a 1-tap reset button.
+- [x] Toggling "Ban Priority" reorders heroes in descending order of Ban Rate.
+- [x] Deactivating "Ban Priority" restores the standard tier group ordering.
+- [x] Active lane filtering remains applied when Ban Priority is toggled or when searching.
+- [x] Component tests verify debounced input handling, clear action, empty state, and ban sort order.
+
+---
+
+## Answer
+
+Ticket 04 is fully implemented, reviewed, and verified:
+
+1. **Pure Filter & Sort Utilities (`src/utils/draftFilter.ts`)**:
+   - `filterHeroesBySearch`: Pure case-insensitive substring search on `hero.name`, trimming whitespace, non-mutating.
+   - `sortHeroesByBanRate`: Pure sort ordering visible heroes strictly by `banRate` descending with `powerScore` tiebreaker, non-mutating.
+
+2. **Draft Controls Bar (`src/components/DraftControls.tsx`)**:
+   - Mobile draft control bar containing search input and "🛡️ Ban Priority" toggle pill.
+   - 150ms debounce timer on typing to prevent UI stutter.
+   - Cancels pending debounce timers immediately upon external prop updates or 1-tap clear.
+   - 1-tap clear icon button (`X`) displayed when search input has text, resetting input and grid immediately.
+   - Ban Priority toggle pill with `aria-pressed`, active neon rose styling, and pulsing active indicator dot.
+   - All interactive touch targets strictly meet or exceed $\ge 44 \times 44\text{px}$.
+
+3. **Shared Empty State Component (`src/components/EmptyState.tsx`)**:
+   - Reusable empty state component consolidating search and lane empty states.
+   - Displays clear iconography, contextual messages, and 1-tap recovery buttons (`Reset Search` / `Reset to All Lanes`).
+
+4. **Dashboard Integration (`src/components/TierListDashboard.tsx`)**:
+   - Composes active Lane filters, debounced text search, and Ban Priority sorting seamlessly.
+   - In Ban Priority mode, surfaces must-ban threats strictly by descending ban rate at the top of the viewport.
+   - Toggling off Ban Priority restores standard tier grouping (`S+` to `D`) ordered by Power Score.
+
+5. **Test Coverage & Verification**:
+   - Seam 0: 8 unit tests in `tests/components/draftFilter.test.ts`.
+   - Seam 1: 8 unit tests in `tests/components/DraftControls.test.tsx` (including debounce timing, clear button, touch targets, and external reset cancellation).
+   - Seam 2: 1 unit test in `tests/components/EmptyState.test.tsx`.
+   - Seam 3: 14 integration tests in `tests/components/TierListDashboard.test.tsx` (covering search debounce, clear recovery, empty states, ban sort, and filter composition).
+   - Full suite passes: 64 total tests (12 pipeline + 52 UI). Typecheck and production build pass cleanly.
+

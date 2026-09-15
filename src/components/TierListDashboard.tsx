@@ -2,8 +2,12 @@ import React, { useState, useEffect, useMemo } from 'react';
 import type { Tier, TierListDataset, NormalizedHero, LaneFilter } from '../types/index.ts';
 import { Header } from './Header.tsx';
 import { LaneCarousel } from './LaneCarousel.tsx';
+import { DraftControls } from './DraftControls.tsx';
 import { TierSection } from './TierSection.tsx';
+import { HeroTile } from './HeroTile.tsx';
+import { EmptyState } from './EmptyState.tsx';
 import { filterHeroesByLane, calculateLaneCounts } from '../utils/laneFilter.ts';
+import { filterHeroesBySearch, sortHeroesByBanRate } from '../utils/draftFilter.ts';
 
 export interface TierListDashboardProps {
   dataset?: TierListDataset;
@@ -22,6 +26,8 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
   const [loading, setLoading] = useState<boolean>(!initialDataset);
   const [error, setError] = useState<string | null>(null);
   const [selectedLane, setSelectedLane] = useState<LaneFilter>('All');
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [isBanPriority, setIsBanPriority] = useState<boolean>(false);
 
   const loadData = async (url: string) => {
     setLoading(true);
@@ -56,6 +62,20 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
     return calculateLaneCounts(data.heroes);
   }, [data?.heroes]);
 
+  // Composition: Lane Filter + Case-insensitive Debounced Search
+  const filteredHeroes = useMemo(() => {
+    if (!data?.heroes) return [];
+    const laneFiltered = filterHeroesByLane(data.heroes, selectedLane);
+    return filterHeroesBySearch(laneFiltered, searchQuery);
+  }, [data?.heroes, selectedLane, searchQuery]);
+
+  // When Ban Priority is active, sort all visible heroes strictly by descending banRate
+  const banSortedHeroes = useMemo(() => {
+    if (!isBanPriority) return [];
+    return sortHeroesByBanRate(filteredHeroes);
+  }, [isBanPriority, filteredHeroes]);
+
+  // When standard Tier mode is active, group visible heroes into S+ through D tiers
   const heroesByTier = useMemo(() => {
     const groups: Record<Tier, NormalizedHero[]> = {
       'S+': [],
@@ -66,11 +86,9 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
       'D': [],
     };
 
-    if (!data?.heroes) return groups;
+    if (isBanPriority) return groups;
 
-    const filtered = filterHeroesByLane(data.heroes, selectedLane);
-
-    for (const hero of filtered) {
+    for (const hero of filteredHeroes) {
       if (groups[hero.tier]) {
         groups[hero.tier].push(hero);
       }
@@ -82,11 +100,7 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
     }
 
     return groups;
-  }, [data?.heroes, selectedLane]);
-
-  const totalFilteredHeroes = useMemo(() => {
-    return ORDERED_TIERS.reduce((acc, tier) => acc + heroesByTier[tier].length, 0);
-  }, [heroesByTier]);
+  }, [filteredHeroes, isBanPriority]);
 
   return (
     <div className="min-h-screen bg-cyber-ground text-slate-100 flex flex-col w-full overflow-x-hidden font-sans">
@@ -100,7 +114,14 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
         heroCounts={heroCounts}
       />
 
-      <main className="flex-1 max-w-5xl w-full mx-auto px-2 sm:px-4 py-3 sm:py-5">
+      <DraftControls
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
+        isBanPriority={isBanPriority}
+        onToggleBanPriority={() => setIsBanPriority((prev) => !prev)}
+      />
+
+      <main className="flex-1 max-w-5xl w-full mx-auto px-2 sm:px-4 py-2 sm:py-4">
         {loading && (
           <div className="flex flex-col items-center justify-center py-20 gap-3">
             <div className="w-10 h-10 border-2 border-pink-500 border-t-transparent rounded-full animate-spin" />
@@ -126,31 +147,65 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
           </div>
         )}
 
-        {!loading && !error && data && totalFilteredHeroes === 0 && (
-          <div
-            data-testid="lane-empty-state"
-            className="flex flex-col items-center justify-center py-16 px-4 text-center rounded-2xl bg-cyber-card/40 border border-cyber-border my-4"
-          >
-            <div className="w-12 h-12 rounded-xl bg-slate-800/80 flex items-center justify-center mb-3 text-slate-400">
-              <span className="text-xl">🛡️</span>
-            </div>
-            <h2 className="text-sm font-bold text-slate-200 mb-1">
-              No heroes found in {selectedLane}
-            </h2>
-            <p className="text-xs text-slate-400 mb-4 max-w-xs">
-              No heroes currently match the selected lane filter.
-            </p>
-            <button
-              type="button"
-              onClick={() => setSelectedLane('All')}
-              className="min-h-[44px] min-w-[44px] px-4 py-2 inline-flex items-center justify-center rounded-lg bg-cyan-950/80 border border-cyan-500/40 text-xs font-semibold text-cyan-300 hover:bg-cyan-900/60 transition-colors active:scale-95"
-            >
-              Reset to All Lanes
-            </button>
-          </div>
+        {/* Empty Search State */}
+        {!loading && !error && data && filteredHeroes.length === 0 && searchQuery.trim() !== '' && (
+          <EmptyState
+            testId="search-empty-state"
+            icon="🔍"
+            title={`No heroes found matching "${searchQuery.trim()}"`}
+            description="Check for typos or reset your search query to restore visible heroes."
+            actionLabel="Reset Search"
+            onAction={() => setSearchQuery('')}
+          />
         )}
 
-        {!loading && !error && data && totalFilteredHeroes > 0 && (
+        {/* Empty Lane State (when search is empty but lane has no matching heroes) */}
+        {!loading && !error && data && filteredHeroes.length === 0 && searchQuery.trim() === '' && (
+          <EmptyState
+            testId="lane-empty-state"
+            icon="🛡️"
+            title={`No heroes found in ${selectedLane}`}
+            description="No heroes currently match the selected lane filter."
+            actionLabel="Reset to All Lanes"
+            onAction={() => setSelectedLane('All')}
+          />
+        )}
+
+        {/* Ban Priority View */}
+        {!loading && !error && data && filteredHeroes.length > 0 && isBanPriority && (
+          <section
+            aria-labelledby="ban-priority-heading"
+            className="relative mb-4 rounded-xl border border-rose-500/40 bg-gradient-to-b from-rose-500/10 to-cyber-card/60 p-2.5 sm:p-3.5 backdrop-blur-sm"
+          >
+            <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-800/80">
+              <div className="flex items-center gap-2">
+                <span
+                  id="ban-priority-heading"
+                  className="px-2 py-0.5 rounded text-xs font-black tracking-wider uppercase bg-rose-600 text-white shadow-lg shadow-rose-600/30"
+                >
+                  BAN
+                </span>
+                <span className="text-xs sm:text-sm font-semibold text-slate-200">
+                  Ranked Ban Priority (Highest Ban Rate)
+                </span>
+              </div>
+              <span className="text-[11px] font-mono text-slate-400 bg-slate-900/80 px-2 py-0.5 rounded-full border border-slate-800">
+                {banSortedHeroes.length} {banSortedHeroes.length === 1 ? 'Hero' : 'Heroes'}
+              </span>
+            </div>
+            <div
+              data-testid="ban-priority-grid"
+              className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1.5"
+            >
+              {banSortedHeroes.map((hero) => (
+                <HeroTile key={hero.id} hero={hero} onSelect={onSelectHero} />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Standard Tier Bands View */}
+        {!loading && !error && data && filteredHeroes.length > 0 && !isBanPriority && (
           <div className="space-y-4">
             {ORDERED_TIERS.map((tier) => (
               <TierSection
@@ -166,4 +221,3 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
     </div>
   );
 };
-
