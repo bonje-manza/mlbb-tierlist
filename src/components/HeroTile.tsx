@@ -39,10 +39,10 @@ export const HeroTile: React.FC<HeroTileProps> = ({
       type="button"
       onClick={() => onSelect?.(hero)}
       aria-label={`${hero.name}, ${hero.tier} Tier, ${overlayLabel} ${overlayMetric}, Power Score ${powerScoreFormatted}`}
-      className="group relative flex flex-col items-center w-full min-h-[48px] min-w-[44px] p-1 rounded-lg bg-cyber-card/90 border border-cyber-border hover:border-slate-500 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 active:scale-95 transition-all duration-150 select-none overflow-hidden"
+      className="group relative flex flex-col items-center w-full min-h-[48px] min-w-[44px] p-1 rounded-xl bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 hover:bg-slate-900/90 focus:border-slate-500 focus:outline-none active:scale-[0.98] transition-all duration-150 select-none overflow-hidden"
     >
       {/* Avatar Container with fixed 1:1 aspect ratio to avoid layout shift */}
-      <div className="relative w-full aspect-square rounded-md overflow-hidden bg-slate-900 border border-slate-800/80">
+      <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-slate-950 border border-slate-800/60">
         {/* Shimmering loading skeleton while image loads on slow network */}
         {!imgLoaded && !imgError && (
           <div
@@ -89,9 +89,9 @@ export const HeroTile: React.FC<HeroTileProps> = ({
 
         {/* Tier chip (Top Left) — shown when tier grouping is hidden, e.g. Ban Priority */}
         {showTierChip && (
-          <div className="absolute top-0.5 left-0.5 bg-cyber-ground/90 backdrop-blur-[2px] px-1 py-0.5 rounded border border-slate-700/60 leading-none">
+          <div className="absolute top-0.5 left-0.5 bg-slate-950/80 px-1 py-0.5 rounded border border-slate-800 leading-none">
             <span
-              className={`text-[10px] font-black tabular-nums px-0.5 rounded-sm ${TIER_CHIP[hero.tier] || TIER_CHIP['D']}`}
+              className={`text-[10px] font-bold tabular-nums px-0.5 rounded-sm ${TIER_CHIP[hero.tier] || TIER_CHIP['D']}`}
             >
               {hero.tier}
             </span>
@@ -100,30 +100,30 @@ export const HeroTile: React.FC<HeroTileProps> = ({
 
         {/* Power Score Badge (Top Right) - ADR 0003 */}
         <div
-          className="absolute top-0.5 right-0.5 bg-cyber-ground/90 backdrop-blur-[2px] px-1.5 py-0.5 rounded border border-slate-700/60 leading-none"
+          className="absolute top-0.5 right-0.5 bg-slate-950/80 px-1.5 py-0.5 rounded border border-slate-800/80 leading-none"
           title="Power Score: composite of win rate (50%), pick rate (25%) and ban rate (25%)"
         >
           <span
             data-testid="hero-power-score"
-            className="text-[10px] sm:text-[10px] font-mono font-bold tabular-nums text-slate-100"
+            className="text-[10px] sm:text-[10px] font-mono font-medium tabular-nums text-slate-300"
           >
             {powerScoreFormatted}
           </span>
         </div>
 
         {/* Win/Ban Rate Overlay Pill */}
-        <div className="absolute bottom-0 inset-x-0 bg-cyber-ground/85 backdrop-blur-[2px] py-0.5 px-1 border-t border-slate-700/50 flex items-center justify-center">
+        <div className="absolute bottom-0 inset-x-0 bg-slate-950/90 py-0.5 px-1 border-t border-slate-800/80 flex items-center justify-center">
           <span
             data-testid={metric === 'banRate' ? 'hero-ban-rate' : 'hero-win-rate'}
-            className={`text-[11px] sm:text-[11px] font-mono font-bold tracking-tight tabular-nums ${metric === 'banRate' ? 'text-rose-300' : 'text-emerald-400'}`}
+            className={`text-[11px] sm:text-[11px] font-mono font-semibold tracking-tight tabular-nums ${metric === 'banRate' ? 'text-rose-400/90' : 'text-emerald-400/90'}`}
           >
             {overlayMetric}
           </span>
         </div>
       </div>
 
-      {/* Hero Name Label (11px bold, truncated) */}
-      <span className="w-full text-center text-[11px] sm:text-[11px] font-bold text-slate-200 group-hover:text-white truncate mt-1 leading-tight tracking-tight">
+      {/* Hero Name Label (11px, truncated) */}
+      <span className="w-full text-center text-[11px] sm:text-[11px] font-medium text-slate-300 group-hover:text-slate-100 truncate mt-1 leading-tight tracking-tight">
         {hero.name}
       </span>
     </button>

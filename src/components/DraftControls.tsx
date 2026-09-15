@@ -60,7 +60,7 @@ export const DraftControls: React.FC<DraftControlsProps> = ({
     <div
       role="search"
       aria-label="Draft controls and search"
-      className="w-full max-w-5xl mx-auto px-2 sm:px-4 py-1.5 flex items-center gap-2"
+      className="w-full max-w-6xl mx-auto px-2 sm:px-4 py-1.5 flex items-center gap-2"
     >
       {/* Search Input Container */}
       <div className="relative flex-1 flex items-center">
@@ -88,7 +88,7 @@ export const DraftControls: React.FC<DraftControlsProps> = ({
           onChange={handleInputChange}
           placeholder="Search heroes..."
           aria-label="Search hero by name"
-          className="w-full h-11 pl-9 pr-11 text-xs sm:text-sm rounded-xl bg-cyber-card border border-cyber-border text-slate-100 placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors"
+          className="w-full h-11 pl-9 pr-11 text-xs sm:text-sm rounded-xl bg-slate-900/60 border border-slate-800/80 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-slate-600 focus:ring-1 focus:ring-slate-600 transition-colors"
         />
 
         {/* 1-Tap Clear Button */}
@@ -123,20 +123,20 @@ export const DraftControls: React.FC<DraftControlsProps> = ({
         onClick={onToggleBanPriority}
         aria-pressed={isBanPriority}
         aria-label="Toggle Ban Priority"
-        className={`min-h-[44px] min-w-[44px] px-3 sm:px-4 flex items-center justify-center gap-1.5 rounded-xl text-xs font-bold transition-all duration-150 select-none border active:scale-95 whitespace-nowrap ${
+        className={`min-h-[44px] min-w-[44px] px-3 sm:px-4 flex items-center justify-center gap-1.5 rounded-xl text-xs font-semibold transition-all duration-150 select-none border active:scale-95 whitespace-nowrap ${
           isBanPriority
-            ? 'bg-rose-950/70 border-rose-500 text-rose-200 shadow-md shadow-rose-950/60'
-            : 'bg-cyber-card border-cyber-border text-slate-400 hover:text-slate-200 hover:border-slate-700'
+            ? 'bg-red-950/40 border-red-800/60 text-red-300'
+            : 'bg-slate-900/40 border-slate-800/60 text-slate-400 hover:text-slate-200 hover:border-slate-700/60'
         }`}
       >
-        <span className="text-sm leading-none" aria-hidden="true">
+        <span className="text-sm leading-none opacity-80" aria-hidden="true">
           🛡️
         </span>
         <span>Ban Priority</span>
         {isBanPriority && (
           <span
             data-testid="ban-priority-active-dot"
-            className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse ml-0.5"
+            className="w-1.5 h-1.5 rounded-full bg-red-400 ml-0.5"
             aria-hidden="true"
           />
         )}

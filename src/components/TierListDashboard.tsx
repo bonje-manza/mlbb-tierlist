@@ -318,7 +318,7 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
 
       <main
         aria-busy={loading}
-        className="flex-1 max-w-5xl w-full mx-auto px-2 sm:px-4 py-1.5 sm:py-3"
+        className="flex-1 max-w-6xl w-full mx-auto px-2 sm:px-4 py-1.5 sm:py-3"
       >
         {/* Screen-reader announcement of result count */}
         <div aria-live="polite" role="status" className="sr-only">
@@ -341,12 +341,12 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
           <>
             <div
               data-testid="dataset-loading-bar"
-              className="h-1 w-full bg-gradient-to-r from-cyan-500 via-sky-500 to-violet-500 animate-pulse rounded-full mb-2"
+              className="h-0.5 w-full bg-cyan-500/60 rounded-full mb-2"
             />
             <div className="flex justify-center mb-2">
               <span
                 role="status"
-                className="text-[11px] font-mono tabular-nums text-cyan-300 bg-cyan-950/60 border border-cyan-500/30 px-2.5 py-1 rounded-full"
+                className="text-[11px] font-mono tabular-nums text-slate-400 bg-slate-900/80 border border-slate-800 px-2.5 py-1 rounded-full"
               >
                 Updating to {RANK_LABEL[rankTier]} · {WINDOW_LABEL[timeWindow]}…
               </span>
@@ -409,27 +409,27 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
         {!error && data && filteredHeroes.length > 0 && isBanPriority && (
           <section
             aria-labelledby="ban-priority-heading"
-            className={`relative mb-4 rounded-xl border border-red-800/50 bg-gradient-to-b from-red-950/40 to-cyber-card/60 p-2.5 sm:p-3.5 backdrop-blur-sm transition-opacity ${loading ? 'opacity-60 saturate-50 pointer-events-none' : ''}`}
+            className={`relative mb-4 rounded-2xl border border-red-950/60 bg-slate-900/40 p-3 sm:p-4 transition-opacity ${loading ? 'opacity-60 saturate-50 pointer-events-none' : ''}`}
           >
-            <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-800/80">
-              <div className="flex items-center gap-2">
+            <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-slate-800/80">
+              <div className="flex items-center gap-2.5">
                 <span
                   id="ban-priority-heading"
-                  className="px-2 py-0.5 rounded text-xs font-black tracking-wider uppercase bg-red-700 text-white shadow-lg shadow-red-900/40"
+                  className="px-2 py-0.5 rounded-md text-xs font-bold tracking-wider uppercase bg-red-950/60 border border-red-500/30 text-rose-300"
                 >
                   BAN
                 </span>
-                <span className="text-xs sm:text-sm font-semibold text-slate-200">
+                <span className="text-xs sm:text-sm font-medium text-slate-300">
                   Ban Priority · Highest Ban Rate
                 </span>
               </div>
-              <span className="text-[11px] font-mono text-slate-400 bg-slate-900/80 px-2 py-0.5 rounded-full border border-slate-800">
+              <span className="text-[11px] font-mono text-slate-400 bg-slate-950/60 px-2.5 py-0.5 rounded-full border border-slate-800">
                 {banSortedHeroes.length} {banSortedHeroes.length === 1 ? 'Hero' : 'Heroes'}
               </span>
             </div>
             <div
               data-testid="ban-priority-grid"
-              className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1.5"
+              className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-1.5 sm:gap-2"
             >
               {banSortedHeroes.map((hero) => (
                 <HeroTile

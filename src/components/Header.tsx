@@ -56,33 +56,33 @@ export const Header: React.FC<HeaderProps> = ({
   const freshness = getFreshnessStatus(updatedAt);
 
   return (
-    <header className="w-full border-b border-cyber-border bg-cyber-ground/95 backdrop-blur-md px-3 py-1.5 sm:px-6">
-      <div className="max-w-5xl mx-auto flex items-center justify-between gap-2">
+    <header className="w-full border-b border-cyber-border bg-cyber-ground/95 backdrop-blur-md px-3 py-2 sm:px-6">
+      <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
         {/* Title & Brand */}
-        <div className="flex items-center gap-2">
-          <div className="relative flex items-center justify-center w-6 h-6 rounded-lg bg-cyan-400 shadow-md shadow-cyan-500/20">
-            <span className="text-xs font-black tracking-tighter text-slate-950">M</span>
+        <div className="flex items-center gap-2.5">
+          <div className="relative flex items-center justify-center w-7 h-7 rounded-lg bg-slate-800/90 border border-slate-700/60">
+            <span className="text-xs font-bold tracking-tighter text-slate-300">M</span>
           </div>
           <div>
-            <h1 className="text-sm sm:text-base font-black tracking-tight text-white leading-none">
-              MLBB Meta Radar
-            </h1>
-            <p className="text-[11px] font-medium text-slate-400 leading-tight mt-0.5">
-              Empirical Moonton GMS Meta
+            <div className="flex items-center gap-2">
+              <h1 className="text-sm sm:text-base font-bold tracking-tight text-slate-100 leading-none">
+                MLBB HERO TIER LIST
+              </h1>
+              <span
+                data-testid="patch-version-tag"
+                className="text-[10px] sm:text-[11px] font-mono font-medium tabular-nums px-2 py-0.5 rounded-full bg-slate-900 text-slate-400 border border-slate-800"
+              >
+                {patchVersion ? `Patch ${patchVersion}` : 'Patch --'}
+              </span>
+            </div>
+            <p className="text-[10px] sm:text-[11px] font-normal text-slate-400 leading-tight mt-0.5 hidden sm:block">
+              Empirical Moonton GMS Telemetry & Composite Power Score
             </p>
           </div>
         </div>
 
-        {/* Patch Version & Data Freshness Badges */}
-        <div className="flex flex-col items-end gap-1 text-right">
-          <div className="flex items-center gap-1.5">
-            <span
-              data-testid="patch-version-tag"
-              className="text-[11px] sm:text-xs font-mono font-semibold tabular-nums px-2 py-0.5 rounded-md bg-slate-800/90 text-cyan-300 border border-cyan-500/30"
-            >
-              {patchVersion ? `Patch ${patchVersion}` : 'Patch --'}
-            </span>
-          </div>
+        {/* Data Freshness Badge */}
+        <div className="flex items-center text-right">
           <span
             data-testid="data-freshness-badge"
             title={
@@ -90,9 +90,9 @@ export const Header: React.FC<HeaderProps> = ({
                 ? 'Telemetry is current.'
                 : 'Telemetry may be stale — last successful sync shown.'
             }
-            className="text-[10px] sm:text-[11px] font-mono tabular-nums text-slate-300 flex items-center gap-1"
+            className="text-[10px] sm:text-[11px] font-mono tabular-nums text-slate-400 flex items-center gap-1.5 bg-slate-900/60 px-2.5 py-1 rounded-lg border border-slate-800/80"
           >
-            <span className={`w-1.5 h-1.5 rounded-full ${FRESHNESS_DOT[freshness.tone]}`} />
+            <span className={`w-1.5 h-1.5 rounded-full ${FRESHNESS_DOT[freshness.tone]} opacity-80`} />
             {freshness.text}
           </span>
         </div>

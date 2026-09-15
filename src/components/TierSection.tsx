@@ -12,52 +12,52 @@ interface TierMeta {
   label: string;
   descriptor: string;
   badgeBg: string;
+  textAccent: string;
   borderAccent: string;
-  glowClass: string;
 }
 
 const TIER_METADATA: Record<Tier, TierMeta> = {
   'S+': {
     label: 'S+',
     descriptor: 'Must Pick or Ban',
-    badgeBg: 'bg-tier-s-plus text-white shadow-lg shadow-tier-s-plus/30',
-    borderAccent: 'border-tier-s-plus/40',
-    glowClass: 'from-tier-s-plus/10',
+    badgeBg: 'bg-red-950/40 border border-red-500/30 text-rose-200',
+    textAccent: 'text-rose-400',
+    borderAccent: 'border-red-950/60',
   },
   'S': {
     label: 'S',
     descriptor: 'Top Meta / High Priority',
-    badgeBg: 'bg-tier-s text-white shadow-lg shadow-tier-s/30',
-    borderAccent: 'border-tier-s/40',
-    glowClass: 'from-tier-s/10',
+    badgeBg: 'bg-purple-950/40 border border-purple-500/30 text-purple-200',
+    textAccent: 'text-purple-400',
+    borderAccent: 'border-purple-950/60',
   },
   'A': {
     label: 'A',
     descriptor: 'Strong & Reliable',
-    badgeBg: 'bg-tier-a text-slate-950 shadow-lg shadow-tier-a/30',
-    borderAccent: 'border-tier-a/40',
-    glowClass: 'from-tier-a/10',
+    badgeBg: 'bg-cyan-950/40 border border-cyan-500/30 text-cyan-200',
+    textAccent: 'text-cyan-400',
+    borderAccent: 'border-cyan-950/60',
   },
   'B': {
     label: 'B',
     descriptor: 'Balanced / Situational',
-    badgeBg: 'bg-tier-b text-slate-950 shadow-lg shadow-tier-b/30',
-    borderAccent: 'border-tier-b/40',
-    glowClass: 'from-tier-b/10',
+    badgeBg: 'bg-emerald-950/40 border border-emerald-500/30 text-emerald-200',
+    textAccent: 'text-emerald-400',
+    borderAccent: 'border-emerald-950/60',
   },
   'C': {
     label: 'C',
     descriptor: 'Underperforming',
-    badgeBg: 'bg-tier-c text-slate-950',
-    borderAccent: 'border-tier-c/40',
-    glowClass: 'from-tier-c/10',
+    badgeBg: 'bg-amber-950/40 border border-amber-500/30 text-amber-200',
+    textAccent: 'text-amber-400',
+    borderAccent: 'border-amber-950/60',
   },
   'D': {
     label: 'D',
     descriptor: 'Weak / Avoid in Ranked',
-    badgeBg: 'bg-tier-d text-slate-100',
-    borderAccent: 'border-tier-d/40',
-    glowClass: 'from-tier-d/10',
+    badgeBg: 'bg-slate-900/60 border border-slate-700/40 text-slate-300',
+    textAccent: 'text-slate-400',
+    borderAccent: 'border-slate-800/60',
   },
 };
 
@@ -86,15 +86,15 @@ export const EmptyTierRow: React.FC<EmptyTierRowProps> = ({
       aria-expanded={expanded}
       aria-label={`${tier} tier, ${meta.descriptor}, 0 heroes. Activate to ${expanded ? 'collapse' : 'expand'}.`}
       data-testid={`empty-tier-row-${tier}`}
-      className="w-full min-h-[44px] flex items-center justify-between gap-2 px-2.5 py-2 mb-2 rounded-xl border border-slate-800/70 bg-cyber-card/40 text-left transition-colors hover:border-slate-700 active:scale-[0.99]"
+      className="w-full min-h-[44px] flex items-center justify-between gap-2 px-3 py-2 mb-2 rounded-xl border border-slate-800/60 bg-slate-900/30 text-left transition-colors hover:border-slate-700/80 active:scale-[0.99]"
     >
-      <span className="flex items-center gap-2 min-w-0">
+      <span className="flex items-center gap-2.5 min-w-0">
         <span
-          className={`px-2 py-0.5 rounded text-[11px] font-black tracking-wider uppercase shrink-0 ${meta.badgeBg}`}
+          className={`px-2 py-0.5 rounded-md text-xs font-bold tracking-wider uppercase shrink-0 ${meta.badgeBg} ${meta.textAccent}`}
         >
           {tier}
         </span>
-        <span className="text-xs font-medium text-slate-500 truncate">
+        <span className="text-xs font-normal text-slate-400 truncate">
           {meta.descriptor}
         </span>
       </span>
@@ -131,44 +131,47 @@ export const TierSection: React.FC<TierSectionProps> = ({
   return (
     <section
       aria-labelledby={`tier-heading-${tier.replace('+', '-plus')}`}
-      className={`relative mb-3 rounded-xl border ${meta.borderAccent} bg-gradient-to-b ${meta.glowClass} to-cyber-card/60 p-2 sm:p-3 backdrop-blur-sm`}
+      className="relative mb-3 rounded-2xl border border-slate-800/80 bg-slate-900/40 p-2 sm:p-3"
     >
-      {/* Tier Header Bar */}
-      <div className="flex items-center justify-between pb-1.5 mb-1.5 border-b border-slate-800/80">
-        <div className="flex items-center gap-2">
-          {/* Neon Tier Badge */}
-          <span
-            id={`tier-heading-${tier.replace('+', '-plus')}`}
-            className={`px-2 py-0.5 rounded text-xs font-black tracking-wider uppercase ${meta.badgeBg}`}
-          >
-            {tier}
-          </span>
-          <span className="text-xs sm:text-sm font-semibold text-slate-300">
-            {meta.descriptor}
-          </span>
-        </div>
-
-        {/* Hero Count Badge */}
-        <span className="text-[11px] font-mono text-slate-400 bg-slate-900/80 px-2 py-0.5 rounded-full border border-slate-800">
-          {heroes.length} {heroes.length === 1 ? 'Hero' : 'Heroes'}
-        </span>
-      </div>
-
-      {/* Hero Tiles Grid */}
-      {heroes.length > 0 ? (
+      <div className="flex flex-col sm:flex-row items-stretch gap-2.5 sm:gap-3">
+        {/* Blitz.gg Vertical Tier Badge Shelf on left */}
         <div
-          data-testid={`tier-grid-${tier}`}
-          className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1.5"
+          className={`flex sm:flex-col items-center justify-between sm:justify-center gap-1.5 sm:gap-2 px-3 py-2 sm:py-3 rounded-xl ${meta.badgeBg} sm:w-20 md:w-24 shrink-0 select-none`}
         >
-          {heroes.map((hero) => (
-            <HeroTile key={hero.id} hero={hero} onSelect={onSelectHero} />
-          ))}
+          <div className="flex items-center sm:flex-col gap-2 sm:gap-0.5">
+            <span
+              id={`tier-heading-${tier.replace('+', '-plus')}`}
+              className={`text-lg sm:text-3xl font-black tracking-wider uppercase leading-none ${meta.textAccent}`}
+            >
+              {tier}
+            </span>
+            <span className="text-[11px] sm:text-[10px] font-medium tracking-tight text-slate-400 text-left sm:text-center leading-tight">
+              {meta.descriptor}
+            </span>
+          </div>
+          <span className="text-[10px] sm:text-[11px] font-mono font-medium tabular-nums text-slate-400 bg-slate-950/60 px-2 py-0.5 rounded-full border border-slate-800 shrink-0">
+            {heroes.length} {heroes.length === 1 ? 'Hero' : 'Heroes'}
+          </span>
         </div>
-      ) : (
-        <div className="py-4 text-center text-xs text-slate-500 italic">
-          No heroes in this tier
+
+        {/* Hero Tiles Grid Shelf */}
+        <div className="flex-1 min-w-0">
+          {heroes.length > 0 ? (
+            <div
+              data-testid={`tier-grid-${tier}`}
+              className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-1.5 sm:gap-2"
+            >
+              {heroes.map((hero) => (
+                <HeroTile key={hero.id} hero={hero} onSelect={onSelectHero} />
+              ))}
+            </div>
+          ) : (
+            <div className="py-4 text-center text-xs text-slate-500 italic">
+              No heroes in this tier
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </section>
   );
 };

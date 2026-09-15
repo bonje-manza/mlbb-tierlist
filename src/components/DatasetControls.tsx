@@ -37,8 +37,8 @@ function SegmentGroup<T extends string>({
 }: SegmentGroupProps<T>) {
   const activeStyle =
     activeColorTheme === 'cyan'
-      ? 'bg-cyan-500/20 text-cyan-300 border-cyan-400/50 shadow-sm shadow-cyan-500/20'
-      : 'bg-purple-500/20 text-purple-300 border-purple-400/50 shadow-sm shadow-purple-500/20';
+      ? 'bg-slate-800 text-cyan-400 border-slate-700/80 shadow-none'
+      : 'bg-slate-800 text-purple-300 border-slate-700/80 shadow-none';
 
   const optionRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
@@ -127,7 +127,7 @@ export const DatasetControls: React.FC<DatasetControlsProps> = ({
   return (
     <div
       aria-label="Dataset filters"
-      className="w-full max-w-5xl mx-auto px-2 sm:px-4 py-1 flex items-center justify-between gap-2"
+      className="w-full max-w-6xl mx-auto px-2 sm:px-4 py-1.5 flex items-center justify-between gap-2"
     >
       <SegmentGroup<RankTier>
         groupLabel="Rank Tier"

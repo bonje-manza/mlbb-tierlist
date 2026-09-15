@@ -1,4 +1,29 @@
-﻿node_modules
-dist
+# Dependencies
+node_modules/
+
+# Production build artifacts
+dist/
+
+# System files
 .DS_Store
+Thumbs.db
+
+# Logs & caches
 *.log
+.cache/
+coverage/
+
+# Secrets, environment variables, credentials (MUST NEVER LEAVE THIS MACHINE)
+.env
+.env.*
+*.env
+*.pem
+*.key
+
+# Agent handoff notes (MUST NEVER LEAVE THIS MACHINE)
+.agents/handoffs/
+
+# Generated binaries, heavy visual mocks & ephemeral test states
+.impeccable/mocks/
+.impeccable/questions/
+.agents/skills/impeccable/
