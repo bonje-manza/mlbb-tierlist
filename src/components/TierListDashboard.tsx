@@ -1,0 +1,125 @@
+import React, { useState, useEffect, useMemo } from 'react';
+import type { Tier, TierListDataset, NormalizedHero } from '../types/index.ts';
+import { Header } from './Header.tsx';
+import { TierSection } from './TierSection.tsx';
+
+export interface TierListDashboardProps {
+  dataset?: TierListDataset;
+  dataUrl?: string;
+  onSelectHero?: (hero: NormalizedHero) => void;
+}
+
+const ORDERED_TIERS: Tier[] = ['S+', 'S', 'A', 'B', 'C', 'D'];
+
+export const TierListDashboard: React.FC<TierListDashboardProps> = ({
+  dataset: initialDataset,
+  dataUrl = '/data/tierlist-mythic-1d.json',
+  onSelectHero,
+}) => {
+  const [data, setData] = useState<TierListDataset | null>(initialDataset || null);
+  const [loading, setLoading] = useState<boolean>(!initialDataset);
+  const [error, setError] = useState<string | null>(null);
+
+  const loadData = async (url: string) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch(url);
+      if (!res.ok) {
+        throw new Error(`Failed to load tier list telemetry: HTTP ${res.status} ${res.statusText}`);
+      }
+      const json: TierListDataset = await res.json();
+      setData(json);
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Failed to load tier list telemetry';
+      setError(message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (initialDataset) {
+      setData(initialDataset);
+      setLoading(false);
+      setError(null);
+      return;
+    }
+    loadData(dataUrl);
+  }, [initialDataset, dataUrl]);
+
+  const heroesByTier = useMemo(() => {
+    const groups: Record<Tier, NormalizedHero[]> = {
+      'S+': [],
+      'S': [],
+      'A': [],
+      'B': [],
+      'C': [],
+      'D': [],
+    };
+
+    if (!data?.heroes) return groups;
+
+    for (const hero of data.heroes) {
+      if (groups[hero.tier]) {
+        groups[hero.tier].push(hero);
+      }
+    }
+
+    // Sort descending by powerScore within each tier band
+    for (const tier of ORDERED_TIERS) {
+      groups[tier].sort((a, b) => b.powerScore - a.powerScore);
+    }
+
+    return groups;
+  }, [data]);
+
+  return (
+    <div className="min-h-screen bg-cyber-ground text-slate-100 flex flex-col w-full overflow-x-hidden font-sans">
+      <Header
+        updatedAt={data?.updatedAt}
+        patchVersion={data?.patchVersion}
+      />
+
+      <main className="flex-1 max-w-5xl w-full mx-auto px-2 sm:px-4 py-3 sm:py-5">
+        {loading && (
+          <div className="flex flex-col items-center justify-center py-20 gap-3">
+            <div className="w-10 h-10 border-2 border-pink-500 border-t-transparent rounded-full animate-spin" />
+            <p className="text-xs font-mono tracking-widest text-slate-400 uppercase">
+              Loading Meta Telemetry...
+            </p>
+          </div>
+        )}
+
+        {error && !loading && (
+          <div className="my-8 p-4 rounded-xl bg-red-950/40 border border-red-800/60 text-center">
+            <h2 className="text-sm font-semibold text-red-400 mb-2">
+              Failed to load tier list telemetry
+            </h2>
+            <p className="text-xs font-mono text-slate-400 mb-3">{error}</p>
+            <button
+              type="button"
+              onClick={() => loadData(dataUrl)}
+              className="px-4 py-1.5 rounded-lg bg-red-800/50 hover:bg-red-700/60 text-xs font-semibold text-white border border-red-700 transition-colors"
+            >
+              Retry
+            </button>
+          </div>
+        )}
+
+        {!loading && !error && data && (
+          <div className="space-y-4">
+            {ORDERED_TIERS.map((tier) => (
+              <TierSection
+                key={tier}
+                tier={tier}
+                heroes={heroesByTier[tier]}
+                onSelectHero={onSelectHero}
+              />
+            ))}
+          </div>
+        )}
+      </main>
+    </div>
+  );
+};
