@@ -1,4 +1,4 @@
-﻿import fs from 'node:fs/promises';
+import fs from 'node:fs/promises';
 import path from 'node:path';
 import { GMS_HOST, APP_ID, ACT_ID, fetchEnigma, generateGmsSignature } from './signer.ts';
 import type { RankTier, TimeWindow, RawGmsRecord, RawGmsResponse } from '../types/index.ts';
@@ -31,6 +31,14 @@ export interface TelemetryFetchResult {
 /**
  * 1. Primary: Direct Moonton GMS API fetch with HMAC-SHA1 signing
  */
+export async function fetchMoontonRankTelemetry(
+  rankTier: RankTier,
+  timeWindow: TimeWindow,
+  fetchFn: typeof fetch = fetch
+): Promise<RawGmsRecord[]> {
+  return fetchFromMoontonGms(rankTier, timeWindow, fetchFn);
+}
+
 async function fetchFromMoontonGms(
   rankTier: RankTier,
   timeWindow: TimeWindow,

@@ -1,4 +1,4 @@
-﻿import type {
+import type {
   RankTier,
   TimeWindow,
   Tier,
@@ -189,8 +189,9 @@ export function processHeroTelemetry(
     const prNorm = maxPr > minPr ? ((rawPr - minPr) / (maxPr - minPr)) * 100 : 0;
     const brNorm = maxBr > minBr ? ((rawBr - minBr) / (maxBr - minBr)) * 100 : 0;
 
-    const powerScore = calculatePowerScore(wrNorm, prNorm, brNorm);
-    const tier = assignTier(powerScore, rawPr);
+    const rawPowerScore = (wrNorm * 0.5) + (prNorm * 0.25) + (brNorm * 0.25);
+    const powerScore = Math.round(rawPowerScore * 10) / 10;
+    const tier = assignTier(rawPowerScore, rawPr);
 
     const name = data.main_hero?.data?.name || catalogHero?.name || `Hero #${heroId}`;
     const avatarUrl = data.main_hero?.data?.head || catalogHero?.head || '';
