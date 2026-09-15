@@ -85,11 +85,33 @@ export const mockDataset: TierListDataset = {
   heroes: [mockRafaela, mockMiya]
 };
 
+export const mockFaramis: NormalizedHero = {
+  id: 76,
+  name: 'Faramis',
+  avatarUrl: 'https://akmweb.youngjoygame.com/web/svnres/img/test/faramis.png',
+  roles: ['Support', 'Mage'],
+  lanes: ['Mid Lane', 'Roam'],
+  winRate: 0.5512,
+  pickRate: 0.0125,
+  banRate: 0.1834,
+  powerScore: 81.3,
+  tier: 'S',
+  synergies: []
+};
+
 export const mockMultiLaneDataset: TierListDataset = {
   updatedAt: '2026-09-14T14:55:00.629Z',
   patchVersion: '2.1.88',
   rankTier: 'mythic',
   timeWindow: '1d',
   heroes: [mockRafaela, mockGloo, mockMiya, mockChou, mockJulian]
+};
+
+export const mockSynergyDataset: TierListDataset = {
+  updatedAt: '2026-09-14T14:55:00.629Z',
+  patchVersion: '2.1.88',
+  rankTier: 'mythic',
+  timeWindow: '1d',
+  heroes: [mockRafaela, mockFaramis, mockMiya]
 };
 

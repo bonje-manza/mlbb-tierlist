@@ -6,6 +6,7 @@ import { DraftControls } from './DraftControls.tsx';
 import { TierSection } from './TierSection.tsx';
 import { HeroTile } from './HeroTile.tsx';
 import { EmptyState } from './EmptyState.tsx';
+import { HeroDetailDrawer } from './HeroDetailDrawer.tsx';
 import { filterHeroesByLane, calculateLaneCounts } from '../utils/laneFilter.ts';
 import { filterHeroesBySearch, sortHeroesByBanRate } from '../utils/draftFilter.ts';
 
@@ -28,6 +29,12 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
   const [selectedLane, setSelectedLane] = useState<LaneFilter>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isBanPriority, setIsBanPriority] = useState<boolean>(false);
+  const [selectedHero, setSelectedHero] = useState<NormalizedHero | null>(null);
+
+  const handleSelectHero = (hero: NormalizedHero) => {
+    setSelectedHero(hero);
+    onSelectHero?.(hero);
+  };
 
   const loadData = async (url: string) => {
     setLoading(true);
@@ -198,7 +205,7 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
               className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1.5"
             >
               {banSortedHeroes.map((hero) => (
-                <HeroTile key={hero.id} hero={hero} onSelect={onSelectHero} />
+                <HeroTile key={hero.id} hero={hero} onSelect={handleSelectHero} />
               ))}
             </div>
           </section>
@@ -212,12 +219,28 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
                 key={tier}
                 tier={tier}
                 heroes={heroesByTier[tier]}
-                onSelectHero={onSelectHero}
+                onSelectHero={handleSelectHero}
               />
             ))}
           </div>
         )}
       </main>
+
+      {/* Hero Detail Bottom Sheet Drawer */}
+      {selectedHero && (
+        <HeroDetailDrawer
+          hero={selectedHero}
+          heroPool={data?.heroes}
+          onClose={() => setSelectedHero(null)}
+          onSelectPartner={(partnerHeroId) => {
+            const partner = data?.heroes.find((h) => h.id === partnerHeroId);
+            if (partner) {
+              setSelectedHero(partner);
+              onSelectHero?.(partner);
+            }
+          }}
+        />
+      )}
     </div>
   );
 };

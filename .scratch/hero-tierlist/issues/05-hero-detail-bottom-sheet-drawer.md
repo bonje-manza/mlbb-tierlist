@@ -1,7 +1,7 @@
 # 05: Hero Detail Bottom Sheet Drawer
 
 Type: task  
-Status: ready-for-agent  
+Status: resolved  
 Blocked by: 02  
 
 **What to build:**  
@@ -50,10 +50,42 @@ Implement the animated mobile bottom sheet drawer that opens upon tapping any he
 
 ### Acceptance Criteria
 
-- [ ] Tapping any hero tile opens the Bottom Sheet drawer with smooth slide-up animation.
-- [ ] Drawer displays exact Win Rate, Pick Rate, Ban Rate, Power Score, and Tier badge.
-- [ ] Metric progress bars accurately visualize values.
-- [ ] Displays the Top 3 synergistic partner heroes with avatar, name, and positive win-rate delta.
-- [ ] Tapping outside the sheet, clicking the close button, or pressing Escape dismisses the drawer immediately.
-- [ ] Background scrolling is locked while the drawer is open.
-- [ ] Component tests verify drawer opening, telemetry content, synergy rendering, and dismiss behaviors.
+- [x] Tapping any hero tile opens the Bottom Sheet drawer with smooth slide-up animation.
+- [x] Drawer displays exact Win Rate, Pick Rate, Ban Rate, Power Score, and Tier badge.
+- [x] Metric progress bars accurately visualize values.
+- [x] Displays the Top 3 synergistic partner heroes with avatar, name, and positive win-rate delta.
+- [x] Tapping outside the sheet, clicking the close button, or pressing Escape dismisses the drawer immediately.
+- [x] Background scrolling is locked while the drawer is open.
+- [x] Component tests verify drawer opening, telemetry content, synergy rendering, and dismiss behaviors.
+
+## Answer
+
+Implemented the native mobile bottom sheet drawer in `src/components/HeroDetailDrawer.tsx` and integrated it into `src/components/TierListDashboard.tsx`:
+
+1. **Slide-Up Bottom Sheet & Dismissal**:
+   - Added `.animate-slide-up` and `.animate-fade-in` CSS keyframe animations in `src/index.css`.
+   - Backdrop scrim with `bg-black/60 backdrop-blur-sm` dismisses the sheet on tap.
+   - Interactive pull-down handle detects downward touch gestures ($> 60\text{px}$) to dismiss.
+   - Accessible top-right close button (`X`) with touch target $\ge 44 \times 44\text{px}$.
+   - Keyboard listener dismisses on `Escape`.
+   - Background body scroll locking dynamically sets `document.body.style.overflow = 'hidden'` on mount and restores previous style on unmount.
+
+2. **Hero Profile Header**:
+   - Large hero avatar portrait ($80\times 80\text{px}$) with neon tier accent border (`border-tier-s-plus`, `border-tier-s`, etc.) and glowing ring matching hero tier.
+   - Local SVG fallback placeholder on broken image error.
+   - Hero name, assigned roles (`roles.join(' / ')`), assigned lanes (`lanes.join(', ')`), tier badge (`{tier} TIER`), and Composite Power Score pill (`Power Score: {hero.powerScore.toFixed(1)}`).
+
+3. **Telemetry Benchmark Cards**:
+   - Visual benchmark progress cards for Win Rate, Pick Rate, and Ban Rate displaying exact two-decimal percentages (e.g. `57.95%`, `0.89%`, `10.91%`).
+   - Fill progress bars relative to the active hero pool min-max boundaries (`role="progressbar"`, `aria-valuenow`).
+
+4. **Top 3 Synergistic Teammates**:
+   - "Top Duo Synergies" section displaying up to 3 synergistic teammate heroes from `hero.synergies`.
+   - Each partner card displays partner avatar (with fallback), partner name, and positive win-rate delta badge (`+{delta}% WR`).
+   - Interactive partner cards meet $\ge 44\times 44\text{px}$ touch targets; clicking any partner card seamlessly navigates to that hero's detail in the drawer.
+   - Graceful empty state fallback when no positive synergy partners exist.
+
+5. **Test Coverage**:
+   - 15 unit tests in `tests/components/HeroDetailDrawer.test.tsx` verifying profile header, benchmark progress bars, synergy partner rendering, dismiss interactions, body scroll lock, and accessibility.
+   - 5 integration tests in `tests/components/TierListDashboard.test.tsx` verifying tile click-to-open from standard tier bands and Ban Priority grid, partner navigation, and dismiss.
+   - All 72 tests across 9 suites pass cleanly.

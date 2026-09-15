@@ -1,8 +1,8 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen, waitFor, fireEvent, act } from '@testing-library/react';
+import { render, screen, waitFor, fireEvent, act, within } from '@testing-library/react';
 import React from 'react';
 import { TierListDashboard } from '../../src/components/TierListDashboard.tsx';
-import { mockDataset, mockMultiLaneDataset } from './mockHeroes.ts';
+import { mockDataset, mockMultiLaneDataset, mockSynergyDataset } from './mockHeroes.ts';
 
 describe('TierListDashboard', () => {
   describe('Core Dashboard (Seam 1)', () => {
@@ -305,6 +305,84 @@ describe('TierListDashboard', () => {
       expect(screen.queryByText('Miya')).not.toBeInTheDocument();
     });
   });
+
+  describe('Hero Detail Bottom Sheet Drawer (Seam 4)', () => {
+    it('opens bottom sheet drawer with hero details when tapping a hero tile in standard grid', () => {
+      render(<TierListDashboard dataset={mockDataset} />);
+
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+
+      // Click Rafaela tile
+      const rafaelaTile = screen.getByRole('button', { name: /Rafaela/i });
+      fireEvent.click(rafaelaTile);
+
+      // Drawer is open
+      const dialog = screen.getByRole('dialog');
+      expect(dialog).toBeInTheDocument();
+      expect(screen.getByRole('heading', { level: 2, name: 'Rafaela' })).toBeInTheDocument();
+      expect(screen.getByTestId('metric-winrate-value')).toHaveTextContent('57.95%');
+      expect(screen.getByText('S+ TIER')).toBeInTheDocument();
+    });
+
+    it('opens bottom sheet drawer when tapping a hero tile in Ban Priority mode', () => {
+      render(<TierListDashboard dataset={mockMultiLaneDataset} />);
+
+      // Toggle Ban Priority
+      const banToggle = screen.getByRole('button', { name: /ban priority/i });
+      fireEvent.click(banToggle);
+
+      const banGrid = screen.getByTestId('ban-priority-grid');
+      const glooTile = banGrid.querySelector('button'); // Gloo is highest ban rate
+      expect(glooTile).not.toBeNull();
+      fireEvent.click(glooTile!);
+
+      expect(screen.getByRole('dialog')).toBeInTheDocument();
+      expect(screen.getByRole('heading', { level: 2, name: 'Gloo' })).toBeInTheDocument();
+      expect(screen.getByTestId('metric-banrate-value')).toHaveTextContent('48.79%');
+    });
+
+    it('dismisses drawer when close button is clicked and returns to full dashboard view', () => {
+      render(<TierListDashboard dataset={mockDataset} />);
+
+      const rafaelaTile = screen.getByRole('button', { name: /Rafaela/i });
+      fireEvent.click(rafaelaTile);
+      expect(screen.getByRole('dialog')).toBeInTheDocument();
+
+      const closeBtn = screen.getByRole('button', { name: /close hero details/i });
+      fireEvent.click(closeBtn);
+
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    });
+
+    it('navigates to partner hero when tapping a synergy partner card inside drawer', () => {
+      render(<TierListDashboard dataset={mockSynergyDataset} />);
+
+      // Open Rafaela's drawer
+      const rafaelaTile = screen.getByRole('button', { name: /Rafaela/i });
+      fireEvent.click(rafaelaTile);
+
+      expect(screen.getByRole('heading', { level: 2, name: 'Rafaela' })).toBeInTheDocument();
+
+      // Click Faramis synergy partner card inside drawer
+      const dialog = screen.getByRole('dialog');
+      const faramisPartnerBtn = within(dialog).getByRole('button', { name: /faramis/i });
+      fireEvent.click(faramisPartnerBtn);
+
+      // Drawer now displays Faramis details
+      expect(screen.getByRole('heading', { level: 2, name: 'Faramis' })).toBeInTheDocument();
+      expect(screen.getByTestId('metric-winrate-value')).toHaveTextContent('55.12%');
+      expect(screen.getByText('S TIER')).toBeInTheDocument();
+    });
+
+    it('fires optional onSelectHero callback prop when provided', () => {
+      const handleSelect = vi.fn();
+      render(<TierListDashboard dataset={mockDataset} onSelectHero={handleSelect} />);
+
+      const rafaelaTile = screen.getByRole('button', { name: /Rafaela/i });
+      fireEvent.click(rafaelaTile);
+
+      expect(handleSelect).toHaveBeenCalledTimes(1);
+      expect(handleSelect).toHaveBeenCalledWith(mockDataset.heroes[0]);
+    });
+  });
 });
-
-
