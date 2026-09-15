@@ -29,7 +29,7 @@ export const Header: React.FC<HeaderProps> = ({
   const freshnessText = formatUtcFreshness(updatedAt);
 
   return (
-    <header className="sticky top-0 z-30 w-full border-b border-cyber-border bg-cyber-ground/95 backdrop-blur-md px-3 py-2.5 sm:px-6">
+    <header className="w-full border-b border-cyber-border bg-cyber-ground/95 backdrop-blur-md px-3 py-2.5 sm:px-6">
       <div className="max-w-5xl mx-auto flex items-center justify-between gap-2">
         {/* Title & Brand */}
         <div className="flex items-center gap-2">

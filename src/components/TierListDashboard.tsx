@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import type { Tier, TierListDataset, NormalizedHero } from '../types/index.ts';
+import type { Tier, TierListDataset, NormalizedHero, LaneFilter } from '../types/index.ts';
 import { Header } from './Header.tsx';
+import { LaneCarousel } from './LaneCarousel.tsx';
 import { TierSection } from './TierSection.tsx';
+import { filterHeroesByLane, calculateLaneCounts } from '../utils/laneFilter.ts';
 
 export interface TierListDashboardProps {
   dataset?: TierListDataset;
@@ -19,6 +21,7 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
   const [data, setData] = useState<TierListDataset | null>(initialDataset || null);
   const [loading, setLoading] = useState<boolean>(!initialDataset);
   const [error, setError] = useState<string | null>(null);
+  const [selectedLane, setSelectedLane] = useState<LaneFilter>('All');
 
   const loadData = async (url: string) => {
     setLoading(true);
@@ -48,6 +51,11 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
     loadData(dataUrl);
   }, [initialDataset, dataUrl]);
 
+  const heroCounts = useMemo(() => {
+    if (!data?.heroes) return undefined;
+    return calculateLaneCounts(data.heroes);
+  }, [data?.heroes]);
+
   const heroesByTier = useMemo(() => {
     const groups: Record<Tier, NormalizedHero[]> = {
       'S+': [],
@@ -60,7 +68,9 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
 
     if (!data?.heroes) return groups;
 
-    for (const hero of data.heroes) {
+    const filtered = filterHeroesByLane(data.heroes, selectedLane);
+
+    for (const hero of filtered) {
       if (groups[hero.tier]) {
         groups[hero.tier].push(hero);
       }
@@ -72,13 +82,22 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
     }
 
     return groups;
-  }, [data]);
+  }, [data?.heroes, selectedLane]);
+
+  const totalFilteredHeroes = useMemo(() => {
+    return ORDERED_TIERS.reduce((acc, tier) => acc + heroesByTier[tier].length, 0);
+  }, [heroesByTier]);
 
   return (
     <div className="min-h-screen bg-cyber-ground text-slate-100 flex flex-col w-full overflow-x-hidden font-sans">
       <Header
         updatedAt={data?.updatedAt}
         patchVersion={data?.patchVersion}
+      />
+      <LaneCarousel
+        selectedLane={selectedLane}
+        onSelectLane={setSelectedLane}
+        heroCounts={heroCounts}
       />
 
       <main className="flex-1 max-w-5xl w-full mx-auto px-2 sm:px-4 py-3 sm:py-5">
@@ -107,7 +126,31 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
           </div>
         )}
 
-        {!loading && !error && data && (
+        {!loading && !error && data && totalFilteredHeroes === 0 && (
+          <div
+            data-testid="lane-empty-state"
+            className="flex flex-col items-center justify-center py-16 px-4 text-center rounded-2xl bg-cyber-card/40 border border-cyber-border my-4"
+          >
+            <div className="w-12 h-12 rounded-xl bg-slate-800/80 flex items-center justify-center mb-3 text-slate-400">
+              <span className="text-xl">🛡️</span>
+            </div>
+            <h2 className="text-sm font-bold text-slate-200 mb-1">
+              No heroes found in {selectedLane}
+            </h2>
+            <p className="text-xs text-slate-400 mb-4 max-w-xs">
+              No heroes currently match the selected lane filter.
+            </p>
+            <button
+              type="button"
+              onClick={() => setSelectedLane('All')}
+              className="min-h-[44px] min-w-[44px] px-4 py-2 inline-flex items-center justify-center rounded-lg bg-cyan-950/80 border border-cyan-500/40 text-xs font-semibold text-cyan-300 hover:bg-cyan-900/60 transition-colors active:scale-95"
+            >
+              Reset to All Lanes
+            </button>
+          </div>
+        )}
+
+        {!loading && !error && data && totalFilteredHeroes > 0 && (
           <div className="space-y-4">
             {ORDERED_TIERS.map((tier) => (
               <TierSection
@@ -123,3 +166,4 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
     </div>
   );
 };
+

@@ -49,6 +49,34 @@ export const mockMiya: NormalizedHero = {
   synergies: []
 };
 
+export const mockChou: NormalizedHero = {
+  id: 26,
+  name: 'Chou',
+  avatarUrl: 'https://akmweb.youngjoygame.com/web/svnres/img/test/chou.png',
+  roles: ['Fighter'],
+  lanes: ['EXP Lane', 'Roam'],
+  winRate: 0.512,
+  pickRate: 0.035,
+  banRate: 0.082,
+  powerScore: 68.5,
+  tier: 'A',
+  synergies: []
+};
+
+export const mockJulian: NormalizedHero = {
+  id: 115,
+  name: 'Julian',
+  avatarUrl: 'https://akmweb.youngjoygame.com/web/svnres/img/test/julian.png',
+  roles: ['Mage', 'Fighter'],
+  lanes: ['Mid Lane', 'Jungle'],
+  winRate: 0.545,
+  pickRate: 0.021,
+  banRate: 0.254,
+  powerScore: 78.9,
+  tier: 'S',
+  synergies: []
+};
+
 export const mockDataset: TierListDataset = {
   updatedAt: '2026-09-14T14:55:00.629Z',
   patchVersion: '2.1.88',
@@ -56,3 +84,12 @@ export const mockDataset: TierListDataset = {
   timeWindow: '1d',
   heroes: [mockRafaela, mockMiya]
 };
+
+export const mockMultiLaneDataset: TierListDataset = {
+  updatedAt: '2026-09-14T14:55:00.629Z',
+  patchVersion: '2.1.88',
+  rankTier: 'mythic',
+  timeWindow: '1d',
+  heroes: [mockRafaela, mockGloo, mockMiya, mockChou, mockJulian]
+};
+

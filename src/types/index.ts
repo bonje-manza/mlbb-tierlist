@@ -2,6 +2,7 @@ export type RankTier = 'mythic' | 'all';
 export type TimeWindow = '1d' | '7d';
 export type Tier = 'S+' | 'S' | 'A' | 'B' | 'C' | 'D';
 export type Lane = 'Gold Lane' | 'EXP Lane' | 'Mid Lane' | 'Roam' | 'Jungle';
+export type LaneFilter = 'All' | 'Gold' | 'EXP' | 'Mid' | 'Roam' | 'Jungle';
 export type Role = 'Tank' | 'Fighter' | 'Assassin' | 'Mage' | 'Marksman' | 'Support';
 
 export interface SynergyPartner {
