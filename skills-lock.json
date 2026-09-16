@@ -6,6 +6,12 @@
       "sourceType": "github",
       "skillPath": "skills/taste-skill/SKILL.md",
       "computedHash": "899b84384f74f540ea5284d9b2e9234e050998b42eacc805410b518d4226c0b3"
+    },
+    "readme-gen": {
+      "source": "normieg/Readme-gen",
+      "sourceType": "github",
+      "skillPath": "readme-gen/SKILL.md",
+      "computedHash": "fa4f10144d43784d1f885a72d36eb2c357901039610a81e036e3c74ea5024174"
     }
   }
 }
