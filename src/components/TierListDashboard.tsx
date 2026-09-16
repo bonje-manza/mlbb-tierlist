@@ -349,7 +349,7 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
   }, [filteredHeroes, isBanPriority]);
 
   return (
-    <div className="min-h-screen bg-[#0b0f17] text-slate-100 flex flex-col w-full overflow-x-hidden font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="min-h-screen bg-cyber-ground text-slate-100 flex flex-col w-full overflow-x-hidden font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
       <Header
         updatedAt={data?.updatedAt}
         patchVersion={data?.patchVersion}

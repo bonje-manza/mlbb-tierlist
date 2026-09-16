@@ -1,11 +1,5 @@
 import React from 'react';
 
-export interface HeaderProps {
-  updatedAt?: string;
-  patchVersion?: string;
-  title?: string;
-}
-
 export function formatUtcFreshness(isoString?: string): string {
   if (!isoString) return 'Data updated: Pending';
   try {
@@ -64,7 +58,7 @@ export const Header: React.FC<HeaderProps> = ({
   const freshness = getFreshnessStatus(updatedAt);
 
   return (
-    <header className="w-full border-b border-slate-800/80 bg-slate-950/90 backdrop-blur-md px-3 py-2.5 sm:px-6 sticky top-0 z-30">
+    <header className="w-full border-b border-slate-800/80 bg-slate-950/90 backdrop-blur-md px-3 py-2.5 sm:px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-3">
         {/* Brand & Patch Version */}
         <div className="flex items-center justify-between md:justify-start gap-3">

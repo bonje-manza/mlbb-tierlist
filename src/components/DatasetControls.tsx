@@ -110,7 +110,7 @@ export const DatasetControls: React.FC<DatasetControlsProps> = ({
         >
           <div className="flex items-center justify-between leading-none mb-0.5">
             <span className="text-[10px] font-bold uppercase tracking-wider text-purple-300/90 select-none">
-              Period
+              Window
             </span>
             <svg
               className="w-3.5 h-3.5 text-slate-400 shrink-0 pointer-events-none"

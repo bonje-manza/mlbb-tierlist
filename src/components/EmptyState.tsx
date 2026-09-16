@@ -28,7 +28,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
-              strokeWidth="1.75"
+              strokeWidth="2"
               aria-hidden="true"
             >
               <path
@@ -49,7 +49,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
-              strokeWidth="1.75"
+              strokeWidth="2"
               aria-hidden="true"
             >
               <path
