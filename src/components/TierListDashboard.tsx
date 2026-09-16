@@ -349,40 +349,53 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
   }, [filteredHeroes, isBanPriority]);
 
   return (
-    <div className="min-h-screen bg-cyber-ground text-slate-100 flex flex-col w-full overflow-x-hidden font-sans">
+    <div className="min-h-screen bg-[#0b0f17] text-slate-100 flex flex-col w-full overflow-x-hidden font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
       <Header
         updatedAt={data?.updatedAt}
         patchVersion={data?.patchVersion}
       />
-      <DatasetControls
-        rankTier={rankTier}
-        onRankTierChange={(nextRank) => {
-          setRankTier(nextRank);
-          syncUrlAndStorage(nextRank, timeWindow);
-        }}
-        timeWindow={timeWindow}
-        onTimeWindowChange={(nextWindow) => {
-          setTimeWindow(nextWindow);
-          syncUrlAndStorage(rankTier, nextWindow);
-        }}
-        disabled={loading && !data}
-      />
-      <LaneCarousel
-        selectedLane={selectedLane}
-        onSelectLane={setSelectedLane}
-        heroCounts={heroCounts}
-      />
+      {/* Responsive Command & Filter Toolbar */}
+      <div className="sticky top-0 z-20 w-full bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80 shadow-sm">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 py-2 flex flex-col gap-2.5">
+          {/* Controls Bar: Dataset Controls & Draft Search/Ban centered on desktop */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-2.5 sm:gap-4">
+            <DatasetControls
+              rankTier={rankTier}
+              onRankTierChange={(nextRank) => {
+                setRankTier(nextRank);
+                syncUrlAndStorage(nextRank, timeWindow);
+              }}
+              timeWindow={timeWindow}
+              onTimeWindowChange={(nextWindow) => {
+                setTimeWindow(nextWindow);
+                syncUrlAndStorage(rankTier, nextWindow);
+              }}
+              disabled={loading && !data}
+              className="w-full md:w-auto justify-between md:justify-center"
+            />
+            <div className="w-full md:w-72 lg:w-80 shrink-0">
+              <DraftControls
+                searchQuery={searchQuery}
+                onSearchChange={setSearchQuery}
+                isBanPriority={isBanPriority}
+                onToggleBanPriority={() => setIsBanPriority((prev) => !prev)}
+              />
+            </div>
+          </div>
 
-      <DraftControls
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        isBanPriority={isBanPriority}
-        onToggleBanPriority={() => setIsBanPriority((prev) => !prev)}
-      />
+          {/* Lane Selector */}
+          <LaneCarousel
+            selectedLane={selectedLane}
+            onSelectLane={setSelectedLane}
+            heroCounts={heroCounts}
+            className="border-0 bg-transparent p-0 static"
+          />
+        </div>
+      </div>
 
       <main
         aria-busy={loading}
-        className="flex-1 max-w-6xl w-full mx-auto px-2 sm:px-4 py-1.5 sm:py-3"
+        className="flex-1 max-w-7xl w-full mx-auto px-2 sm:px-4 lg:px-6 py-2 sm:py-4"
       >
         {/* Screen-reader announcement of result count */}
         <div aria-live="polite" role="status" className="sr-only">
@@ -473,27 +486,27 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
         {!error && data && filteredHeroes.length > 0 && isBanPriority && (
           <section
             aria-labelledby="ban-priority-heading"
-            className={`relative mb-4 rounded-2xl border border-red-950/60 bg-slate-900/40 p-3 sm:p-4 transition-opacity ${loading ? 'opacity-60 saturate-50 pointer-events-none' : ''}`}
+            className={`relative mb-4 rounded-2xl border border-rose-950/60 bg-slate-900/40 p-3 sm:p-4 shadow-sm transition-opacity ${loading ? 'opacity-60 saturate-50 pointer-events-none' : ''}`}
           >
             <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-slate-800/80">
               <div className="flex items-center gap-2.5">
                 <span
                   id="ban-priority-heading"
-                  className="px-2 py-0.5 rounded-md text-xs font-bold tracking-wider uppercase bg-red-950/60 border border-red-500/30 text-rose-300"
+                  className="px-2.5 py-0.5 rounded-md text-xs font-bold tracking-wider uppercase bg-rose-950/60 border border-rose-500/30 text-rose-300"
                 >
                   BAN
                 </span>
-                <span className="text-xs sm:text-sm font-medium text-slate-300">
+                <span className="text-xs sm:text-sm font-semibold text-slate-200">
                   Ban Priority · Highest Ban Rate
                 </span>
               </div>
-              <span className="text-[11px] font-mono text-slate-400 bg-slate-950/60 px-2.5 py-0.5 rounded-full border border-slate-800">
+              <span className="text-xs font-mono text-slate-400 bg-slate-950/70 px-2.5 py-0.5 rounded-full border border-slate-800">
                 {banSortedHeroes.length} {banSortedHeroes.length === 1 ? 'Hero' : 'Heroes'}
               </span>
             </div>
             <div
               data-testid="ban-priority-grid"
-              className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-1.5 sm:gap-2"
+              className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-1.5 sm:gap-2"
             >
               {banSortedHeroes.map((hero) => (
                 <HeroTile
@@ -511,7 +524,7 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
         {/* Standard Tier Bands View */}
         {!error && data && filteredHeroes.length > 0 && !isBanPriority && (
           <div
-            className={`space-y-0 transition-opacity ${loading ? 'opacity-60 saturate-50 pointer-events-none' : ''}`}
+            className={`flex flex-col gap-3 sm:gap-4 transition-opacity ${loading ? 'opacity-60 saturate-50 pointer-events-none' : ''}`}
           >
             {ORDERED_TIERS.map((tier) =>
               heroesByTier[tier].length > 0 ? (
@@ -522,7 +535,7 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
                   onSelectHero={handleSelectHero}
                 />
               ) : (
-                <div key={tier}>
+                <div key={tier} className="flex flex-col gap-2">
                   <EmptyTierRow
                     tier={tier}
                     expanded={expandedEmptyTiers[tier]}

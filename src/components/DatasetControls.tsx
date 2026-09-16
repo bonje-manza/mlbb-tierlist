@@ -7,6 +7,7 @@ export interface DatasetControlsProps {
   timeWindow: TimeWindow;
   onTimeWindowChange: (window: TimeWindow) => void;
   disabled?: boolean;
+  className?: string;
 }
 
 export interface OptionItem<T extends string> {
@@ -37,6 +38,7 @@ export const DatasetControls: React.FC<DatasetControlsProps> = ({
   timeWindow,
   onTimeWindowChange,
   disabled = false,
+  className = '',
 }) => {
   const currentRankLabel = RANK_OPTIONS.find((opt) => opt.value === rankTier)?.label ?? rankTier;
   const currentTimeLabel = TIME_OPTIONS.find((opt) => opt.value === timeWindow)?.label ?? timeWindow;
@@ -44,7 +46,7 @@ export const DatasetControls: React.FC<DatasetControlsProps> = ({
   return (
     <div
       aria-label="Dataset filters"
-      className="w-full max-w-6xl mx-auto px-2 sm:px-4 py-2 flex items-center justify-between gap-2 sm:gap-4"
+      className={`flex items-center gap-2 sm:gap-3 ${className || 'w-full max-w-7xl mx-auto px-2 sm:px-4 py-1.5 justify-between'}`}
     >
       {/* Rank Tier Card & Select */}
       <div className="relative flex-1 min-w-0">
