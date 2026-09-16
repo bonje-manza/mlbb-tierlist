@@ -349,13 +349,13 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
   }, [filteredHeroes, isBanPriority]);
 
   return (
-    <div className="min-h-screen bg-cyber-ground text-slate-100 flex flex-col w-full overflow-x-hidden font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="min-h-screen bg-cyber-ground text-zinc-100 flex flex-col w-full overflow-x-hidden font-sans selection:bg-zinc-800 selection:text-white">
       <Header
         updatedAt={data?.updatedAt}
         patchVersion={data?.patchVersion}
       />
       {/* Responsive Command & Filter Toolbar */}
-      <div className="sticky top-0 z-20 w-full bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80 shadow-sm">
+      <div className="sticky top-0 z-20 w-full bg-cyber-ground/90 backdrop-blur-md border-b border-cyber-border/80 shadow-xs">
         <div className="max-w-7xl mx-auto px-2 sm:px-4 py-2 flex flex-col gap-2.5">
           {/* Controls Bar: Dataset Controls & Draft Search/Ban centered on desktop */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-2.5 sm:gap-4">
@@ -406,8 +406,8 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
         {/* Initial full-page spinner only when no data is loaded yet */}
         {loading && !data && (
           <div className="flex flex-col items-center justify-center py-20 gap-3">
-            <div className="w-10 h-10 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
-            <p className="text-xs font-mono tracking-widest text-slate-400 uppercase">
+            <div className="w-8 h-8 border-2 border-zinc-400 border-t-transparent rounded-full animate-spin" />
+            <p className="text-xs font-mono font-medium text-zinc-400">
               Loading Meta Telemetry...
             </p>
           </div>
@@ -418,12 +418,12 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
           <>
             <div
               data-testid="dataset-loading-bar"
-              className="h-0.5 w-full bg-cyan-500/60 rounded-full mb-2"
+              className="h-0.5 w-full bg-zinc-600 rounded-full mb-2"
             />
             <div className="flex justify-center mb-2">
               <span
                 role="status"
-                className="text-[11px] font-mono tabular-nums text-slate-400 bg-slate-900/80 border border-slate-800 px-2.5 py-1 rounded-full"
+                className="text-xs font-mono font-medium tabular-nums text-zinc-300 bg-cyber-card border border-cyber-border px-2.5 py-1 rounded-full"
               >
                 Updating to {RANK_LABEL[rankTier]} · {WINDOW_LABEL[timeWindow]}…
               </span>
@@ -432,15 +432,15 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
         )}
 
         {error && !loading && (
-          <div className="my-8 p-4 rounded-xl bg-red-950/40 border border-red-800/60 text-center">
-            <h2 className="text-sm font-semibold text-red-400 mb-2">
+          <div className="my-8 p-4 rounded-xl bg-rose-950/20 border border-rose-900/40 text-center">
+            <h2 className="text-sm font-semibold text-rose-400 mb-2">
               Failed to load tier list telemetry
             </h2>
-            <p className="text-xs font-mono text-slate-400 mb-3">{error}</p>
+            <p className="text-xs font-mono text-zinc-400 mb-3">{error}</p>
             <button
               type="button"
               onClick={() => loadDataset(rankTier, timeWindow)}
-              className="min-h-[44px] min-w-[44px] px-5 py-2 inline-flex items-center justify-center rounded-lg bg-red-800/60 hover:bg-red-700 text-xs font-semibold text-white border border-red-700 transition-colors active:scale-95"
+              className="min-h-[44px] min-w-[44px] px-5 py-2 inline-flex items-center justify-center rounded-lg bg-rose-900/60 hover:bg-rose-800 text-xs font-medium text-white border border-rose-800 transition-colors active:scale-95 cursor-pointer"
             >
               Retry
             </button>
@@ -454,7 +454,7 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
               testId="search-empty-state"
               icon="🔍"
               title={`No heroes found matching "${searchQuery.trim()}"`}
-              description={`Matches found in ${crossLaneLabel} — show all lanes to draft them.`}
+              description={`Matches found in ${crossLaneLabel} - show all lanes to draft them.`}
               actionLabel="Show All Lanes"
               onAction={() => setSelectedLane('All')}
             />
@@ -486,21 +486,21 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
         {!error && data && filteredHeroes.length > 0 && isBanPriority && (
           <section
             aria-labelledby="ban-priority-heading"
-            className={`relative mb-4 rounded-2xl border border-rose-950/60 bg-slate-900/40 p-3 sm:p-4 shadow-sm transition-opacity ${loading ? 'opacity-60 saturate-50 pointer-events-none' : ''}`}
+            className={`relative mb-4 rounded-xl border border-rose-900/30 bg-cyber-card/40 p-3 sm:p-4 shadow-xs transition-opacity ${loading ? 'opacity-60 saturate-50 pointer-events-none' : ''}`}
           >
-            <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-slate-800/80">
+            <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-cyber-border">
               <div className="flex items-center gap-2.5">
                 <span
                   id="ban-priority-heading"
-                  className="px-2.5 py-0.5 rounded-md text-xs font-bold tracking-wider uppercase bg-rose-950/60 border border-rose-500/30 text-rose-300"
+                  className="px-2 py-0.5 rounded text-xs font-mono font-medium bg-rose-950/40 border border-rose-500/30 text-rose-300"
                 >
                   BAN
                 </span>
-                <span className="text-xs sm:text-sm font-semibold text-slate-200">
+                <span className="text-xs sm:text-sm font-medium text-zinc-200">
                   Ban Priority · Highest Ban Rate
                 </span>
               </div>
-              <span className="text-xs font-mono text-slate-400 bg-slate-950/70 px-2.5 py-0.5 rounded-full border border-slate-800">
+              <span className="text-xs font-mono font-medium tabular-nums text-zinc-400 bg-black/60 px-2 py-0.5 rounded border border-zinc-800">
                 {banSortedHeroes.length} {banSortedHeroes.length === 1 ? 'Hero' : 'Heroes'}
               </span>
             </div>

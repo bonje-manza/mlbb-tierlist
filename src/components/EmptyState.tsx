@@ -69,17 +69,17 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
   return (
     <div
       data-testid={testId}
-      className="flex flex-col items-center justify-center py-12 px-4 text-center rounded-2xl bg-slate-900/40 border border-slate-800/80 my-4"
+      className="flex flex-col items-center justify-center py-12 px-4 text-center rounded-xl bg-cyber-card/60 border border-cyber-border my-4 shadow-xs"
     >
-      <div className="w-12 h-12 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-center mb-3.5 text-slate-400 shadow-inner">
+      <div className="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center mb-3 text-zinc-400">
         {renderVisualIcon()}
       </div>
-      <h2 className="text-sm sm:text-base font-bold text-slate-200 mb-1 tracking-tight">{title}</h2>
-      <p className="text-xs sm:text-sm text-slate-400 mb-4 max-w-sm leading-relaxed">{description}</p>
+      <h2 className="text-sm sm:text-base font-medium text-zinc-200 mb-1 tracking-tight">{title}</h2>
+      <p className="text-xs sm:text-sm text-zinc-400 mb-4 max-w-sm leading-relaxed">{description}</p>
       <button
         type="button"
         onClick={onAction}
-        className="min-h-[44px] min-w-[44px] px-5 py-2 inline-flex items-center justify-center rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-xs sm:text-sm font-semibold text-cyan-300 hover:bg-cyan-500/20 hover:border-cyan-400/50 transition-all duration-150 active:scale-95"
+        className="min-h-[44px] min-w-[44px] px-4 py-2 inline-flex items-center justify-center rounded-lg bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-xs sm:text-sm font-medium text-zinc-200 hover:text-white transition-all duration-150 active:scale-95 shadow-xs cursor-pointer"
       >
         {actionLabel}
       </button>

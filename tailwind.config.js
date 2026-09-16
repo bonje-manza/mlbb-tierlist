@@ -6,23 +6,30 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Geist', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+      },
       colors: {
         cyber: {
-          ground: '#0b0f19',
-          card: '#131b2e',
-          surface: '#131b2e',
-          border: '#1e293b',
-          muted: '#94a3b8',
+          ground: '#09090b',
+          card: '#111114',
+          surface: '#141418',
+          elevated: '#1a1a20',
+          border: '#222226',
+          muted: '#a1a1aa',
         },
         tier: {
-          // PRODUCT.md brand commitments: S+ gold/crimson, S vibrant purple,
-          // A cyan, B emerald, C amber, D muted slate.
-          's-plus': '#ff0055',
-          's': '#8b5cf6',
+          's-plus': '#f43f5e',
+          's': '#818cf8',
           'a': '#06b6d4',
           'b': '#10b981',
           'c': '#f59e0b',
-          'd': '#475569',
+          'd': '#52525b',
+        },
+        ban: {
+          maroon: '#881337',
+          rose: '#fda4af',
         },
       },
     },

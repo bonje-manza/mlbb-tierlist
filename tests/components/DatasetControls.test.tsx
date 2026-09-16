@@ -72,6 +72,20 @@ describe('DatasetControls (Full Ladder Dropdowns)', () => {
 
     expect(rankSelect.value).toBe('glory');
     expect(timeSelect.value).toBe('30d');
+    expect(screen.getByTestId('rank-tier-label')).toHaveTextContent('Mythical Glory+');
+  });
+
+  it('renders visible label for Mythical Honor correctly', () => {
+    render(
+      <DatasetControls
+        rankTier="honor"
+        onRankTierChange={vi.fn()}
+        timeWindow="7d"
+        onTimeWindowChange={vi.fn()}
+      />
+    );
+
+    expect(screen.getByTestId('rank-tier-label')).toHaveTextContent('Mythical Honor');
   });
 
   it('calls onRankTierChange when selecting a different rank option', () => {

@@ -65,7 +65,7 @@ export const DraftControls: React.FC<DraftControlsProps> = ({
       {/* Search Input Container */}
       <div className="relative flex-1 flex items-center">
         {/* Search Icon */}
-        <div className="absolute left-3 pointer-events-none flex items-center text-slate-400">
+        <div className="absolute left-3 pointer-events-none flex items-center text-zinc-500">
           <svg
             className="w-4 h-4"
             fill="none"
@@ -88,7 +88,7 @@ export const DraftControls: React.FC<DraftControlsProps> = ({
           onChange={handleInputChange}
           placeholder="Search heroes..."
           aria-label="Search hero by name"
-          className="w-full h-11 pl-9 pr-11 text-xs sm:text-sm rounded-xl bg-slate-900/60 border border-slate-800/80 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-slate-600 focus:ring-1 focus:ring-slate-600 transition-colors"
+          className="w-full h-11 pl-9 pr-11 text-xs sm:text-sm rounded-lg bg-cyber-card border border-cyber-border text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-600 transition-all font-sans"
         />
 
         {/* 1-Tap Clear Button */}
@@ -97,7 +97,7 @@ export const DraftControls: React.FC<DraftControlsProps> = ({
             type="button"
             onClick={handleClear}
             aria-label="Clear search"
-            className="absolute right-0 top-0 bottom-0 min-h-[44px] min-w-[44px] flex items-center justify-center text-slate-400 hover:text-slate-200 transition-colors active:scale-95"
+            className="absolute right-0 top-0 bottom-0 min-h-[44px] min-w-[44px] flex items-center justify-center text-zinc-400 hover:text-zinc-100 transition-colors active:scale-95 cursor-pointer"
           >
             <svg
               className="w-4 h-4"
@@ -123,14 +123,14 @@ export const DraftControls: React.FC<DraftControlsProps> = ({
         onClick={onToggleBanPriority}
         aria-pressed={isBanPriority}
         aria-label="Toggle Ban Priority"
-        className={`min-h-[44px] min-w-[44px] px-3.5 sm:px-4 flex items-center justify-center gap-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-150 select-none border active:scale-95 whitespace-nowrap cursor-pointer ${
+        className={`min-h-[44px] min-w-[44px] px-3.5 sm:px-4 flex items-center justify-center gap-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-150 select-none border active:scale-95 whitespace-nowrap cursor-pointer ${
           isBanPriority
-            ? 'bg-rose-950/50 border-rose-600/60 text-rose-300 shadow-sm shadow-rose-950/50'
-            : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 hover:border-slate-700'
+            ? 'bg-rose-950/40 border-rose-600/40 text-rose-300 shadow-xs'
+            : 'bg-cyber-card border-cyber-border text-zinc-300 hover:text-zinc-100 hover:bg-cyber-hover hover:border-zinc-700'
         }`}
       >
         <svg
-          className={`w-4 h-4 shrink-0 transition-colors ${isBanPriority ? 'text-rose-400' : 'text-slate-400'}`}
+          className={`w-4 h-4 shrink-0 transition-colors ${isBanPriority ? 'text-rose-400' : 'text-zinc-400'}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -147,7 +147,7 @@ export const DraftControls: React.FC<DraftControlsProps> = ({
         {isBanPriority && (
           <span
             data-testid="ban-priority-active-dot"
-            className="w-1.5 h-1.5 rounded-full bg-rose-400 ml-0.5"
+            className="w-1.5 h-1.5 rounded-full bg-rose-500 ml-0.5"
             aria-hidden="true"
           />
         )}

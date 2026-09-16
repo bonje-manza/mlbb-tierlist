@@ -83,7 +83,7 @@ export const LaneCarousel: React.FC<LaneCarouselProps> = ({
   return (
     <nav
       aria-label="Lane selection"
-      className={`sticky top-0 md:static z-20 w-full border-b md:border-b-0 border-slate-800/80 bg-slate-950/90 md:bg-transparent backdrop-blur-md md:backdrop-blur-none px-2 sm:px-4 py-1.5 overflow-x-auto no-scrollbar scroll-smooth ${className}`}
+      className={`sticky top-0 md:static z-20 w-full border-b md:border-b-0 border-cyber-border/80 bg-cyber-ground/90 md:bg-transparent backdrop-blur-md md:backdrop-blur-none px-2 sm:px-4 py-1.5 overflow-x-auto no-scrollbar scroll-smooth ${className}`}
     >
       <div
         role="tablist"
@@ -109,22 +109,24 @@ export const LaneCarousel: React.FC<LaneCarouselProps> = ({
               data-testid={`lane-tab-${lane}`}
               onClick={() => onSelectLane(lane)}
               onKeyDown={(e) => handleKeyDown(e, index)}
-              className={`relative flex items-center justify-center gap-2 min-h-[44px] min-w-[44px] px-3.5 sm:px-4 py-2 rounded-xl font-semibold text-xs sm:text-sm tracking-normal transition-all duration-150 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 active:scale-95 ${
+              className={`relative flex items-center justify-center gap-2 min-h-[44px] min-w-[44px] px-3.5 sm:px-4 py-2 rounded-lg text-xs sm:text-sm select-none cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-zinc-400 active:scale-95 transition-all duration-150 ${
                 isSelected
-                  ? 'bg-slate-800 text-white border border-slate-700 shadow-sm'
-                  : 'bg-slate-900/60 border border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-850 hover:border-slate-700'
+                  ? 'bg-[#222228] text-white border border-[#383842] shadow-xs'
+                  : 'bg-transparent border border-transparent text-zinc-400 hover:text-zinc-200 hover:bg-cyber-card hover:border-cyber-border'
               }`}
             >
-              {LANE_ICONS[lane]}
-              <span>{lane}</span>
+              <span className={isSelected ? 'text-zinc-200' : 'text-zinc-500'}>
+                {LANE_ICONS[lane]}
+              </span>
+              <span className={isSelected ? 'font-medium text-white' : 'font-normal'}>{lane}</span>
 
               {count !== undefined && (
                 <span
                   data-testid={`lane-count-${lane}`}
-                  className={`text-[10px] sm:text-xs font-mono font-medium px-1.5 py-0.5 rounded-md ${
+                  className={`text-[11px] sm:text-xs font-mono font-medium tabular-nums px-1.5 py-0.5 rounded ${
                     isSelected
-                      ? 'bg-slate-950 text-cyan-300 border border-slate-700/80'
-                      : 'bg-slate-950/60 text-slate-500 border border-slate-800/80'
+                      ? 'bg-black/60 text-zinc-200 border border-zinc-700/60'
+                      : 'bg-zinc-900/60 text-zinc-500 border border-zinc-800/80'
                   }`}
                 >
                   {count}
@@ -134,7 +136,7 @@ export const LaneCarousel: React.FC<LaneCarouselProps> = ({
               {isSelected && (
                 <span
                   data-testid={`lane-active-indicator-${lane}`}
-                  className="absolute bottom-0 inset-x-3 h-[2px] rounded-full bg-cyan-400 shadow-sm shadow-cyan-400/50"
+                  className="absolute bottom-0 inset-x-2.5 h-[2px] rounded-full bg-zinc-200 shadow-[0_0_6px_rgba(255,255,255,0.4)]"
                 />
               )}
             </button>
