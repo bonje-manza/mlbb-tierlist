@@ -1,5 +1,13 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import type { Tier, TierListDataset, NormalizedHero, LaneFilter, RankTier, TimeWindow } from '../types/index.ts';
+import type {
+  Tier,
+  TierListDataset,
+  NormalizedHero,
+  LaneFilter,
+  RankTier,
+  TimeWindow,
+  PowerScoreWeights,
+} from '../types/index.ts';
 import { Header } from './Header.tsx';
 import { DatasetControls } from './DatasetControls.tsx';
 import { LaneCarousel } from './LaneCarousel.tsx';
@@ -8,8 +16,15 @@ import { TierSection, EmptyTierRow } from './TierSection.tsx';
 import { HeroTile } from './HeroTile.tsx';
 import { EmptyState } from './EmptyState.tsx';
 import { HeroDetailDrawer } from './HeroDetailDrawer.tsx';
+import { WeightTuningDrawer } from './WeightTuningDrawer.tsx';
 import { filterHeroesByLane, calculateLaneCounts } from '../utils/laneFilter.ts';
 import { filterHeroesBySearch, sortHeroesByBanRate } from '../utils/draftFilter.ts';
+import {
+  DEFAULT_WEIGHTS,
+  computeNormalizedWeights,
+  isDefaultWeights,
+  recalculateHeroPowerScores,
+} from '../utils/scoringEngine.ts';
 
 export type DatasetKey = `${RankTier}-${TimeWindow}`;
 
@@ -44,6 +59,7 @@ export interface TierListDashboardProps {
   dataset?: TierListDataset;
   datasets?: Partial<Record<DatasetKey, TierListDataset>>;
   dataUrl?: string;
+  initialWeights?: PowerScoreWeights;
   onSelectHero?: (hero: NormalizedHero) => void;
 }
 
@@ -101,11 +117,80 @@ export function resolveInitialWindow(initialWindow?: TimeWindow): TimeWindow {
   return '1d';
 }
 
-export function syncUrlAndStorage(rank: RankTier, windowType: TimeWindow) {
+export function resolveInitialWeights(): PowerScoreWeights {
+  if (typeof window !== 'undefined') {
+    const params = new URLSearchParams(window.location.search);
+    const wrStr = params.get('wr');
+    const prStr = params.get('pr');
+    const brStr = params.get('br');
+    const dampenStr = params.get('dampen');
+
+    if (wrStr !== null || prStr !== null || brStr !== null || dampenStr !== null) {
+      const wr =
+        wrStr !== null && !isNaN(Number(wrStr))
+          ? Math.max(0, Math.min(100, Number(wrStr)))
+          : DEFAULT_WEIGHTS.wr;
+      const pr =
+        prStr !== null && !isNaN(Number(prStr))
+          ? Math.max(0, Math.min(100, Number(prStr)))
+          : DEFAULT_WEIGHTS.pr;
+      const br =
+        brStr !== null && !isNaN(Number(brStr))
+          ? Math.max(0, Math.min(100, Number(brStr)))
+          : DEFAULT_WEIGHTS.br;
+      const dampenNiche =
+        dampenStr !== null
+          ? dampenStr !== '0' && dampenStr !== 'false'
+          : DEFAULT_WEIGHTS.dampenNiche;
+      return { wr, pr, br, dampenNiche };
+    }
+
+    try {
+      const stored = localStorage.getItem('mlbb_power_score_weights');
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (
+          typeof parsed === 'object' &&
+          parsed !== null &&
+          typeof parsed.wr === 'number' &&
+          typeof parsed.pr === 'number' &&
+          typeof parsed.br === 'number'
+        ) {
+          return {
+            wr: Math.max(0, Math.min(100, parsed.wr)),
+            pr: Math.max(0, Math.min(100, parsed.pr)),
+            br: Math.max(0, Math.min(100, parsed.br)),
+            dampenNiche:
+              typeof parsed.dampenNiche === 'boolean'
+                ? parsed.dampenNiche
+                : DEFAULT_WEIGHTS.dampenNiche,
+          };
+        }
+      }
+    } catch {
+      // ignore
+    }
+  }
+
+  return DEFAULT_WEIGHTS;
+}
+
+export function syncUrlAndStorage(
+  rank: RankTier,
+  windowType: TimeWindow,
+  weights?: PowerScoreWeights
+) {
   if (typeof window === 'undefined') return;
   try {
     localStorage.setItem('mlbb_tierlist_rank', rank);
     localStorage.setItem('mlbb_tierlist_window', windowType);
+    if (weights) {
+      if (isDefaultWeights(weights)) {
+        localStorage.removeItem('mlbb_power_score_weights');
+      } else {
+        localStorage.setItem('mlbb_power_score_weights', JSON.stringify(weights));
+      }
+    }
   } catch {
     // ignore
   }
@@ -114,6 +199,19 @@ export function syncUrlAndStorage(rank: RankTier, windowType: TimeWindow) {
     const url = new URL(window.location.href);
     url.searchParams.set('rank', rank);
     url.searchParams.set('window', windowType);
+    if (weights) {
+      if (isDefaultWeights(weights)) {
+        url.searchParams.delete('wr');
+        url.searchParams.delete('pr');
+        url.searchParams.delete('br');
+        url.searchParams.delete('dampen');
+      } else {
+        url.searchParams.set('wr', String(weights.wr));
+        url.searchParams.set('pr', String(weights.pr));
+        url.searchParams.set('br', String(weights.br));
+        url.searchParams.set('dampen', weights.dampenNiche ? '1' : '0');
+      }
+    }
     window.history.replaceState(null, '', url.toString());
   } catch {
     // ignore
@@ -124,6 +222,7 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
   dataset: initialDataset,
   datasets,
   dataUrl = '/data/tierlist-mythic-1d.json',
+  initialWeights,
   onSelectHero,
 }) => {
   const [rankTier, setRankTier] = useState<RankTier>(() =>
@@ -132,6 +231,10 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
   const [timeWindow, setTimeWindow] = useState<TimeWindow>(() =>
     resolveInitialWindow(initialDataset?.timeWindow)
   );
+  const [weights, setWeights] = useState<PowerScoreWeights>(() =>
+    initialWeights || resolveInitialWeights()
+  );
+  const [isWeightDrawerOpen, setIsWeightDrawerOpen] = useState<boolean>(false);
 
   const initialKey = getDatasetKey(rankTier, timeWindow);
 
@@ -279,27 +382,45 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
     };
   }, [rankTier, timeWindow]);
 
-  // Synchronize open hero detail drawer when dataset changes
+  // Weight configuration metrics
+  const isCustomWeights = useMemo(() => !isDefaultWeights(weights), [weights]);
+  const normalizedWeights = useMemo(() => computeNormalizedWeights(weights), [weights]);
+  const weightsSummary = useMemo(() => {
+    return `${normalizedWeights.wrPct}% WR · ${normalizedWeights.prPct}% PR · ${normalizedWeights.brPct}% BR${
+      !weights.dampenNiche ? ' · Uncapped' : ''
+    }`;
+  }, [normalizedWeights, weights.dampenNiche]);
+
+  // Recalculate heroes using custom weights (pure in-memory dynamic re-ranking)
+  const activeHeroes = useMemo(() => {
+    if (!data?.heroes) return [];
+    if (!isCustomWeights) {
+      return data.heroes;
+    }
+    return recalculateHeroPowerScores(data.heroes, weights);
+  }, [data?.heroes, weights, isCustomWeights]);
+
+  // Synchronize open hero detail drawer when dataset or weights change
   useEffect(() => {
-    if (selectedHero && data?.heroes) {
-      const updatedHero = data.heroes.find((h) => h.id === selectedHero.id);
+    if (selectedHero && activeHeroes.length > 0) {
+      const updatedHero = activeHeroes.find((h) => h.id === selectedHero.id);
       if (updatedHero && updatedHero !== selectedHero) {
         setSelectedHero(updatedHero);
       }
     }
-  }, [data]);
+  }, [activeHeroes]);
 
   const heroCounts = useMemo(() => {
-    if (!data?.heroes) return undefined;
-    return calculateLaneCounts(data.heroes);
-  }, [data?.heroes]);
+    if (activeHeroes.length === 0) return undefined;
+    return calculateLaneCounts(activeHeroes);
+  }, [activeHeroes]);
 
   // Composition: Lane Filter + Case-insensitive Debounced Search
   const filteredHeroes = useMemo(() => {
-    if (!data?.heroes) return [];
-    const laneFiltered = filterHeroesByLane(data.heroes, selectedLane);
+    if (activeHeroes.length === 0) return [];
+    const laneFiltered = filterHeroesByLane(activeHeroes, selectedLane);
     return filterHeroesBySearch(laneFiltered, searchQuery);
-  }, [data?.heroes, selectedLane, searchQuery]);
+  }, [activeHeroes, selectedLane, searchQuery]);
 
   // When Ban Priority is active, sort all visible heroes strictly by descending banRate
   const banSortedHeroes = useMemo(() => {
@@ -310,11 +431,11 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
   // Cross-lane recovery: heroes matching the search in the full pool
   // but hidden by the active lane filter.
   const crossLaneMatches = useMemo(() => {
-    if (!data?.heroes || searchQuery.trim() === '' || selectedLane === 'All') return [];
-    const poolMatches = filterHeroesBySearch(data.heroes, searchQuery);
+    if (activeHeroes.length === 0 || searchQuery.trim() === '' || selectedLane === 'All') return [];
+    const poolMatches = filterHeroesBySearch(activeHeroes, searchQuery);
     const visibleIds = new Set(filteredHeroes.map((h) => h.id));
     return poolMatches.filter((h) => !visibleIds.has(h.id));
-  }, [data?.heroes, searchQuery, selectedLane, filteredHeroes]);
+  }, [activeHeroes, searchQuery, selectedLane, filteredHeroes]);
 
   const crossLaneLabel = useMemo(() => {
     const lanes = Array.from(new Set(crossLaneMatches.flatMap((h) => h.lanes)));
@@ -360,25 +481,31 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
           {/* Controls Bar: Dataset Controls & Draft Search/Ban centered on desktop */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-2.5 sm:gap-4">
             <DatasetControls
+              className="w-full md:w-auto shrink-0"
               rankTier={rankTier}
               onRankTierChange={(nextRank) => {
                 setRankTier(nextRank);
-                syncUrlAndStorage(nextRank, timeWindow);
+                syncUrlAndStorage(nextRank, timeWindow, weights);
               }}
               timeWindow={timeWindow}
               onTimeWindowChange={(nextWindow) => {
                 setTimeWindow(nextWindow);
-                syncUrlAndStorage(rankTier, nextWindow);
+                syncUrlAndStorage(rankTier, nextWindow, weights);
               }}
-              disabled={loading && !data}
-              className="w-full md:w-auto justify-between md:justify-center"
             />
-            <div className="w-full md:w-72 lg:w-80 shrink-0">
+            <div className="w-full md:max-w-md">
               <DraftControls
                 searchQuery={searchQuery}
                 onSearchChange={setSearchQuery}
                 isBanPriority={isBanPriority}
                 onToggleBanPriority={() => setIsBanPriority((prev) => !prev)}
+                onOpenWeights={() => setIsWeightDrawerOpen(true)}
+                isCustomWeights={isCustomWeights}
+                weightsSummary={weightsSummary}
+                onResetWeights={() => {
+                  setWeights(DEFAULT_WEIGHTS);
+                  syncUrlAndStorage(rankTier, timeWindow, DEFAULT_WEIGHTS);
+                }}
               />
             </div>
           </div>
@@ -463,69 +590,59 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
               testId="search-empty-state"
               icon="🔍"
               title={`No heroes found matching "${searchQuery.trim()}"`}
-              description="Check for typos or reset your search query to restore visible heroes."
+              description="Check your spelling or search by another lane / hero name."
               actionLabel="Reset Search"
               onAction={() => setSearchQuery('')}
             />
           )
         )}
 
-        {/* Empty Lane State (when search is empty but lane has no matching heroes) */}
+        {/* Empty Lane State */}
         {!error && data && filteredHeroes.length === 0 && searchQuery.trim() === '' && (
           <EmptyState
             testId="lane-empty-state"
             icon="🛡️"
             title={`No heroes found in ${selectedLane}`}
-            description="No heroes currently match the selected lane filter."
+            description="Try selecting a different lane or viewing all lanes."
             actionLabel="Reset to All Lanes"
             onAction={() => setSelectedLane('All')}
           />
         )}
 
-        {/* Ban Priority View */}
+        {/* Ban Priority View (Flat Sorted Grid) */}
         {!error && data && filteredHeroes.length > 0 && isBanPriority && (
-          <section
-            aria-labelledby="ban-priority-heading"
-            className={`relative mb-4 rounded-xl border border-rose-900/30 bg-cyber-card/40 p-3 sm:p-4 shadow-xs transition-opacity ${loading ? 'opacity-60 saturate-50 pointer-events-none' : ''}`}
+          <div
+            data-testid="ban-priority-container"
+            className="flex flex-col gap-2.5 animate-fadeIn"
           >
-            <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-cyber-border">
-              <div className="flex items-center gap-2.5">
-                <span
-                  id="ban-priority-heading"
-                  className="px-2 py-0.5 rounded text-xs font-mono font-medium bg-rose-950/40 border border-rose-500/30 text-rose-300"
-                >
-                  BAN
-                </span>
-                <span className="text-xs sm:text-sm font-medium text-zinc-200">
-                  Ban Priority · Highest Ban Rate
-                </span>
-              </div>
-              <span className="text-xs font-mono font-medium tabular-nums text-zinc-400 bg-black/60 px-2 py-0.5 rounded border border-zinc-800">
-                {banSortedHeroes.length} {banSortedHeroes.length === 1 ? 'Hero' : 'Heroes'}
+            <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-cyber-card border border-cyber-border text-xs">
+              <span className="font-semibold text-zinc-200">
+                Draft Ban Priority
+              </span>
+              <span className="font-mono text-zinc-400 tabular-nums">
+                Sorted by Ban Rate (%)
               </span>
             </div>
             <div
               data-testid="ban-priority-grid"
-              className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-1.5 sm:gap-2"
+              className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-2 sm:gap-2.5"
             >
               {banSortedHeroes.map((hero) => (
                 <HeroTile
                   key={hero.id}
                   hero={hero}
                   metric="banRate"
-                  showTierChip
+                  showTierChip={true}
                   onSelect={handleSelectHero}
                 />
               ))}
             </div>
-          </section>
+          </div>
         )}
 
-        {/* Standard Tier Bands View */}
+        {/* Standard Tier Bands View (S+ down to D) */}
         {!error && data && filteredHeroes.length > 0 && !isBanPriority && (
-          <div
-            className={`flex flex-col gap-3 sm:gap-4 transition-opacity ${loading ? 'opacity-60 saturate-50 pointer-events-none' : ''}`}
-          >
+          <div className="flex flex-col gap-4">
             {ORDERED_TIERS.map((tier) =>
               heroesByTier[tier].length > 0 ? (
                 <TierSection
@@ -535,7 +652,7 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
                   onSelectHero={handleSelectHero}
                 />
               ) : (
-                <div key={tier} className="flex flex-col gap-2">
+                <div key={tier} data-testid={`empty-tier-wrapper-${tier}`}>
                   <EmptyTierRow
                     tier={tier}
                     expanded={expandedEmptyTiers[tier]}
@@ -559,10 +676,10 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
       {selectedHero && (
         <HeroDetailDrawer
           hero={selectedHero}
-          heroPool={data?.heroes}
+          heroPool={activeHeroes}
           onClose={() => setSelectedHero(null)}
           onSelectPartner={(partnerHeroId) => {
-            const partner = data?.heroes.find((h) => h.id === partnerHeroId);
+            const partner = activeHeroes.find((h) => h.id === partnerHeroId);
             if (partner) {
               setSelectedHero(partner);
               onSelectHero?.(partner);
@@ -570,6 +687,21 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
           }}
         />
       )}
+
+      {/* Weight Tuning Bottom Sheet Drawer */}
+      <WeightTuningDrawer
+        isOpen={isWeightDrawerOpen}
+        weights={weights}
+        onWeightsChange={(newWeights) => {
+          setWeights(newWeights);
+          syncUrlAndStorage(rankTier, timeWindow, newWeights);
+        }}
+        onClose={() => setIsWeightDrawerOpen(false)}
+        onReset={() => {
+          setWeights(DEFAULT_WEIGHTS);
+          syncUrlAndStorage(rankTier, timeWindow, DEFAULT_WEIGHTS);
+        }}
+      />
     </div>
   );
 };

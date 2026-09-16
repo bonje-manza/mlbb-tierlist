@@ -12,6 +12,15 @@ export interface SynergyPartner {
   winRateDelta: number; // e.g. 0.0637 (+6.37%)
 }
 
+export interface PowerScoreWeights {
+  wr: number; // 0 - 100
+  pr: number; // 0 - 100
+  br: number; // 0 - 100
+  dampenNiche: boolean; // default true
+}
+
+export type WeightPresetKey = 'default' | 'pure_winrate' | 'ban_priority' | 'popularity';
+
 export interface NormalizedHero {
   id: number;
   name: string;

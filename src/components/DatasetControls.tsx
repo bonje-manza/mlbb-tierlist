@@ -46,10 +46,10 @@ export const DatasetControls: React.FC<DatasetControlsProps> = ({
   return (
     <div
       aria-label="Dataset filters"
-      className={`flex items-center gap-2 sm:gap-3 ${className || 'w-full max-w-7xl mx-auto px-2 sm:px-4 py-1.5 justify-between'}`}
+      className={`flex items-center gap-2 sm:gap-2.5 w-full sm:w-auto ${className}`}
     >
       {/* Rank Tier Card & Select */}
-      <div className="relative flex-[1.2] sm:flex-initial sm:w-48 md:w-52 min-w-0">
+      <div className="relative flex-1 sm:flex-initial sm:w-44 md:w-48 min-w-0">
         <label htmlFor="rank-tier-select" className="sr-only">
           Rank Tier
         </label>

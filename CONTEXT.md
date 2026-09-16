@@ -13,6 +13,9 @@ This document defines the core domain concepts, glossary, architecture boundarie
 * **Ban Rate (`BR`)**: The percentage of draft-pick ranked matches where the hero was banned during the banning phase: $\text{BR} \in [0.0, 1.0]$.
 * **Synergy / Sub-Hero**: Pairwise hero relationship telemetry provided by Moonton GMS (`data.sub_hero`), measuring the increase in win rate (`increase_win_rate`) when two specific heroes are on the same team.
 * **Power Score**: The composite scalar index ($\in [0, 100]$) calculated from min-max normalized Win Rate (50%), Pick Rate (25%), and Ban Rate (25%), used to rank heroes into tiers.
+* **Power Score Weights**: The relative weighting factors $(W_{\text{WR}}, W_{\text{PR}}, W_{\text{BR}})$ applied to normalized hero telemetry ($w_i \in [0.0, 1.0]$, summing to $1.0$). Default: $0.50 \text{ WR}, 0.25 \text{ PR}, 0.25 \text{ BR}$.
+* **Custom Power Score**: A power score calculated on the client using user-modified weights rather than default baseline weights.
+* **Weight Preset**: A pre-packaged set of weights tailored to specific competitive lenses (e.g. Balanced Default, Pure Win Rate, Ban Priority / Tournament, High Popularity).
 * **Tier Bucket**: Discrete qualitative competitive classification assigned by Power Score:
   * **S+ Tier (God Tier / Must Pick or Ban)**: $\text{PowerScore} \ge 85$
   * **S Tier (Top Meta / High Priority)**: $75 \le \text{PowerScore} < 85$
@@ -80,9 +83,10 @@ This document defines the core domain concepts, glossary, architecture boundarie
 
 1. **Client Isolation**: The browser application must NEVER make direct network calls to `api.gms.moontontech.com` or third-party APIs. All telemetry is pre-compiled into static JSON build artifacts.
 2. **Upstream Courtesy**: Scheduled cron ingestion runs at most twice daily. Upstream GMS recalculates data only once every 24 hours.
-3. **Niche Pick Dampening**: A hero with Pick Rate $< 0.5\%$ cannot enter S+ Tier, even if their win rate is high.
+3. **Niche Pick Dampening**: By default, a hero with Pick Rate $< 0.5\%$ cannot enter S+ Tier and is capped at B Tier. Users may explicitly toggle this rule when customizing power score weights (ADR 0005).
 4. **Lane Fidelity**: Lane classifications must be sourced from canonical hero metadata (`en_hero_list.json`). Flex picks appear in all assigned lanes.
 5. **Data Freshness Disclosure**: The mobile UI must always render the UTC timestamp of the underlying data snapshot (`Data updated: YYYY-MM-DD HH:mm UTC`).
+6. **Deterministic Dynamic Recalculation**: Client-side weight modifications must dynamically recalculate Power Score across all active heroes using Min-Max normalized values derived from the active dataset pool without external network requests (ADR 0005).
 
 ---
 
@@ -91,4 +95,5 @@ This document defines the core domain concepts, glossary, architecture boundarie
 * [ADR 0002: Composite Power Score & Tier Assignment Formula](docs/adr/0002-composite-power-score-and-tier-assignment-formula.md)
 * [ADR 0003: Mobile Web Draft UX & Filter Taxonomy](docs/adr/0003-mobile-web-draft-ux-and-filter-taxonomy.md)
 * [ADR 0004: Full Ladder Rank & Multi-Window Telemetry Ingestion and UI Controls](docs/adr/0004-full-ladder-rank-and-multi-window-telemetry.md)
+* [ADR 0005: Client-Side Custom Power Score Weighting & Presets](docs/adr/0005-custom-power-score-weighting.md)
 
