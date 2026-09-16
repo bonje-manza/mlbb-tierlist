@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, waitFor, fireEvent, act, within } from '@testing-library/react';
 import React from 'react';
 import { TierListDashboard } from '../../src/components/TierListDashboard.tsx';
@@ -13,6 +13,10 @@ import {
 } from './mockHeroes.ts';
 
 describe('TierListDashboard', () => {
+  beforeEach(() => {
+    localStorage.clear();
+    window.history.replaceState(null, '', '/');
+  });
   describe('Core Dashboard (Seam 1)', () => {
     it('renders header with dynamic UTC freshness and patch version from dataset prop', () => {
       render(<TierListDashboard dataset={mockDataset} />);
@@ -394,16 +398,16 @@ describe('TierListDashboard', () => {
     });
   });
 
-  describe('Rank & Time Toggles and Multi-Dataset Management (Seam 5)', () => {
+  describe('Rank & Time Dropdowns and Multi-Dataset Management (Seam 5)', () => {
     it('renders DatasetControls with default Mythic and 1 Day selected', () => {
       render(<TierListDashboard dataset={mockMythic1dDataset} />);
-      const mythicRadio = screen.getByRole('radio', { name: /mythic/i });
-      const oneDayRadio = screen.getByRole('radio', { name: /1 day/i });
-      expect(mythicRadio).toHaveAttribute('aria-checked', 'true');
-      expect(oneDayRadio).toHaveAttribute('aria-checked', 'true');
+      const rankSelect = screen.getByRole('combobox', { name: /rank tier/i });
+      const timeSelect = screen.getByRole('combobox', { name: /time window/i });
+      expect(rankSelect).toHaveValue('mythic');
+      expect(timeSelect).toHaveValue('1d');
     });
 
-    it('switches to All Ranks dataset in-memory when clicking All Ranks', () => {
+    it('switches to All Ranks dataset in-memory when selecting All Ranks', () => {
       render(
         <TierListDashboard
           datasets={{
@@ -417,15 +421,17 @@ describe('TierListDashboard', () => {
       expect(screen.getByTestId('tier-grid-S+')).toHaveTextContent('Rafaela');
       expect(screen.getByTestId('tier-grid-A')).toHaveTextContent('Miya');
 
-      // Click All Ranks
-      fireEvent.click(screen.getByRole('radio', { name: /all ranks/i }));
+      // Select All Ranks
+      fireEvent.change(screen.getByRole('combobox', { name: /rank tier/i }), {
+        target: { value: 'all' }
+      });
 
       // Now all-1d: Miya is S (79.5), Rafaela is A (64.0)
       expect(screen.getByTestId('tier-grid-S')).toHaveTextContent('Miya');
       expect(screen.getByTestId('tier-grid-A')).toHaveTextContent('Rafaela');
     });
 
-    it('switches to 7 Days dataset in-memory when clicking 7 Days', () => {
+    it('switches to 7 Days dataset in-memory when selecting 7 Days', () => {
       render(
         <TierListDashboard
           datasets={{
@@ -438,8 +444,10 @@ describe('TierListDashboard', () => {
       // Initially mythic 1d: Rafaela WR is 57.95% (in tile badge: 58.0%)
       expect(screen.getByText('58.0%')).toBeInTheDocument();
 
-      // Click 7 Days
-      fireEvent.click(screen.getByRole('radio', { name: /7 days/i }));
+      // Select 7 Days
+      fireEvent.change(screen.getByRole('combobox', { name: /time window/i }), {
+        target: { value: '7d' }
+      });
 
       // Now mythic 7d: Rafaela WR is 56.20% (in tile badge: 56.2%)
       expect(screen.getByText('56.2%')).toBeInTheDocument();
@@ -461,7 +469,9 @@ describe('TierListDashboard', () => {
       expect(screen.queryByText('Rafaela')).not.toBeInTheDocument();
 
       // Switch rank to All Ranks
-      fireEvent.click(screen.getByRole('radio', { name: /all ranks/i }));
+      fireEvent.change(screen.getByRole('combobox', { name: /rank tier/i }), {
+        target: { value: 'all' }
+      });
 
       // Lane filter remains active: Gold Lane still selected, Miya still shown, Rafaela still excluded
       expect(screen.getByTestId('lane-tab-Gold')).toHaveAttribute('aria-selected', 'true');
@@ -490,7 +500,9 @@ describe('TierListDashboard', () => {
       expect(screen.queryByText('Miya')).not.toBeInTheDocument();
 
       // Switch to 7 Days
-      fireEvent.click(screen.getByRole('radio', { name: /7 days/i }));
+      fireEvent.change(screen.getByRole('combobox', { name: /time window/i }), {
+        target: { value: '7d' }
+      });
 
       // Search remains active
       expect(screen.getByRole('textbox', { name: /search hero/i })).toHaveValue('Chou');
@@ -516,7 +528,9 @@ describe('TierListDashboard', () => {
       expect(screen.getByText('A TIER')).toBeInTheDocument();
 
       // Toggle to All Ranks while drawer is open
-      fireEvent.click(screen.getByRole('radio', { name: /all ranks/i }));
+      fireEvent.change(screen.getByRole('combobox', { name: /rank tier/i }), {
+        target: { value: 'all' }
+      });
 
       // Drawer stays open and updates to All Ranks Miya (WR 55.60%, Tier S)
       expect(screen.getByRole('dialog')).toBeInTheDocument();
@@ -535,7 +549,9 @@ describe('TierListDashboard', () => {
       render(<TierListDashboard dataset={mockMythic1dDataset} />);
 
       // Switch to All Ranks (uncached)
-      fireEvent.click(screen.getByRole('radio', { name: /all ranks/i }));
+      fireEvent.change(screen.getByRole('combobox', { name: /rank tier/i }), {
+        target: { value: 'all' }
+      });
 
       await waitFor(() => {
         expect(screen.getByTestId('tier-grid-S')).toHaveTextContent('Miya');
@@ -559,7 +575,9 @@ describe('TierListDashboard', () => {
       expect(screen.getByText('Rafaela')).toBeInTheDocument();
 
       // Switch to All Ranks (uncached)
-      fireEvent.click(screen.getByRole('radio', { name: /all ranks/i }));
+      fireEvent.change(screen.getByRole('combobox', { name: /rank tier/i }), {
+        target: { value: 'all' }
+      });
 
       // Hero grid remains mounted (no full-page spinner unmounting heroes)
       expect(screen.getByText('Rafaela')).toBeInTheDocument();
@@ -590,9 +608,13 @@ describe('TierListDashboard', () => {
 
       render(<TierListDashboard dataset={mockMythic1dDataset} />);
 
-      // Rapidly click All Ranks then 7 Days
-      fireEvent.click(screen.getByRole('radio', { name: /all ranks/i }));
-      fireEvent.click(screen.getByRole('radio', { name: /7 days/i }));
+      // Rapidly select All Ranks then 7 Days
+      fireEvent.change(screen.getByRole('combobox', { name: /rank tier/i }), {
+        target: { value: 'all' }
+      });
+      fireEvent.change(screen.getByRole('combobox', { name: /time window/i }), {
+        target: { value: '7d' }
+      });
 
       await waitFor(() => {
         expect(screen.getByText('56.2%')).toBeInTheDocument(); // Mythic 7d
@@ -606,5 +628,30 @@ describe('TierListDashboard', () => {
 
       fetchSpy.mockRestore();
     });
+
+    it('synchronizes selected rank and window to URL search params and localStorage', () => {
+      const replaceStateSpy = vi.spyOn(window.history, 'replaceState');
+      render(
+        <TierListDashboard
+          datasets={{
+            'mythic-1d': mockMythic1dDataset,
+            'glory-30d': { ...mockMythic1dDataset, rankTier: 'glory', timeWindow: '30d' }
+          }}
+        />
+      );
+
+      fireEvent.change(screen.getByRole('combobox', { name: /rank tier/i }), {
+        target: { value: 'glory' }
+      });
+      fireEvent.change(screen.getByRole('combobox', { name: /time window/i }), {
+        target: { value: '30d' }
+      });
+
+      expect(localStorage.getItem('mlbb_tierlist_rank')).toBe('glory');
+      expect(localStorage.getItem('mlbb_tierlist_window')).toBe('30d');
+      expect(replaceStateSpy).toHaveBeenCalled();
+      replaceStateSpy.mockRestore();
+    });
   });
 });
+

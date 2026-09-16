@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import type { RankTier, TimeWindow } from '../types/index.ts';
 
 export interface DatasetControlsProps {
@@ -7,114 +7,29 @@ export interface DatasetControlsProps {
   timeWindow: TimeWindow;
   onTimeWindowChange: (window: TimeWindow) => void;
   disabled?: boolean;
+  className?: string;
 }
 
-interface SegmentOption<T extends string> {
+export interface OptionItem<T extends string> {
   value: T;
   label: string;
 }
 
-interface SegmentGroupProps<T extends string> {
-  groupLabel: string;
-  options: SegmentOption<T>[];
-  selectedValue: T;
-  onChange: (val: T) => void;
-  disabled?: boolean;
-  activeColorTheme: 'cyan' | 'purple';
-  title?: string;
-  describedBy?: string;
-}
-
-function SegmentGroup<T extends string>({
-  groupLabel,
-  options,
-  selectedValue,
-  onChange,
-  disabled = false,
-  activeColorTheme,
-  title,
-  describedBy,
-}: SegmentGroupProps<T>) {
-  const activeStyle =
-    activeColorTheme === 'cyan'
-      ? 'bg-slate-800 text-cyan-400 border-slate-700/80 shadow-none'
-      : 'bg-slate-800 text-purple-300 border-slate-700/80 shadow-none';
-
-  const optionRefs = useRef<Array<HTMLButtonElement | null>>([]);
-
-  const handleKeyDown = (e: React.KeyboardEvent, currentIndex: number) => {
-    let nextIndex: number | null = null;
-
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-      nextIndex = (currentIndex + 1) % options.length;
-    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-      nextIndex = (currentIndex - 1 + options.length) % options.length;
-    } else if (e.key === 'Home') {
-      nextIndex = 0;
-    } else if (e.key === 'End') {
-      nextIndex = options.length - 1;
-    }
-
-    if (nextIndex !== null) {
-      e.preventDefault();
-      const next = options[nextIndex];
-      if (!disabled && next.value !== selectedValue) {
-        onChange(next.value);
-      }
-      optionRefs.current[nextIndex]?.focus();
-    }
-  };
-
-  return (
-    <div
-      role="radiogroup"
-      aria-label={groupLabel}
-      aria-describedby={describedBy}
-      title={title}
-      className="inline-flex p-0.5 rounded-xl bg-cyber-card/60 border border-cyber-border"
-    >
-      {options.map(({ value, label }, index) => {
-        const isSelected = selectedValue === value;
-        return (
-          <button
-            key={value}
-            ref={(el) => {
-              optionRefs.current[index] = el;
-            }}
-            type="button"
-            role="radio"
-            aria-checked={isSelected}
-            aria-label={label}
-            tabIndex={isSelected ? 0 : -1}
-            disabled={disabled}
-            onClick={() => {
-              if (!disabled && !isSelected) {
-                onChange(value);
-              }
-            }}
-            onKeyDown={(e) => handleKeyDown(e, index)}
-            className={`min-h-[44px] min-w-[44px] px-3 sm:px-4 py-2 rounded-lg text-xs font-bold transition-all duration-150 select-none flex items-center justify-center border ${
-              isSelected
-                ? activeStyle
-                : 'text-slate-400 hover:text-slate-200 border-transparent active:scale-95'
-            } ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
-          >
-            <span>{label}</span>
-          </button>
-        );
-      })}
-    </div>
-  );
-}
-
-const RANK_OPTIONS: SegmentOption<RankTier>[] = [
-  { value: 'mythic', label: 'Mythic' },
+export const RANK_OPTIONS: OptionItem<RankTier>[] = [
   { value: 'all', label: 'All Ranks' },
+  { value: 'epic', label: 'Epic' },
+  { value: 'legend', label: 'Legend' },
+  { value: 'mythic', label: 'Mythic' },
+  { value: 'honor', label: 'Mythical Honor' },
+  { value: 'glory', label: 'Mythical Glory+' },
 ];
 
-const TIME_OPTIONS: SegmentOption<TimeWindow>[] = [
-  { value: '1d', label: '1 Day' },
-  { value: '7d', label: '7 Days' },
+export const TIME_OPTIONS: OptionItem<TimeWindow>[] = [
+  { value: '1d', label: 'Past 1 Day' },
+  { value: '3d', label: 'Past 3 Days' },
+  { value: '7d', label: 'Past 7 Days' },
+  { value: '15d', label: 'Past 15 Days' },
+  { value: '30d', label: 'Past 30 Days' },
 ];
 
 export const DatasetControls: React.FC<DatasetControlsProps> = ({
@@ -123,39 +38,111 @@ export const DatasetControls: React.FC<DatasetControlsProps> = ({
   timeWindow,
   onTimeWindowChange,
   disabled = false,
+  className = '',
 }) => {
+  const currentRankLabel = RANK_OPTIONS.find((opt) => opt.value === rankTier)?.label ?? rankTier;
+  const currentTimeLabel = TIME_OPTIONS.find((opt) => opt.value === timeWindow)?.label ?? timeWindow;
+
   return (
     <div
       aria-label="Dataset filters"
-      className="w-full max-w-6xl mx-auto px-2 sm:px-4 py-1.5 flex items-center justify-between gap-2"
+      className={`flex items-center gap-2 sm:gap-3 ${className || 'w-full max-w-7xl mx-auto px-2 sm:px-4 py-1.5 justify-between'}`}
     >
-      <SegmentGroup<RankTier>
-        groupLabel="Rank Tier"
-        options={RANK_OPTIONS}
-        selectedValue={rankTier}
-        onChange={onRankTierChange}
-        disabled={disabled}
-        activeColorTheme="cyan"
-        title="Mythic: top-rank meta. All Ranks: every tier blended."
-        describedBy="rank-tier-hint"
-      />
+      {/* Rank Tier Card & Select */}
+      <div className="relative flex-1 min-w-0">
+        <label htmlFor="rank-tier-select" className="sr-only">
+          Rank Tier
+        </label>
+        <div
+          className={`w-full min-h-[46px] px-3 py-1.5 rounded-xl bg-slate-900/90 border transition-all flex flex-col justify-center shadow-sm relative ${
+            disabled
+              ? 'opacity-50 border-slate-800 cursor-not-allowed'
+              : 'hover:bg-slate-800/90 border-slate-700/80 hover:border-cyan-500/50 focus-within:ring-2 focus-within:ring-cyan-500/50 focus-within:border-cyan-500 cursor-pointer'
+          }`}
+        >
+          <div className="flex items-center justify-between leading-none mb-0.5">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400/90 select-none">
+              Rank
+            </span>
+            <svg
+              className="w-3.5 h-3.5 text-slate-400 shrink-0 pointer-events-none"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+          <span className="text-xs sm:text-sm font-semibold text-slate-100 truncate leading-tight select-none pr-3">
+            {currentRankLabel}
+          </span>
+        </div>
 
-      <SegmentGroup<TimeWindow>
-        groupLabel="Time Window"
-        options={TIME_OPTIONS}
-        selectedValue={timeWindow}
-        onChange={onTimeWindowChange}
-        disabled={disabled}
-        activeColorTheme="purple"
-        title="1 Day: volatile daily meta. 7 Days: stable weekly trend."
-        describedBy="time-window-hint"
-      />
-      <p id="rank-tier-hint" className="sr-only">
-        Mythic shows the top-rank meta. All Ranks blends every tier.
-      </p>
-      <p id="time-window-hint" className="sr-only">
-        1 Day captures the volatile daily meta. 7 Days shows the stable weekly trend.
-      </p>
+        <select
+          id="rank-tier-select"
+          data-testid="rank-tier-select"
+          value={rankTier}
+          onChange={(e) => onRankTierChange(e.target.value as RankTier)}
+          disabled={disabled}
+          aria-label="Rank Tier"
+          className="absolute inset-0 w-full h-full min-h-[44px] min-w-[44px] opacity-0 cursor-pointer disabled:cursor-not-allowed"
+        >
+          {RANK_OPTIONS.map((opt) => (
+            <option key={opt.value} value={opt.value} className="bg-slate-900 text-slate-100 py-1">
+              {opt.label}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Time Window Card & Select */}
+      <div className="relative flex-1 min-w-0">
+        <label htmlFor="time-window-select" className="sr-only">
+          Time Window
+        </label>
+        <div
+          className={`w-full min-h-[46px] px-3 py-1.5 rounded-xl bg-slate-900/90 border transition-all flex flex-col justify-center shadow-sm relative ${
+            disabled
+              ? 'opacity-50 border-slate-800 cursor-not-allowed'
+              : 'hover:bg-slate-800/90 border-slate-700/80 hover:border-purple-500/50 focus-within:ring-2 focus-within:ring-purple-500/50 focus-within:border-purple-500 cursor-pointer'
+          }`}
+        >
+          <div className="flex items-center justify-between leading-none mb-0.5">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-purple-300/90 select-none">
+              Window
+            </span>
+            <svg
+              className="w-3.5 h-3.5 text-slate-400 shrink-0 pointer-events-none"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+          <span className="text-xs sm:text-sm font-semibold text-slate-100 truncate leading-tight select-none pr-3">
+            {currentTimeLabel}
+          </span>
+        </div>
+
+        <select
+          id="time-window-select"
+          data-testid="time-window-select"
+          value={timeWindow}
+          onChange={(e) => onTimeWindowChange(e.target.value as TimeWindow)}
+          disabled={disabled}
+          aria-label="Time Window"
+          className="absolute inset-0 w-full h-full min-h-[44px] min-w-[44px] opacity-0 cursor-pointer disabled:cursor-not-allowed"
+        >
+          {TIME_OPTIONS.map((opt) => (
+            <option key={opt.value} value={opt.value} className="bg-slate-900 text-slate-100 py-1">
+              {opt.label}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 };

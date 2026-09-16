@@ -1,11 +1,5 @@
 import React from 'react';
 
-export interface HeaderProps {
-  updatedAt?: string;
-  patchVersion?: string;
-  title?: string;
-}
-
 export function formatUtcFreshness(isoString?: string): string {
   if (!isoString) return 'Data updated: Pending';
   try {
@@ -49,52 +43,76 @@ const FRESHNESS_DOT: Record<FreshnessTone, string> = {
   stale: 'bg-amber-400',
 };
 
+export interface HeaderProps {
+  updatedAt?: string;
+  patchVersion?: string;
+  title?: string;
+  children?: React.ReactNode;
+}
+
 export const Header: React.FC<HeaderProps> = ({
   updatedAt,
   patchVersion,
+  children,
 }) => {
   const freshness = getFreshnessStatus(updatedAt);
 
   return (
-    <header className="w-full border-b border-cyber-border bg-cyber-ground/95 backdrop-blur-md px-3 py-2 sm:px-6">
-      <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
-        {/* Title & Brand */}
-        <div className="flex items-center gap-2.5">
-          <div className="relative flex items-center justify-center w-7 h-7 rounded-lg bg-slate-800/90 border border-slate-700/60">
-            <span className="text-xs font-bold tracking-tighter text-slate-300">M</span>
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <h1 className="text-sm sm:text-base font-bold tracking-tight text-slate-100 leading-none">
-                MLBB HERO TIER LIST
-              </h1>
-              <span
-                data-testid="patch-version-tag"
-                className="text-[10px] sm:text-[11px] font-mono font-medium tabular-nums px-2 py-0.5 rounded-full bg-slate-900 text-slate-400 border border-slate-800"
+    <header className="w-full border-b border-slate-800/80 bg-slate-950/90 backdrop-blur-md px-3 py-2.5 sm:px-6">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        {/* Brand & Patch Version */}
+        <div className="flex items-center justify-between md:justify-start gap-3">
+          {/* Patch and Title details */}
+          <div className="flex items-center gap-3">
+            {/* Esports Radar Emblem */}
+            <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500/20 via-slate-800 to-slate-900 border border-cyan-500/30 text-cyan-400 shadow-sm shadow-cyan-950/40 shrink-0">
+              <svg
+                className="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                aria-hidden="true"
               >
-                {patchVersion ? `Patch ${patchVersion}` : 'Patch --'}
-              </span>
+                <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                <polyline points="2 17 12 22 22 17" />
+                <polyline points="2 12 12 17 22 12" />
+              </svg>
             </div>
-            <p className="text-[10px] sm:text-[11px] font-normal text-slate-400 leading-tight mt-0.5 hidden sm:block">
-              Empirical Moonton GMS Telemetry & Composite Power Score
-            </p>
+            <div>
+              <div className="flex items-center gap-2">
+                <h1 className="text-sm sm:text-base font-black tracking-tight text-white uppercase leading-none">
+                  MLBB Meta Radar
+                </h1>
+                <span
+                  data-testid="patch-version-tag"
+                  className="text-[10px] sm:text-xs font-mono font-semibold tabular-nums px-2 py-0.5 rounded-full bg-slate-900 text-cyan-300 border border-slate-800 shadow-sm"
+                >
+                  {patchVersion ? `Patch ${patchVersion}` : 'Patch --'}
+                </span>
+              </div>
+              <p className="text-[11px] font-medium text-slate-400 leading-tight mt-0.5 hidden sm:block">
+                Moonton GMS Telemetry & Composite Power Score
+              </p>
+            </div>
           </div>
-        </div>
 
-        {/* Data Freshness Badge */}
-        <div className="flex items-center text-right">
-          <span
-            data-testid="data-freshness-badge"
-            title={
-              freshness.tone === 'fresh'
-                ? 'Telemetry is current.'
-                : 'Telemetry may be stale — last successful sync shown.'
-            }
-            className="text-[10px] sm:text-[11px] font-mono tabular-nums text-slate-400 flex items-center gap-1.5 bg-slate-900/60 px-2.5 py-1 rounded-lg border border-slate-800/80"
-          >
-            <span className={`w-1.5 h-1.5 rounded-full ${FRESHNESS_DOT[freshness.tone]} opacity-80`} />
-            {freshness.text}
-          </span>
+          {/* Right Side: Optional Children + Single Responsive Freshness Badge */}
+          <div className="flex items-center gap-3">
+            {children}
+            <span
+              data-testid="data-freshness-badge"
+              title={
+                freshness.tone === 'fresh'
+                  ? 'Telemetry is current.'
+                  : 'Telemetry may be stale — last successful sync shown.'
+              }
+              className="text-[10px] sm:text-xs font-mono tabular-nums text-slate-400 flex items-center gap-1.5 sm:gap-2 bg-slate-900/80 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl border border-slate-800 shrink-0"
+            >
+              <span className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full ${FRESHNESS_DOT[freshness.tone]} opacity-90`} />
+              {freshness.text}
+            </span>
+          </div>
         </div>
       </div>
     </header>

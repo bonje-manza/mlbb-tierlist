@@ -1,5 +1,5 @@
-export type RankTier = 'mythic' | 'all';
-export type TimeWindow = '1d' | '7d';
+export type RankTier = 'all' | 'epic' | 'legend' | 'mythic' | 'honor' | 'glory';
+export type TimeWindow = '1d' | '3d' | '7d' | '15d' | '30d';
 export type Tier = 'S+' | 'S' | 'A' | 'B' | 'C' | 'D';
 export type Lane = 'Gold Lane' | 'EXP Lane' | 'Mid Lane' | 'Roam' | 'Jungle';
 export type LaneFilter = 'All' | 'Gold' | 'EXP' | 'Mid' | 'Roam' | 'Jungle';
