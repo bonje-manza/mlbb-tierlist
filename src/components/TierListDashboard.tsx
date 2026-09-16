@@ -49,15 +49,76 @@ export interface TierListDashboardProps {
 
 const ORDERED_TIERS: Tier[] = ['S+', 'S', 'A', 'B', 'C', 'D'];
 
-const RANK_LABEL: Record<RankTier, string> = {
-  mythic: 'Mythic',
+export const RANK_LABEL: Record<RankTier, string> = {
   all: 'All Ranks',
+  epic: 'Epic',
+  legend: 'Legend',
+  mythic: 'Mythic',
+  honor: 'Mythical Honor',
+  glory: 'Mythical Glory+',
 };
 
-const WINDOW_LABEL: Record<TimeWindow, string> = {
+export const WINDOW_LABEL: Record<TimeWindow, string> = {
   '1d': '1 Day',
+  '3d': '3 Days',
   '7d': '7 Days',
+  '15d': '15 Days',
+  '30d': '30 Days',
 };
+
+const VALID_RANKS: RankTier[] = ['all', 'epic', 'legend', 'mythic', 'honor', 'glory'];
+const VALID_WINDOWS: TimeWindow[] = ['1d', '3d', '7d', '15d', '30d'];
+
+export function resolveInitialRank(initialRank?: RankTier): RankTier {
+  if (initialRank && VALID_RANKS.includes(initialRank)) return initialRank;
+  if (typeof window !== 'undefined') {
+    const params = new URLSearchParams(window.location.search);
+    const urlRank = params.get('rank') as RankTier;
+    if (urlRank && VALID_RANKS.includes(urlRank)) return urlRank;
+    try {
+      const storedRank = localStorage.getItem('mlbb_tierlist_rank') as RankTier;
+      if (storedRank && VALID_RANKS.includes(storedRank)) return storedRank;
+    } catch {
+      // ignore
+    }
+  }
+  return 'mythic';
+}
+
+export function resolveInitialWindow(initialWindow?: TimeWindow): TimeWindow {
+  if (initialWindow && VALID_WINDOWS.includes(initialWindow)) return initialWindow;
+  if (typeof window !== 'undefined') {
+    const params = new URLSearchParams(window.location.search);
+    const urlWindow = params.get('window') as TimeWindow;
+    if (urlWindow && VALID_WINDOWS.includes(urlWindow)) return urlWindow;
+    try {
+      const storedWindow = localStorage.getItem('mlbb_tierlist_window') as TimeWindow;
+      if (storedWindow && VALID_WINDOWS.includes(storedWindow)) return storedWindow;
+    } catch {
+      // ignore
+    }
+  }
+  return '1d';
+}
+
+export function syncUrlAndStorage(rank: RankTier, windowType: TimeWindow) {
+  if (typeof window === 'undefined') return;
+  try {
+    localStorage.setItem('mlbb_tierlist_rank', rank);
+    localStorage.setItem('mlbb_tierlist_window', windowType);
+  } catch {
+    // ignore
+  }
+
+  try {
+    const url = new URL(window.location.href);
+    url.searchParams.set('rank', rank);
+    url.searchParams.set('window', windowType);
+    window.history.replaceState(null, '', url.toString());
+  } catch {
+    // ignore
+  }
+}
 
 export const TierListDashboard: React.FC<TierListDashboardProps> = ({
   dataset: initialDataset,
@@ -65,17 +126,14 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
   dataUrl = '/data/tierlist-mythic-1d.json',
   onSelectHero,
 }) => {
-  const [rankTier, setRankTier] = useState<RankTier>(
-    initialDataset?.rankTier || 'mythic'
+  const [rankTier, setRankTier] = useState<RankTier>(() =>
+    resolveInitialRank(initialDataset?.rankTier)
   );
-  const [timeWindow, setTimeWindow] = useState<TimeWindow>(
-    initialDataset?.timeWindow || '1d'
+  const [timeWindow, setTimeWindow] = useState<TimeWindow>(() =>
+    resolveInitialWindow(initialDataset?.timeWindow)
   );
 
-  const initialKey = getDatasetKey(
-    initialDataset?.rankTier || 'mythic',
-    initialDataset?.timeWindow || '1d'
-  );
+  const initialKey = getDatasetKey(rankTier, timeWindow);
 
   const [datasetCache, setDatasetCache] = useState<Record<DatasetKey, TierListDataset>>(() => {
     const map = {} as Record<DatasetKey, TierListDataset>;
@@ -298,9 +356,15 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
       />
       <DatasetControls
         rankTier={rankTier}
-        onRankTierChange={(nextRank) => setRankTier(nextRank)}
+        onRankTierChange={(nextRank) => {
+          setRankTier(nextRank);
+          syncUrlAndStorage(nextRank, timeWindow);
+        }}
         timeWindow={timeWindow}
-        onTimeWindowChange={(nextWindow) => setTimeWindow(nextWindow)}
+        onTimeWindowChange={(nextWindow) => {
+          setTimeWindow(nextWindow);
+          syncUrlAndStorage(rankTier, nextWindow);
+        }}
         disabled={loading && !data}
       />
       <LaneCarousel

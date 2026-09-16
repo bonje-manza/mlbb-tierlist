@@ -90,3 +90,5 @@ This document defines the core domain concepts, glossary, architecture boundarie
 * [ADR 0001: Direct GMS Ingestion & SSG Cache Pipeline](docs/adr/0001-direct-gms-ingestion-and-ssg-cache-pipeline.md)
 * [ADR 0002: Composite Power Score & Tier Assignment Formula](docs/adr/0002-composite-power-score-and-tier-assignment-formula.md)
 * [ADR 0003: Mobile Web Draft UX & Filter Taxonomy](docs/adr/0003-mobile-web-draft-ux-and-filter-taxonomy.md)
+* [ADR 0004: Full Ladder Rank & Multi-Window Telemetry Ingestion and UI Controls](docs/adr/0004-full-ladder-rank-and-multi-window-telemetry.md)
+

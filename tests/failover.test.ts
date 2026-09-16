@@ -1,4 +1,4 @@
-﻿import test from 'node:test';
+import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -125,5 +125,36 @@ test('fetchRankTelemetryWithFailover falls back to tertiary airgap snapshot when
   assert.equal(result.records[0].data.main_heroid, 1);
 
   // Clean up fixture
+  await fs.rm(tmpAirgapDir, { recursive: true, force: true });
+});
+
+test('fetchRankTelemetryWithFailover bypasses Rone Arena and falls directly to airgap for extended tiers', async () => {
+  const tmpAirgapDir = path.resolve('tests/fixtures/airgap_extended');
+  await fs.mkdir(tmpAirgapDir, { recursive: true });
+  const airgapFilePath = path.join(tmpAirgapDir, 'raw-glory-3d.json');
+  await fs.writeFile(airgapFilePath, JSON.stringify([mockHeroRecord]), 'utf8');
+
+  let roneCalled = false;
+  const mockFetch = async (url: string | URL | Request) => {
+    const urlStr = url.toString();
+    if (urlStr.includes('api.gms.moontontech.com')) {
+      throw new Error('GMS offline');
+    }
+    if (urlStr.includes('arena.rone.dev')) {
+      roneCalled = true;
+      return new Response(JSON.stringify({ code: 0, data: { records: [] } }));
+    }
+    return new Response('Not Found', { status: 404 });
+  };
+
+  const result = await fetchRankTelemetryWithFailover('glory', '3d', {
+    fetchFn: mockFetch as any,
+    airgapDir: tmpAirgapDir
+  });
+
+  assert.equal(result.source, 'airgap-snapshot');
+  assert.equal(result.records.length, 1);
+  assert.equal(roneCalled, false, 'Rone Arena must not be called for extended tiers');
+
   await fs.rm(tmpAirgapDir, { recursive: true, force: true });
 });

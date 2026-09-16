@@ -1,4 +1,4 @@
-﻿import fs from 'node:fs/promises';
+import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchRankTelemetryWithFailover, DEFAULT_AIRGAP_DIR } from './fetcher.ts';
@@ -44,16 +44,23 @@ export async function executeSyncPipeline(options: SyncOptions = {}): Promise<Sy
   const catalog = await fetchHeroCatalog({ fetchFn, cachePath: catalogCachePath });
   if (!silent) console.log(`[Sync] Loaded ${catalog.length} catalog heroes.`);
 
-  const permutations: Array<{ rank: RankTier; window: TimeWindow }> = [
-    { rank: 'mythic', window: '1d' },
-    { rank: 'mythic', window: '7d' },
-    { rank: 'all', window: '1d' },
-    { rank: 'all', window: '7d' }
-  ];
+  const ranks: RankTier[] = ['all', 'epic', 'legend', 'mythic', 'honor', 'glory'];
+  const windows: TimeWindow[] = ['1d', '3d', '7d', '15d', '30d'];
+
+  const permutations: Array<{ rank: RankTier; window: TimeWindow }> = [];
+  for (const rank of ranks) {
+    for (const window of windows) {
+      permutations.push({ rank, window });
+    }
+  }
 
   const results: SyncPipelineResult[] = [];
 
   for (const { rank, window } of permutations) {
+    if (results.length > 0) {
+      await new Promise((res) => setTimeout(res, 100));
+    }
+
     if (!silent) {
       console.log(`\n[Sync] ── Ingesting rank="${rank}", window="${window}" ──`);
     }

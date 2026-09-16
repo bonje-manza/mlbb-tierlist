@@ -5,12 +5,19 @@ import type { RankTier, TimeWindow, RawGmsRecord, RawGmsResponse } from '../type
 
 export const GMS_SOURCE_IDS: Record<TimeWindow, string> = {
   '1d': '2756567',
-  '7d': '2756569'
+  '3d': '2756568',
+  '7d': '2756569',
+  '15d': '2756565',
+  '30d': '2756570'
 };
 
 export const GMS_BIGRANK_MAP: Record<RankTier, string> = {
+  'all': '101',
+  'epic': '5',
+  'legend': '6',
   'mythic': '7',
-  'all': '101'
+  'honor': '8',
+  'glory': '9'
 };
 
 export const RONE_ARENA_HOST = 'https://arena.rone.dev';
@@ -103,6 +110,10 @@ async function fetchFromMoontonGms(
   return records;
 }
 
+export function isRoneArenaSupported(rankTier: RankTier, timeWindow: TimeWindow): boolean {
+  return (rankTier === 'mythic' || rankTier === 'all') && (timeWindow === '1d' || timeWindow === '7d');
+}
+
 /**
  * 2. Secondary: Rone Arena REST API fallback
  */
@@ -111,6 +122,9 @@ async function fetchFromRoneArena(
   timeWindow: TimeWindow,
   fetchFn: typeof fetch = fetch
 ): Promise<RawGmsRecord[]> {
+  if (!isRoneArenaSupported(rankTier, timeWindow)) {
+    throw new Error(`Rone Arena does not support rank "${rankTier}" or window "${timeWindow}"`);
+  }
   const days = timeWindow === '1d' ? '1' : '7';
   const rank = rankTier === 'mythic' ? 'mythic' : 'all';
   const url = `${RONE_ARENA_HOST}/api/heroes/rank?days=${days}&rank=${rank}&size=200`;
@@ -184,20 +198,24 @@ export async function fetchRankTelemetryWithFailover(
       fetchedAt: new Date().toISOString()
     };
   } catch (errGms) {
-    console.warn(`[Failover] Moonton GMS primary failed: ${(errGms as Error).message}. Attempting Rone Arena...`);
+    console.warn(`[Failover] Moonton GMS primary failed: ${(errGms as Error).message}.`);
   }
 
-  // Secondary: Rone Arena API
-  try {
-    const records = await fetchFromRoneArena(rankTier, timeWindow, fetchFn);
-    return {
-      source: 'rone-arena',
-      records,
-      total: records.length,
-      fetchedAt: new Date().toISOString()
-    };
-  } catch (errRone) {
-    console.warn(`[Failover] Rone Arena secondary failed: ${(errRone as Error).message}. Attempting Airgap snapshot...`);
+  // Secondary: Rone Arena API (only for supported core tiers)
+  if (isRoneArenaSupported(rankTier, timeWindow)) {
+    try {
+      const records = await fetchFromRoneArena(rankTier, timeWindow, fetchFn);
+      return {
+        source: 'rone-arena',
+        records,
+        total: records.length,
+        fetchedAt: new Date().toISOString()
+      };
+    } catch (errRone) {
+      console.warn(`[Failover] Rone Arena secondary failed: ${(errRone as Error).message}. Attempting Airgap snapshot...`);
+    }
+  } else {
+    console.warn(`[Failover] Rone Arena bypassed (unsupported for rank="${rankTier}", window="${timeWindow}"). Attempting Airgap snapshot...`);
   }
 
   // Tertiary: Airgap snapshot

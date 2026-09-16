@@ -52,16 +52,17 @@ test('executeSyncPipeline generates all 4 permutations and meta-tierlist.json', 
     airgapDir: tmpAirgapDir
   });
 
-  assert.equal(results.length, 4);
+  assert.equal(results.length, 30);
 
   // Check expected files exist on disk
-  const expectedFiles = [
-    'tierlist-mythic-1d.json',
-    'tierlist-mythic-7d.json',
-    'tierlist-all-1d.json',
-    'tierlist-all-7d.json',
-    '../meta-tierlist.json'
-  ];
+  const ranks = ['all', 'epic', 'legend', 'mythic', 'honor', 'glory'];
+  const windows = ['1d', '3d', '7d', '15d', '30d'];
+  const expectedFiles: string[] = ['../meta-tierlist.json'];
+  for (const r of ranks) {
+    for (const w of windows) {
+      expectedFiles.push(`tierlist-${r}-${w}.json`);
+    }
+  }
 
   for (const file of expectedFiles) {
     const filePath = path.resolve(tmpOutputDir, file);
