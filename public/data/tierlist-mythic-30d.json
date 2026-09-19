@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-17T12:35:00.549Z",
+  "updatedAt": "2026-09-18T19:15:00.657Z",
   "patchVersion": "2.2.16",
   "rankTier": "mythic",
   "timeWindow": "30d",
@@ -15,8 +15,8 @@
         "Roam"
       ],
       "winRate": 0.5451,
-      "pickRate": 0.015,
-      "banRate": 0.5892,
+      "pickRate": 0.0151,
+      "banRate": 0.5885,
       "powerScore": 73.2,
       "tier": "A",
       "synergies": [
@@ -30,13 +30,13 @@
           "heroId": 130,
           "name": "Obsidia",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_9c3daef5625bfade5c4cb8a219845dd3.png",
-          "winRateDelta": 0.0232
+          "winRateDelta": 0.0228
         },
         {
           "heroId": 50,
           "name": "Zhask",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d8f170087cb2d5b71bb22a0a4664a927.png",
-          "winRateDelta": 0.0213
+          "winRateDelta": 0.0215
         }
       ]
     },
@@ -53,27 +53,27 @@
       ],
       "winRate": 0.5519,
       "pickRate": 0.0174,
-      "banRate": 0.4818,
-      "powerScore": 71.9,
+      "banRate": 0.4799,
+      "powerScore": 71.8,
       "tier": "A",
       "synergies": [
         {
           "heroId": 88,
           "name": "Masha",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4d79ba6ebb0a0f2bf542917f0b19d056.png",
-          "winRateDelta": 0.0595
+          "winRateDelta": 0.0572
         },
         {
           "heroId": 123,
           "name": "Cici",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_60e3e11da30f404c77fff9e22d3bdc72.png",
-          "winRateDelta": 0.0399
+          "winRateDelta": 0.0396
         },
         {
           "heroId": 48,
           "name": "Diggie",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b1bdf46136cb8a7903dae6d58e8349cb.png",
-          "winRateDelta": 0.0377
+          "winRateDelta": 0.0372
         }
       ]
     },
@@ -89,7 +89,7 @@
       ],
       "winRate": 0.5413,
       "pickRate": 0.0414,
-      "banRate": 0.1733,
+      "banRate": 0.1739,
       "powerScore": 70.5,
       "tier": "A",
       "synergies": [
@@ -109,7 +109,7 @@
           "heroId": 9,
           "name": "Akai",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_28f223447f0174336ff0922d364d81d3.png",
-          "winRateDelta": 0.0209
+          "winRateDelta": 0.021
         }
       ]
     },
@@ -124,29 +124,29 @@
         "EXP Lane",
         "Roam"
       ],
-      "winRate": 0.5681,
+      "winRate": 0.5679,
       "pickRate": 0.0056,
-      "banRate": 0.4962,
-      "powerScore": 69.7,
+      "banRate": 0.4945,
+      "powerScore": 69.6,
       "tier": "A",
       "synergies": [
         {
           "heroId": 109,
           "name": "Aamon",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b3a7602fe7ffd1e54bf8ea79ceadfa72.png",
-          "winRateDelta": 0.0328
+          "winRateDelta": 0.0329
         },
         {
           "heroId": 79,
           "name": "Granger",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_a7729262d5b4abdc34ae5181e964c235.png",
-          "winRateDelta": 0.0282
+          "winRateDelta": 0.0276
         },
         {
           "heroId": 32,
           "name": "Johnson",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_85ff988c6660b4d04f8dd3d40df988bb.png",
-          "winRateDelta": 0.0262
+          "winRateDelta": 0.0261
         }
       ]
     },
@@ -160,9 +160,9 @@
       "lanes": [
         "Roam"
       ],
-      "winRate": 0.5471,
+      "winRate": 0.5473,
       "pickRate": 0.0066,
-      "banRate": 0.5846,
+      "banRate": 0.5845,
       "powerScore": 68.4,
       "tier": "A",
       "synergies": [
@@ -170,19 +170,19 @@
           "heroId": 48,
           "name": "Diggie",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b1bdf46136cb8a7903dae6d58e8349cb.png",
-          "winRateDelta": 0.0595
+          "winRateDelta": 0.0589
         },
         {
           "heroId": 76,
           "name": "Faramis",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_04e575d648d7f7ac1174f4369595c3a2.png",
-          "winRateDelta": 0.0488
+          "winRateDelta": 0.0475
         },
         {
           "heroId": 102,
           "name": "Mathilda",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_24d08ed788a9f5984bcf3b732ddcaf04.png",
-          "winRateDelta": 0.0405
+          "winRateDelta": 0.0407
         }
       ]
     },
@@ -196,9 +196,9 @@
       "lanes": [
         "Gold Lane"
       ],
-      "winRate": 0.5348,
+      "winRate": 0.5347,
       "pickRate": 0.0379,
-      "banRate": 0.2088,
+      "banRate": 0.2098,
       "powerScore": 68.1,
       "tier": "A",
       "synergies": [
@@ -212,7 +212,7 @@
           "heroId": 104,
           "name": "Gloo",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c472fe0233e5ef84a3ac9ba4a229d09f.png",
-          "winRateDelta": 0.0228
+          "winRateDelta": 0.0227
         },
         {
           "heroId": 69,
@@ -233,8 +233,8 @@
         "Mid Lane"
       ],
       "winRate": 0.5181,
-      "pickRate": 0.0186,
-      "banRate": 0.563,
+      "pickRate": 0.0185,
+      "banRate": 0.5656,
       "powerScore": 66.9,
       "tier": "A",
       "synergies": [
@@ -242,19 +242,19 @@
           "heroId": 43,
           "name": "Irithel",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_a65d1e2ced64fbfdfcefdcfba719b3fd.png",
-          "winRateDelta": 0.0266
+          "winRateDelta": 0.0267
         },
         {
           "heroId": 118,
           "name": "Joy",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d3a3a55c22000ae78732fed8cba2efef.png",
-          "winRateDelta": 0.0245
+          "winRateDelta": 0.0248
         },
         {
           "heroId": 16,
           "name": "Zilong",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_9db57da4f0daef6d432676e4f19101ed.png",
-          "winRateDelta": 0.0237
+          "winRateDelta": 0.0239
         }
       ]
     },
@@ -271,27 +271,27 @@
       ],
       "winRate": 0.5054,
       "pickRate": 0.0148,
-      "banRate": 0.5051,
-      "powerScore": 58.7,
+      "banRate": 0.5027,
+      "powerScore": 58.5,
       "tier": "B",
       "synergies": [
         {
           "heroId": 83,
           "name": "X.Borg",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_efe9c7ed8d8f84f1bb0f88a3e08de5fc.png",
-          "winRateDelta": 0.0297
+          "winRateDelta": 0.0302
         },
         {
           "heroId": 24,
           "name": "Natalia",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_fbb5065b6ff174d1a20ccf5b7f523514.png",
-          "winRateDelta": 0.0291
+          "winRateDelta": 0.0294
         },
         {
           "heroId": 8,
           "name": "Karina",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f49394186dc0e55d545da8377be83280.png",
-          "winRateDelta": 0.021
+          "winRateDelta": 0.0211
         }
       ]
     },
@@ -305,28 +305,28 @@
       "lanes": [
         "Roam"
       ],
-      "winRate": 0.58,
+      "winRate": 0.5802,
       "pickRate": 0.0084,
-      "banRate": 0.1031,
-      "powerScore": 58,
+      "banRate": 0.1036,
+      "powerScore": 58.1,
       "tier": "B",
       "synergies": [
         {
           "heroId": 24,
           "name": "Natalia",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_fbb5065b6ff174d1a20ccf5b7f523514.png",
-          "winRateDelta": 0.0377
+          "winRateDelta": 0.0372
         },
         {
           "heroId": 57,
           "name": "Valir",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_bf16690876761b80822df90eb3320d69.png",
-          "winRateDelta": 0.0322
+          "winRateDelta": 0.0323
         },
         {
-          "heroId": 48,
-          "name": "Diggie",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b1bdf46136cb8a7903dae6d58e8349cb.png",
+          "heroId": 4,
+          "name": "Alice",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_18300163a5a912a84adb52b8d59b4618.png",
           "winRateDelta": 0.0276
         }
       ]
@@ -344,7 +344,7 @@
       ],
       "winRate": 0.5041,
       "pickRate": 0.0126,
-      "banRate": 0.4654,
+      "banRate": 0.4657,
       "powerScore": 55.3,
       "tier": "B",
       "synergies": [
@@ -358,13 +358,13 @@
           "heroId": 84,
           "name": "Ling",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_017bade52b9fc94bbc12615de6d75c08.png",
-          "winRateDelta": 0.0381
+          "winRateDelta": 0.0388
         },
         {
           "heroId": 21,
           "name": "Hayabusa",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_9cc074562291a02644a0ddae28eeaa42.png",
-          "winRateDelta": 0.0285
+          "winRateDelta": 0.0282
         }
       ]
     },
@@ -380,9 +380,9 @@
         "EXP Lane",
         "Roam"
       ],
-      "winRate": 0.5847,
+      "winRate": 0.5849,
       "pickRate": 0.0016,
-      "banRate": 0.0968,
+      "banRate": 0.0972,
       "powerScore": 54.9,
       "tier": "B",
       "synergies": [
@@ -390,19 +390,19 @@
           "heroId": 93,
           "name": "Atlas",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d974ac796678180ff8724b88e192898b.png",
-          "winRateDelta": 0.0611
-        },
-        {
-          "heroId": 87,
-          "name": "Baxia",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_80e408203869ca99302af195ac4f756c.png",
-          "winRateDelta": 0.0363
+          "winRateDelta": 0.0608
         },
         {
           "heroId": 78,
           "name": "Khufra",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2fe99f4001211d18b3d2b95d0d3dc395.png",
-          "winRateDelta": 0.0345
+          "winRateDelta": 0.0378
+        },
+        {
+          "heroId": 87,
+          "name": "Baxia",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_80e408203869ca99302af195ac4f756c.png",
+          "winRateDelta": 0.0357
         }
       ]
     },
@@ -416,23 +416,23 @@
       "lanes": [
         "Roam"
       ],
-      "winRate": 0.54,
+      "winRate": 0.5398,
       "pickRate": 0.0082,
-      "banRate": 0.1943,
-      "powerScore": 50.9,
+      "banRate": 0.1931,
+      "powerScore": 50.7,
       "tier": "B",
       "synergies": [
         {
           "heroId": 48,
           "name": "Diggie",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b1bdf46136cb8a7903dae6d58e8349cb.png",
-          "winRateDelta": 0.0443
+          "winRateDelta": 0.0427
         },
         {
           "heroId": 132,
           "name": "Marcel",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_df7603c292198bf4aa7b551d401ea5c1.png",
-          "winRateDelta": 0.0419
+          "winRateDelta": 0.0414
         },
         {
           "heroId": 4,
@@ -452,29 +452,29 @@
       "lanes": [
         "Jungle"
       ],
-      "winRate": 0.5244,
+      "winRate": 0.5232,
       "pickRate": 0.0069,
-      "banRate": 0.2535,
-      "powerScore": 48.4,
+      "banRate": 0.2591,
+      "powerScore": 48.2,
       "tier": "B",
       "synergies": [
         {
           "heroId": 48,
           "name": "Diggie",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b1bdf46136cb8a7903dae6d58e8349cb.png",
-          "winRateDelta": 0.0411
-        },
-        {
-          "heroId": 78,
-          "name": "Khufra",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2fe99f4001211d18b3d2b95d0d3dc395.png",
-          "winRateDelta": 0.0307
+          "winRateDelta": 0.043
         },
         {
           "heroId": 121,
           "name": "Ixia",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f070d82521ecd2e14d4ef3f25880830a.png",
           "winRateDelta": 0.0285
+        },
+        {
+          "heroId": 78,
+          "name": "Khufra",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2fe99f4001211d18b3d2b95d0d3dc395.png",
+          "winRateDelta": 0.0284
         }
       ]
     },
@@ -488,29 +488,29 @@
       "lanes": [
         "Roam"
       ],
-      "winRate": 0.5375,
+      "winRate": 0.5372,
       "pickRate": 0.0074,
-      "banRate": 0.1332,
-      "powerScore": 47.1,
+      "banRate": 0.1329,
+      "powerScore": 47,
       "tier": "B",
       "synergies": [
         {
           "heroId": 34,
           "name": "Estes",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ff4de3b0aabd1d2f6e184db1c831f6a9.png",
-          "winRateDelta": 0.0349
+          "winRateDelta": 0.035
         },
         {
           "heroId": 18,
           "name": "Layla",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b2b38e9406ea0de0b866db7674feea0f.png",
-          "winRateDelta": 0.0308
+          "winRateDelta": 0.0305
         },
         {
           "heroId": 20,
           "name": "Lolita",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0301
+          "winRateDelta": 0.0292
         }
       ]
     },
@@ -527,7 +527,7 @@
       ],
       "winRate": 0.5533,
       "pickRate": 0.0052,
-      "banRate": 0.0451,
+      "banRate": 0.0456,
       "powerScore": 46.3,
       "tier": "B",
       "synergies": [
@@ -535,19 +535,55 @@
           "heroId": 20,
           "name": "Lolita",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0374
+          "winRateDelta": 0.0378
         },
         {
           "heroId": 78,
           "name": "Khufra",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2fe99f4001211d18b3d2b95d0d3dc395.png",
-          "winRateDelta": 0.0248
+          "winRateDelta": 0.0244
         },
         {
-          "heroId": 88,
-          "name": "Masha",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4d79ba6ebb0a0f2bf542917f0b19d056.png",
-          "winRateDelta": 0.0218
+          "heroId": 46,
+          "name": "Odette",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d9251718a8894546ba04cfa9ca68dedc.png",
+          "winRateDelta": 0.0204
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "name": "Silvanna",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_5e7b297af7c6e32a420b897aa4998071.png",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "EXP Lane"
+      ],
+      "winRate": 0.526,
+      "pickRate": 0.016,
+      "banRate": 0.0479,
+      "powerScore": 45.6,
+      "tier": "B",
+      "synergies": [
+        {
+          "heroId": 55,
+          "name": "Angela",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c7e0183956b2c2fd6d3fa0b18fe46917.png",
+          "winRateDelta": 0.0251
+        },
+        {
+          "heroId": 109,
+          "name": "Aamon",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b3a7602fe7ffd1e54bf8ea79ceadfa72.png",
+          "winRateDelta": 0.0247
+        },
+        {
+          "heroId": 112,
+          "name": "Floryn",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_5a57b91e4914cf071a3849e352e530a5.png",
+          "winRateDelta": 0.0246
         }
       ]
     },
@@ -563,63 +599,27 @@
       ],
       "winRate": 0.5576,
       "pickRate": 0.0044,
-      "banRate": 0.0114,
-      "powerScore": 45.6,
+      "banRate": 0.0115,
+      "powerScore": 45.5,
       "tier": "B",
       "synergies": [
         {
           "heroId": 88,
           "name": "Masha",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4d79ba6ebb0a0f2bf542917f0b19d056.png",
-          "winRateDelta": 0.0391
-        },
-        {
-          "heroId": 51,
-          "name": "Helcurt",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6abf0c552b59b8ca4cbc1af3662ef176.png",
-          "winRateDelta": 0.028
+          "winRateDelta": 0.0376
         },
         {
           "heroId": 3,
           "name": "Saber",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6bbfac806f29d29f17fea9e98d2d2fee.png",
-          "winRateDelta": 0.0277
-        }
-      ]
-    },
-    {
-      "id": 90,
-      "name": "Silvanna",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_5e7b297af7c6e32a420b897aa4998071.png",
-      "roles": [
-        "Fighter"
-      ],
-      "lanes": [
-        "EXP Lane"
-      ],
-      "winRate": 0.5259,
-      "pickRate": 0.016,
-      "banRate": 0.0478,
-      "powerScore": 45.6,
-      "tier": "B",
-      "synergies": [
-        {
-          "heroId": 55,
-          "name": "Angela",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c7e0183956b2c2fd6d3fa0b18fe46917.png",
-          "winRateDelta": 0.0251
+          "winRateDelta": 0.0281
         },
         {
-          "heroId": 109,
-          "name": "Aamon",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b3a7602fe7ffd1e54bf8ea79ceadfa72.png",
-          "winRateDelta": 0.0249
-        },
-        {
-          "heroId": 112,
-          "name": "Floryn",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_5a57b91e4914cf071a3849e352e530a5.png",
-          "winRateDelta": 0.0247
+          "heroId": 51,
+          "name": "Helcurt",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6abf0c552b59b8ca4cbc1af3662ef176.png",
+          "winRateDelta": 0.0275
         }
       ]
     },
@@ -629,29 +629,29 @@
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_71224844b111f09367df00e4f9b97753.png",
       "roles": [],
       "lanes": [],
-      "winRate": 0.5005,
-      "pickRate": 0.0047,
-      "banRate": 0.3536,
-      "powerScore": 44.8,
+      "winRate": 0.5008,
+      "pickRate": 0.0048,
+      "banRate": 0.3547,
+      "powerScore": 44.9,
       "tier": "C",
       "synergies": [
-        {
-          "heroId": 87,
-          "name": "Baxia",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_80e408203869ca99302af195ac4f756c.png",
-          "winRateDelta": 0.0251
-        },
         {
           "heroId": 118,
           "name": "Joy",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d3a3a55c22000ae78732fed8cba2efef.png",
-          "winRateDelta": 0.0248
+          "winRateDelta": 0.0265
+        },
+        {
+          "heroId": 87,
+          "name": "Baxia",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_80e408203869ca99302af195ac4f756c.png",
+          "winRateDelta": 0.0255
         },
         {
           "heroId": 69,
           "name": "Hanzo",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d2d28d2fcb060726fa27553920ca1a33.png",
-          "winRateDelta": 0.0226
+          "winRateDelta": 0.022
         }
       ]
     },
@@ -665,17 +665,17 @@
       "lanes": [
         "Mid Lane"
       ],
-      "winRate": 0.5181,
-      "pickRate": 0.0123,
-      "banRate": 0.1106,
-      "powerScore": 43.8,
+      "winRate": 0.5178,
+      "pickRate": 0.0122,
+      "banRate": 0.1091,
+      "powerScore": 43.6,
       "tier": "C",
       "synergies": [
         {
           "heroId": 24,
           "name": "Natalia",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_fbb5065b6ff174d1a20ccf5b7f523514.png",
-          "winRateDelta": 0.027
+          "winRateDelta": 0.0272
         },
         {
           "heroId": 20,
@@ -687,7 +687,43 @@
           "heroId": 6,
           "name": "Tigreal",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_8b30576754be1a4f8bebd09df8d6bec7.png",
-          "winRateDelta": 0.0177
+          "winRateDelta": 0.0179
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "name": "Vexana",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_743edd1702084c4ed247908d698bca77.png",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid Lane"
+      ],
+      "winRate": 0.5071,
+      "pickRate": 0.0217,
+      "banRate": 0.03,
+      "powerScore": 43.1,
+      "tier": "C",
+      "synergies": [
+        {
+          "heroId": 104,
+          "name": "Gloo",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c472fe0233e5ef84a3ac9ba4a229d09f.png",
+          "winRateDelta": 0.0293
+        },
+        {
+          "heroId": 50,
+          "name": "Zhask",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d8f170087cb2d5b71bb22a0a4664a927.png",
+          "winRateDelta": 0.0198
+        },
+        {
+          "heroId": 27,
+          "name": "Sun",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_117b5cdcc13232157075ce7b7f6177e9.png",
+          "winRateDelta": 0.0149
         }
       ]
     },
@@ -703,27 +739,27 @@
       ],
       "winRate": 0.5308,
       "pickRate": 0.0106,
-      "banRate": 0.0351,
-      "powerScore": 43.1,
+      "banRate": 0.0352,
+      "powerScore": 43,
       "tier": "C",
       "synergies": [
         {
           "heroId": 117,
           "name": "Fredrinn",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_dea170bfd5f26c41fb04e5edf72afedb.png",
-          "winRateDelta": 0.0446
+          "winRateDelta": 0.0445
         },
         {
           "heroId": 4,
           "name": "Alice",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_18300163a5a912a84adb52b8d59b4618.png",
-          "winRateDelta": 0.0351
+          "winRateDelta": 0.0347
         },
         {
           "heroId": 2,
           "name": "Balmond",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_df9a6990b1946d045e4d3a46c90725cf.png",
-          "winRateDelta": 0.0329
+          "winRateDelta": 0.0332
         }
       ]
     },
@@ -737,23 +773,23 @@
       "lanes": [
         "Gold Lane"
       ],
-      "winRate": 0.5209,
+      "winRate": 0.5207,
       "pickRate": 0.0115,
-      "banRate": 0.0849,
-      "powerScore": 43.1,
+      "banRate": 0.0862,
+      "powerScore": 43,
       "tier": "C",
       "synergies": [
         {
           "heroId": 20,
           "name": "Lolita",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0349
+          "winRateDelta": 0.0346
         },
         {
           "heroId": 118,
           "name": "Joy",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d3a3a55c22000ae78732fed8cba2efef.png",
-          "winRateDelta": 0.0312
+          "winRateDelta": 0.0316
         },
         {
           "heroId": 67,
@@ -774,65 +810,29 @@
         "EXP Lane",
         "Roam"
       ],
-      "winRate": 0.5199,
+      "winRate": 0.5198,
       "pickRate": 0.0077,
-      "banRate": 0.1464,
-      "powerScore": 43.1,
+      "banRate": 0.1449,
+      "powerScore": 42.9,
       "tier": "C",
       "synergies": [
         {
           "heroId": 22,
           "name": "Freya",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b9c34c88762ca8e66ccd4d84071bf0bc.png",
-          "winRateDelta": 0.0413
+          "winRateDelta": 0.0426
         },
         {
           "heroId": 106,
           "name": "Phoveus",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_af21c0dd8b5308c27974bff900803a9a.png",
-          "winRateDelta": 0.0379
+          "winRateDelta": 0.0386
         },
         {
           "heroId": 73,
           "name": "Harith",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d228a823b477fdf6c458c829c2e62bcf.png",
-          "winRateDelta": 0.0344
-        }
-      ]
-    },
-    {
-      "id": 38,
-      "name": "Vexana",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_743edd1702084c4ed247908d698bca77.png",
-      "roles": [
-        "Mage"
-      ],
-      "lanes": [
-        "Mid Lane"
-      ],
-      "winRate": 0.5071,
-      "pickRate": 0.0217,
-      "banRate": 0.0298,
-      "powerScore": 43.1,
-      "tier": "C",
-      "synergies": [
-        {
-          "heroId": 104,
-          "name": "Gloo",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c472fe0233e5ef84a3ac9ba4a229d09f.png",
-          "winRateDelta": 0.0297
-        },
-        {
-          "heroId": 50,
-          "name": "Zhask",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d8f170087cb2d5b71bb22a0a4664a927.png",
-          "winRateDelta": 0.02
-        },
-        {
-          "heroId": 20,
-          "name": "Lolita",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0154
+          "winRateDelta": 0.0349
         }
       ]
     },
@@ -847,29 +847,29 @@
       "lanes": [
         "Roam"
       ],
-      "winRate": 0.556,
+      "winRate": 0.5554,
       "pickRate": 0.0009,
       "banRate": 0.0036,
-      "powerScore": 42.7,
+      "powerScore": 42.5,
       "tier": "C",
       "synergies": [
         {
           "heroId": 33,
           "name": "Cyclops",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_68da456f9c01b2f88d29ee320db181ed.png",
-          "winRateDelta": 0.0813
+          "winRateDelta": 0.0801
         },
         {
           "heroId": 61,
           "name": "Chang'e",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_46cfe9c30e8a14f85b4d022496aca274.png",
-          "winRateDelta": 0.0584
+          "winRateDelta": 0.0586
         },
         {
           "heroId": 11,
           "name": "Bane",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_7e4e74bb161da0f477cc0d1819fa39e6.png",
-          "winRateDelta": 0.0557
+          "winRateDelta": 0.0548
         }
       ]
     },
@@ -885,9 +885,9 @@
         "Roam",
         "EXP Lane"
       ],
-      "winRate": 0.5255,
+      "winRate": 0.5256,
       "pickRate": 0.0082,
-      "banRate": 0.0888,
+      "banRate": 0.0898,
       "powerScore": 42.5,
       "tier": "C",
       "synergies": [
@@ -895,19 +895,19 @@
           "heroId": 79,
           "name": "Granger",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_a7729262d5b4abdc34ae5181e964c235.png",
-          "winRateDelta": 0.0278
+          "winRateDelta": 0.0285
         },
         {
           "heroId": 48,
           "name": "Diggie",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b1bdf46136cb8a7903dae6d58e8349cb.png",
-          "winRateDelta": 0.0269
+          "winRateDelta": 0.0264
         },
         {
           "heroId": 122,
           "name": "Nolan",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_9012ee9f73fbb4db4e1953e5fb5172e1.png",
-          "winRateDelta": 0.0234
+          "winRateDelta": 0.0238
         }
       ]
     },
@@ -922,9 +922,9 @@
       "lanes": [
         "Jungle"
       ],
-      "winRate": 0.5131,
+      "winRate": 0.5133,
       "pickRate": 0.0119,
-      "banRate": 0.1125,
+      "banRate": 0.1124,
       "powerScore": 42.3,
       "tier": "C",
       "synergies": [
@@ -932,19 +932,19 @@
           "heroId": 72,
           "name": "Thamuz",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b5ad55e408b68acf6a86e7ff76f5f569.png",
-          "winRateDelta": 0.0235
+          "winRateDelta": 0.024
         },
         {
           "heroId": 78,
           "name": "Khufra",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2fe99f4001211d18b3d2b95d0d3dc395.png",
-          "winRateDelta": 0.0225
+          "winRateDelta": 0.0231
         },
         {
           "heroId": 89,
           "name": "Wanwan",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_44bfa1dc44deb8d7620605faaa9ffae7.png",
-          "winRateDelta": 0.0168
+          "winRateDelta": 0.0177
         }
       ]
     },
@@ -959,29 +959,29 @@
       "lanes": [
         "EXP Lane"
       ],
-      "winRate": 0.5507,
+      "winRate": 0.5496,
       "pickRate": 0.0006,
-      "banRate": 0.0019,
-      "powerScore": 41,
+      "banRate": 0.0024,
+      "powerScore": 40.7,
       "tier": "C",
       "synergies": [
-        {
-          "heroId": 110,
-          "name": "Valentina",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_24837021ec9d7aaf41b13fa55b6d13c9.png",
-          "winRateDelta": 0.0573
-        },
         {
           "heroId": 3,
           "name": "Saber",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6bbfac806f29d29f17fea9e98d2d2fee.png",
-          "winRateDelta": 0.0371
+          "winRateDelta": 0.0364
         },
         {
           "heroId": 95,
           "name": "Yu Zhong",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_9823ce4fe5eb89c0082b24f6d5ea67f6.png",
-          "winRateDelta": 0.0345
+          "winRateDelta": 0.035
+        },
+        {
+          "heroId": 80,
+          "name": "Guinevere",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_901bdd5d4432a2c0290dfc71df615a5a.png",
+          "winRateDelta": 0.0331
         }
       ]
     },
@@ -997,27 +997,27 @@
       ],
       "winRate": 0.4929,
       "pickRate": 0.0156,
-      "banRate": 0.1476,
-      "powerScore": 40.6,
+      "banRate": 0.1475,
+      "powerScore": 40.5,
       "tier": "C",
       "synergies": [
         {
           "heroId": 132,
           "name": "Marcel",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_df7603c292198bf4aa7b551d401ea5c1.png",
-          "winRateDelta": 0.0567
+          "winRateDelta": 0.0557
         },
         {
           "heroId": 4,
           "name": "Alice",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_18300163a5a912a84adb52b8d59b4618.png",
-          "winRateDelta": 0.0469
+          "winRateDelta": 0.0473
         },
         {
           "heroId": 2,
           "name": "Balmond",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_df9a6990b1946d045e4d3a46c90725cf.png",
-          "winRateDelta": 0.0329
+          "winRateDelta": 0.0332
         }
       ]
     },
@@ -1031,29 +1031,29 @@
       "lanes": [
         "Mid Lane"
       ],
-      "winRate": 0.5246,
-      "pickRate": 0.0093,
-      "banRate": 0.0222,
-      "powerScore": 40,
+      "winRate": 0.5245,
+      "pickRate": 0.0092,
+      "banRate": 0.0219,
+      "powerScore": 39.9,
       "tier": "C",
       "synergies": [
         {
           "heroId": 20,
           "name": "Lolita",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0411
+          "winRateDelta": 0.0412
         },
         {
           "heroId": 99,
           "name": "Barats",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6495be044c2d28106e200f6918391d54.png",
-          "winRateDelta": 0.0373
+          "winRateDelta": 0.0374
         },
         {
           "heroId": 117,
           "name": "Fredrinn",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_dea170bfd5f26c41fb04e5edf72afedb.png",
-          "winRateDelta": 0.0275
+          "winRateDelta": 0.0272
         }
       ]
     },
@@ -1068,29 +1068,29 @@
       "lanes": [
         "Roam"
       ],
-      "winRate": 0.531,
-      "pickRate": 0.0057,
-      "banRate": 0.0178,
-      "powerScore": 39.4,
+      "winRate": 0.5313,
+      "pickRate": 0.0058,
+      "banRate": 0.0181,
+      "powerScore": 39.5,
       "tier": "C",
       "synergies": [
         {
           "heroId": 94,
           "name": "Popol and Kupa",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_1acbb23b9a50f412104047a60eb18808.png",
-          "winRateDelta": 0.0305
+          "winRateDelta": 0.0302
         },
         {
           "heroId": 104,
           "name": "Gloo",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c472fe0233e5ef84a3ac9ba4a229d09f.png",
-          "winRateDelta": 0.0288
+          "winRateDelta": 0.0296
         },
         {
-          "heroId": 32,
-          "name": "Johnson",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_85ff988c6660b4d04f8dd3d40df988bb.png",
-          "winRateDelta": 0.0165
+          "heroId": 19,
+          "name": "Minotaur",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_3ecd2c0843df7ec85044dafff6bf4553.png",
+          "winRateDelta": 0.0178
         }
       ]
     },
@@ -1104,29 +1104,29 @@
       "lanes": [
         "Jungle"
       ],
-      "winRate": 0.5313,
-      "pickRate": 0.0053,
-      "banRate": 0.0149,
-      "powerScore": 39.1,
+      "winRate": 0.5312,
+      "pickRate": 0.0052,
+      "banRate": 0.0145,
+      "powerScore": 39,
       "tier": "C",
       "synergies": [
         {
           "heroId": 104,
           "name": "Gloo",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c472fe0233e5ef84a3ac9ba4a229d09f.png",
-          "winRateDelta": 0.036
+          "winRateDelta": 0.0349
         },
         {
           "heroId": 83,
           "name": "X.Borg",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_efe9c7ed8d8f84f1bb0f88a3e08de5fc.png",
-          "winRateDelta": 0.0287
+          "winRateDelta": 0.028
         },
         {
           "heroId": 93,
           "name": "Atlas",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d974ac796678180ff8724b88e192898b.png",
-          "winRateDelta": 0.027
+          "winRateDelta": 0.0265
         }
       ]
     },
@@ -1141,7 +1141,7 @@
         "Jungle",
         "Gold Lane"
       ],
-      "winRate": 0.5359,
+      "winRate": 0.5361,
       "pickRate": 0.0036,
       "banRate": 0.0037,
       "powerScore": 38.9,
@@ -1151,55 +1151,19 @@
           "heroId": 100,
           "name": "Brody",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_cbb309b63cdf838fce79bd9cb95d4ed7.png",
-          "winRateDelta": 0.0268
+          "winRateDelta": 0.0263
         },
         {
           "heroId": 73,
           "name": "Harith",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d228a823b477fdf6c458c829c2e62bcf.png",
-          "winRateDelta": 0.0266
+          "winRateDelta": 0.0258
         },
         {
           "heroId": 89,
           "name": "Wanwan",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_44bfa1dc44deb8d7620605faaa9ffae7.png",
-          "winRateDelta": 0.0263
-        }
-      ]
-    },
-    {
-      "id": 51,
-      "name": "Helcurt",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6abf0c552b59b8ca4cbc1af3662ef176.png",
-      "roles": [
-        "Assassin"
-      ],
-      "lanes": [
-        "Jungle"
-      ],
-      "winRate": 0.4853,
-      "pickRate": 0.0097,
-      "banRate": 0.2295,
-      "powerScore": 38.4,
-      "tier": "C",
-      "synergies": [
-        {
-          "heroId": 83,
-          "name": "X.Borg",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_efe9c7ed8d8f84f1bb0f88a3e08de5fc.png",
-          "winRateDelta": 0.0387
-        },
-        {
-          "heroId": 57,
-          "name": "Valir",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_bf16690876761b80822df90eb3320d69.png",
-          "winRateDelta": 0.0316
-        },
-        {
-          "heroId": 48,
-          "name": "Diggie",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b1bdf46136cb8a7903dae6d58e8349cb.png",
-          "winRateDelta": 0.0243
+          "winRateDelta": 0.0251
         }
       ]
     },
@@ -1214,29 +1178,29 @@
       "lanes": [
         "Gold Lane"
       ],
-      "winRate": 0.4657,
-      "pickRate": 0.02,
-      "banRate": 0.2084,
-      "powerScore": 38.4,
+      "winRate": 0.4656,
+      "pickRate": 0.0199,
+      "banRate": 0.2079,
+      "powerScore": 38.3,
       "tier": "C",
       "synergies": [
         {
           "heroId": 65,
           "name": "Claude",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_e1097b9d3e1d5e9f14600d32e8b18acd.png",
-          "winRateDelta": 0.0451
+          "winRateDelta": 0.0454
         },
         {
           "heroId": 41,
           "name": "Gatotkaca",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_96f9dbbc096e0f0a28f9b9e587d06a9c.png",
-          "winRateDelta": 0.0365
+          "winRateDelta": 0.0367
         },
         {
           "heroId": 132,
           "name": "Marcel",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_df7603c292198bf4aa7b551d401ea5c1.png",
-          "winRateDelta": 0.0353
+          "winRateDelta": 0.0344
         }
       ]
     },
@@ -1252,27 +1216,27 @@
       ],
       "winRate": 0.5385,
       "pickRate": 0.0014,
-      "banRate": 0.0043,
-      "powerScore": 38.3,
+      "banRate": 0.0045,
+      "powerScore": 38.2,
       "tier": "C",
       "synergies": [
         {
-          "heroId": 110,
-          "name": "Valentina",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_24837021ec9d7aaf41b13fa55b6d13c9.png",
-          "winRateDelta": 0.0311
+          "heroId": 89,
+          "name": "Wanwan",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_44bfa1dc44deb8d7620605faaa9ffae7.png",
+          "winRateDelta": 0.0335
         },
         {
           "heroId": 73,
           "name": "Harith",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d228a823b477fdf6c458c829c2e62bcf.png",
-          "winRateDelta": 0.0302
+          "winRateDelta": 0.0285
         },
         {
-          "heroId": 89,
-          "name": "Wanwan",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_44bfa1dc44deb8d7620605faaa9ffae7.png",
-          "winRateDelta": 0.0295
+          "heroId": 103,
+          "name": "Paquito",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_5ab87805b9107b126a3bab64a8a199ad.png",
+          "winRateDelta": 0.0276
         }
       ]
     },
@@ -1286,10 +1250,10 @@
       "lanes": [
         "Jungle"
       ],
-      "winRate": 0.5103,
+      "winRate": 0.5104,
       "pickRate": 0.0094,
-      "banRate": 0.071,
-      "powerScore": 38.3,
+      "banRate": 0.0712,
+      "powerScore": 38.2,
       "tier": "C",
       "synergies": [
         {
@@ -1302,13 +1266,49 @@
           "heroId": 65,
           "name": "Claude",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_e1097b9d3e1d5e9f14600d32e8b18acd.png",
-          "winRateDelta": 0.0295
+          "winRateDelta": 0.029
         },
         {
-          "heroId": 88,
-          "name": "Masha",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4d79ba6ebb0a0f2bf542917f0b19d056.png",
-          "winRateDelta": 0.0276
+          "heroId": 132,
+          "name": "Marcel",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_df7603c292198bf4aa7b551d401ea5c1.png",
+          "winRateDelta": 0.0266
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "name": "Helcurt",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6abf0c552b59b8ca4cbc1af3662ef176.png",
+      "roles": [
+        "Assassin"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "winRate": 0.4853,
+      "pickRate": 0.0097,
+      "banRate": 0.2275,
+      "powerScore": 38.2,
+      "tier": "C",
+      "synergies": [
+        {
+          "heroId": 83,
+          "name": "X.Borg",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_efe9c7ed8d8f84f1bb0f88a3e08de5fc.png",
+          "winRateDelta": 0.039
+        },
+        {
+          "heroId": 57,
+          "name": "Valir",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_bf16690876761b80822df90eb3320d69.png",
+          "winRateDelta": 0.0314
+        },
+        {
+          "heroId": 48,
+          "name": "Diggie",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b1bdf46136cb8a7903dae6d58e8349cb.png",
+          "winRateDelta": 0.0235
         }
       ]
     },
@@ -1325,7 +1325,7 @@
       ],
       "winRate": 0.5255,
       "pickRate": 0.0055,
-      "banRate": 0.0263,
+      "banRate": 0.0268,
       "powerScore": 38.1,
       "tier": "C",
       "synergies": [
@@ -1333,19 +1333,19 @@
           "heroId": 45,
           "name": "Argus",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_0bd96658e5b8ec578226ea1622bd7231.png",
-          "winRateDelta": 0.0366
+          "winRateDelta": 0.0372
         },
         {
           "heroId": 90,
           "name": "Silvanna",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_5e7b297af7c6e32a420b897aa4998071.png",
-          "winRateDelta": 0.0316
+          "winRateDelta": 0.032
         },
         {
           "heroId": 7,
           "name": "Alucard",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_0f51b6906e08897aa02330d65b0deeac.png",
-          "winRateDelta": 0.0309
+          "winRateDelta": 0.0305
         }
       ]
     },
@@ -1359,23 +1359,23 @@
       "lanes": [
         "EXP Lane"
       ],
-      "winRate": 0.5057,
-      "pickRate": 0.0097,
-      "banRate": 0.0921,
-      "powerScore": 38.1,
+      "winRate": 0.5055,
+      "pickRate": 0.0096,
+      "banRate": 0.0909,
+      "powerScore": 37.9,
       "tier": "C",
       "synergies": [
         {
           "heroId": 68,
           "name": "Lunox",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_e162688afdcaf3f6498af30badfe31c5.png",
-          "winRateDelta": 0.0233
+          "winRateDelta": 0.0241
         },
         {
           "heroId": 40,
           "name": "Karrie",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_294576f2bd0dcbcc9041031969d0eb09.png",
-          "winRateDelta": 0.0225
+          "winRateDelta": 0.0235
         },
         {
           "heroId": 34,
@@ -1395,7 +1395,7 @@
       "lanes": [
         "Mid Lane"
       ],
-      "winRate": 0.5287,
+      "winRate": 0.5288,
       "pickRate": 0.0046,
       "banRate": 0.0092,
       "powerScore": 37.7,
@@ -1405,19 +1405,55 @@
           "heroId": 20,
           "name": "Lolita",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0352
+          "winRateDelta": 0.0369
         },
         {
           "heroId": 48,
           "name": "Diggie",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b1bdf46136cb8a7903dae6d58e8349cb.png",
-          "winRateDelta": 0.0334
+          "winRateDelta": 0.0323
         },
         {
           "heroId": 62,
           "name": "Kaja",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d558bb881e18a070eaeda1e1fdc248a8.png",
-          "winRateDelta": 0.0248
+          "winRateDelta": 0.0254
+        }
+      ]
+    },
+    {
+      "id": 119,
+      "name": "Novaria",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_57eeea6d5bd8d21229de8df79751db9f.png",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid Lane"
+      ],
+      "winRate": 0.4921,
+      "pickRate": 0.0149,
+      "banRate": 0.094,
+      "powerScore": 37.6,
+      "tier": "C",
+      "synergies": [
+        {
+          "heroId": 92,
+          "name": "Carmilla",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6fb8f120dafdcbc1b5da2a2667016ad5.png",
+          "winRateDelta": 0.0187
+        },
+        {
+          "heroId": 76,
+          "name": "Faramis",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_04e575d648d7f7ac1174f4369595c3a2.png",
+          "winRateDelta": 0.0179
+        },
+        {
+          "heroId": 48,
+          "name": "Diggie",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b1bdf46136cb8a7903dae6d58e8349cb.png",
+          "winRateDelta": 0.0173
         }
       ]
     },
@@ -1432,9 +1468,9 @@
         "Jungle",
         "Roam"
       ],
-      "winRate": 0.5234,
+      "winRate": 0.5236,
       "pickRate": 0.0043,
-      "banRate": 0.0425,
+      "banRate": 0.0424,
       "powerScore": 37.5,
       "tier": "C",
       "synergies": [
@@ -1442,55 +1478,19 @@
           "heroId": 84,
           "name": "Ling",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_017bade52b9fc94bbc12615de6d75c08.png",
-          "winRateDelta": 0.0547
+          "winRateDelta": 0.0536
         },
         {
           "heroId": 69,
           "name": "Hanzo",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d2d28d2fcb060726fa27553920ca1a33.png",
-          "winRateDelta": 0.043
+          "winRateDelta": 0.0438
         },
         {
           "heroId": 119,
           "name": "Novaria",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_57eeea6d5bd8d21229de8df79751db9f.png",
-          "winRateDelta": 0.0379
-        }
-      ]
-    },
-    {
-      "id": 119,
-      "name": "Novaria",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_57eeea6d5bd8d21229de8df79751db9f.png",
-      "roles": [
-        "Mage"
-      ],
-      "lanes": [
-        "Mid Lane"
-      ],
-      "winRate": 0.4919,
-      "pickRate": 0.0148,
-      "banRate": 0.0929,
-      "powerScore": 37.5,
-      "tier": "C",
-      "synergies": [
-        {
-          "heroId": 92,
-          "name": "Carmilla",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6fb8f120dafdcbc1b5da2a2667016ad5.png",
-          "winRateDelta": 0.0184
-        },
-        {
-          "heroId": 11,
-          "name": "Bane",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_7e4e74bb161da0f477cc0d1819fa39e6.png",
-          "winRateDelta": 0.017
-        },
-        {
-          "heroId": 76,
-          "name": "Faramis",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_04e575d648d7f7ac1174f4369595c3a2.png",
-          "winRateDelta": 0.0169
+          "winRateDelta": 0.0381
         }
       ]
     },
@@ -1504,9 +1504,9 @@
       "lanes": [
         "Mid Lane"
       ],
-      "winRate": 0.4799,
+      "winRate": 0.48,
       "pickRate": 0.0218,
-      "banRate": 0.0702,
+      "banRate": 0.0706,
       "powerScore": 37.5,
       "tier": "C",
       "synergies": [
@@ -1514,19 +1514,19 @@
           "heroId": 20,
           "name": "Lolita",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0222
+          "winRateDelta": 0.022
         },
         {
           "heroId": 46,
           "name": "Odette",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d9251718a8894546ba04cfa9ca68dedc.png",
-          "winRateDelta": 0.0171
+          "winRateDelta": 0.0173
         },
         {
           "heroId": 34,
           "name": "Estes",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ff4de3b0aabd1d2f6e184db1c831f6a9.png",
-          "winRateDelta": 0.0167
+          "winRateDelta": 0.0163
         }
       ]
     },
@@ -1541,9 +1541,9 @@
         "EXP Lane",
         "Jungle"
       ],
-      "winRate": 0.4884,
+      "winRate": 0.4883,
       "pickRate": 0.0209,
-      "banRate": 0.0268,
+      "banRate": 0.027,
       "powerScore": 37.4,
       "tier": "C",
       "synergies": [
@@ -1551,13 +1551,13 @@
           "heroId": 81,
           "name": "Esmeralda",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4661a64a2c6b724e7b67032fcbface27.png",
-          "winRateDelta": 0.0324
+          "winRateDelta": 0.0323
         },
         {
           "heroId": 59,
           "name": "Uranus",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2e15a0a506aaecd9b3de40a8cc9f7ec7.png",
-          "winRateDelta": 0.0261
+          "winRateDelta": 0.0263
         },
         {
           "heroId": 4,
@@ -1578,29 +1578,29 @@
       "lanes": [
         "EXP Lane"
       ],
-      "winRate": 0.5287,
+      "winRate": 0.5289,
       "pickRate": 0.0032,
       "banRate": 0.0067,
       "powerScore": 36.8,
       "tier": "C",
       "synergies": [
         {
+          "heroId": 93,
+          "name": "Atlas",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d974ac796678180ff8724b88e192898b.png",
+          "winRateDelta": 0.0299
+        },
+        {
           "heroId": 83,
           "name": "X.Borg",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_efe9c7ed8d8f84f1bb0f88a3e08de5fc.png",
-          "winRateDelta": 0.0297
+          "winRateDelta": 0.0291
         },
         {
           "heroId": 28,
           "name": "Alpha",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_86c9f91f530727db6498f920d19180d1.png",
-          "winRateDelta": 0.0293
-        },
-        {
-          "heroId": 93,
-          "name": "Atlas",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d974ac796678180ff8724b88e192898b.png",
-          "winRateDelta": 0.0287
+          "winRateDelta": 0.0286
         }
       ]
     },
@@ -1616,15 +1616,15 @@
       ],
       "winRate": 0.4622,
       "pickRate": 0.0241,
-      "banRate": 0.1305,
-      "powerScore": 36.7,
+      "banRate": 0.1304,
+      "powerScore": 36.6,
       "tier": "C",
       "synergies": [
         {
           "heroId": 34,
           "name": "Estes",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ff4de3b0aabd1d2f6e184db1c831f6a9.png",
-          "winRateDelta": 0.0309
+          "winRateDelta": 0.0307
         },
         {
           "heroId": 16,
@@ -1636,7 +1636,7 @@
           "heroId": 20,
           "name": "Lolita",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0203
+          "winRateDelta": 0.02
         }
       ]
     },
@@ -1651,10 +1651,10 @@
         "Jungle",
         "Mid Lane"
       ],
-      "winRate": 0.485,
+      "winRate": 0.4848,
       "pickRate": 0.017,
       "banRate": 0.0822,
-      "powerScore": 36.5,
+      "powerScore": 36.4,
       "tier": "C",
       "synergies": [
         {
@@ -1667,13 +1667,50 @@
           "heroId": 57,
           "name": "Valir",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_bf16690876761b80822df90eb3320d69.png",
-          "winRateDelta": 0.022
+          "winRateDelta": 0.0218
         },
         {
           "heroId": 83,
           "name": "X.Borg",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_efe9c7ed8d8f84f1bb0f88a3e08de5fc.png",
-          "winRateDelta": 0.0211
+          "winRateDelta": 0.0207
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "name": "Johnson",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_85ff988c6660b4d04f8dd3d40df988bb.png",
+      "roles": [
+        "Tank",
+        "Support"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "winRate": 0.5075,
+      "pickRate": 0.0099,
+      "banRate": 0.037,
+      "powerScore": 36.3,
+      "tier": "C",
+      "synergies": [
+        {
+          "heroId": 18,
+          "name": "Layla",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b2b38e9406ea0de0b866db7674feea0f.png",
+          "winRateDelta": 0.0256
+        },
+        {
+          "heroId": 110,
+          "name": "Valentina",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_24837021ec9d7aaf41b13fa55b6d13c9.png",
+          "winRateDelta": 0.0201
+        },
+        {
+          "heroId": 3,
+          "name": "Saber",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6bbfac806f29d29f17fea9e98d2d2fee.png",
+          "winRateDelta": 0.0166
         }
       ]
     },
@@ -1690,63 +1727,26 @@
       "winRate": 0.517,
       "pickRate": 0.0078,
       "banRate": 0.0045,
-      "powerScore": 36.3,
+      "powerScore": 36.2,
       "tier": "C",
       "synergies": [
         {
           "heroId": 24,
           "name": "Natalia",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_fbb5065b6ff174d1a20ccf5b7f523514.png",
-          "winRateDelta": 0.0522
+          "winRateDelta": 0.0524
         },
         {
           "heroId": 110,
           "name": "Valentina",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_24837021ec9d7aaf41b13fa55b6d13c9.png",
-          "winRateDelta": 0.0314
+          "winRateDelta": 0.0319
         },
         {
           "heroId": 84,
           "name": "Ling",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_017bade52b9fc94bbc12615de6d75c08.png",
-          "winRateDelta": 0.0303
-        }
-      ]
-    },
-    {
-      "id": 32,
-      "name": "Johnson",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_85ff988c6660b4d04f8dd3d40df988bb.png",
-      "roles": [
-        "Tank",
-        "Support"
-      ],
-      "lanes": [
-        "Roam"
-      ],
-      "winRate": 0.5073,
-      "pickRate": 0.0099,
-      "banRate": 0.0369,
-      "powerScore": 36.3,
-      "tier": "C",
-      "synergies": [
-        {
-          "heroId": 18,
-          "name": "Layla",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b2b38e9406ea0de0b866db7674feea0f.png",
-          "winRateDelta": 0.0256
-        },
-        {
-          "heroId": 110,
-          "name": "Valentina",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_24837021ec9d7aaf41b13fa55b6d13c9.png",
-          "winRateDelta": 0.0181
-        },
-        {
-          "heroId": 88,
-          "name": "Masha",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4d79ba6ebb0a0f2bf542917f0b19d056.png",
-          "winRateDelta": 0.0178
+          "winRateDelta": 0.0305
         }
       ]
     },
@@ -1760,66 +1760,29 @@
       "lanes": [
         "EXP Lane"
       ],
-      "winRate": 0.5017,
+      "winRate": 0.5015,
       "pickRate": 0.0118,
-      "banRate": 0.0429,
-      "powerScore": 36.2,
+      "banRate": 0.0431,
+      "powerScore": 36.1,
       "tier": "C",
       "synergies": [
         {
           "heroId": 4,
           "name": "Alice",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_18300163a5a912a84adb52b8d59b4618.png",
-          "winRateDelta": 0.0259
+          "winRateDelta": 0.0261
         },
         {
           "heroId": 7,
           "name": "Alucard",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_0f51b6906e08897aa02330d65b0deeac.png",
-          "winRateDelta": 0.023
-        },
-        {
-          "heroId": 81,
-          "name": "Esmeralda",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4661a64a2c6b724e7b67032fcbface27.png",
-          "winRateDelta": 0.0203
-        }
-      ]
-    },
-    {
-      "id": 116,
-      "name": "Julian",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_5511ddc0ad2789b525f32ef572b017eb.png",
-      "roles": [
-        "Assassin",
-        "Fighter"
-      ],
-      "lanes": [
-        "Jungle"
-      ],
-      "winRate": 0.5047,
-      "pickRate": 0.0111,
-      "banRate": 0.0312,
-      "powerScore": 36.1,
-      "tier": "C",
-      "synergies": [
-        {
-          "heroId": 81,
-          "name": "Esmeralda",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4661a64a2c6b724e7b67032fcbface27.png",
-          "winRateDelta": 0.0267
-        },
-        {
-          "heroId": 76,
-          "name": "Faramis",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_04e575d648d7f7ac1174f4369595c3a2.png",
           "winRateDelta": 0.0227
         },
         {
-          "heroId": 27,
-          "name": "Sun",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_117b5cdcc13232157075ce7b7f6177e9.png",
-          "winRateDelta": 0.0224
+          "heroId": 81,
+          "name": "Esmeralda",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4661a64a2c6b724e7b67032fcbface27.png",
+          "winRateDelta": 0.0204
         }
       ]
     },
@@ -1835,7 +1798,7 @@
       ],
       "winRate": 0.5092,
       "pickRate": 0.0072,
-      "banRate": 0.0562,
+      "banRate": 0.0563,
       "powerScore": 36,
       "tier": "C",
       "synergies": [
@@ -1843,19 +1806,56 @@
           "heroId": 99,
           "name": "Barats",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6495be044c2d28106e200f6918391d54.png",
-          "winRateDelta": 0.0632
+          "winRateDelta": 0.0622
         },
         {
           "heroId": 87,
           "name": "Baxia",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_80e408203869ca99302af195ac4f756c.png",
-          "winRateDelta": 0.0481
+          "winRateDelta": 0.0475
         },
         {
           "heroId": 82,
           "name": "Terizla",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c4bb270c28c7be663f57e993b0d6d3d8.png",
-          "winRateDelta": 0.0459
+          "winRateDelta": 0.0467
+        }
+      ]
+    },
+    {
+      "id": 116,
+      "name": "Julian",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_5511ddc0ad2789b525f32ef572b017eb.png",
+      "roles": [
+        "Assassin",
+        "Fighter"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "winRate": 0.5046,
+      "pickRate": 0.0111,
+      "banRate": 0.0312,
+      "powerScore": 36,
+      "tier": "C",
+      "synergies": [
+        {
+          "heroId": 81,
+          "name": "Esmeralda",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4661a64a2c6b724e7b67032fcbface27.png",
+          "winRateDelta": 0.0266
+        },
+        {
+          "heroId": 76,
+          "name": "Faramis",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_04e575d648d7f7ac1174f4369595c3a2.png",
+          "winRateDelta": 0.0232
+        },
+        {
+          "heroId": 27,
+          "name": "Sun",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_117b5cdcc13232157075ce7b7f6177e9.png",
+          "winRateDelta": 0.0226
         }
       ]
     },
@@ -1871,27 +1871,27 @@
       ],
       "winRate": 0.5127,
       "pickRate": 0.0046,
-      "banRate": 0.0675,
-      "powerScore": 35.9,
+      "banRate": 0.0662,
+      "powerScore": 35.8,
       "tier": "C",
       "synergies": [
         {
           "heroId": 73,
           "name": "Harith",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d228a823b477fdf6c458c829c2e62bcf.png",
-          "winRateDelta": 0.0208
+          "winRateDelta": 0.0186
         },
         {
           "heroId": 7,
           "name": "Alucard",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_0f51b6906e08897aa02330d65b0deeac.png",
-          "winRateDelta": 0.0186
+          "winRateDelta": 0.0178
         },
         {
           "heroId": 79,
           "name": "Granger",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_a7729262d5b4abdc34ae5181e964c235.png",
-          "winRateDelta": 0.0165
+          "winRateDelta": 0.0169
         }
       ]
     },
@@ -1906,7 +1906,7 @@
       "lanes": [
         "Mid Lane"
       ],
-      "winRate": 0.5055,
+      "winRate": 0.5054,
       "pickRate": 0.0076,
       "banRate": 0.0673,
       "powerScore": 35.7,
@@ -1916,19 +1916,19 @@
           "heroId": 20,
           "name": "Lolita",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0345
+          "winRateDelta": 0.0349
         },
         {
           "heroId": 121,
           "name": "Ixia",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f070d82521ecd2e14d4ef3f25880830a.png",
-          "winRateDelta": 0.0302
+          "winRateDelta": 0.0301
         },
         {
           "heroId": 101,
           "name": "Yve",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d9b0a1d92b1c4b3643d6332fd66aa8e6.png",
-          "winRateDelta": 0.0229
+          "winRateDelta": 0.0219
         }
       ]
     },
@@ -1945,26 +1945,26 @@
       "winRate": 0.5127,
       "pickRate": 0.008,
       "banRate": 0.0051,
-      "powerScore": 35.3,
+      "powerScore": 35.2,
       "tier": "C",
       "synergies": [
         {
           "heroId": 46,
           "name": "Odette",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d9251718a8894546ba04cfa9ca68dedc.png",
-          "winRateDelta": 0.0221
+          "winRateDelta": 0.022
         },
         {
           "heroId": 14,
           "name": "Rafaela",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_68277dce415742c4a98883151c693a07.png",
-          "winRateDelta": 0.0197
+          "winRateDelta": 0.02
         },
         {
-          "heroId": 34,
-          "name": "Estes",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ff4de3b0aabd1d2f6e184db1c831f6a9.png",
-          "winRateDelta": 0.0173
+          "heroId": 94,
+          "name": "Popol and Kupa",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_1acbb23b9a50f412104047a60eb18808.png",
+          "winRateDelta": 0.0177
         }
       ]
     },
@@ -1979,29 +1979,29 @@
       "lanes": [
         "Jungle"
       ],
-      "winRate": 0.474,
+      "winRate": 0.4742,
       "pickRate": 0.0124,
-      "banRate": 0.1837,
+      "banRate": 0.1832,
       "powerScore": 35,
       "tier": "C",
       "synergies": [
         {
-          "heroId": 57,
-          "name": "Valir",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_bf16690876761b80822df90eb3320d69.png",
-          "winRateDelta": 0.0195
-        },
-        {
           "heroId": 118,
           "name": "Joy",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d3a3a55c22000ae78732fed8cba2efef.png",
-          "winRateDelta": 0.019
+          "winRateDelta": 0.021
+        },
+        {
+          "heroId": 57,
+          "name": "Valir",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_bf16690876761b80822df90eb3320d69.png",
+          "winRateDelta": 0.0196
         },
         {
           "heroId": 83,
           "name": "X.Borg",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_efe9c7ed8d8f84f1bb0f88a3e08de5fc.png",
-          "winRateDelta": 0.0181
+          "winRateDelta": 0.018
         }
       ]
     },
@@ -2016,29 +2016,29 @@
         "EXP Lane",
         "Roam"
       ],
-      "winRate": 0.5255,
-      "pickRate": 0.0012,
-      "banRate": 0.0019,
+      "winRate": 0.5258,
+      "pickRate": 0.0011,
+      "banRate": 0.0018,
       "powerScore": 34.5,
       "tier": "C",
       "synergies": [
         {
-          "heroId": 102,
-          "name": "Mathilda",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_24d08ed788a9f5984bcf3b732ddcaf04.png",
-          "winRateDelta": 0.0191
-        },
-        {
           "heroId": 113,
           "name": "Yin",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ee1c12c84f49514a30e405fb5c617796.png",
-          "winRateDelta": 0.0176
+          "winRateDelta": 0.0181
         },
         {
           "heroId": 122,
           "name": "Nolan",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_9012ee9f73fbb4db4e1953e5fb5172e1.png",
-          "winRateDelta": 0.017
+          "winRateDelta": 0.0176
+        },
+        {
+          "heroId": 101,
+          "name": "Yve",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d9b0a1d92b1c4b3643d6332fd66aa8e6.png",
+          "winRateDelta": 0.0162
         }
       ]
     },
@@ -2054,29 +2054,29 @@
         "Jungle",
         "EXP Lane"
       ],
-      "winRate": 0.5196,
-      "pickRate": 0.0038,
+      "winRate": 0.5197,
+      "pickRate": 0.0037,
       "banRate": 0.0026,
       "powerScore": 34.5,
       "tier": "C",
       "synergies": [
         {
-          "heroId": 106,
-          "name": "Phoveus",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_af21c0dd8b5308c27974bff900803a9a.png",
-          "winRateDelta": 0.0231
-        },
-        {
           "heroId": 78,
           "name": "Khufra",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2fe99f4001211d18b3d2b95d0d3dc395.png",
-          "winRateDelta": 0.0226
+          "winRateDelta": 0.0232
+        },
+        {
+          "heroId": 106,
+          "name": "Phoveus",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_af21c0dd8b5308c27974bff900803a9a.png",
+          "winRateDelta": 0.0223
         },
         {
           "heroId": 76,
           "name": "Faramis",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_04e575d648d7f7ac1174f4369595c3a2.png",
-          "winRateDelta": 0.0209
+          "winRateDelta": 0.0213
         }
       ]
     },
@@ -2090,9 +2090,9 @@
       "lanes": [
         "Roam"
       ],
-      "winRate": 0.5186,
+      "winRate": 0.5187,
       "pickRate": 0.0016,
-      "banRate": 0.0341,
+      "banRate": 0.0339,
       "powerScore": 34.2,
       "tier": "C",
       "synergies": [
@@ -2100,19 +2100,19 @@
           "heroId": 6,
           "name": "Tigreal",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_8b30576754be1a4f8bebd09df8d6bec7.png",
-          "winRateDelta": 0.0429
+          "winRateDelta": 0.0432
         },
         {
           "heroId": 93,
           "name": "Atlas",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d974ac796678180ff8724b88e192898b.png",
-          "winRateDelta": 0.041
+          "winRateDelta": 0.0418
         },
         {
-          "heroId": 80,
-          "name": "Guinevere",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_901bdd5d4432a2c0290dfc71df615a5a.png",
-          "winRateDelta": 0.0302
+          "heroId": 28,
+          "name": "Alpha",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_86c9f91f530727db6498f920d19180d1.png",
+          "winRateDelta": 0.0303
         }
       ]
     },
@@ -2127,29 +2127,29 @@
         "EXP Lane",
         "Roam"
       ],
-      "winRate": 0.5062,
+      "winRate": 0.5058,
       "pickRate": 0.0089,
-      "banRate": 0.0089,
-      "powerScore": 34.2,
+      "banRate": 0.009,
+      "powerScore": 34.1,
       "tier": "C",
       "synergies": [
         {
           "heroId": 17,
           "name": "Fanny",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_3391df36d6dcc54dd1c417098e15ec59.png",
-          "winRateDelta": 0.0243
+          "winRateDelta": 0.0241
         },
         {
           "heroId": 125,
           "name": "Zhuxin",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_595f85bc90df3889c711c6b1f02dc02d.png",
-          "winRateDelta": 0.017
+          "winRateDelta": 0.0181
         },
         {
           "heroId": 27,
           "name": "Sun",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_117b5cdcc13232157075ce7b7f6177e9.png",
-          "winRateDelta": 0.0155
+          "winRateDelta": 0.0157
         }
       ]
     },
@@ -2164,29 +2164,29 @@
       "lanes": [
         "Roam"
       ],
-      "winRate": 0.4751,
-      "pickRate": 0.0042,
-      "banRate": 0.2749,
-      "powerScore": 34.2,
+      "winRate": 0.4755,
+      "pickRate": 0.0041,
+      "banRate": 0.2701,
+      "powerScore": 34,
       "tier": "C",
       "synergies": [
         {
           "heroId": 105,
           "name": "Beatrix",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4687eca874feec9017b448a0b9110d65.png",
-          "winRateDelta": 0.0326
+          "winRateDelta": 0.0317
         },
         {
           "heroId": 79,
           "name": "Granger",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_a7729262d5b4abdc34ae5181e964c235.png",
-          "winRateDelta": 0.0254
+          "winRateDelta": 0.0248
         },
         {
           "heroId": 9,
           "name": "Akai",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_28f223447f0174336ff0922d364d81d3.png",
-          "winRateDelta": 0.0189
+          "winRateDelta": 0.0192
         }
       ]
     },
@@ -2202,7 +2202,7 @@
       ],
       "winRate": 0.5147,
       "pickRate": 0.0044,
-      "banRate": 0.0118,
+      "banRate": 0.0119,
       "powerScore": 33.9,
       "tier": "C",
       "synergies": [
@@ -2210,13 +2210,13 @@
           "heroId": 20,
           "name": "Lolita",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0397
+          "winRateDelta": 0.0428
         },
         {
           "heroId": 87,
           "name": "Baxia",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_80e408203869ca99302af195ac4f756c.png",
-          "winRateDelta": 0.0218
+          "winRateDelta": 0.0236
         },
         {
           "heroId": 57,
@@ -2238,29 +2238,29 @@
         "EXP Lane",
         "Jungle"
       ],
-      "winRate": 0.5041,
+      "winRate": 0.5039,
       "pickRate": 0.0052,
-      "banRate": 0.0592,
-      "powerScore": 33.6,
+      "banRate": 0.0594,
+      "powerScore": 33.4,
       "tier": "C",
       "synergies": [
         {
           "heroId": 104,
           "name": "Gloo",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c472fe0233e5ef84a3ac9ba4a229d09f.png",
-          "winRateDelta": 0.0484
+          "winRateDelta": 0.0489
         },
         {
           "heroId": 124,
           "name": "Chip",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_79224d297f14377ad2eda8543432330d.png",
-          "winRateDelta": 0.0405
+          "winRateDelta": 0.039
         },
         {
           "heroId": 6,
           "name": "Tigreal",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_8b30576754be1a4f8bebd09df8d6bec7.png",
-          "winRateDelta": 0.0344
+          "winRateDelta": 0.0343
         }
       ]
     },
@@ -2275,65 +2275,29 @@
       "lanes": [
         "EXP Lane"
       ],
-      "winRate": 0.515,
+      "winRate": 0.5147,
       "pickRate": 0.004,
       "banRate": 0.0044,
-      "powerScore": 33.4,
+      "powerScore": 33.3,
       "tier": "C",
       "synergies": [
-        {
-          "heroId": 88,
-          "name": "Masha",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4d79ba6ebb0a0f2bf542917f0b19d056.png",
-          "winRateDelta": 0.0332
-        },
         {
           "heroId": 45,
           "name": "Argus",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_0bd96658e5b8ec578226ea1622bd7231.png",
-          "winRateDelta": 0.032
+          "winRateDelta": 0.0331
         },
         {
-          "heroId": 78,
-          "name": "Khufra",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2fe99f4001211d18b3d2b95d0d3dc395.png",
-          "winRateDelta": 0.0231
-        }
-      ]
-    },
-    {
-      "id": 43,
-      "name": "Irithel",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_a65d1e2ced64fbfdfcefdcfba719b3fd.png",
-      "roles": [
-        "Marksman"
-      ],
-      "lanes": [
-        "Gold Lane"
-      ],
-      "winRate": 0.5132,
-      "pickRate": 0.004,
-      "banRate": 0.0066,
-      "powerScore": 33.1,
-      "tier": "C",
-      "synergies": [
-        {
-          "heroId": 105,
-          "name": "Beatrix",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4687eca874feec9017b448a0b9110d65.png",
-          "winRateDelta": 0.0361
+          "heroId": 88,
+          "name": "Masha",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4d79ba6ebb0a0f2bf542917f0b19d056.png",
+          "winRateDelta": 0.0309
         },
         {
-          "heroId": 89,
-          "name": "Wanwan",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_44bfa1dc44deb8d7620605faaa9ffae7.png",
-          "winRateDelta": 0.0284
-        },
-        {
-          "heroId": 113,
-          "name": "Yin",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ee1c12c84f49514a30e405fb5c617796.png",
-          "winRateDelta": 0.0254
+          "heroId": 87,
+          "name": "Baxia",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_80e408203869ca99302af195ac4f756c.png",
+          "winRateDelta": 0.0218
         }
       ]
     },
@@ -2347,65 +2311,65 @@
       "lanes": [
         "Gold Lane"
       ],
-      "winRate": 0.5055,
-      "pickRate": 0.0064,
-      "banRate": 0.0219,
-      "powerScore": 33.1,
+      "winRate": 0.506,
+      "pickRate": 0.0065,
+      "banRate": 0.0223,
+      "powerScore": 33.2,
       "tier": "C",
       "synergies": [
         {
           "heroId": 97,
           "name": "Benedetta",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b4a5e537894bdc00787e80e4d3ada5dd.png",
-          "winRateDelta": 0.0309
+          "winRateDelta": 0.0302
         },
         {
           "heroId": 79,
           "name": "Granger",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_a7729262d5b4abdc34ae5181e964c235.png",
-          "winRateDelta": 0.0304
+          "winRateDelta": 0.0295
         },
         {
           "heroId": 105,
           "name": "Beatrix",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4687eca874feec9017b448a0b9110d65.png",
-          "winRateDelta": 0.0257
+          "winRateDelta": 0.0256
         }
       ]
     },
     {
-      "id": 59,
-      "name": "Uranus",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2e15a0a506aaecd9b3de40a8cc9f7ec7.png",
+      "id": 43,
+      "name": "Irithel",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_a65d1e2ced64fbfdfcefdcfba719b3fd.png",
       "roles": [
-        "Tank"
+        "Marksman"
       ],
       "lanes": [
-        "EXP Lane"
+        "Gold Lane"
       ],
-      "winRate": 0.5117,
-      "pickRate": 0.0037,
-      "banRate": 0.0091,
-      "powerScore": 32.6,
+      "winRate": 0.5126,
+      "pickRate": 0.004,
+      "banRate": 0.0066,
+      "powerScore": 32.9,
       "tier": "C",
       "synergies": [
         {
-          "heroId": 45,
-          "name": "Argus",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_0bd96658e5b8ec578226ea1622bd7231.png",
-          "winRateDelta": 0.032
+          "heroId": 105,
+          "name": "Beatrix",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4687eca874feec9017b448a0b9110d65.png",
+          "winRateDelta": 0.0355
         },
         {
-          "heroId": 48,
-          "name": "Diggie",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b1bdf46136cb8a7903dae6d58e8349cb.png",
-          "winRateDelta": 0.0279
+          "heroId": 89,
+          "name": "Wanwan",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_44bfa1dc44deb8d7620605faaa9ffae7.png",
+          "winRateDelta": 0.0289
         },
         {
-          "heroId": 99,
-          "name": "Barats",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6495be044c2d28106e200f6918391d54.png",
-          "winRateDelta": 0.026
+          "heroId": 113,
+          "name": "Yin",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ee1c12c84f49514a30e405fb5c617796.png",
+          "winRateDelta": 0.0257
         }
       ]
     },
@@ -2421,10 +2385,10 @@
         "Mid Lane",
         "Roam"
       ],
-      "winRate": 0.4837,
-      "pickRate": 0.012,
-      "banRate": 0.0708,
-      "powerScore": 32.6,
+      "winRate": 0.4841,
+      "pickRate": 0.0121,
+      "banRate": 0.0709,
+      "powerScore": 32.7,
       "tier": "C",
       "synergies": [
         {
@@ -2437,13 +2401,49 @@
           "heroId": 121,
           "name": "Ixia",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f070d82521ecd2e14d4ef3f25880830a.png",
-          "winRateDelta": 0.0199
+          "winRateDelta": 0.0198
         },
         {
           "heroId": 105,
           "name": "Beatrix",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4687eca874feec9017b448a0b9110d65.png",
-          "winRateDelta": 0.0185
+          "winRateDelta": 0.0191
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "name": "Uranus",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2e15a0a506aaecd9b3de40a8cc9f7ec7.png",
+      "roles": [
+        "Tank"
+      ],
+      "lanes": [
+        "EXP Lane"
+      ],
+      "winRate": 0.5118,
+      "pickRate": 0.0037,
+      "banRate": 0.0091,
+      "powerScore": 32.6,
+      "tier": "C",
+      "synergies": [
+        {
+          "heroId": 45,
+          "name": "Argus",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_0bd96658e5b8ec578226ea1622bd7231.png",
+          "winRateDelta": 0.0317
+        },
+        {
+          "heroId": 99,
+          "name": "Barats",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6495be044c2d28106e200f6918391d54.png",
+          "winRateDelta": 0.0258
+        },
+        {
+          "heroId": 48,
+          "name": "Diggie",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b1bdf46136cb8a7903dae6d58e8349cb.png",
+          "winRateDelta": 0.0252
         }
       ]
     },
@@ -2458,9 +2458,9 @@
         "EXP Lane",
         "Jungle"
       ],
-      "winRate": 0.5106,
+      "winRate": 0.5107,
       "pickRate": 0.0034,
-      "banRate": 0.0135,
+      "banRate": 0.0145,
       "powerScore": 32.3,
       "tier": "C",
       "synergies": [
@@ -2468,19 +2468,19 @@
           "heroId": 120,
           "name": "Arlott",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f666faa5ec6be5353f10dcd1d8997a42.png",
-          "winRateDelta": 0.0307
+          "winRateDelta": 0.0308
         },
         {
           "heroId": 84,
           "name": "Ling",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_017bade52b9fc94bbc12615de6d75c08.png",
-          "winRateDelta": 0.0262
+          "winRateDelta": 0.026
         },
         {
-          "heroId": 24,
-          "name": "Natalia",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_fbb5065b6ff174d1a20ccf5b7f523514.png",
-          "winRateDelta": 0.0211
+          "heroId": 88,
+          "name": "Masha",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4d79ba6ebb0a0f2bf542917f0b19d056.png",
+          "winRateDelta": 0.0224
         }
       ]
     },
@@ -2495,8 +2495,8 @@
         "Gold Lane"
       ],
       "winRate": 0.4799,
-      "pickRate": 0.0164,
-      "banRate": 0.0193,
+      "pickRate": 0.0165,
+      "banRate": 0.0194,
       "powerScore": 32.1,
       "tier": "C",
       "synergies": [
@@ -2504,7 +2504,7 @@
           "heroId": 132,
           "name": "Marcel",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_df7603c292198bf4aa7b551d401ea5c1.png",
-          "winRateDelta": 0.0305
+          "winRateDelta": 0.0306
         },
         {
           "heroId": 111,
@@ -2516,7 +2516,7 @@
           "heroId": 14,
           "name": "Rafaela",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_68277dce415742c4a98883151c693a07.png",
-          "winRateDelta": 0.0252
+          "winRateDelta": 0.025
         }
       ]
     },
@@ -2532,7 +2532,7 @@
         "EXP Lane",
         "Roam"
       ],
-      "winRate": 0.5133,
+      "winRate": 0.5134,
       "pickRate": 0.0024,
       "banRate": 0.0015,
       "powerScore": 31.9,
@@ -2542,19 +2542,19 @@
           "heroId": 4,
           "name": "Alice",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_18300163a5a912a84adb52b8d59b4618.png",
-          "winRateDelta": 0.0381
+          "winRateDelta": 0.0383
         },
         {
           "heroId": 73,
           "name": "Harith",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d228a823b477fdf6c458c829c2e62bcf.png",
-          "winRateDelta": 0.037
+          "winRateDelta": 0.0361
         },
         {
           "heroId": 65,
           "name": "Claude",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_e1097b9d3e1d5e9f14600d32e8b18acd.png",
-          "winRateDelta": 0.0301
+          "winRateDelta": 0.029
         }
       ]
     },
@@ -2569,29 +2569,29 @@
       "lanes": [
         "Jungle"
       ],
-      "winRate": 0.5038,
+      "winRate": 0.5037,
       "pickRate": 0.0039,
       "banRate": 0.0331,
-      "powerScore": 31.6,
+      "powerScore": 31.5,
       "tier": "C",
       "synergies": [
         {
           "heroId": 7,
           "name": "Alucard",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_0f51b6906e08897aa02330d65b0deeac.png",
-          "winRateDelta": 0.0288
+          "winRateDelta": 0.0293
+        },
+        {
+          "heroId": 45,
+          "name": "Argus",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_0bd96658e5b8ec578226ea1622bd7231.png",
+          "winRateDelta": 0.0272
         },
         {
           "heroId": 3,
           "name": "Saber",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6bbfac806f29d29f17fea9e98d2d2fee.png",
           "winRateDelta": 0.0269
-        },
-        {
-          "heroId": 45,
-          "name": "Argus",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_0bd96658e5b8ec578226ea1622bd7231.png",
-          "winRateDelta": 0.0259
         }
       ]
     },
@@ -2606,9 +2606,9 @@
       "lanes": [
         "Jungle"
       ],
-      "winRate": 0.4982,
+      "winRate": 0.4984,
       "pickRate": 0.007,
-      "banRate": 0.0208,
+      "banRate": 0.0207,
       "powerScore": 31.4,
       "tier": "C",
       "synergies": [
@@ -2616,19 +2616,19 @@
           "heroId": 88,
           "name": "Masha",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4d79ba6ebb0a0f2bf542917f0b19d056.png",
-          "winRateDelta": 0.0253
+          "winRateDelta": 0.0266
         },
         {
           "heroId": 27,
           "name": "Sun",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_117b5cdcc13232157075ce7b7f6177e9.png",
-          "winRateDelta": 0.0229
+          "winRateDelta": 0.0227
         },
         {
-          "heroId": 87,
-          "name": "Baxia",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_80e408203869ca99302af195ac4f756c.png",
-          "winRateDelta": 0.0176
+          "heroId": 37,
+          "name": "Lapu-Lapu",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_28036c4584c914c5aad4d2feeafb2452.png",
+          "winRateDelta": 0.0178
         }
       ]
     },
@@ -2643,10 +2643,10 @@
       "lanes": [
         "Jungle"
       ],
-      "winRate": 0.5073,
+      "winRate": 0.5075,
       "pickRate": 0.0034,
       "banRate": 0.0017,
-      "powerScore": 30.9,
+      "powerScore": 30.8,
       "tier": "C",
       "synergies": [
         {
@@ -2659,13 +2659,13 @@
           "heroId": 56,
           "name": "Gusion",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c6cd232de60da5372a7101a203e56554.png",
-          "winRateDelta": 0.0174
+          "winRateDelta": 0.0175
         },
         {
-          "heroId": 87,
-          "name": "Baxia",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_80e408203869ca99302af195ac4f756c.png",
-          "winRateDelta": 0.0173
+          "heroId": 4,
+          "name": "Alice",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_18300163a5a912a84adb52b8d59b4618.png",
+          "winRateDelta": 0.0138
         }
       ]
     },
@@ -2679,7 +2679,7 @@
       "lanes": [
         "EXP Lane"
       ],
-      "winRate": 0.5015,
+      "winRate": 0.5016,
       "pickRate": 0.0054,
       "banRate": 0.0082,
       "powerScore": 30.8,
@@ -2689,19 +2689,19 @@
           "heroId": 27,
           "name": "Sun",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_117b5cdcc13232157075ce7b7f6177e9.png",
-          "winRateDelta": 0.0448
+          "winRateDelta": 0.0446
         },
         {
           "heroId": 83,
           "name": "X.Borg",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_efe9c7ed8d8f84f1bb0f88a3e08de5fc.png",
-          "winRateDelta": 0.0233
+          "winRateDelta": 0.0234
         },
         {
           "heroId": 70,
           "name": "Belerick",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_5f2a9eca0bafd4ed8dc39a93c771b3af.png",
-          "winRateDelta": 0.0231
+          "winRateDelta": 0.023
         }
       ]
     },
@@ -2717,29 +2717,29 @@
         "Jungle",
         "EXP Lane"
       ],
-      "winRate": 0.4916,
+      "winRate": 0.4917,
       "pickRate": 0.0079,
-      "banRate": 0.0366,
+      "banRate": 0.0368,
       "powerScore": 30.8,
       "tier": "C",
       "synergies": [
         {
-          "heroId": 74,
-          "name": "Minsitthar",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c5d24a1dad6cef21de2698a4ed1d80ce.png",
-          "winRateDelta": 0.0296
-        },
-        {
           "heroId": 34,
           "name": "Estes",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ff4de3b0aabd1d2f6e184db1c831f6a9.png",
+          "winRateDelta": 0.0297
+        },
+        {
+          "heroId": 74,
+          "name": "Minsitthar",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c5d24a1dad6cef21de2698a4ed1d80ce.png",
           "winRateDelta": 0.0293
         },
         {
           "heroId": 121,
           "name": "Ixia",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f070d82521ecd2e14d4ef3f25880830a.png",
-          "winRateDelta": 0.025
+          "winRateDelta": 0.0253
         }
       ]
     },
@@ -2753,17 +2753,17 @@
       "lanes": [
         "Mid Lane"
       ],
-      "winRate": 0.4918,
+      "winRate": 0.4919,
       "pickRate": 0.0095,
-      "banRate": 0.0092,
-      "powerScore": 30.7,
+      "banRate": 0.0093,
+      "powerScore": 30.6,
       "tier": "C",
       "synergies": [
         {
           "heroId": 48,
           "name": "Diggie",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b1bdf46136cb8a7903dae6d58e8349cb.png",
-          "winRateDelta": 0.0261
+          "winRateDelta": 0.027
         },
         {
           "heroId": 88,
@@ -2775,7 +2775,7 @@
           "heroId": 83,
           "name": "X.Borg",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_efe9c7ed8d8f84f1bb0f88a3e08de5fc.png",
-          "winRateDelta": 0.0181
+          "winRateDelta": 0.0182
         }
       ]
     },
@@ -2791,21 +2791,21 @@
       ],
       "winRate": 0.5047,
       "pickRate": 0.0028,
-      "banRate": 0.019,
-      "powerScore": 30.6,
+      "banRate": 0.0189,
+      "powerScore": 30.5,
       "tier": "C",
       "synergies": [
         {
           "heroId": 3,
           "name": "Saber",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6bbfac806f29d29f17fea9e98d2d2fee.png",
-          "winRateDelta": 0.0273
+          "winRateDelta": 0.0277
         },
         {
-          "heroId": 20,
-          "name": "Lolita",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0185
+          "heroId": 76,
+          "name": "Faramis",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_04e575d648d7f7ac1174f4369595c3a2.png",
+          "winRateDelta": 0.0221
         },
         {
           "heroId": 70,
@@ -2826,29 +2826,29 @@
       "lanes": [
         "EXP Lane"
       ],
-      "winRate": 0.4913,
+      "winRate": 0.4911,
       "pickRate": 0.0045,
-      "banRate": 0.0726,
-      "powerScore": 30.2,
+      "banRate": 0.0722,
+      "powerScore": 30.1,
       "tier": "C",
       "synergies": [
         {
           "heroId": 34,
           "name": "Estes",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ff4de3b0aabd1d2f6e184db1c831f6a9.png",
-          "winRateDelta": 0.0344
+          "winRateDelta": 0.0351
         },
         {
           "heroId": 124,
           "name": "Chip",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_79224d297f14377ad2eda8543432330d.png",
-          "winRateDelta": 0.0183
+          "winRateDelta": 0.0184
         },
         {
           "heroId": 80,
           "name": "Guinevere",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_901bdd5d4432a2c0290dfc71df615a5a.png",
-          "winRateDelta": 0.0161
+          "winRateDelta": 0.0164
         }
       ]
     },
@@ -2862,23 +2862,23 @@
       "lanes": [
         "Mid Lane"
       ],
-      "winRate": 0.4986,
+      "winRate": 0.4988,
       "pickRate": 0.0047,
-      "banRate": 0.0104,
+      "banRate": 0.0105,
       "powerScore": 29.7,
       "tier": "D",
       "synergies": [
         {
-          "heroId": 32,
-          "name": "Johnson",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_85ff988c6660b4d04f8dd3d40df988bb.png",
-          "winRateDelta": 0.0194
-        },
-        {
           "heroId": 99,
           "name": "Barats",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6495be044c2d28106e200f6918391d54.png",
-          "winRateDelta": 0.0183
+          "winRateDelta": 0.019
+        },
+        {
+          "heroId": 32,
+          "name": "Johnson",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_85ff988c6660b4d04f8dd3d40df988bb.png",
+          "winRateDelta": 0.0187
         },
         {
           "heroId": 4,
@@ -2898,29 +2898,29 @@
       "lanes": [
         "Mid Lane"
       ],
-      "winRate": 0.4961,
+      "winRate": 0.4964,
       "pickRate": 0.006,
-      "banRate": 0.0047,
-      "powerScore": 29.5,
+      "banRate": 0.0048,
+      "powerScore": 29.6,
       "tier": "D",
       "synergies": [
-        {
-          "heroId": 24,
-          "name": "Natalia",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_fbb5065b6ff174d1a20ccf5b7f523514.png",
-          "winRateDelta": 0.028
-        },
         {
           "heroId": 124,
           "name": "Chip",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_79224d297f14377ad2eda8543432330d.png",
-          "winRateDelta": 0.0271
+          "winRateDelta": 0.029
+        },
+        {
+          "heroId": 24,
+          "name": "Natalia",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_fbb5065b6ff174d1a20ccf5b7f523514.png",
+          "winRateDelta": 0.0281
         },
         {
           "heroId": 62,
           "name": "Kaja",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d558bb881e18a070eaeda1e1fdc248a8.png",
-          "winRateDelta": 0.0264
+          "winRateDelta": 0.026
         }
       ]
     },
@@ -2934,7 +2934,7 @@
       "lanes": [
         "Jungle"
       ],
-      "winRate": 0.5045,
+      "winRate": 0.5048,
       "pickRate": 0.0021,
       "banRate": 0.004,
       "powerScore": 29.4,
@@ -2950,49 +2950,13 @@
           "heroId": 27,
           "name": "Sun",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_117b5cdcc13232157075ce7b7f6177e9.png",
-          "winRateDelta": 0.0332
+          "winRateDelta": 0.0345
         },
         {
-          "heroId": 124,
-          "name": "Chip",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_79224d297f14377ad2eda8543432330d.png",
-          "winRateDelta": 0.0261
-        }
-      ]
-    },
-    {
-      "id": 121,
-      "name": "Ixia",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f070d82521ecd2e14d4ef3f25880830a.png",
-      "roles": [
-        "Marksman"
-      ],
-      "lanes": [
-        "Gold Lane"
-      ],
-      "winRate": 0.4862,
-      "pickRate": 0.0087,
-      "banRate": 0.024,
-      "powerScore": 29.3,
-      "tier": "D",
-      "synergies": [
-        {
-          "heroId": 34,
-          "name": "Estes",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ff4de3b0aabd1d2f6e184db1c831f6a9.png",
-          "winRateDelta": 0.0492
-        },
-        {
-          "heroId": 60,
-          "name": "Hanabi",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_8a9c1966feb34e85d7bdcc1ed01ffb5d.png",
-          "winRateDelta": 0.0292
-        },
-        {
-          "heroId": 14,
-          "name": "Rafaela",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_68277dce415742c4a98883151c693a07.png",
-          "winRateDelta": 0.0282
+          "heroId": 3,
+          "name": "Saber",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6bbfac806f29d29f17fea9e98d2d2fee.png",
+          "winRateDelta": 0.0264
         }
       ]
     },
@@ -3006,9 +2970,9 @@
       "lanes": [
         "Jungle"
       ],
-      "winRate": 0.4842,
+      "winRate": 0.4844,
       "pickRate": 0.0079,
-      "banRate": 0.0482,
+      "banRate": 0.0488,
       "powerScore": 29.3,
       "tier": "D",
       "synergies": [
@@ -3022,13 +2986,13 @@
           "heroId": 83,
           "name": "X.Borg",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_efe9c7ed8d8f84f1bb0f88a3e08de5fc.png",
-          "winRateDelta": 0.0177
+          "winRateDelta": 0.0178
         },
         {
-          "heroId": 122,
-          "name": "Nolan",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_9012ee9f73fbb4db4e1953e5fb5172e1.png",
-          "winRateDelta": 0.0174
+          "heroId": 40,
+          "name": "Karrie",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_294576f2bd0dcbcc9041031969d0eb09.png",
+          "winRateDelta": 0.0177
         }
       ]
     },
@@ -3043,7 +3007,7 @@
       "lanes": [
         "EXP Lane"
       ],
-      "winRate": 0.4865,
+      "winRate": 0.4867,
       "pickRate": 0.0078,
       "banRate": 0.0313,
       "powerScore": 29.2,
@@ -3053,19 +3017,55 @@
           "heroId": 20,
           "name": "Lolita",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0602
+          "winRateDelta": 0.0604
         },
         {
           "heroId": 48,
           "name": "Diggie",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b1bdf46136cb8a7903dae6d58e8349cb.png",
-          "winRateDelta": 0.0382
+          "winRateDelta": 0.0385
         },
         {
           "heroId": 102,
           "name": "Mathilda",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_24d08ed788a9f5984bcf3b732ddcaf04.png",
           "winRateDelta": 0.038
+        }
+      ]
+    },
+    {
+      "id": 121,
+      "name": "Ixia",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f070d82521ecd2e14d4ef3f25880830a.png",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold Lane"
+      ],
+      "winRate": 0.4861,
+      "pickRate": 0.0087,
+      "banRate": 0.0239,
+      "powerScore": 29.2,
+      "tier": "D",
+      "synergies": [
+        {
+          "heroId": 34,
+          "name": "Estes",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ff4de3b0aabd1d2f6e184db1c831f6a9.png",
+          "winRateDelta": 0.0491
+        },
+        {
+          "heroId": 60,
+          "name": "Hanabi",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_8a9c1966feb34e85d7bdcc1ed01ffb5d.png",
+          "winRateDelta": 0.0291
+        },
+        {
+          "heroId": 14,
+          "name": "Rafaela",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_68277dce415742c4a98883151c693a07.png",
+          "winRateDelta": 0.0283
         }
       ]
     },
@@ -3080,10 +3080,10 @@
       "lanes": [
         "Jungle"
       ],
-      "winRate": 0.4927,
+      "winRate": 0.4926,
       "pickRate": 0.0061,
       "banRate": 0.0062,
-      "powerScore": 28.7,
+      "powerScore": 28.6,
       "tier": "D",
       "synergies": [
         {
@@ -3096,13 +3096,13 @@
           "heroId": 24,
           "name": "Natalia",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_fbb5065b6ff174d1a20ccf5b7f523514.png",
-          "winRateDelta": 0.0261
+          "winRateDelta": 0.0266
         },
         {
           "heroId": 102,
           "name": "Mathilda",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_24d08ed788a9f5984bcf3b732ddcaf04.png",
-          "winRateDelta": 0.0205
+          "winRateDelta": 0.0222
         }
       ]
     },
@@ -3118,7 +3118,7 @@
       ],
       "winRate": 0.4919,
       "pickRate": 0.0063,
-      "banRate": 0.0068,
+      "banRate": 0.0069,
       "powerScore": 28.6,
       "tier": "D",
       "synergies": [
@@ -3126,19 +3126,19 @@
           "heroId": 20,
           "name": "Lolita",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0603
-        },
-        {
-          "heroId": 101,
-          "name": "Yve",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d9b0a1d92b1c4b3643d6332fd66aa8e6.png",
-          "winRateDelta": 0.0193
+          "winRateDelta": 0.0608
         },
         {
           "heroId": 76,
           "name": "Faramis",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_04e575d648d7f7ac1174f4369595c3a2.png",
           "winRateDelta": 0.0186
+        },
+        {
+          "heroId": 15,
+          "name": "Eudora",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_87b2a655b254c136dce8976e21935a80.png",
+          "winRateDelta": 0.0165
         }
       ]
     },
@@ -3153,29 +3153,29 @@
         "Jungle",
         "EXP Lane"
       ],
-      "winRate": 0.4792,
+      "winRate": 0.4791,
       "pickRate": 0.0111,
-      "banRate": 0.0106,
-      "powerScore": 28.3,
+      "banRate": 0.0105,
+      "powerScore": 28.2,
       "tier": "D",
       "synergies": [
         {
           "heroId": 99,
           "name": "Barats",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6495be044c2d28106e200f6918391d54.png",
-          "winRateDelta": 0.0287
+          "winRateDelta": 0.0278
         },
         {
           "heroId": 127,
           "name": "Lukas",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_63040edd0cf15b815fcbbb8b2d08d7f7.png",
-          "winRateDelta": 0.0275
+          "winRateDelta": 0.0272
         },
         {
-          "heroId": 106,
-          "name": "Phoveus",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_af21c0dd8b5308c27974bff900803a9a.png",
-          "winRateDelta": 0.0206
+          "heroId": 124,
+          "name": "Chip",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_79224d297f14377ad2eda8543432330d.png",
+          "winRateDelta": 0.0205
         }
       ]
     },
@@ -3189,65 +3189,29 @@
       "lanes": [
         "EXP Lane"
       ],
-      "winRate": 0.4879,
+      "winRate": 0.4877,
       "pickRate": 0.0059,
-      "banRate": 0.0266,
-      "powerScore": 28.2,
+      "banRate": 0.0265,
+      "powerScore": 28.1,
       "tier": "D",
       "synergies": [
         {
           "heroId": 104,
           "name": "Gloo",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c472fe0233e5ef84a3ac9ba4a229d09f.png",
-          "winRateDelta": 0.0248
+          "winRateDelta": 0.0238
         },
         {
           "heroId": 90,
           "name": "Silvanna",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_5e7b297af7c6e32a420b897aa4998071.png",
-          "winRateDelta": 0.0198
+          "winRateDelta": 0.0203
         },
         {
           "heroId": 74,
           "name": "Minsitthar",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c5d24a1dad6cef21de2698a4ed1d80ce.png",
-          "winRateDelta": 0.0165
-        }
-      ]
-    },
-    {
-      "id": 91,
-      "name": "Cecilion",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_045399c265021d47da6512e6de20b64f.png",
-      "roles": [
-        "Mage"
-      ],
-      "lanes": [
-        "Mid Lane"
-      ],
-      "winRate": 0.4916,
-      "pickRate": 0.0057,
-      "banRate": 0.0028,
-      "powerScore": 28.1,
-      "tier": "D",
-      "synergies": [
-        {
-          "heroId": 20,
-          "name": "Lolita",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0345
-        },
-        {
-          "heroId": 124,
-          "name": "Chip",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_79224d297f14377ad2eda8543432330d.png",
-          "winRateDelta": 0.0293
-        },
-        {
-          "heroId": 117,
-          "name": "Fredrinn",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_dea170bfd5f26c41fb04e5edf72afedb.png",
-          "winRateDelta": 0.0181
+          "winRateDelta": 0.0167
         }
       ]
     },
@@ -3261,9 +3225,9 @@
       "lanes": [
         "EXP Lane"
       ],
-      "winRate": 0.4942,
+      "winRate": 0.4943,
       "pickRate": 0.0036,
-      "banRate": 0.0165,
+      "banRate": 0.0164,
       "powerScore": 28,
       "tier": "D",
       "synergies": [
@@ -3271,19 +3235,55 @@
           "heroId": 88,
           "name": "Masha",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4d79ba6ebb0a0f2bf542917f0b19d056.png",
-          "winRateDelta": 0.0218
+          "winRateDelta": 0.0213
         },
         {
           "heroId": 90,
           "name": "Silvanna",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_5e7b297af7c6e32a420b897aa4998071.png",
-          "winRateDelta": 0.0211
+          "winRateDelta": 0.021
+        },
+        {
+          "heroId": 87,
+          "name": "Baxia",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_80e408203869ca99302af195ac4f756c.png",
+          "winRateDelta": 0.0203
+        }
+      ]
+    },
+    {
+      "id": 91,
+      "name": "Cecilion",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_045399c265021d47da6512e6de20b64f.png",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid Lane"
+      ],
+      "winRate": 0.4917,
+      "pickRate": 0.0057,
+      "banRate": 0.0028,
+      "powerScore": 28,
+      "tier": "D",
+      "synergies": [
+        {
+          "heroId": 20,
+          "name": "Lolita",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
+          "winRateDelta": 0.0359
         },
         {
           "heroId": 124,
           "name": "Chip",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_79224d297f14377ad2eda8543432330d.png",
-          "winRateDelta": 0.0201
+          "winRateDelta": 0.0268
+        },
+        {
+          "heroId": 117,
+          "name": "Fredrinn",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_dea170bfd5f26c41fb04e5edf72afedb.png",
+          "winRateDelta": 0.0184
         }
       ]
     },
@@ -3300,26 +3300,26 @@
       "winRate": 0.4961,
       "pickRate": 0.0023,
       "banRate": 0.0021,
-      "powerScore": 27.2,
+      "powerScore": 27.1,
       "tier": "D",
       "synergies": [
         {
           "heroId": 27,
           "name": "Sun",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_117b5cdcc13232157075ce7b7f6177e9.png",
-          "winRateDelta": 0.038
+          "winRateDelta": 0.0379
         },
         {
           "heroId": 104,
           "name": "Gloo",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c472fe0233e5ef84a3ac9ba4a229d09f.png",
-          "winRateDelta": 0.0369
+          "winRateDelta": 0.0375
         },
         {
           "heroId": 50,
           "name": "Zhask",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d8f170087cb2d5b71bb22a0a4664a927.png",
-          "winRateDelta": 0.0239
+          "winRateDelta": 0.0249
         }
       ]
     },
@@ -3336,26 +3336,26 @@
       "winRate": 0.4921,
       "pickRate": 0.0035,
       "banRate": 0.0107,
-      "powerScore": 27.2,
+      "powerScore": 27.1,
       "tier": "D",
       "synergies": [
         {
           "heroId": 78,
           "name": "Khufra",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2fe99f4001211d18b3d2b95d0d3dc395.png",
-          "winRateDelta": 0.032
+          "winRateDelta": 0.0318
         },
         {
           "heroId": 48,
           "name": "Diggie",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b1bdf46136cb8a7903dae6d58e8349cb.png",
-          "winRateDelta": 0.0187
+          "winRateDelta": 0.0201
         },
         {
-          "heroId": 18,
-          "name": "Layla",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b2b38e9406ea0de0b866db7674feea0f.png",
-          "winRateDelta": 0.0167
+          "heroId": 99,
+          "name": "Barats",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6495be044c2d28106e200f6918391d54.png",
+          "winRateDelta": 0.0169
         }
       ]
     },
@@ -3369,29 +3369,29 @@
       "lanes": [
         "EXP Lane"
       ],
-      "winRate": 0.4923,
+      "winRate": 0.4921,
       "pickRate": 0.0032,
       "banRate": 0.0098,
-      "powerScore": 27.1,
+      "powerScore": 26.9,
       "tier": "D",
       "synergies": [
         {
           "heroId": 27,
           "name": "Sun",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_117b5cdcc13232157075ce7b7f6177e9.png",
-          "winRateDelta": 0.0371
+          "winRateDelta": 0.0374
         },
         {
           "heroId": 104,
           "name": "Gloo",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c472fe0233e5ef84a3ac9ba4a229d09f.png",
-          "winRateDelta": 0.0326
+          "winRateDelta": 0.0332
         },
         {
           "heroId": 68,
           "name": "Lunox",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_e162688afdcaf3f6498af30badfe31c5.png",
-          "winRateDelta": 0.0238
+          "winRateDelta": 0.0246
         }
       ]
     },
@@ -3406,10 +3406,10 @@
       "lanes": [
         "EXP Lane"
       ],
-      "winRate": 0.4729,
+      "winRate": 0.4728,
       "pickRate": 0.0113,
-      "banRate": 0.008,
-      "powerScore": 26.6,
+      "banRate": 0.0081,
+      "powerScore": 26.5,
       "tier": "D",
       "synergies": [
         {
@@ -3422,13 +3422,13 @@
           "heroId": 123,
           "name": "Cici",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_60e3e11da30f404c77fff9e22d3bdc72.png",
-          "winRateDelta": 0.0281
+          "winRateDelta": 0.0288
         },
         {
           "heroId": 17,
           "name": "Fanny",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_3391df36d6dcc54dd1c417098e15ec59.png",
-          "winRateDelta": 0.027
+          "winRateDelta": 0.0273
         }
       ]
     },
@@ -3442,7 +3442,7 @@
       "lanes": [
         "Mid Lane"
       ],
-      "winRate": 0.4974,
+      "winRate": 0.498,
       "pickRate": 0.0003,
       "banRate": 0.0008,
       "powerScore": 26.3,
@@ -3452,55 +3452,19 @@
           "heroId": 20,
           "name": "Lolita",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0832
+          "winRateDelta": 0.0742
         },
         {
-          "heroId": 76,
-          "name": "Faramis",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_04e575d648d7f7ac1174f4369595c3a2.png",
-          "winRateDelta": 0.0504
+          "heroId": 12,
+          "name": "Bruno",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2a733ac5b7d1f97093e82940af6f5008.png",
+          "winRateDelta": 0.0415
         },
         {
           "heroId": 67,
           "name": "Leomord",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_554cdf13a7587fe08c5deed60132c61c.png",
-          "winRateDelta": 0.0447
-        }
-      ]
-    },
-    {
-      "id": 100,
-      "name": "Brody",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_cbb309b63cdf838fce79bd9cb95d4ed7.png",
-      "roles": [
-        "Marksman"
-      ],
-      "lanes": [
-        "Gold Lane"
-      ],
-      "winRate": 0.4851,
-      "pickRate": 0.0049,
-      "banRate": 0.0133,
-      "powerScore": 26.3,
-      "tier": "D",
-      "synergies": [
-        {
-          "heroId": 8,
-          "name": "Karina",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f49394186dc0e55d545da8377be83280.png",
-          "winRateDelta": 0.0324
-        },
-        {
-          "heroId": 118,
-          "name": "Joy",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d3a3a55c22000ae78732fed8cba2efef.png",
-          "winRateDelta": 0.0292
-        },
-        {
-          "heroId": 24,
-          "name": "Natalia",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_fbb5065b6ff174d1a20ccf5b7f523514.png",
-          "winRateDelta": 0.027
+          "winRateDelta": 0.0408
         }
       ]
     },
@@ -3514,7 +3478,7 @@
       "lanes": [
         "Gold Lane"
       ],
-      "winRate": 0.4854,
+      "winRate": 0.4857,
       "pickRate": 0.0051,
       "banRate": 0.0076,
       "powerScore": 26.2,
@@ -3524,19 +3488,55 @@
           "heroId": 34,
           "name": "Estes",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ff4de3b0aabd1d2f6e184db1c831f6a9.png",
-          "winRateDelta": 0.0469
+          "winRateDelta": 0.0477
         },
         {
           "heroId": 60,
           "name": "Hanabi",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_8a9c1966feb34e85d7bdcc1ed01ffb5d.png",
-          "winRateDelta": 0.0312
+          "winRateDelta": 0.0313
         },
         {
           "heroId": 37,
           "name": "Lapu-Lapu",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_28036c4584c914c5aad4d2feeafb2452.png",
-          "winRateDelta": 0.0286
+          "winRateDelta": 0.0287
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "name": "Brody",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_cbb309b63cdf838fce79bd9cb95d4ed7.png",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold Lane"
+      ],
+      "winRate": 0.4852,
+      "pickRate": 0.0049,
+      "banRate": 0.0133,
+      "powerScore": 26.2,
+      "tier": "D",
+      "synergies": [
+        {
+          "heroId": 8,
+          "name": "Karina",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f49394186dc0e55d545da8377be83280.png",
+          "winRateDelta": 0.033
+        },
+        {
+          "heroId": 118,
+          "name": "Joy",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d3a3a55c22000ae78732fed8cba2efef.png",
+          "winRateDelta": 0.0284
+        },
+        {
+          "heroId": 70,
+          "name": "Belerick",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_5f2a9eca0bafd4ed8dc39a93c771b3af.png",
+          "winRateDelta": 0.0273
         }
       ]
     },
@@ -3551,29 +3551,29 @@
         "Roam",
         "EXP Lane"
       ],
-      "winRate": 0.4842,
+      "winRate": 0.484,
       "pickRate": 0.0054,
       "banRate": 0.0076,
-      "powerScore": 26.1,
+      "powerScore": 26,
       "tier": "D",
       "synergies": [
         {
           "heroId": 110,
           "name": "Valentina",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_24837021ec9d7aaf41b13fa55b6d13c9.png",
-          "winRateDelta": 0.0241
+          "winRateDelta": 0.0223
         },
         {
           "heroId": 24,
           "name": "Natalia",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_fbb5065b6ff174d1a20ccf5b7f523514.png",
-          "winRateDelta": 0.0192
+          "winRateDelta": 0.0193
         },
         {
           "heroId": 122,
           "name": "Nolan",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_9012ee9f73fbb4db4e1953e5fb5172e1.png",
-          "winRateDelta": 0.0167
+          "winRateDelta": 0.0175
         }
       ]
     },
@@ -3587,10 +3587,10 @@
       "lanes": [
         "Gold Lane"
       ],
-      "winRate": 0.4785,
+      "winRate": 0.4783,
       "pickRate": 0.0078,
       "banRate": 0.0046,
-      "powerScore": 25.8,
+      "powerScore": 25.7,
       "tier": "D",
       "synergies": [
         {
@@ -3603,13 +3603,13 @@
           "heroId": 118,
           "name": "Joy",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d3a3a55c22000ae78732fed8cba2efef.png",
-          "winRateDelta": 0.0339
+          "winRateDelta": 0.0351
         },
         {
           "heroId": 105,
           "name": "Beatrix",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4687eca874feec9017b448a0b9110d65.png",
-          "winRateDelta": 0.0313
+          "winRateDelta": 0.0317
         }
       ]
     },
@@ -3624,7 +3624,7 @@
       "lanes": [
         "Mid Lane"
       ],
-      "winRate": 0.4933,
+      "winRate": 0.4932,
       "pickRate": 0.0004,
       "banRate": 0.0033,
       "powerScore": 25.3,
@@ -3634,19 +3634,56 @@
           "heroId": 104,
           "name": "Gloo",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c472fe0233e5ef84a3ac9ba4a229d09f.png",
-          "winRateDelta": 0.078
+          "winRateDelta": 0.0788
         },
         {
           "heroId": 124,
           "name": "Chip",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_79224d297f14377ad2eda8543432330d.png",
-          "winRateDelta": 0.0453
+          "winRateDelta": 0.0518
         },
         {
           "heroId": 89,
           "name": "Wanwan",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_44bfa1dc44deb8d7620605faaa9ffae7.png",
-          "winRateDelta": 0.0436
+          "winRateDelta": 0.0477
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "name": "Alpha",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_86c9f91f530727db6498f920d19180d1.png",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Jungle",
+        "EXP Lane"
+      ],
+      "winRate": 0.4636,
+      "pickRate": 0.0124,
+      "banRate": 0.0077,
+      "powerScore": 24.7,
+      "tier": "D",
+      "synergies": [
+        {
+          "heroId": 99,
+          "name": "Barats",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6495be044c2d28106e200f6918391d54.png",
+          "winRateDelta": 0.0302
+        },
+        {
+          "heroId": 106,
+          "name": "Phoveus",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_af21c0dd8b5308c27974bff900803a9a.png",
+          "winRateDelta": 0.0291
+        },
+        {
+          "heroId": 117,
+          "name": "Fredrinn",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_dea170bfd5f26c41fb04e5edf72afedb.png",
+          "winRateDelta": 0.0233
         }
       ]
     },
@@ -3663,14 +3700,14 @@
       "winRate": 0.4769,
       "pickRate": 0.0062,
       "banRate": 0.0101,
-      "powerScore": 24.7,
+      "powerScore": 24.6,
       "tier": "D",
       "synergies": [
         {
           "heroId": 124,
           "name": "Chip",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_79224d297f14377ad2eda8543432330d.png",
-          "winRateDelta": 0.0236
+          "winRateDelta": 0.0239
         },
         {
           "heroId": 98,
@@ -3679,47 +3716,10 @@
           "winRateDelta": 0.0177
         },
         {
-          "heroId": 3,
-          "name": "Saber",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6bbfac806f29d29f17fea9e98d2d2fee.png",
-          "winRateDelta": 0.0158
-        }
-      ]
-    },
-    {
-      "id": 28,
-      "name": "Alpha",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_86c9f91f530727db6498f920d19180d1.png",
-      "roles": [
-        "Fighter"
-      ],
-      "lanes": [
-        "Jungle",
-        "EXP Lane"
-      ],
-      "winRate": 0.4635,
-      "pickRate": 0.0124,
-      "banRate": 0.0076,
-      "powerScore": 24.7,
-      "tier": "D",
-      "synergies": [
-        {
-          "heroId": 99,
-          "name": "Barats",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6495be044c2d28106e200f6918391d54.png",
-          "winRateDelta": 0.0303
-        },
-        {
-          "heroId": 106,
-          "name": "Phoveus",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_af21c0dd8b5308c27974bff900803a9a.png",
-          "winRateDelta": 0.0286
-        },
-        {
-          "heroId": 117,
-          "name": "Fredrinn",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_dea170bfd5f26c41fb04e5edf72afedb.png",
-          "winRateDelta": 0.024
+          "heroId": 31,
+          "name": "Moskov",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_a60a866ab6752a7f66766e720da987ea.png",
+          "winRateDelta": 0.0162
         }
       ]
     },
@@ -3733,29 +3733,29 @@
       "lanes": [
         "Mid Lane"
       ],
-      "winRate": 0.4878,
+      "winRate": 0.488,
       "pickRate": 0.0015,
       "banRate": 0.0029,
-      "powerScore": 24.5,
+      "powerScore": 24.4,
       "tier": "D",
       "synergies": [
         {
           "heroId": 89,
           "name": "Wanwan",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_44bfa1dc44deb8d7620605faaa9ffae7.png",
-          "winRateDelta": 0.0408
+          "winRateDelta": 0.0412
         },
         {
           "heroId": 104,
           "name": "Gloo",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c472fe0233e5ef84a3ac9ba4a229d09f.png",
-          "winRateDelta": 0.0331
+          "winRateDelta": 0.0339
         },
         {
           "heroId": 123,
           "name": "Cici",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_60e3e11da30f404c77fff9e22d3bdc72.png",
-          "winRateDelta": 0.0291
+          "winRateDelta": 0.0306
         }
       ]
     },
@@ -3769,29 +3769,29 @@
       "lanes": [
         "Gold Lane"
       ],
-      "winRate": 0.4787,
+      "winRate": 0.4789,
       "pickRate": 0.0052,
       "banRate": 0.008,
-      "powerScore": 24.5,
+      "powerScore": 24.4,
       "tier": "D",
       "synergies": [
         {
           "heroId": 8,
           "name": "Karina",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f49394186dc0e55d545da8377be83280.png",
-          "winRateDelta": 0.0335
+          "winRateDelta": 0.0342
         },
         {
           "heroId": 20,
           "name": "Lolita",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0277
+          "winRateDelta": 0.0262
         },
         {
           "heroId": 70,
           "name": "Belerick",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_5f2a9eca0bafd4ed8dc39a93c771b3af.png",
-          "winRateDelta": 0.019
+          "winRateDelta": 0.0195
         }
       ]
     },
@@ -3806,17 +3806,17 @@
         "EXP Lane",
         "Roam"
       ],
-      "winRate": 0.4574,
-      "pickRate": 0.0117,
+      "winRate": 0.4572,
+      "pickRate": 0.0116,
       "banRate": 0.0454,
-      "powerScore": 24.2,
+      "powerScore": 24.1,
       "tier": "D",
       "synergies": [
         {
           "heroId": 83,
           "name": "X.Borg",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_efe9c7ed8d8f84f1bb0f88a3e08de5fc.png",
-          "winRateDelta": 0.0313
+          "winRateDelta": 0.031
         },
         {
           "heroId": 17,
@@ -3828,43 +3828,7 @@
           "heroId": 105,
           "name": "Beatrix",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4687eca874feec9017b448a0b9110d65.png",
-          "winRateDelta": 0.0191
-        }
-      ]
-    },
-    {
-      "id": 115,
-      "name": "Xavier",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_df0a8dfc494f85ed9bbc4512cc1e5d3c.png",
-      "roles": [
-        "Mage"
-      ],
-      "lanes": [
-        "Mid Lane"
-      ],
-      "winRate": 0.4768,
-      "pickRate": 0.0056,
-      "banRate": 0.0028,
-      "powerScore": 24,
-      "tier": "D",
-      "synergies": [
-        {
-          "heroId": 132,
-          "name": "Marcel",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_df7603c292198bf4aa7b551d401ea5c1.png",
-          "winRateDelta": 0.0252
-        },
-        {
-          "heroId": 93,
-          "name": "Atlas",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d974ac796678180ff8724b88e192898b.png",
-          "winRateDelta": 0.0196
-        },
-        {
-          "heroId": 76,
-          "name": "Faramis",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_04e575d648d7f7ac1174f4369595c3a2.png",
-          "winRateDelta": 0.0163
+          "winRateDelta": 0.0195
         }
       ]
     },
@@ -3888,19 +3852,55 @@
           "heroId": 121,
           "name": "Ixia",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f070d82521ecd2e14d4ef3f25880830a.png",
-          "winRateDelta": 0.0339
-        },
-        {
-          "heroId": 79,
-          "name": "Granger",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_a7729262d5b4abdc34ae5181e964c235.png",
-          "winRateDelta": 0.0272
+          "winRateDelta": 0.0333
         },
         {
           "heroId": 20,
           "name": "Lolita",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0272
+          "winRateDelta": 0.0273
+        },
+        {
+          "heroId": 79,
+          "name": "Granger",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_a7729262d5b4abdc34ae5181e964c235.png",
+          "winRateDelta": 0.0271
+        }
+      ]
+    },
+    {
+      "id": 115,
+      "name": "Xavier",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_df0a8dfc494f85ed9bbc4512cc1e5d3c.png",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid Lane"
+      ],
+      "winRate": 0.4768,
+      "pickRate": 0.0056,
+      "banRate": 0.0028,
+      "powerScore": 23.9,
+      "tier": "D",
+      "synergies": [
+        {
+          "heroId": 132,
+          "name": "Marcel",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_df7603c292198bf4aa7b551d401ea5c1.png",
+          "winRateDelta": 0.0246
+        },
+        {
+          "heroId": 93,
+          "name": "Atlas",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d974ac796678180ff8724b88e192898b.png",
+          "winRateDelta": 0.0196
+        },
+        {
+          "heroId": 76,
+          "name": "Faramis",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_04e575d648d7f7ac1174f4369595c3a2.png",
+          "winRateDelta": 0.0173
         }
       ]
     },
@@ -3915,9 +3915,9 @@
         "EXP Lane",
         "Jungle"
       ],
-      "winRate": 0.4696,
+      "winRate": 0.47,
       "pickRate": 0.0063,
-      "banRate": 0.0328,
+      "banRate": 0.0331,
       "powerScore": 23.7,
       "tier": "D",
       "synergies": [
@@ -3925,19 +3925,19 @@
           "heroId": 20,
           "name": "Lolita",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0192
+          "winRateDelta": 0.0196
         },
         {
           "heroId": 83,
           "name": "X.Borg",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_efe9c7ed8d8f84f1bb0f88a3e08de5fc.png",
-          "winRateDelta": 0.0168
+          "winRateDelta": 0.0171
         },
         {
           "heroId": 108,
           "name": "Aulus",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_1366d775809e52ee6526b5b58d93cdff.png",
-          "winRateDelta": 0.0161
+          "winRateDelta": 0.0168
         }
       ]
     },
@@ -3953,7 +3953,7 @@
       ],
       "winRate": 0.4807,
       "pickRate": 0.0025,
-      "banRate": 0.0117,
+      "banRate": 0.0118,
       "powerScore": 23.5,
       "tier": "D",
       "synergies": [
@@ -3961,19 +3961,19 @@
           "heroId": 89,
           "name": "Wanwan",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_44bfa1dc44deb8d7620605faaa9ffae7.png",
-          "winRateDelta": 0.0521
+          "winRateDelta": 0.0527
         },
         {
           "heroId": 97,
           "name": "Benedetta",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b4a5e537894bdc00787e80e4d3ada5dd.png",
-          "winRateDelta": 0.0479
+          "winRateDelta": 0.0476
         },
         {
           "heroId": 22,
           "name": "Freya",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b9c34c88762ca8e66ccd4d84071bf0bc.png",
-          "winRateDelta": 0.0479
+          "winRateDelta": 0.0473
         }
       ]
     },
@@ -3987,7 +3987,7 @@
       "lanes": [
         "EXP Lane"
       ],
-      "winRate": 0.4768,
+      "winRate": 0.477,
       "pickRate": 0.003,
       "banRate": 0.0227,
       "powerScore": 23.2,
@@ -3997,7 +3997,7 @@
           "heroId": 2,
           "name": "Balmond",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_df9a6990b1946d045e4d3a46c90725cf.png",
-          "winRateDelta": 0.0428
+          "winRateDelta": 0.0426
         },
         {
           "heroId": 72,
@@ -4009,7 +4009,7 @@
           "heroId": 97,
           "name": "Benedetta",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b4a5e537894bdc00787e80e4d3ada5dd.png",
-          "winRateDelta": 0.0299
+          "winRateDelta": 0.0298
         }
       ]
     },
@@ -4025,10 +4025,10 @@
         "Roam",
         "EXP Lane"
       ],
-      "winRate": 0.4754,
+      "winRate": 0.4753,
       "pickRate": 0.004,
       "banRate": 0.0146,
-      "powerScore": 23.1,
+      "powerScore": 23,
       "tier": "D",
       "synergies": [
         {
@@ -4041,49 +4041,13 @@
           "heroId": 18,
           "name": "Layla",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b2b38e9406ea0de0b866db7674feea0f.png",
-          "winRateDelta": 0.015
+          "winRateDelta": 0.0155
         },
         {
           "heroId": 32,
           "name": "Johnson",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_85ff988c6660b4d04f8dd3d40df988bb.png",
-          "winRateDelta": 0.015
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "name": "Karina",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f49394186dc0e55d545da8377be83280.png",
-      "roles": [
-        "Assassin"
-      ],
-      "lanes": [
-        "Jungle"
-      ],
-      "winRate": 0.4635,
-      "pickRate": 0.0071,
-      "banRate": 0.0318,
-      "powerScore": 22.5,
-      "tier": "D",
-      "synergies": [
-        {
-          "heroId": 24,
-          "name": "Natalia",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_fbb5065b6ff174d1a20ccf5b7f523514.png",
-          "winRateDelta": 0.0383
-        },
-        {
-          "heroId": 71,
-          "name": "Kimmy",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_61295dfefd369004e5e4a7f4fc86647b.png",
-          "winRateDelta": 0.0313
-        },
-        {
-          "heroId": 27,
-          "name": "Sun",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_117b5cdcc13232157075ce7b7f6177e9.png",
-          "winRateDelta": 0.0307
+          "winRateDelta": 0.0153
         }
       ]
     },
@@ -4097,29 +4061,65 @@
       "lanes": [
         "Jungle"
       ],
-      "winRate": 0.4723,
-      "pickRate": 0.0042,
-      "banRate": 0.0149,
-      "powerScore": 22.4,
+      "winRate": 0.4726,
+      "pickRate": 0.0043,
+      "banRate": 0.0151,
+      "powerScore": 22.5,
       "tier": "D",
       "synergies": [
         {
           "heroId": 34,
           "name": "Estes",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ff4de3b0aabd1d2f6e184db1c831f6a9.png",
-          "winRateDelta": 0.0298
+          "winRateDelta": 0.0297
         },
         {
           "heroId": 11,
           "name": "Bane",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_7e4e74bb161da0f477cc0d1819fa39e6.png",
-          "winRateDelta": 0.0236
+          "winRateDelta": 0.0241
         },
         {
           "heroId": 94,
           "name": "Popol and Kupa",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_1acbb23b9a50f412104047a60eb18808.png",
-          "winRateDelta": 0.0205
+          "winRateDelta": 0.0212
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Karina",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f49394186dc0e55d545da8377be83280.png",
+      "roles": [
+        "Assassin"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "winRate": 0.4636,
+      "pickRate": 0.0071,
+      "banRate": 0.0318,
+      "powerScore": 22.5,
+      "tier": "D",
+      "synergies": [
+        {
+          "heroId": 24,
+          "name": "Natalia",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_fbb5065b6ff174d1a20ccf5b7f523514.png",
+          "winRateDelta": 0.0397
+        },
+        {
+          "heroId": 71,
+          "name": "Kimmy",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_61295dfefd369004e5e4a7f4fc86647b.png",
+          "winRateDelta": 0.0317
+        },
+        {
+          "heroId": 27,
+          "name": "Sun",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_117b5cdcc13232157075ce7b7f6177e9.png",
+          "winRateDelta": 0.0307
         }
       ]
     },
@@ -4135,29 +4135,29 @@
         "Gold Lane",
         "Mid Lane"
       ],
-      "winRate": 0.4688,
+      "winRate": 0.4687,
       "pickRate": 0.0057,
       "banRate": 0.0064,
-      "powerScore": 22,
+      "powerScore": 21.9,
       "tier": "D",
       "synergies": [
         {
           "heroId": 27,
           "name": "Sun",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_117b5cdcc13232157075ce7b7f6177e9.png",
-          "winRateDelta": 0.0305
+          "winRateDelta": 0.0306
         },
         {
           "heroId": 88,
           "name": "Masha",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4d79ba6ebb0a0f2bf542917f0b19d056.png",
-          "winRateDelta": 0.0279
+          "winRateDelta": 0.0288
         },
         {
           "heroId": 93,
           "name": "Atlas",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d974ac796678180ff8724b88e192898b.png",
-          "winRateDelta": 0.0246
+          "winRateDelta": 0.0242
         }
       ]
     },
@@ -4171,65 +4171,29 @@
       "lanes": [
         "Mid Lane"
       ],
-      "winRate": 0.4697,
+      "winRate": 0.4696,
       "pickRate": 0.0047,
       "banRate": 0.0044,
-      "powerScore": 21.5,
+      "powerScore": 21.4,
       "tier": "D",
       "synergies": [
         {
           "heroId": 20,
           "name": "Lolita",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0332
+          "winRateDelta": 0.0326
         },
         {
           "heroId": 60,
           "name": "Hanabi",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_8a9c1966feb34e85d7bdcc1ed01ffb5d.png",
-          "winRateDelta": 0.0129
+          "winRateDelta": 0.0128
         },
         {
-          "heroId": 106,
-          "name": "Phoveus",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_af21c0dd8b5308c27974bff900803a9a.png",
-          "winRateDelta": 0.0125
-        }
-      ]
-    },
-    {
-      "id": 40,
-      "name": "Karrie",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_294576f2bd0dcbcc9041031969d0eb09.png",
-      "roles": [
-        "Marksman"
-      ],
-      "lanes": [
-        "Gold Lane"
-      ],
-      "winRate": 0.4648,
-      "pickRate": 0.0053,
-      "banRate": 0.0165,
-      "powerScore": 21.1,
-      "tier": "D",
-      "synergies": [
-        {
-          "heroId": 4,
-          "name": "Alice",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_18300163a5a912a84adb52b8d59b4618.png",
-          "winRateDelta": 0.0571
-        },
-        {
-          "heroId": 117,
-          "name": "Fredrinn",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_dea170bfd5f26c41fb04e5edf72afedb.png",
-          "winRateDelta": 0.0503
-        },
-        {
-          "heroId": 59,
-          "name": "Uranus",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2e15a0a506aaecd9b3de40a8cc9f7ec7.png",
-          "winRateDelta": 0.0379
+          "heroId": 57,
+          "name": "Valir",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_bf16690876761b80822df90eb3320d69.png",
+          "winRateDelta": 0.0128
         }
       ]
     },
@@ -4243,29 +4207,29 @@
       "lanes": [
         "Mid Lane"
       ],
-      "winRate": 0.4752,
+      "winRate": 0.4756,
       "pickRate": 0.0016,
       "banRate": 0.0012,
-      "powerScore": 21,
+      "powerScore": 21.1,
       "tier": "D",
       "synergies": [
-        {
-          "heroId": 110,
-          "name": "Valentina",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_24837021ec9d7aaf41b13fa55b6d13c9.png",
-          "winRateDelta": 0.037
-        },
         {
           "heroId": 124,
           "name": "Chip",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_79224d297f14377ad2eda8543432330d.png",
-          "winRateDelta": 0.0326
+          "winRateDelta": 0.0346
+        },
+        {
+          "heroId": 110,
+          "name": "Valentina",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_24837021ec9d7aaf41b13fa55b6d13c9.png",
+          "winRateDelta": 0.0336
         },
         {
           "heroId": 34,
           "name": "Estes",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ff4de3b0aabd1d2f6e184db1c831f6a9.png",
-          "winRateDelta": 0.0296
+          "winRateDelta": 0.0299
         }
       ]
     },
@@ -4280,9 +4244,9 @@
       "lanes": [
         "EXP Lane"
       ],
-      "winRate": 0.4711,
+      "winRate": 0.4715,
       "pickRate": 0.0031,
-      "banRate": 0.0055,
+      "banRate": 0.0054,
       "powerScore": 21,
       "tier": "D",
       "synergies": [
@@ -4290,19 +4254,55 @@
           "heroId": 125,
           "name": "Zhuxin",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_595f85bc90df3889c711c6b1f02dc02d.png",
-          "winRateDelta": 0.0294
+          "winRateDelta": 0.0332
         },
         {
           "heroId": 83,
           "name": "X.Borg",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_efe9c7ed8d8f84f1bb0f88a3e08de5fc.png",
-          "winRateDelta": 0.0261
+          "winRateDelta": 0.0263
         },
         {
           "heroId": 71,
           "name": "Kimmy",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_61295dfefd369004e5e4a7f4fc86647b.png",
-          "winRateDelta": 0.0231
+          "winRateDelta": 0.0227
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "name": "Karrie",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_294576f2bd0dcbcc9041031969d0eb09.png",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold Lane"
+      ],
+      "winRate": 0.4643,
+      "pickRate": 0.0052,
+      "banRate": 0.0164,
+      "powerScore": 20.9,
+      "tier": "D",
+      "synergies": [
+        {
+          "heroId": 4,
+          "name": "Alice",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_18300163a5a912a84adb52b8d59b4618.png",
+          "winRateDelta": 0.0575
+        },
+        {
+          "heroId": 117,
+          "name": "Fredrinn",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_dea170bfd5f26c41fb04e5edf72afedb.png",
+          "winRateDelta": 0.05
+        },
+        {
+          "heroId": 59,
+          "name": "Uranus",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2e15a0a506aaecd9b3de40a8cc9f7ec7.png",
+          "winRateDelta": 0.0371
         }
       ]
     },
@@ -4318,7 +4318,7 @@
         "Roam",
         "EXP Lane"
       ],
-      "winRate": 0.4571,
+      "winRate": 0.4572,
       "pickRate": 0.0082,
       "banRate": 0.0072,
       "powerScore": 20.4,
@@ -4328,19 +4328,19 @@
           "heroId": 46,
           "name": "Odette",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d9251718a8894546ba04cfa9ca68dedc.png",
-          "winRateDelta": 0.0201
+          "winRateDelta": 0.0198
         },
         {
-          "heroId": 45,
-          "name": "Argus",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_0bd96658e5b8ec578226ea1622bd7231.png",
-          "winRateDelta": 0.0193
+          "heroId": 124,
+          "name": "Chip",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_79224d297f14377ad2eda8543432330d.png",
+          "winRateDelta": 0.0188
         },
         {
           "heroId": 16,
           "name": "Zilong",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_9db57da4f0daef6d432676e4f19101ed.png",
-          "winRateDelta": 0.0187
+          "winRateDelta": 0.0185
         }
       ]
     },
@@ -4354,29 +4354,29 @@
       "lanes": [
         "Jungle"
       ],
-      "winRate": 0.4676,
+      "winRate": 0.4681,
       "pickRate": 0.0006,
       "banRate": 0.002,
-      "powerScore": 18.4,
+      "powerScore": 18.5,
       "tier": "D",
       "synergies": [
         {
           "heroId": 4,
           "name": "Alice",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_18300163a5a912a84adb52b8d59b4618.png",
-          "winRateDelta": 0.0308
+          "winRateDelta": 0.0328
         },
         {
           "heroId": 71,
           "name": "Kimmy",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_61295dfefd369004e5e4a7f4fc86647b.png",
-          "winRateDelta": 0.0289
+          "winRateDelta": 0.0284
         },
         {
           "heroId": 106,
           "name": "Phoveus",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_af21c0dd8b5308c27974bff900803a9a.png",
-          "winRateDelta": 0.0285
+          "winRateDelta": 0.0253
         }
       ]
     },
@@ -4390,65 +4390,29 @@
       "lanes": [
         "Roam"
       ],
-      "winRate": 0.4299,
+      "winRate": 0.4298,
       "pickRate": 0.013,
-      "banRate": 0.0642,
-      "powerScore": 18.3,
+      "banRate": 0.0641,
+      "powerScore": 18.2,
       "tier": "D",
       "synergies": [
         {
           "heroId": 48,
           "name": "Diggie",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b1bdf46136cb8a7903dae6d58e8349cb.png",
-          "winRateDelta": 0.0323
+          "winRateDelta": 0.032
         },
         {
           "heroId": 55,
           "name": "Angela",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c7e0183956b2c2fd6d3fa0b18fe46917.png",
-          "winRateDelta": 0.0262
+          "winRateDelta": 0.0264
         },
         {
           "heroId": 17,
           "name": "Fanny",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_3391df36d6dcc54dd1c417098e15ec59.png",
-          "winRateDelta": 0.0258
-        }
-      ]
-    },
-    {
-      "id": 89,
-      "name": "Wanwan",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_44bfa1dc44deb8d7620605faaa9ffae7.png",
-      "roles": [
-        "Marksman"
-      ],
-      "lanes": [
-        "Gold Lane"
-      ],
-      "winRate": 0.4652,
-      "pickRate": 0.0012,
-      "banRate": 0.0028,
-      "powerScore": 18.1,
-      "tier": "D",
-      "synergies": [
-        {
-          "heroId": 101,
-          "name": "Yve",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d9b0a1d92b1c4b3643d6332fd66aa8e6.png",
-          "winRateDelta": 0.0519
-        },
-        {
-          "heroId": 113,
-          "name": "Yin",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ee1c12c84f49514a30e405fb5c617796.png",
-          "winRateDelta": 0.0479
-        },
-        {
-          "heroId": 93,
-          "name": "Atlas",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d974ac796678180ff8724b88e192898b.png",
-          "winRateDelta": 0.0457
+          "winRateDelta": 0.0259
         }
       ]
     },
@@ -4462,29 +4426,65 @@
       "lanes": [
         "Mid Lane"
       ],
-      "winRate": 0.4656,
+      "winRate": 0.466,
       "pickRate": 0.0007,
-      "banRate": 0.0054,
-      "powerScore": 18,
+      "banRate": 0.0053,
+      "powerScore": 18.1,
       "tier": "D",
       "synergies": [
-        {
-          "heroId": 20,
-          "name": "Lolita",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.045
-        },
         {
           "heroId": 108,
           "name": "Aulus",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_1366d775809e52ee6526b5b58d93cdff.png",
-          "winRateDelta": 0.0332
+          "winRateDelta": 0.0351
         },
         {
-          "heroId": 67,
-          "name": "Leomord",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_554cdf13a7587fe08c5deed60132c61c.png",
-          "winRateDelta": 0.0325
+          "heroId": 20,
+          "name": "Lolita",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
+          "winRateDelta": 0.0351
+        },
+        {
+          "heroId": 87,
+          "name": "Baxia",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_80e408203869ca99302af195ac4f756c.png",
+          "winRateDelta": 0.035
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "name": "Wanwan",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_44bfa1dc44deb8d7620605faaa9ffae7.png",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold Lane"
+      ],
+      "winRate": 0.4647,
+      "pickRate": 0.0012,
+      "banRate": 0.0028,
+      "powerScore": 18,
+      "tier": "D",
+      "synergies": [
+        {
+          "heroId": 101,
+          "name": "Yve",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d9b0a1d92b1c4b3643d6332fd66aa8e6.png",
+          "winRateDelta": 0.0488
+        },
+        {
+          "heroId": 113,
+          "name": "Yin",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ee1c12c84f49514a30e405fb5c617796.png",
+          "winRateDelta": 0.0468
+        },
+        {
+          "heroId": 93,
+          "name": "Atlas",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d974ac796678180ff8724b88e192898b.png",
+          "winRateDelta": 0.0444
         }
       ]
     },
@@ -4498,29 +4498,29 @@
       "lanes": [
         "Gold Lane"
       ],
-      "winRate": 0.462,
+      "winRate": 0.4628,
       "pickRate": 0.0013,
       "banRate": 0.0013,
-      "powerScore": 17.2,
+      "powerScore": 17.4,
       "tier": "D",
       "synergies": [
         {
           "heroId": 89,
           "name": "Wanwan",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_44bfa1dc44deb8d7620605faaa9ffae7.png",
-          "winRateDelta": 0.0372
-        },
-        {
-          "heroId": 102,
-          "name": "Mathilda",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_24d08ed788a9f5984bcf3b732ddcaf04.png",
-          "winRateDelta": 0.0326
+          "winRateDelta": 0.0363
         },
         {
           "heroId": 76,
           "name": "Faramis",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_04e575d648d7f7ac1174f4369595c3a2.png",
-          "winRateDelta": 0.0289
+          "winRateDelta": 0.0322
+        },
+        {
+          "heroId": 102,
+          "name": "Mathilda",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_24d08ed788a9f5984bcf3b732ddcaf04.png",
+          "winRateDelta": 0.0295
         }
       ]
     },
@@ -4535,29 +4535,29 @@
       "lanes": [
         "Roam"
       ],
-      "winRate": 0.4618,
+      "winRate": 0.4632,
       "pickRate": 0.0004,
       "banRate": 0.0054,
-      "powerScore": 16.8,
+      "powerScore": 17.1,
       "tier": "D",
       "synergies": [
         {
-          "heroId": 110,
-          "name": "Valentina",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_24837021ec9d7aaf41b13fa55b6d13c9.png",
-          "winRateDelta": 0.0483
+          "heroId": 88,
+          "name": "Masha",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4d79ba6ebb0a0f2bf542917f0b19d056.png",
+          "winRateDelta": 0.0397
         },
         {
           "heroId": 101,
           "name": "Yve",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d9b0a1d92b1c4b3643d6332fd66aa8e6.png",
-          "winRateDelta": 0.041
+          "winRateDelta": 0.0377
         },
         {
-          "heroId": 120,
-          "name": "Arlott",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f666faa5ec6be5353f10dcd1d8997a42.png",
-          "winRateDelta": 0.0283
+          "heroId": 110,
+          "name": "Valentina",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_24837021ec9d7aaf41b13fa55b6d13c9.png",
+          "winRateDelta": 0.0346
         }
       ]
     },
@@ -4571,29 +4571,29 @@
       "lanes": [
         "Jungle"
       ],
-      "winRate": 0.4598,
+      "winRate": 0.4596,
       "pickRate": 0.001,
       "banRate": 0.0037,
-      "powerScore": 16.6,
+      "powerScore": 16.4,
       "tier": "D",
       "synergies": [
         {
           "heroId": 27,
           "name": "Sun",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_117b5cdcc13232157075ce7b7f6177e9.png",
-          "winRateDelta": 0.038
+          "winRateDelta": 0.0373
         },
         {
-          "heroId": 83,
-          "name": "X.Borg",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_efe9c7ed8d8f84f1bb0f88a3e08de5fc.png",
-          "winRateDelta": 0.0262
+          "heroId": 98,
+          "name": "Khaleed",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_540a6a9d343842674ce002082366ec9d.png",
+          "winRateDelta": 0.0261
         },
         {
           "heroId": 105,
           "name": "Beatrix",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4687eca874feec9017b448a0b9110d65.png",
-          "winRateDelta": 0.0244
+          "winRateDelta": 0.0254
         }
       ]
     },
@@ -4608,7 +4608,7 @@
         "Gold Lane",
         "Mid Lane"
       ],
-      "winRate": 0.4452,
+      "winRate": 0.4456,
       "pickRate": 0.0011,
       "banRate": 0.0014,
       "powerScore": 12.6,
@@ -4618,19 +4618,19 @@
           "heroId": 20,
           "name": "Lolita",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0374
+          "winRateDelta": 0.0393
         },
         {
           "heroId": 8,
           "name": "Karina",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f49394186dc0e55d545da8377be83280.png",
-          "winRateDelta": 0.0257
+          "winRateDelta": 0.0276
         },
         {
-          "heroId": 32,
-          "name": "Johnson",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_85ff988c6660b4d04f8dd3d40df988bb.png",
-          "winRateDelta": 0.0233
+          "heroId": 59,
+          "name": "Uranus",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2e15a0a506aaecd9b3de40a8cc9f7ec7.png",
+          "winRateDelta": 0.0249
         }
       ]
     },
@@ -4645,29 +4645,29 @@
       "lanes": [
         "Roam"
       ],
-      "winRate": 0.4448,
+      "winRate": 0.4456,
       "pickRate": 0.001,
       "banRate": 0.0021,
-      "powerScore": 12.4,
+      "powerScore": 12.6,
       "tier": "D",
       "synergies": [
         {
           "heroId": 124,
           "name": "Chip",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_79224d297f14377ad2eda8543432330d.png",
-          "winRateDelta": 0.0393
-        },
-        {
-          "heroId": 79,
-          "name": "Granger",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_a7729262d5b4abdc34ae5181e964c235.png",
-          "winRateDelta": 0.033
+          "winRateDelta": 0.0333
         },
         {
           "heroId": 24,
           "name": "Natalia",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_fbb5065b6ff174d1a20ccf5b7f523514.png",
-          "winRateDelta": 0.0322
+          "winRateDelta": 0.0319
+        },
+        {
+          "heroId": 79,
+          "name": "Granger",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_a7729262d5b4abdc34ae5181e964c235.png",
+          "winRateDelta": 0.0305
         }
       ]
     },
@@ -4683,7 +4683,7 @@
       ],
       "winRate": 0.4329,
       "pickRate": 0.0055,
-      "banRate": 0.0097,
+      "banRate": 0.0098,
       "powerScore": 12.2,
       "tier": "D",
       "synergies": [
@@ -4691,19 +4691,19 @@
           "heroId": 93,
           "name": "Atlas",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d974ac796678180ff8724b88e192898b.png",
-          "winRateDelta": 0.0286
+          "winRateDelta": 0.0285
         },
         {
           "heroId": 96,
           "name": "Luo Yi",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_26e03fd72532d11c7b32911b95b8d559.png",
-          "winRateDelta": 0.0178
+          "winRateDelta": 0.0173
         },
         {
           "heroId": 28,
           "name": "Alpha",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_86c9f91f530727db6498f920d19180d1.png",
-          "winRateDelta": 0.0157
+          "winRateDelta": 0.0151
         }
       ]
     },
@@ -4718,7 +4718,7 @@
       "lanes": [
         "Roam"
       ],
-      "winRate": 0.4368,
+      "winRate": 0.4372,
       "pickRate": 0.0012,
       "banRate": 0.0044,
       "powerScore": 10.5,
@@ -4728,19 +4728,19 @@
           "heroId": 20,
           "name": "Lolita",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
-          "winRateDelta": 0.0295
+          "winRateDelta": 0.0324
         },
         {
           "heroId": 118,
           "name": "Joy",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d3a3a55c22000ae78732fed8cba2efef.png",
-          "winRateDelta": 0.0238
+          "winRateDelta": 0.0224
         },
         {
-          "heroId": 17,
-          "name": "Fanny",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_3391df36d6dcc54dd1c417098e15ec59.png",
-          "winRateDelta": 0.0209
+          "heroId": 68,
+          "name": "Lunox",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_e162688afdcaf3f6498af30badfe31c5.png",
+          "winRateDelta": 0.0212
         }
       ]
     },
@@ -4754,9 +4754,9 @@
       "lanes": [
         "Gold Lane"
       ],
-      "winRate": 0.4009,
-      "pickRate": 0.0123,
-      "banRate": 0.033,
+      "winRate": 0.4011,
+      "pickRate": 0.0124,
+      "banRate": 0.0331,
       "powerScore": 8.7,
       "tier": "D",
       "synergies": [
@@ -4764,19 +4764,19 @@
           "heroId": 8,
           "name": "Karina",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f49394186dc0e55d545da8377be83280.png",
-          "winRateDelta": 0.0412
+          "winRateDelta": 0.0413
         },
         {
           "heroId": 60,
           "name": "Hanabi",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_8a9c1966feb34e85d7bdcc1ed01ffb5d.png",
-          "winRateDelta": 0.0231
+          "winRateDelta": 0.0228
         },
         {
           "heroId": 105,
           "name": "Beatrix",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4687eca874feec9017b448a0b9110d65.png",
-          "winRateDelta": 0.0219
+          "winRateDelta": 0.0223
         }
       ]
     },
@@ -4790,9 +4790,9 @@
       "lanes": [
         "Jungle"
       ],
-      "winRate": 0.4144,
+      "winRate": 0.4146,
       "pickRate": 0.0055,
-      "banRate": 0.0263,
+      "banRate": 0.0264,
       "powerScore": 7.9,
       "tier": "D",
       "synergies": [
@@ -4800,19 +4800,19 @@
           "heroId": 79,
           "name": "Granger",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_a7729262d5b4abdc34ae5181e964c235.png",
-          "winRateDelta": 0.0353
+          "winRateDelta": 0.0347
         },
         {
           "heroId": 104,
           "name": "Gloo",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c472fe0233e5ef84a3ac9ba4a229d09f.png",
-          "winRateDelta": 0.0339
+          "winRateDelta": 0.0341
         },
         {
-          "heroId": 93,
-          "name": "Atlas",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d974ac796678180ff8724b88e192898b.png",
-          "winRateDelta": 0.0241
+          "heroId": 87,
+          "name": "Baxia",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_80e408203869ca99302af195ac4f756c.png",
+          "winRateDelta": 0.0256
         }
       ]
     },
@@ -4826,29 +4826,29 @@
       "lanes": [
         "Mid Lane"
       ],
-      "winRate": 0.417,
+      "winRate": 0.4187,
       "pickRate": 0.0007,
       "banRate": 0.0012,
-      "powerScore": 4.6,
+      "powerScore": 5,
       "tier": "D",
       "synergies": [
         {
           "heroId": 125,
           "name": "Zhuxin",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_595f85bc90df3889c711c6b1f02dc02d.png",
-          "winRateDelta": 0.0568
+          "winRateDelta": 0.0502
+        },
+        {
+          "heroId": 127,
+          "name": "Lukas",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_63040edd0cf15b815fcbbb8b2d08d7f7.png",
+          "winRateDelta": 0.0422
         },
         {
           "heroId": 93,
           "name": "Atlas",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d974ac796678180ff8724b88e192898b.png",
-          "winRateDelta": 0.0431
-        },
-        {
-          "heroId": 83,
-          "name": "X.Borg",
-          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_efe9c7ed8d8f84f1bb0f88a3e08de5fc.png",
-          "winRateDelta": 0.0365
+          "winRateDelta": 0.0411
         }
       ]
     }
