@@ -11,7 +11,8 @@ This document defines the core domain concepts, glossary, architecture boundarie
 * **Win Rate (`WR`)**: The ratio of ranked matches won by a hero divided by total ranked matches featuring that hero: $\text{WR} \in [0.0, 1.0]$.
 * **Pick Rate (`PR`)** (also referred to by Moonton GMS as **Appearance Rate**): The percentage of ranked matches where the hero was selected by any player: $\text{PR} \in [0.0, 1.0]$.
 * **Ban Rate (`BR`)**: The percentage of draft-pick ranked matches where the hero was banned during the banning phase: $\text{BR} \in [0.0, 1.0]$.
-* **Synergy / Sub-Hero**: Pairwise hero relationship telemetry provided by Moonton GMS (`data.sub_hero`), measuring the increase in win rate (`increase_win_rate`) when two specific heroes are on the same team.
+* **Synergy / Sub-Hero**: Pairwise hero relationship telemetry provided by Moonton GMS (`data.sub_hero`), measuring the increase in win rate (`increase_win_rate`) when two specific heroes are on the same team, or for head-to-head matchups when evaluating counters.
+* **Viable Counter**: A counter hero whose positive win-rate shift (`increase_win_rate`) against a specific main hero exceeds a statistically significant threshold (e.g., >1.0 percentage points).
 * **Power Score**: The composite scalar index ($\in [0, 100]$) calculated from min-max normalized Win Rate (50%), Pick Rate (25%), and Ban Rate (25%), used to rank heroes into tiers.
 * **Power Score Weights**: The relative weighting factors $(W_{\text{WR}}, W_{\text{PR}}, W_{\text{BR}})$ applied to normalized hero telemetry ($w_i \in [0.0, 1.0]$, summing to $1.0$). Default: $0.50 \text{ WR}, 0.25 \text{ PR}, 0.25 \text{ BR}$.
 * **Custom Power Score**: A power score calculated on the client using user-modified weights rather than default baseline weights.
@@ -96,4 +97,5 @@ This document defines the core domain concepts, glossary, architecture boundarie
 * [ADR 0003: Mobile Web Draft UX & Filter Taxonomy](docs/adr/0003-mobile-web-draft-ux-and-filter-taxonomy.md)
 * [ADR 0004: Full Ladder Rank & Multi-Window Telemetry Ingestion and UI Controls](docs/adr/0004-full-ladder-rank-and-multi-window-telemetry.md)
 * [ADR 0005: Client-Side Custom Power Score Weighting & Presets](docs/adr/0005-custom-power-score-weighting.md)
+* [ADR 0006: Counter Picks Data Ingestion via Moonton GMS](docs/adr/0006-counter-picks-data-ingestion-via-gms.md)
 

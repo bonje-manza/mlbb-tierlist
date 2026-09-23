@@ -7,7 +7,9 @@ import type {
   TierListDataset,
   RawGmsRecord,
   RawCatalogHero,
-  SynergyPartner
+  SynergyPartner,
+  CounterStrength,
+  CounterMatchup
 } from '../types/index.ts';
 
 export const DEFAULT_PATCH_VERSION = '2.1.41';
@@ -101,11 +103,101 @@ export function extractPatchVersion(headUrl?: string): string {
   return DEFAULT_PATCH_VERSION;
 }
 
+export function getCounterStrength(delta: number): CounterStrength {
+  if (delta >= 0.05) return 'Very Strong';
+  if (delta >= 0.03) return 'Strong';
+  if (delta >= 0.02) return 'Moderate';
+  return 'Slight';
+}
+
 export interface ProcessTelemetryOptions {
   rankTier: RankTier;
   timeWindow: TimeWindow;
   updatedAt?: string;
   patchVersion?: string;
+  counterRecords?: RawGmsRecord[];
+}
+
+/**
+ * Extracts all statistically viable counter picks (> 1.0% win-rate advantage)
+ * for each hero from GMS head-to-head match records.
+ */
+export function extractViableCounters(
+  records: RawGmsRecord[],
+  catalogMap: Map<number, RawCatalogHero>,
+  counterRecords?: RawGmsRecord[]
+): Map<number, CounterMatchup[]> {
+  const result = new Map<number, CounterMatchup[]>();
+  const allMatchupRecords = (counterRecords && counterRecords.length > 0) ? counterRecords : records;
+
+  // Map of targetHeroId -> Map of counterHeroId -> highest advantage delta
+  const pairAdvantageMap = new Map<number, Map<number, number>>();
+
+  for (const rec of allMatchupRecords) {
+    const data = rec.data || {};
+    const mainId = data.main_heroid;
+    if (!mainId) continue;
+
+    // 1. In mainId's sub_hero_last: mainId suffers win-rate drop when facing sub.heroid
+    // Advantage for counter (sub.heroid) is -increase_win_rate
+    const subLast = data.sub_hero_last || [];
+    for (const sub of subLast) {
+      const adv = -(sub.increase_win_rate ?? 0);
+      if (adv >= 0.01 && sub.heroid) {
+        if (!pairAdvantageMap.has(mainId)) pairAdvantageMap.set(mainId, new Map());
+        const targetMap = pairAdvantageMap.get(mainId)!;
+        targetMap.set(sub.heroid, Math.max(targetMap.get(sub.heroid) || 0, adv));
+      }
+    }
+
+    // 2. In mainId's sub_hero: if record is from counter endpoint (match_type: 1 or counterRecords provided),
+    // mainId has advantage over sub.heroid, meaning mainId COUNTERS sub.heroid!
+    const subList = data.sub_hero || [];
+    for (const sub of subList) {
+      const adv = sub.increase_win_rate ?? 0;
+      if ((counterRecords && counterRecords.length > 0) || data.match_type === 1 || data.camp_type === 1) {
+        if (adv >= 0.01 && sub.heroid) {
+          if (!pairAdvantageMap.has(sub.heroid)) pairAdvantageMap.set(sub.heroid, new Map());
+          const targetMap = pairAdvantageMap.get(sub.heroid)!;
+          targetMap.set(mainId, Math.max(targetMap.get(mainId) || 0, adv));
+        }
+      }
+    }
+  }
+
+  // Materialize into sorted CounterMatchup[] lists
+  for (const [targetHeroId, countersMap] of pairAdvantageMap.entries()) {
+    const matchups: CounterMatchup[] = [];
+
+    for (const [counterId, delta] of countersMap.entries()) {
+      if (counterId === targetHeroId) continue;
+      const cat = catalogMap.get(counterId);
+      const name = cat?.name || `Hero #${counterId}`;
+      const avatarUrl = cat?.head || '';
+      const roles = (cat?.sortlabel || []).map(r => r.trim()).filter(r => r.length > 0);
+      const lanes = cat?.roadsort ? mapRoadsortToLanes(cat.roadsort) : [];
+      const deltaFormatted = Number(delta.toFixed(4));
+      const advantageFormatted = `+${(delta * 100).toFixed(1)}% WR`;
+      const strength = getCounterStrength(delta);
+
+      matchups.push({
+        heroId: counterId,
+        name,
+        avatarUrl,
+        roles,
+        lanes,
+        winRateDelta: deltaFormatted,
+        advantageFormatted,
+        strength
+      });
+    }
+
+    // Sort descending by counter advantage
+    matchups.sort((a, b) => b.winRateDelta - a.winRateDelta);
+    result.set(targetHeroId, matchups);
+  }
+
+  return result;
 }
 
 /**
@@ -121,6 +213,8 @@ export function processHeroTelemetry(
   for (const hero of catalog) {
     catalogMap.set(hero.heroid, hero);
   }
+
+  const countersMap = extractViableCounters(records, catalogMap, options.counterRecords);
 
   if (records.length === 0) {
     return {
@@ -231,7 +325,8 @@ export function processHeroTelemetry(
       banRate: Number(rawBr.toFixed(4)),
       powerScore,
       tier,
-      synergies
+      synergies,
+      counters: countersMap.get(heroId) || []
     });
   }
 

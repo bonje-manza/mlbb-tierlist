@@ -17,6 +17,7 @@ import { HeroTile } from './HeroTile.tsx';
 import { EmptyState } from './EmptyState.tsx';
 import { HeroDetailDrawer } from './HeroDetailDrawer.tsx';
 import { WeightTuningDrawer } from './WeightTuningDrawer.tsx';
+import { CounterView } from './CounterView.tsx';
 import { filterHeroesByLane, calculateLaneCounts } from '../utils/laneFilter.ts';
 import { filterHeroesBySearch, sortHeroesByBanRate } from '../utils/draftFilter.ts';
 import {
@@ -115,6 +116,15 @@ export function resolveInitialWindow(initialWindow?: TimeWindow): TimeWindow {
     }
   }
   return '1d';
+}
+
+export function resolveInitialView(): 'tierlist' | 'counters' {
+  if (typeof window !== 'undefined') {
+    const params = new URLSearchParams(window.location.search);
+    const view = params.get('view');
+    if (view === 'counters') return 'counters';
+  }
+  return 'tierlist';
 }
 
 export function resolveInitialWeights(): PowerScoreWeights {
@@ -235,6 +245,26 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
     initialWeights || resolveInitialWeights()
   );
   const [isWeightDrawerOpen, setIsWeightDrawerOpen] = useState<boolean>(false);
+  const [viewMode, setViewMode] = useState<'tierlist' | 'counters'>(() =>
+    resolveInitialView()
+  );
+
+  const handleViewChange = (mode: 'tierlist' | 'counters') => {
+    setViewMode(mode);
+    if (typeof window !== 'undefined') {
+      try {
+        const url = new URL(window.location.href);
+        if (mode === 'counters') {
+          url.searchParams.set('view', 'counters');
+        } else {
+          url.searchParams.delete('view');
+        }
+        window.history.replaceState(null, '', url.toString());
+      } catch {
+        // ignore
+      }
+    }
+  };
 
   const initialKey = getDatasetKey(rankTier, timeWindow);
 
@@ -474,7 +504,35 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
       <Header
         updatedAt={data?.updatedAt}
         patchVersion={data?.patchVersion}
-      />
+      >
+        {/* View Mode Switcher: Tier List vs Counter Picks */}
+        <nav aria-label="View selection" className="flex items-center p-0.5 rounded-lg bg-[#141418] border border-[#222226]">
+          <button
+            type="button"
+            data-testid="tab-tierlist"
+            onClick={() => handleViewChange('tierlist')}
+            className={`min-h-[32px] px-3 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
+              viewMode === 'tierlist'
+                ? 'bg-zinc-200 text-black font-semibold shadow-xs'
+                : 'text-zinc-400 hover:text-white'
+            }`}
+          >
+            Tier List
+          </button>
+          <button
+            type="button"
+            data-testid="tab-counters"
+            onClick={() => handleViewChange('counters')}
+            className={`min-h-[32px] px-3 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
+              viewMode === 'counters'
+                ? 'bg-zinc-200 text-black font-semibold shadow-xs'
+                : 'text-zinc-400 hover:text-white'
+            }`}
+          >
+            Counter Picks
+          </button>
+        </nav>
+      </Header>
       {/* Responsive Command & Filter Toolbar */}
       <div className="sticky top-0 z-20 w-full bg-cyber-ground/90 backdrop-blur-md border-b border-cyber-border/80 shadow-xs">
         <div className="max-w-7xl mx-auto px-2 sm:px-4 py-2 flex flex-col gap-2.5">
@@ -493,30 +551,34 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
                 syncUrlAndStorage(rankTier, nextWindow, weights);
               }}
             />
-            <div className="w-full md:max-w-md">
-              <DraftControls
-                searchQuery={searchQuery}
-                onSearchChange={setSearchQuery}
-                isBanPriority={isBanPriority}
-                onToggleBanPriority={() => setIsBanPriority((prev) => !prev)}
-                onOpenWeights={() => setIsWeightDrawerOpen(true)}
-                isCustomWeights={isCustomWeights}
-                weightsSummary={weightsSummary}
-                onResetWeights={() => {
-                  setWeights(DEFAULT_WEIGHTS);
-                  syncUrlAndStorage(rankTier, timeWindow, DEFAULT_WEIGHTS);
-                }}
-              />
-            </div>
+            {viewMode === 'tierlist' && (
+              <div className="w-full md:max-w-md">
+                <DraftControls
+                  searchQuery={searchQuery}
+                  onSearchChange={setSearchQuery}
+                  isBanPriority={isBanPriority}
+                  onToggleBanPriority={() => setIsBanPriority((prev) => !prev)}
+                  onOpenWeights={() => setIsWeightDrawerOpen(true)}
+                  isCustomWeights={isCustomWeights}
+                  weightsSummary={weightsSummary}
+                  onResetWeights={() => {
+                    setWeights(DEFAULT_WEIGHTS);
+                    syncUrlAndStorage(rankTier, timeWindow, DEFAULT_WEIGHTS);
+                  }}
+                />
+              </div>
+            )}
           </div>
 
-          {/* Lane Selector */}
-          <LaneCarousel
-            selectedLane={selectedLane}
-            onSelectLane={setSelectedLane}
-            heroCounts={heroCounts}
-            className="border-0 bg-transparent p-0 static"
-          />
+          {/* Lane Selector only when in Tier List mode */}
+          {viewMode === 'tierlist' && (
+            <LaneCarousel
+              selectedLane={selectedLane}
+              onSelectLane={setSelectedLane}
+              heroCounts={heroCounts}
+              className="border-0 bg-transparent p-0 static"
+            />
+          )}
         </div>
       </div>
 
@@ -574,8 +636,18 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
           </div>
         )}
 
+        {/* Counter Picks View */}
+        {!error && data && viewMode === 'counters' && (
+          <CounterView
+            heroes={activeHeroes}
+            selectedHeroId={selectedHero?.id}
+            onSelectTargetHero={(hero) => setSelectedHero(hero)}
+            onViewHeroDetail={(hero) => handleSelectHero(hero)}
+          />
+        )}
+
         {/* Empty Search State */}
-        {!error && data && filteredHeroes.length === 0 && searchQuery.trim() !== '' && (
+        {!error && data && viewMode === 'tierlist' && filteredHeroes.length === 0 && searchQuery.trim() !== '' && (
           crossLaneMatches.length > 0 ? (
             <EmptyState
               testId="search-empty-state"
@@ -598,7 +670,7 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
         )}
 
         {/* Empty Lane State */}
-        {!error && data && filteredHeroes.length === 0 && searchQuery.trim() === '' && (
+        {!error && data && viewMode === 'tierlist' && filteredHeroes.length === 0 && searchQuery.trim() === '' && (
           <EmptyState
             testId="lane-empty-state"
             icon="🛡️"
@@ -610,7 +682,7 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
         )}
 
         {/* Ban Priority View (Flat Sorted Grid) */}
-        {!error && data && filteredHeroes.length > 0 && isBanPriority && (
+        {!error && data && viewMode === 'tierlist' && filteredHeroes.length > 0 && isBanPriority && (
           <div
             data-testid="ban-priority-container"
             className="flex flex-col gap-2.5 animate-fadeIn"
@@ -641,7 +713,7 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
         )}
 
         {/* Standard Tier Bands View (S+ down to D) */}
-        {!error && data && filteredHeroes.length > 0 && !isBanPriority && (
+        {!error && data && viewMode === 'tierlist' && filteredHeroes.length > 0 && !isBanPriority && (
           <div className="flex flex-col gap-4">
             {ORDERED_TIERS.map((tier) =>
               heroesByTier[tier].length > 0 ? (
@@ -678,6 +750,10 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
           hero={selectedHero}
           heroPool={activeHeroes}
           onClose={() => setSelectedHero(null)}
+          onViewCounters={(hero) => {
+            setSelectedHero(hero);
+            handleViewChange('counters');
+          }}
           onSelectPartner={(partnerHeroId) => {
             const partner = activeHeroes.find((h) => h.id === partnerHeroId);
             if (partner) {

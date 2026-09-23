@@ -74,6 +74,9 @@ async function fetchFromMoontonGms(
       'data.sub_hero.hero',
       'data.sub_hero.increase_win_rate',
       'data.sub_hero.heroid',
+      'data.sub_hero_last.hero',
+      'data.sub_hero_last.increase_win_rate',
+      'data.sub_hero_last.heroid',
       '_updatedAt'
     ]
   };
@@ -227,3 +230,123 @@ export async function fetchRankTelemetryWithFailover(
     fetchedAt: new Date().toISOString()
   };
 }
+
+/**
+ * Direct Moonton GMS Counter Telemetry fetch (match_type: 1)
+ */
+export async function fetchMoontonCounterTelemetry(
+  rankTier: RankTier,
+  timeWindow: TimeWindow,
+  fetchFn: typeof fetch = fetch
+): Promise<RawGmsRecord[]> {
+  const handshake = await fetchEnigma(fetchFn);
+  const sourceId = GMS_SOURCE_IDS[timeWindow];
+  const bigrank = GMS_BIGRANK_MAP[rankTier];
+  const reqPath = `/api/gms/source/${APP_ID}/${sourceId}`;
+
+  const payload = {
+    pageSize: 200,
+    filters: [
+      { field: 'bigrank', operator: 'eq', value: bigrank },
+      { field: 'match_type', operator: 'eq', value: 1 }
+    ],
+    fields: [
+      'main_hero',
+      'main_heroid',
+      'main_hero_win_rate',
+      'data.sub_hero.hero',
+      'data.sub_hero.increase_win_rate',
+      'data.sub_hero.heroid',
+      'data.sub_hero_last.hero',
+      'data.sub_hero_last.increase_win_rate',
+      'data.sub_hero_last.heroid',
+      '_updatedAt'
+    ]
+  };
+
+  const bodyStr = JSON.stringify(payload);
+  const signature = generateGmsSignature(reqPath, bodyStr, handshake.enigma);
+
+  const res = await fetchFn(`${GMS_HOST}${reqPath}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-AppId': APP_ID,
+      'X-ActId': ACT_ID,
+      'X-Lang': 'en',
+      'Authorization': signature
+    },
+    body: bodyStr
+  });
+
+  if (!res.ok) {
+    throw new Error(`Moonton GMS counter request failed with HTTP ${res.status} ${res.statusText}`);
+  }
+
+  const json = await res.json() as RawGmsResponse;
+  if (json.code !== 0) {
+    throw new Error(`Moonton GMS counter returned error code ${json.code}: ${json.message}`);
+  }
+
+  const records = json.data?.records;
+  if (!Array.isArray(records) || records.length === 0) {
+    throw new Error('Moonton GMS counter returned empty telemetry records array');
+  }
+
+  return records;
+}
+
+/**
+ * Fallback to airgap counter snapshot if available
+ */
+async function fetchFromAirgapCounterSnapshot(
+  rankTier: RankTier,
+  timeWindow: TimeWindow,
+  airgapDir: string = DEFAULT_AIRGAP_DIR
+): Promise<RawGmsRecord[]> {
+  const rawPath = path.join(airgapDir, `raw-counter-${rankTier}-${timeWindow}.json`);
+  try {
+    const content = await fs.readFile(rawPath, 'utf8');
+    const parsed = JSON.parse(content);
+    if (Array.isArray(parsed) && parsed.length > 0) {
+      return parsed as RawGmsRecord[];
+    }
+  } catch {
+    // Fall back to standard airgap snapshot if counter snapshot is missing
+    return fetchFromAirgapSnapshot(rankTier, timeWindow, airgapDir);
+  }
+  return fetchFromAirgapSnapshot(rankTier, timeWindow, airgapDir);
+}
+
+/**
+ * Counter telemetry fetch with failover
+ */
+export async function fetchCounterTelemetryWithFailover(
+  rankTier: RankTier,
+  timeWindow: TimeWindow,
+  options: FetchTelemetryOptions = {}
+): Promise<TelemetryFetchResult> {
+  const fetchFn = options.fetchFn || fetch;
+  const airgapDir = options.airgapDir || DEFAULT_AIRGAP_DIR;
+
+  try {
+    const records = await fetchMoontonCounterTelemetry(rankTier, timeWindow, fetchFn);
+    return {
+      source: 'moonton-gms',
+      records,
+      total: records.length,
+      fetchedAt: new Date().toISOString()
+    };
+  } catch (errGms) {
+    console.warn(`[Failover] Moonton GMS counter fetch failed: ${(errGms as Error).message}. Attempting Airgap snapshot...`);
+  }
+
+  const records = await fetchFromAirgapCounterSnapshot(rankTier, timeWindow, airgapDir);
+  return {
+    source: 'airgap-snapshot',
+    records,
+    total: records.length,
+    fetchedAt: new Date().toISOString()
+  };
+}
+

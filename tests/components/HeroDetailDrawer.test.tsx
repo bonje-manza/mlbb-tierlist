@@ -277,4 +277,53 @@ describe('HeroDetailDrawer (Ticket 05)', () => {
       expect(dragHandle.className).toMatch(/min-h-\[(44px|48px)\]|h-11|h-12/);
     });
   });
+
+  describe('Viable Counters Section', () => {
+    it('renders viable counters and handles clicking view all counters', () => {
+      const onViewCounters = vi.fn();
+      const heroWithCounters = {
+        ...mockRafaela,
+        counters: [
+          {
+            heroId: 104,
+            name: 'Gloo',
+            avatarUrl: 'https://cdn/gloo.png',
+            roles: ['Tank'],
+            lanes: ['EXP Lane' as const],
+            winRateDelta: 0.052,
+            advantageFormatted: '+5.2% WR',
+            strength: 'Very Strong' as const
+          }
+        ]
+      };
+
+      render(
+        <HeroDetailDrawer
+          hero={heroWithCounters}
+          onClose={defaultClose}
+          onViewCounters={onViewCounters}
+        />
+      );
+
+      expect(screen.getByText('Viable Counters')).toBeInTheDocument();
+      expect(screen.getByText('Gloo')).toBeInTheDocument();
+      expect(screen.getByText('+5.2% WR')).toBeInTheDocument();
+
+      const viewAllBtn = screen.getByTestId('drawer-view-all-counters-btn');
+      fireEvent.click(viewAllBtn);
+
+      expect(onViewCounters).toHaveBeenCalledWith(heroWithCounters);
+    });
+
+    it('renders empty state when no counters are present', () => {
+      render(
+        <HeroDetailDrawer
+          hero={{ ...mockRafaela, counters: [] }}
+          onClose={defaultClose}
+        />
+      );
+
+      expect(screen.getByTestId('counters-drawer-empty-state')).toBeInTheDocument();
+    });
+  });
 });

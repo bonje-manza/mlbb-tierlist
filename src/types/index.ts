@@ -12,6 +12,19 @@ export interface SynergyPartner {
   winRateDelta: number; // e.g. 0.0637 (+6.37%)
 }
 
+export type CounterStrength = 'Very Strong' | 'Strong' | 'Moderate' | 'Slight';
+
+export interface CounterMatchup {
+  heroId: number;
+  name: string;
+  avatarUrl: string;
+  roles: (Role | string)[];
+  lanes: Lane[];
+  winRateDelta: number; // e.g. 0.0637 (+6.37% advantage against target hero)
+  advantageFormatted: string; // e.g. "+6.4% WR"
+  strength: CounterStrength;
+}
+
 export interface PowerScoreWeights {
   wr: number; // 0 - 100
   pr: number; // 0 - 100
@@ -33,6 +46,7 @@ export interface NormalizedHero {
   powerScore: number; // e.g. 88.4
   tier: Tier;
   synergies: SynergyPartner[];
+  counters?: CounterMatchup[];
 }
 
 export interface TierListDataset {
@@ -70,7 +84,10 @@ export interface RawGmsRecordData {
   main_hero_channel?: {
     id?: number;
   };
+  match_type?: number;
+  camp_type?: number;
   sub_hero?: RawSubHero[];
+  sub_hero_last?: RawSubHero[];
 }
 
 export interface RawGmsRecord {

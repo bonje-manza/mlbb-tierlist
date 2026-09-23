@@ -1,6 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { processHeroTelemetry, calculatePowerScore, assignTier, mapRoadsortToLanes } from '../src/pipeline/scoring.ts';
+import {
+  processHeroTelemetry,
+  calculatePowerScore,
+  assignTier,
+  mapRoadsortToLanes,
+  extractViableCounters,
+  getCounterStrength
+} from '../src/pipeline/scoring.ts';
 import type { RawGmsRecord, RawCatalogHero } from '../src/types/index.ts';
 
 test('mapRoadsortToLanes correctly maps roadsort IDs to canonical lane names', () => {
@@ -195,3 +202,80 @@ test('processHeroTelemetry safely handles single hero pool without NaN or divisi
   assert.ok(!Number.isNaN(dataset.heroes[0].powerScore));
   assert.ok(!Number.isNaN(dataset.heroes[0].winRate));
 });
+
+test('getCounterStrength classifies win-rate delta correctly', () => {
+  assert.equal(getCounterStrength(0.06), 'Very Strong');
+  assert.equal(getCounterStrength(0.05), 'Very Strong');
+  assert.equal(getCounterStrength(0.04), 'Strong');
+  assert.equal(getCounterStrength(0.03), 'Strong');
+  assert.equal(getCounterStrength(0.025), 'Moderate');
+  assert.equal(getCounterStrength(0.02), 'Moderate');
+  assert.equal(getCounterStrength(0.015), 'Slight');
+  assert.equal(getCounterStrength(0.01), 'Slight');
+});
+
+test('extractViableCounters filters < 1% shifts and sorts counters descending', () => {
+  const mockCatalog: RawCatalogHero[] = [
+    { heroid: 1, name: 'Miya', head: 'https://cdn/miya.png', roadsort: ['5'], sortlabel: ['Marksman'] },
+    { heroid: 2, name: 'Chou', head: 'https://cdn/chou.png', roadsort: ['1', '3'], sortlabel: ['Fighter'] },
+    { heroid: 3, name: 'Lolita', head: 'https://cdn/lolita.png', roadsort: ['3'], sortlabel: ['Support'] },
+    { heroid: 4, name: 'Gloo', head: 'https://cdn/gloo.png', roadsort: ['1'], sortlabel: ['Tank'] }
+  ];
+
+  const catalogMap = new Map<number, RawCatalogHero>();
+  for (const h of mockCatalog) catalogMap.set(h.heroid, h);
+
+  // Match records where Gloo (4) and Lolita (3) counter Miya (1)
+  const counterRecords: RawGmsRecord[] = [
+    {
+      data: {
+        main_heroid: 1, // Miya
+        main_hero_win_rate: 0.50,
+        main_hero_appearance_rate: 0.05,
+        main_hero_ban_rate: 0.01,
+        sub_hero_last: [
+          { heroid: 4, increase_win_rate: -0.065 }, // Gloo: 6.5% drop for Miya -> Very Strong
+          { heroid: 3, increase_win_rate: -0.025 }, // Lolita: 2.5% drop for Miya -> Moderate
+          { heroid: 2, increase_win_rate: -0.005 }  // Chou: 0.5% drop (< 1% threshold -> excluded!)
+        ]
+      }
+    },
+    {
+      data: {
+        main_heroid: 2, // Chou
+        main_hero_win_rate: 0.52,
+        main_hero_appearance_rate: 0.04,
+        main_hero_ban_rate: 0.02,
+        sub_hero: [
+          { heroid: 1, increase_win_rate: 0.035 } // Chou gains 3.5% against Miya -> Strong counter!
+        ]
+      }
+    }
+  ];
+
+  const countersMap = extractViableCounters([], catalogMap, counterRecords);
+
+  // Miya (1) should have 3 viable counters: Gloo (+6.5%), Chou (+3.5%), Lolita (+2.5%)
+  const miyaCounters = countersMap.get(1);
+  assert.ok(miyaCounters);
+  assert.equal(miyaCounters.length, 3);
+
+  // Sorted descending
+  assert.equal(miyaCounters[0].heroId, 4);
+  assert.equal(miyaCounters[0].name, 'Gloo');
+  assert.equal(miyaCounters[0].strength, 'Very Strong');
+  assert.equal(miyaCounters[0].winRateDelta, 0.065);
+  assert.equal(miyaCounters[0].advantageFormatted, '+6.5% WR');
+  assert.deepEqual(miyaCounters[0].lanes, ['EXP Lane']);
+
+  assert.equal(miyaCounters[1].heroId, 2);
+  assert.equal(miyaCounters[1].name, 'Chou');
+  assert.equal(miyaCounters[1].strength, 'Strong');
+  assert.equal(miyaCounters[1].winRateDelta, 0.035);
+
+  assert.equal(miyaCounters[2].heroId, 3);
+  assert.equal(miyaCounters[2].name, 'Lolita');
+  assert.equal(miyaCounters[2].strength, 'Moderate');
+  assert.equal(miyaCounters[2].winRateDelta, 0.025);
+});
+

@@ -652,6 +652,25 @@ describe('TierListDashboard', () => {
       expect(replaceStateSpy).toHaveBeenCalled();
       replaceStateSpy.mockRestore();
     });
+
+    it('switches to Counter Picks view when clicking the Counter Picks tab', () => {
+      render(<TierListDashboard dataset={mockMythic1dDataset} />);
+
+      // Tier list is visible initially
+      expect(screen.getByTestId('tab-tierlist')).toHaveClass('bg-zinc-200');
+
+      // Click Counter Picks tab
+      const countersTab = screen.getByTestId('tab-counters');
+      fireEvent.click(countersTab);
+
+      // Now Counter Picks view is mounted
+      expect(screen.getByTestId('counters-container')).toBeInTheDocument();
+      expect(screen.getByTestId('tab-counters')).toHaveClass('bg-zinc-200');
+
+      // Switching back to Tier List
+      fireEvent.click(screen.getByTestId('tab-tierlist'));
+      expect(screen.queryByTestId('counters-container')).not.toBeInTheDocument();
+    });
   });
 });
 

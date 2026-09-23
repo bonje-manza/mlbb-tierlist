@@ -1,10 +1,14 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { fetchRankTelemetryWithFailover, DEFAULT_AIRGAP_DIR } from './fetcher.ts';
+import {
+  fetchRankTelemetryWithFailover,
+  fetchCounterTelemetryWithFailover,
+  DEFAULT_AIRGAP_DIR
+} from './fetcher.ts';
 import { fetchHeroCatalog } from './catalog.ts';
 import { processHeroTelemetry } from './scoring.ts';
-import type { RankTier, TimeWindow, TierListDataset } from '../types/index.ts';
+import type { RankTier, TimeWindow, TierListDataset, RawGmsRecord } from '../types/index.ts';
 
 export const DEFAULT_OUTPUT_DIR = path.resolve('public/data');
 
@@ -82,10 +86,34 @@ export async function executeSyncPipeline(options: SyncOptions = {}): Promise<Sy
       if (!silent) console.warn(`[Sync] Warning: Failed to write raw airgap cache: ${(err as Error).message}`);
     }
 
+    // Fetch counter telemetry with failover (match_type: 1)
+    let counterRecords: RawGmsRecord[] | undefined;
+    try {
+      const counterResult = await fetchCounterTelemetryWithFailover(rank, window, {
+        fetchFn,
+        airgapDir
+      });
+      counterRecords = counterResult.records;
+      if (!silent) {
+        console.log(`[Sync] Counter telemetry received from: [${counterResult.source}] (${counterResult.records.length} records)`);
+      }
+      const rawCounterAirgapPath = path.join(airgapDir, `raw-counter-${rank}-${window}.json`);
+      try {
+        await fs.writeFile(rawCounterAirgapPath, JSON.stringify(counterResult.records, null, 2), 'utf8');
+      } catch {
+        // non-fatal
+      }
+    } catch (counterErr) {
+      if (!silent) {
+        console.warn(`[Sync] Warning: Counter telemetry fetch skipped: ${(counterErr as Error).message}`);
+      }
+    }
+
     // Run pure normalization & scoring engine
     const dataset = processHeroTelemetry(telemetry.records, catalog, {
       rankTier: rank,
-      timeWindow: window
+      timeWindow: window,
+      counterRecords
     });
 
     const fileName = `tierlist-${rank}-${window}.json`;

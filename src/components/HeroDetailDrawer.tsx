@@ -7,6 +7,7 @@ export interface HeroDetailDrawerProps {
   heroPool?: NormalizedHero[];
   onClose: () => void;
   onSelectPartner?: (heroId: number) => void;
+  onViewCounters?: (hero: NormalizedHero) => void;
 }
 
 interface TierVisualMeta {
@@ -99,6 +100,7 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
   heroPool,
   onClose,
   onSelectPartner,
+  onViewCounters,
 }) => {
   const [avatarLoaded, setAvatarLoaded] = useState(false);
   const [avatarError, setAvatarError] = useState(false);
@@ -438,6 +440,95 @@ export const HeroDetailDrawer: React.FC<HeroDetailDrawerProps> = ({
               className="p-6 rounded-lg bg-cyber-hover/20 border border-cyber-border text-center text-xs sm:text-sm text-zinc-400"
             >
               No positive duo synergies recorded for this hero.
+            </div>
+          )}
+        </div>
+
+        {/* Viable Counters Section */}
+        <div className="pt-4 mt-4 border-t border-cyber-border">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <h3 className="text-xs sm:text-sm font-medium text-zinc-200">
+                Viable Counters
+              </h3>
+              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-rose-950/40 text-rose-300 border border-rose-900/50">
+                Picks against {hero.name}
+              </span>
+            </div>
+            {hero.counters && hero.counters.length > 0 && onViewCounters && (
+              <button
+                type="button"
+                data-testid="drawer-view-all-counters-btn"
+                onClick={() => onViewCounters(hero)}
+                className="text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1 hover:underline cursor-pointer"
+              >
+                <span>View all ({hero.counters.length})</span>
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            )}
+          </div>
+
+          {hero.counters && hero.counters.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+              {hero.counters.slice(0, 3).map((counter) => {
+                const counterHasError = partnerErrors[counter.heroId];
+                return (
+                  <button
+                    key={counter.heroId}
+                    type="button"
+                    onClick={() => {
+                      if (onViewCounters) {
+                        onViewCounters(hero);
+                      } else {
+                        onSelectPartner?.(counter.heroId);
+                      }
+                    }}
+                    aria-label={`${counter.name}, counter with ${counter.advantageFormatted}`}
+                    className="min-h-[48px] min-w-[44px] flex items-center gap-3 p-2.5 rounded-lg bg-cyber-hover/50 hover:bg-cyber-hover border border-cyber-border hover:border-zinc-700 transition-all text-left group active:scale-95 cursor-pointer shadow-xs"
+                  >
+                    <div className="relative w-11 h-11 rounded-md overflow-hidden bg-black border border-zinc-800 shrink-0">
+                      {!counterHasError ? (
+                        <img
+                          src={counter.avatarUrl}
+                          alt={counter.name}
+                          loading="lazy"
+                          onError={() =>
+                            setPartnerErrors((prev) => ({ ...prev, [counter.heroId]: true }))
+                          }
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-zinc-900 text-[10px] font-mono font-medium text-zinc-400 uppercase">
+                          {counter.name.slice(0, 3)}
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="flex flex-col min-w-0 flex-1">
+                      <div className="flex items-center justify-between gap-1">
+                        <span className="text-xs sm:text-sm font-medium text-zinc-200 group-hover:text-white truncate">
+                          {counter.name}
+                        </span>
+                        <span className="text-[9px] font-mono uppercase px-1 rounded bg-zinc-800 text-zinc-400">
+                          {counter.strength}
+                        </span>
+                      </div>
+                      <span className="inline-flex items-center text-xs font-mono font-medium text-rose-400">
+                        {counter.advantageFormatted}
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          ) : (
+            <div
+              data-testid="counters-drawer-empty-state"
+              className="p-4 rounded-lg bg-cyber-hover/20 border border-cyber-border text-center text-xs text-zinc-400"
+            >
+              No statistically viable counters recorded for this hero.
             </div>
           )}
         </div>
