@@ -671,6 +671,41 @@ describe('TierListDashboard', () => {
       fireEvent.click(screen.getByTestId('tab-tierlist'));
       expect(screen.queryByTestId('counters-container')).not.toBeInTheDocument();
     });
+
+    it('switches to Draft Assistant view when clicking the Draft Assistant tab', () => {
+      render(<TierListDashboard dataset={mockMythic1dDataset} />);
+
+      const draftTab = screen.getByTestId('tab-draft');
+      fireEvent.click(draftTab);
+
+      expect(screen.getByTestId('draft-assistant-container')).toBeInTheDocument();
+      expect(screen.getByTestId('tab-draft')).toHaveClass('bg-zinc-200');
+
+      // Switching back to Tier List
+      fireEvent.click(screen.getByTestId('tab-tierlist'));
+      expect(screen.queryByTestId('draft-assistant-container')).not.toBeInTheDocument();
+    });
+
+    it('synchronizes draft enemy and ally picks to URL search params', () => {
+      const replaceStateSpy = vi.spyOn(window.history, 'replaceState');
+      render(<TierListDashboard dataset={mockMythic1dDataset} />);
+
+      // Switch to draft
+      fireEvent.click(screen.getByTestId('tab-draft'));
+      expect(replaceStateSpy).toHaveBeenCalled();
+
+      // Open picker to add enemy
+      fireEvent.click(screen.getByTestId('add-enemy-pick-btn'));
+      // Pick Rafaela (id: 14)
+      fireEvent.click(screen.getByTestId('draft-pick-candidate-14'));
+
+      expect(replaceStateSpy).toHaveBeenCalled();
+      const lastCallUrl = replaceStateSpy.mock.calls[replaceStateSpy.mock.calls.length - 1][2] as string;
+      expect(lastCallUrl).toContain('view=draft');
+      expect(lastCallUrl).toContain('enemy=14');
+
+      replaceStateSpy.mockRestore();
+    });
   });
 });
 

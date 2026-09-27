@@ -25,6 +25,13 @@ This document defines the core domain concepts, glossary, architecture boundarie
   * **C Tier (Underperforming)**: $30 \le \text{PowerScore} < 45$
   * **D Tier (Weak / Avoid in Ranked)**: $\text{PowerScore} < 30$
 
+### Competitive Draft Engine & In-Draft Intelligence
+* **Composite Draft Rating (CDR)**: The multi-factor draft suitability score ($\in [0, 100]$) calculating real-time pick value against a specific enemy composition and allied pairing set (ADR 0007).
+* **Kryptonite Penalty**: An asymmetric, non-linear penalty applied to a candidate hero's draft rating when an enemy has locked a severe hard counter ($> 3.5\text{ pp}$ empirical disadvantage), preventing naive linear averaging from masking unplayable fatal matchups.
+* **Inferred Primary Lane**: The primary lane assignment derived canonically from the first entry in the hero's lane array (`lanes[0]`), used to calculate lane interaction weights ($\omega_{\text{lane}} = 1.4\times$).
+* **Composition Hygiene**: Structural team balance rules penalizing defects during live drafting (e.g. damage monoculture, zero frontline/tanks, lack of Retribution/Jungler).
+* **Draft Assistant**: Interactive multi-slot draft recommendation engine assisting players during the 30-second drafting phase.
+
 ### Gameplay Roles & Lanes
 * **Lane**: The strategic map lane assignment. Canonical options:
   * `Gold Lane` (Marksmen / late-game physical damage dealers, `roadid: 5`)
@@ -88,6 +95,8 @@ This document defines the core domain concepts, glossary, architecture boundarie
 4. **Lane Fidelity**: Lane classifications must be sourced from canonical hero metadata (`en_hero_list.json`). Flex picks appear in all assigned lanes.
 5. **Data Freshness Disclosure**: The mobile UI must always render the UTC timestamp of the underlying data snapshot (`Data updated: YYYY-MM-DD HH:mm UTC`).
 6. **Deterministic Dynamic Recalculation**: Client-side weight modifications must dynamically recalculate Power Score across all active heroes using Min-Max normalized values derived from the active dataset pool without external network requests (ADR 0005).
+7. **Draft Pick Exclusivity**: Any hero selected in either the enemy team ($E$) or allied team ($A$) is strictly ineligible for selection and excluded from candidate recommendations in the Draft Assistant (ADR 0007).
+8. **Competitive Draft Baseline**: In-draft composite counter calculations default to the Mythic rank tier telemetry as the canonical competitive baseline (ADR 0007).
 
 ---
 
@@ -98,4 +107,5 @@ This document defines the core domain concepts, glossary, architecture boundarie
 * [ADR 0004: Full Ladder Rank & Multi-Window Telemetry Ingestion and UI Controls](docs/adr/0004-full-ladder-rank-and-multi-window-telemetry.md)
 * [ADR 0005: Client-Side Custom Power Score Weighting & Presets](docs/adr/0005-custom-power-score-weighting.md)
 * [ADR 0006: Counter Picks Data Ingestion via Moonton GMS](docs/adr/0006-counter-picks-data-ingestion-via-gms.md)
+* [ADR 0007: Esports Composite Draft Rating (CDR) & In-Draft Engine](docs/adr/0007-esports-composite-draft-rating-and-draft-engine.md)
 

@@ -18,6 +18,7 @@ import { EmptyState } from './EmptyState.tsx';
 import { HeroDetailDrawer } from './HeroDetailDrawer.tsx';
 import { WeightTuningDrawer } from './WeightTuningDrawer.tsx';
 import { CounterView } from './CounterView.tsx';
+import { DraftView } from './DraftView.tsx';
 import { filterHeroesByLane, calculateLaneCounts } from '../utils/laneFilter.ts';
 import { filterHeroesBySearch, sortHeroesByBanRate } from '../utils/draftFilter.ts';
 import {
@@ -118,13 +119,44 @@ export function resolveInitialWindow(initialWindow?: TimeWindow): TimeWindow {
   return '1d';
 }
 
-export function resolveInitialView(): 'tierlist' | 'counters' {
+export function resolveInitialView(): 'tierlist' | 'counters' | 'draft' {
   if (typeof window !== 'undefined') {
     const params = new URLSearchParams(window.location.search);
     const view = params.get('view');
     if (view === 'counters') return 'counters';
+    if (view === 'draft') return 'draft';
   }
   return 'tierlist';
+}
+
+export function resolveInitialDraftEnemy(): number[] {
+  if (typeof window !== 'undefined') {
+    const params = new URLSearchParams(window.location.search);
+    const enemyParam = params.get('enemy');
+    if (enemyParam) {
+      return enemyParam
+        .split(',')
+        .map((s) => Number(s.trim()))
+        .filter((n) => !isNaN(n) && n > 0)
+        .slice(0, 5);
+    }
+  }
+  return [];
+}
+
+export function resolveInitialDraftAlly(): number[] {
+  if (typeof window !== 'undefined') {
+    const params = new URLSearchParams(window.location.search);
+    const allyParam = params.get('ally');
+    if (allyParam) {
+      return allyParam
+        .split(',')
+        .map((s) => Number(s.trim()))
+        .filter((n) => !isNaN(n) && n > 0)
+        .slice(0, 4);
+    }
+  }
+  return [];
 }
 
 export function resolveInitialWeights(): PowerScoreWeights {
@@ -245,25 +277,82 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
     initialWeights || resolveInitialWeights()
   );
   const [isWeightDrawerOpen, setIsWeightDrawerOpen] = useState<boolean>(false);
-  const [viewMode, setViewMode] = useState<'tierlist' | 'counters'>(() =>
+  const [viewMode, setViewMode] = useState<'tierlist' | 'counters' | 'draft'>(() =>
     resolveInitialView()
   );
+  const [enemyHeroIds, setEnemyHeroIds] = useState<number[]>(() => resolveInitialDraftEnemy());
+  const [allyHeroIds, setAllyHeroIds] = useState<number[]>(() => resolveInitialDraftAlly());
 
-  const handleViewChange = (mode: 'tierlist' | 'counters') => {
-    setViewMode(mode);
-    if (typeof window !== 'undefined') {
-      try {
-        const url = new URL(window.location.href);
-        if (mode === 'counters') {
-          url.searchParams.set('view', 'counters');
+  const syncDraftUrl = (
+    mode: 'tierlist' | 'counters' | 'draft',
+    enemies: number[],
+    allies: number[]
+  ) => {
+    if (typeof window === 'undefined') return;
+    try {
+      const url = new URL(window.location.href);
+      if (mode === 'draft') {
+        url.searchParams.set('view', 'draft');
+        if (enemies.length > 0) {
+          url.searchParams.set('enemy', enemies.join(','));
         } else {
-          url.searchParams.delete('view');
+          url.searchParams.delete('enemy');
         }
-        window.history.replaceState(null, '', url.toString());
-      } catch {
-        // ignore
+        if (allies.length > 0) {
+          url.searchParams.set('ally', allies.join(','));
+        } else {
+          url.searchParams.delete('ally');
+        }
+      } else if (mode === 'counters') {
+        url.searchParams.set('view', 'counters');
+        url.searchParams.delete('enemy');
+        url.searchParams.delete('ally');
+      } else {
+        url.searchParams.delete('view');
+        url.searchParams.delete('enemy');
+        url.searchParams.delete('ally');
       }
+      window.history.replaceState(null, '', url.toString());
+    } catch {
+      // ignore
     }
+  };
+
+  const handleViewChange = (mode: 'tierlist' | 'counters' | 'draft') => {
+    setViewMode(mode);
+    syncDraftUrl(mode, enemyHeroIds, allyHeroIds);
+  };
+
+  const handleAddEnemyHero = (heroId: number) => {
+    if (enemyHeroIds.includes(heroId) || enemyHeroIds.length >= 5) return;
+    const nextEnemies = [...enemyHeroIds, heroId];
+    setEnemyHeroIds(nextEnemies);
+    syncDraftUrl('draft', nextEnemies, allyHeroIds);
+  };
+
+  const handleRemoveEnemyHero = (heroId: number) => {
+    const nextEnemies = enemyHeroIds.filter((id) => id !== heroId);
+    setEnemyHeroIds(nextEnemies);
+    syncDraftUrl('draft', nextEnemies, allyHeroIds);
+  };
+
+  const handleAddAllyHero = (heroId: number) => {
+    if (allyHeroIds.includes(heroId) || allyHeroIds.length >= 4) return;
+    const nextAllies = [...allyHeroIds, heroId];
+    setAllyHeroIds(nextAllies);
+    syncDraftUrl('draft', enemyHeroIds, nextAllies);
+  };
+
+  const handleRemoveAllyHero = (heroId: number) => {
+    const nextAllies = allyHeroIds.filter((id) => id !== heroId);
+    setAllyHeroIds(nextAllies);
+    syncDraftUrl('draft', enemyHeroIds, nextAllies);
+  };
+
+  const handleResetDraft = () => {
+    setEnemyHeroIds([]);
+    setAllyHeroIds([]);
+    syncDraftUrl('draft', [], []);
   };
 
   const initialKey = getDatasetKey(rankTier, timeWindow);
@@ -531,6 +620,18 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
           >
             Counter Picks
           </button>
+          <button
+            type="button"
+            data-testid="tab-draft"
+            onClick={() => handleViewChange('draft')}
+            className={`min-h-[32px] px-3 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
+              viewMode === 'draft'
+                ? 'bg-zinc-200 text-black font-semibold shadow-xs'
+                : 'text-zinc-400 hover:text-white'
+            }`}
+          >
+            Draft Assistant
+          </button>
         </nav>
       </Header>
       {/* Responsive Command & Filter Toolbar */}
@@ -643,6 +744,22 @@ export const TierListDashboard: React.FC<TierListDashboardProps> = ({
             selectedHeroId={selectedHero?.id}
             onSelectTargetHero={(hero) => setSelectedHero(hero)}
             onViewHeroDetail={(hero) => handleSelectHero(hero)}
+          />
+        )}
+
+        {/* Draft Assistant View */}
+        {!error && data && viewMode === 'draft' && (
+          <DraftView
+            heroes={activeHeroes}
+            enemyHeroIds={enemyHeroIds}
+            allyHeroIds={allyHeroIds}
+            onAddEnemyHero={handleAddEnemyHero}
+            onRemoveEnemyHero={handleRemoveEnemyHero}
+            onAddAllyHero={handleAddAllyHero}
+            onRemoveAllyHero={handleRemoveAllyHero}
+            onResetDraft={handleResetDraft}
+            onSelectHeroDetail={(hero) => handleSelectHero(hero)}
+            customWeights={weights}
           />
         )}
 

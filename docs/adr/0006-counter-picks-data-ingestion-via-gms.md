@@ -1,7 +1,7 @@
 # ADR 0006: Counter Picks Data Ingestion via Moonton GMS
 
 ## Status
-Proposed
+Accepted
 
 ## Context
 We want to build a counter picks page on this repository based on Mobile Legends: Bang Bang (MLBB) statistics, similar to `mlbb.gg/counter`. To do this, we need to understand how counter data is officially sourced and how third-party sites like MLBB.gg retrieve it.

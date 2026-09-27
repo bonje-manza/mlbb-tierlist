@@ -49,6 +49,26 @@ export interface NormalizedHero {
   counters?: CounterMatchup[];
 }
 
+export type DamageType = 'Physical' | 'Magic';
+
+export interface CompositionDiagnostic {
+  type: 'warning' | 'info' | 'success';
+  message: string;
+  penalty: number;
+}
+
+export interface DraftRecommendation {
+  hero: NormalizedHero;
+  cdr: number; // 0 - 100
+  powerScore: number;
+  counterAdvantage: number;
+  synergyBonus: number;
+  compPenalty: number;
+  kryptonitePenalty: number;
+  kryptoniteTarget?: string; // e.g. "Phoveus (-7.8%)"
+  diagnostics: CompositionDiagnostic[];
+}
+
 export interface TierListDataset {
   updatedAt: string; // ISO 8601 UTC
   patchVersion: string; // e.g. "2.1.41"
