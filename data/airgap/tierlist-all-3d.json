@@ -2885,6 +2885,7 @@
         "Marksman"
       ],
       "lanes": [
+        "EXP Lane",
         "Jungle"
       ],
       "winRate": 0.5051,
@@ -16834,13 +16835,13 @@
         "Marksman"
       ],
       "lanes": [
-        "Jungle"
+        "Gold Lane"
       ],
-      "winRate": 0.4895,
-      "pickRate": 0.0029,
-      "banRate": 0.0009,
-      "powerScore": 22.9,
-      "tier": "D",
+      "winRate": 0.485,
+      "pickRate": 0.0054,
+      "banRate": 0.0083,
+      "powerScore": 45.6,
+      "tier": "B",
       "synergies": [
         {
           "heroId": 87,
@@ -22629,23 +22630,23 @@
       "lanes": [
         "Gold Lane"
       ],
-      "winRate": 0.4728,
+      "winRate": 0.4862,
       "pickRate": 0.0012,
-      "banRate": 0.0012,
-      "powerScore": 16.8,
-      "tier": "D",
+      "banRate": 0.001,
+      "powerScore": 42,
+      "tier": "C",
       "synergies": [
         {
           "heroId": 113,
           "name": "Yin",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ee1c12c84f49514a30e405fb5c617796.png",
-          "winRateDelta": 0.041
+          "winRateDelta": 0.0423
         },
         {
           "heroId": 121,
           "name": "Ixia",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f070d82521ecd2e14d4ef3f25880830a.png",
-          "winRateDelta": 0.037
+          "winRateDelta": 0.0388
         },
         {
           "heroId": 104,
@@ -23309,13 +23310,14 @@
       ]
     },
     {
-      "id": 110,
-      "name": "Valentina",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_24837021ec9d7aaf41b13fa55b6d13c9.png",
+      "id": 73,
+      "name": "Harith",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d228a823b477fdf6c458c829c2e62bcf.png",
       "roles": [
         "Mage"
       ],
       "lanes": [
+        "Gold Lane",
         "Mid Lane"
       ],
       "winRate": 0.456,
@@ -23500,7 +23502,7 @@
         "Fighter"
       ],
       "lanes": [
-        "Roam"
+        "Jungle"
       ],
       "winRate": 0.453,
       "pickRate": 0.0017,

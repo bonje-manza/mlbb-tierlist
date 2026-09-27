@@ -6014,15 +6014,14 @@
       ]
     },
     {
-      "id": 62,
-      "name": "Kaja",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d558bb881e18a070eaeda1e1fdc248a8.png",
+      "id": 84,
+      "name": "Ling",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_017bade52b9fc94bbc12615de6d75c08.png",
       "roles": [
-        "Support",
-        "Fighter"
+        "Assassin"
       ],
       "lanes": [
-        "Roam"
+        "Jungle"
       ],
       "winRate": 0.4736,
       "pickRate": 0.0076,
@@ -18316,7 +18315,7 @@
       "winRate": 0.4758,
       "pickRate": 0.0052,
       "banRate": 0.0021,
-      "powerScore": 20.8,
+      "powerScore": 20.9,
       "tier": "D",
       "synergies": [
         {

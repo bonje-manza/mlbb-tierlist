@@ -14936,6 +14936,38 @@
           "strength": "Very Strong"
         },
         {
+          "heroId": 96,
+          "name": "Luo Yi",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_26e03fd72532d11c7b32911b95b8d559.png",
+          "winRateDelta": 0.0296
+        },
+        {
+          "heroId": 11,
+          "name": "Bane",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_7e4e74bb161da0f477cc0d1819fa39e6.png",
+          "winRateDelta": 0.0296
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Bane",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_7e4e74bb161da0f477cc0d1819fa39e6.png",
+      "roles": [
+        "Fighter",
+        "Mage"
+      ],
+      "lanes": [
+        "Jungle",
+        "EXP Lane"
+      ],
+      "winRate": 0.4893,
+      "pickRate": 0.0019,
+      "banRate": 0.0005,
+      "powerScore": 27.1,
+      "tier": "D",
+      "synergies": [
+        {
           "heroId": 24,
           "name": "Natalia",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_fbb5065b6ff174d1a20ccf5b7f523514.png",

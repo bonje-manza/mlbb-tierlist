@@ -824,9 +824,10 @@
       "name": "Estes",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ff4de3b0aabd1d2f6e184db1c831f6a9.png",
       "roles": [
-        "Support"
+        "Tank"
       ],
       "lanes": [
+        "EXP Lane",
         "Roam"
       ],
       "winRate": 0.5354,

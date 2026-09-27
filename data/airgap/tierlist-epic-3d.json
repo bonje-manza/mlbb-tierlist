@@ -3844,7 +3844,81 @@
       "name": "Layla",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b2b38e9406ea0de0b866db7674feea0f.png",
       "roles": [
-        "Marksman"
+        "Tank"
+      ],
+      "lanes": [
+        "EXP Lane",
+        "Roam"
+      ],
+      "winRate": 0.5618,
+      "pickRate": 0.0056,
+      "banRate": 0.2676,
+      "powerScore": 45.4,
+      "tier": "B",
+      "synergies": [
+        {
+          "heroId": 20,
+          "name": "Lolita",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
+          "winRateDelta": 0.0328
+        },
+        {
+          "heroId": 109,
+          "name": "Aamon",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b3a7602fe7ffd1e54bf8ea79ceadfa72.png",
+          "winRateDelta": 0.0282
+        },
+        {
+          "heroId": 79,
+          "name": "Granger",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_a7729262d5b4abdc34ae5181e964c235.png",
+          "winRateDelta": 0.0253
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Nana",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ee1e0d80d87bb614a0c552ef028f85ce.png",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid Lane"
+      ],
+      "winRate": 0.4811,
+      "pickRate": 0.0278,
+      "banRate": 0.0639,
+      "powerScore": 43.7,
+      "tier": "C",
+      "synergies": [
+        {
+          "heroId": 46,
+          "name": "Odette",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d9251718a8894546ba04cfa9ca68dedc.png",
+          "winRateDelta": 0.016
+        },
+        {
+          "heroId": 20,
+          "name": "Lolita",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
+          "winRateDelta": 0.0157
+        },
+        {
+          "heroId": 90,
+          "name": "Silvanna",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_5e7b297af7c6e32a420b897aa4998071.png",
+          "winRateDelta": 0.014
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "name": "Lesley",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_08770893183018333f54a98e63c41ee3.png",
+      "roles": [
+        "Marksman",
+        "Assassin"
       ],
       "lanes": [
         "Gold Lane"
@@ -6324,16 +6398,15 @@
       ]
     },
     {
-      "id": 63,
-      "name": "Selena",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c3f967121519ae40509c5b2fdf52b19d.png",
+      "id": 85,
+      "name": "Dyrroth",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_8ec13b59871b2862d773beac2d69fa3e.png",
       "roles": [
-        "Assassin",
-        "Mage"
+        "Fighter"
       ],
       "lanes": [
-        "Mid Lane",
-        "Roam"
+        "EXP Lane",
+        "Jungle"
       ],
       "winRate": 0.4943,
       "pickRate": 0.0102,
@@ -21966,15 +22039,14 @@
       ]
     },
     {
-      "id": 128,
-      "name": "Kalea",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4f3d4649e301c76daf20bd8811f3095c.png",
+      "id": 83,
+      "name": "X.Borg",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_efe9c7ed8d8f84f1bb0f88a3e08de5fc.png",
       "roles": [
-        "Support",
         "Fighter"
       ],
       "lanes": [
-        "Roam"
+        "EXP Lane"
       ],
       "winRate": 0.4577,
       "pickRate": 0.0016,
@@ -22183,15 +22255,14 @@
       ]
     },
     {
-      "id": 102,
-      "name": "Mathilda",
-      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_24d08ed788a9f5984bcf3b732ddcaf04.png",
+      "id": 79,
+      "name": "Granger",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_a7729262d5b4abdc34ae5181e964c235.png",
       "roles": [
-        "Support",
-        "Assassin"
+        "Marksman"
       ],
       "lanes": [
-        "Roam"
+        "Gold Lane"
       ],
       "winRate": 0.4619,
       "pickRate": 0.0007,

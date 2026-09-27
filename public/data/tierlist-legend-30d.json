@@ -17859,9 +17859,45 @@
       ],
       "winRate": 0.4735,
       "pickRate": 0.0054,
-      "banRate": 0.0076,
-      "powerScore": 19.6,
-      "tier": "D",
+      "banRate": 0.0103,
+      "powerScore": 45.3,
+      "tier": "B",
+      "synergies": [
+        {
+          "heroId": 4,
+          "name": "Alice",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_18300163a5a912a84adb52b8d59b4618.png",
+          "winRateDelta": 0.051
+        },
+        {
+          "heroId": 81,
+          "name": "Esmeralda",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4661a64a2c6b724e7b67032fcbface27.png",
+          "winRateDelta": 0.0389
+        },
+        {
+          "heroId": 87,
+          "name": "Baxia",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_80e408203869ca99302af195ac4f756c.png",
+          "winRateDelta": 0.0377
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "name": "Yve",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d9b0a1d92b1c4b3643d6332fd66aa8e6.png",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid Lane"
+      ],
+      "winRate": 0.5273,
+      "pickRate": 0.0005,
+      "banRate": 0.0005,
+      "powerScore": 45.1,
+      "tier": "B",
       "synergies": [
         {
           "heroId": 20,
@@ -22920,6 +22956,43 @@
           "winRateDelta": 0.0107,
           "advantageFormatted": "+1.1% WR",
           "strength": "Slight"
+        }
+      ]
+    },
+    {
+      "id": 124,
+      "name": "Chip",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_79224d297f14377ad2eda8543432330d.png",
+      "roles": [
+        "Support",
+        "Tank"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "winRate": 0.4724,
+      "pickRate": 0.0005,
+      "banRate": 0.0011,
+      "powerScore": 40.5,
+      "tier": "C",
+      "synergies": [
+        {
+          "heroId": 65,
+          "name": "Claude",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_e1097b9d3e1d5e9f14600d32e8b18acd.png",
+          "winRateDelta": 0.0325
+        },
+        {
+          "heroId": 22,
+          "name": "Freya",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b9c34c88762ca8e66ccd4d84071bf0bc.png",
+          "winRateDelta": 0.031
+        },
+        {
+          "heroId": 130,
+          "name": "Obsidia",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_9c3daef5625bfade5c4cb8a219845dd3.png",
+          "winRateDelta": 0.0297
         }
       ]
     },
