@@ -1753,11 +1753,11 @@
       "name": "Lukas",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_63040edd0cf15b815fcbbb8b2d08d7f7.png",
       "roles": [
-        "Fighter"
+        "Fighter",
+        "Tank"
       ],
       "lanes": [
-        "EXP Lane",
-        "Jungle"
+        "EXP Lane"
       ],
       "winRate": 0.5396,
       "pickRate": 0.0107,
@@ -2313,8 +2313,7 @@
       "name": "Masha",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4d79ba6ebb0a0f2bf542917f0b19d056.png",
       "roles": [
-        "Fighter",
-        "Tank"
+        "Marksman"
       ],
       "lanes": [
         "EXP Lane"
@@ -3374,10 +3373,10 @@
       "name": "Badang",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_a81815e34246147b672d48209089da9c.png",
       "roles": [
-        "Fighter"
+        "Support",
+        "Tank"
       ],
       "lanes": [
-        "EXP Lane",
         "Roam"
       ],
       "winRate": 0.5008,
@@ -6583,10 +6582,10 @@
       "name": "Argus",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_0bd96658e5b8ec578226ea1622bd7231.png",
       "roles": [
-        "Fighter"
+        "Marksman"
       ],
       "lanes": [
-        "EXP Lane"
+        "Gold Lane"
       ],
       "winRate": 0.5532,
       "pickRate": 0.0068,
@@ -7461,10 +7460,10 @@
       "name": "Silvanna",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_5e7b297af7c6e32a420b897aa4998071.png",
       "roles": [
-        "Fighter"
+        "Mage"
       ],
       "lanes": [
-        "EXP Lane"
+        "Mid Lane"
       ],
       "winRate": 0.5014,
       "pickRate": 0.0098,
@@ -16819,6 +16818,31 @@
           "strength": "Strong"
         },
         {
+          "heroId": 89,
+          "name": "Wanwan",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_44bfa1dc44deb8d7620605faaa9ffae7.png",
+          "winRateDelta": 0.0286
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "name": "Roger",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b40e578f13465b3ae99d0a9baac7ecc9.png",
+      "roles": [
+        "Fighter",
+        "Marksman"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "winRate": 0.4895,
+      "pickRate": 0.0029,
+      "banRate": 0.0009,
+      "powerScore": 22.9,
+      "tier": "D",
+      "synergies": [
+        {
           "heroId": 87,
           "name": "Baxia",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_80e408203869ca99302af195ac4f756c.png",
@@ -19048,10 +19072,9 @@
       "name": "Khaleed",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_540a6a9d343842674ce002082366ec9d.png",
       "roles": [
-        "Fighter"
+        "Tank"
       ],
       "lanes": [
-        "EXP Lane",
         "Roam"
       ],
       "winRate": 0.5107,
@@ -21591,10 +21614,10 @@
       "name": "Wanwan",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_44bfa1dc44deb8d7620605faaa9ffae7.png",
       "roles": [
-        "Marksman"
+        "Fighter"
       ],
       "lanes": [
-        "Gold Lane"
+        "Jungle"
       ],
       "winRate": 0.4862,
       "pickRate": 0.0012,
@@ -22601,7 +22624,43 @@
       "name": "Lancelot",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_dc4b821e49b904715172136017798da3.png",
       "roles": [
-        "Assassin"
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold Lane"
+      ],
+      "winRate": 0.4728,
+      "pickRate": 0.0012,
+      "banRate": 0.0012,
+      "powerScore": 16.8,
+      "tier": "D",
+      "synergies": [
+        {
+          "heroId": 113,
+          "name": "Yin",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_ee1c12c84f49514a30e405fb5c617796.png",
+          "winRateDelta": 0.041
+        },
+        {
+          "heroId": 121,
+          "name": "Ixia",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f070d82521ecd2e14d4ef3f25880830a.png",
+          "winRateDelta": 0.037
+        },
+        {
+          "heroId": 104,
+          "name": "Gloo",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c472fe0233e5ef84a3ac9ba4a229d09f.png",
+          "winRateDelta": 0.036
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "name": "Baxia",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_80e408203869ca99302af195ac4f756c.png",
+      "roles": [
+        "Tank"
       ],
       "lanes": [
         "Jungle"

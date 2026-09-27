@@ -23,6 +23,12 @@
       "tier": "B",
       "synergies": [
         {
+          "heroId": 76,
+          "name": "Faramis",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_04e575d648d7f7ac1174f4369595c3a2.png",
+          "winRateDelta": 0.0315
+        },
+        {
           "heroId": 124,
           "name": "Chip",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_79224d297f14377ad2eda8543432330d.png",
@@ -3149,7 +3155,8 @@
       "name": "Gloo",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c472fe0233e5ef84a3ac9ba4a229d09f.png",
       "roles": [
-        "Tank"
+        "Mage",
+        "Assassin"
       ],
       "lanes": [
         "EXP Lane",
@@ -20557,6 +20564,80 @@
       "name": "Hylos",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_195ad9af866afaab415ae23a6be13b45.png",
       "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "lanes": [
+        "EXP Lane"
+      ],
+      "winRate": 0.4578,
+      "pickRate": 0.0092,
+      "banRate": 0.0065,
+      "powerScore": 20.5,
+      "tier": "D",
+      "synergies": [
+        {
+          "heroId": 76,
+          "name": "Faramis",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_04e575d648d7f7ac1174f4369595c3a2.png",
+          "winRateDelta": 0.087
+        },
+        {
+          "heroId": 123,
+          "name": "Cici",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_60e3e11da30f404c77fff9e22d3bdc72.png",
+          "winRateDelta": 0.0375
+        },
+        {
+          "heroId": 12,
+          "name": "Bruno",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2a733ac5b7d1f97093e82940af6f5008.png",
+          "winRateDelta": 0.0366
+        }
+      ]
+    },
+    {
+      "id": 123,
+      "name": "Cici",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_60e3e11da30f404c77fff9e22d3bdc72.png",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "EXP Lane"
+      ],
+      "winRate": 0.4726,
+      "pickRate": 0.0026,
+      "banRate": 0.0111,
+      "powerScore": 20.4,
+      "tier": "D",
+      "synergies": [
+        {
+          "heroId": 45,
+          "name": "Argus",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_0bd96658e5b8ec578226ea1622bd7231.png",
+          "winRateDelta": 0.0581
+        },
+        {
+          "heroId": 9,
+          "name": "Akai",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_28f223447f0174336ff0922d364d81d3.png",
+          "winRateDelta": 0.0526
+        },
+        {
+          "heroId": 73,
+          "name": "Harith",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d228a823b477fdf6c458c829c2e62bcf.png",
+          "winRateDelta": 0.0523
+        }
+      ]
+    },
+    {
+      "id": 124,
+      "name": "Chip",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_79224d297f14377ad2eda8543432330d.png",
+      "roles": [
+        "Support",
         "Tank"
       ],
       "lanes": [

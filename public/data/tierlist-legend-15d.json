@@ -6472,6 +6472,43 @@
       "tier": "B",
       "synergies": [
         {
+          "heroId": 87,
+          "name": "Baxia",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_80e408203869ca99302af195ac4f756c.png",
+          "winRateDelta": 0.0313
+        },
+        {
+          "heroId": 124,
+          "name": "Chip",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_79224d297f14377ad2eda8543432330d.png",
+          "winRateDelta": 0.027
+        },
+        {
+          "heroId": 45,
+          "name": "Argus",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_0bd96658e5b8ec578226ea1622bd7231.png",
+          "winRateDelta": 0.0269
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "name": "Faramis",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_04e575d648d7f7ac1174f4369595c3a2.png",
+      "roles": [
+        "Support",
+        "Mage"
+      ],
+      "lanes": [
+        "Mid Lane"
+      ],
+      "winRate": 0.5138,
+      "pickRate": 0.0006,
+      "banRate": 0.0025,
+      "powerScore": 27.7,
+      "tier": "D",
+      "synergies": [
+        {
           "heroId": 104,
           "name": "Gloo",
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c472fe0233e5ef84a3ac9ba4a229d09f.png",
@@ -8656,10 +8693,11 @@
       "name": "Gord",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_9513f5e10ec33f76747732eaf2082259.png",
       "roles": [
-        "Mage"
+        "Fighter",
+        "Assassin"
       ],
       "lanes": [
-        "Mid Lane"
+        "EXP Lane"
       ],
       "winRate": 0.5271,
       "pickRate": 0.0065,

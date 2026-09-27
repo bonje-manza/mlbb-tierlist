@@ -14683,10 +14683,10 @@
       "name": "Xavier",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_df0a8dfc494f85ed9bbc4512cc1e5d3c.png",
       "roles": [
-        "Mage"
+        "Marksman"
       ],
       "lanes": [
-        "Mid Lane"
+        "Gold Lane"
       ],
       "winRate": 0.5001,
       "pickRate": 0.0058,
@@ -17833,6 +17833,36 @@
           "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_80e408203869ca99302af195ac4f756c.png",
           "winRateDelta": 0.0347
         },
+        {
+          "heroId": 27,
+          "name": "Sun",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_117b5cdcc13232157075ce7b7f6177e9.png",
+          "winRateDelta": 0.0188
+        },
+        {
+          "heroId": 94,
+          "name": "Popol and Kupa",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_1acbb23b9a50f412104047a60eb18808.png",
+          "winRateDelta": 0.018
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "name": "Pharsa",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_10151d43910e62f7aa9ce08df481a20f.png",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid Lane"
+      ],
+      "winRate": 0.4735,
+      "pickRate": 0.0054,
+      "banRate": 0.0076,
+      "powerScore": 19.6,
+      "tier": "D",
+      "synergies": [
         {
           "heroId": 20,
           "name": "Lolita",

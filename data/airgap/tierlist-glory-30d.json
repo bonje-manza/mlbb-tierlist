@@ -5219,11 +5219,10 @@
       "name": "Kadita",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_99c0a77d0e01b06ad3f4351f8ef2869c.png",
       "roles": [
-        "Mage",
         "Assassin"
       ],
       "lanes": [
-        "Mid Lane"
+        "Jungle"
       ],
       "winRate": 0.5173,
       "pickRate": 0.0106,
@@ -8823,10 +8822,10 @@
       "name": "Aamon",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b3a7602fe7ffd1e54bf8ea79ceadfa72.png",
       "roles": [
-        "Assassin"
+        "Mage"
       ],
       "lanes": [
-        "Jungle"
+        "Mid Lane"
       ],
       "winRate": 0.5061,
       "pickRate": 0.0062,
@@ -18317,7 +18316,7 @@
       "winRate": 0.4758,
       "pickRate": 0.0052,
       "banRate": 0.0021,
-      "powerScore": 20.9,
+      "powerScore": 20.8,
       "tier": "D",
       "synergies": [
         {
@@ -19868,10 +19867,10 @@
       "name": "Bruno",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2a733ac5b7d1f97093e82940af6f5008.png",
       "roles": [
-        "Marksman"
+        "Mage"
       ],
       "lanes": [
-        "Gold Lane"
+        "Mid Lane"
       ],
       "winRate": 0.476,
       "pickRate": 0.0017,

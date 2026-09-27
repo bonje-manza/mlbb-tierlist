@@ -7702,10 +7702,10 @@
       "name": "Silvanna",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_5e7b297af7c6e32a420b897aa4998071.png",
       "roles": [
-        "Fighter"
+        "Mage"
       ],
       "lanes": [
-        "EXP Lane"
+        "Mid Lane"
       ],
       "winRate": 0.5092,
       "pickRate": 0.0077,
@@ -9367,10 +9367,10 @@
       "name": "Cecilion",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_045399c265021d47da6512e6de20b64f.png",
       "roles": [
-        "Mage"
+        "Marksman"
       ],
       "lanes": [
-        "Mid Lane"
+        "Gold Lane"
       ],
       "winRate": 0.5046,
       "pickRate": 0.0064,

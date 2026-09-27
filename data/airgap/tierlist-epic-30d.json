@@ -289,10 +289,10 @@
       "name": "Miya",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_da894b37bfb5cadb32307f371f31918a.png",
       "roles": [
-        "Marksman"
+        "Tank"
       ],
       "lanes": [
-        "Gold Lane"
+        "Roam"
       ],
       "winRate": 0.4917,
       "pickRate": 0.0394,
@@ -5017,8 +5017,7 @@
       "name": "Marcel",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_df7603c292198bf4aa7b551d401ea5c1.png",
       "roles": [
-        "Tank",
-        "Support"
+        "Fighter"
       ],
       "lanes": [
         "EXP Lane",
@@ -15684,11 +15683,10 @@
       "name": "Freya",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_b9c34c88762ca8e66ccd4d84071bf0bc.png",
       "roles": [
-        "Fighter"
+        "Marksman"
       ],
       "lanes": [
-        "EXP Lane",
-        "Jungle"
+        "Gold Lane"
       ],
       "winRate": 0.4635,
       "pickRate": 0.0067,
@@ -17143,6 +17141,42 @@
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_474cea36a4bfdc7bf7d94530853a99b2.png",
       "roles": [
         "Support",
+        "Tank"
+      ],
+      "lanes": [
+        "EXP Lane"
+      ],
+      "winRate": 0.4997,
+      "pickRate": 0.0024,
+      "banRate": 0.0047,
+      "powerScore": 23.3,
+      "tier": "D",
+      "synergies": [
+        {
+          "heroId": 27,
+          "name": "Sun",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_117b5cdcc13232157075ce7b7f6177e9.png",
+          "winRateDelta": 0.0342
+        },
+        {
+          "heroId": 104,
+          "name": "Gloo",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_c472fe0233e5ef84a3ac9ba4a229d09f.png",
+          "winRateDelta": 0.0292
+        },
+        {
+          "heroId": 17,
+          "name": "Fanny",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_3391df36d6dcc54dd1c417098e15ec59.png",
+          "winRateDelta": 0.0216
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "name": "Hylos",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_195ad9af866afaab415ae23a6be13b45.png",
+      "roles": [
         "Tank"
       ],
       "lanes": [

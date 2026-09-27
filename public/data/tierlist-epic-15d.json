@@ -1216,7 +1216,7 @@
       ],
       "lanes": [
         "EXP Lane",
-        "Jungle"
+        "Roam"
       ],
       "winRate": 0.536,
       "pickRate": 0.0162,
@@ -7470,10 +7470,10 @@
       "name": "Brody",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_cbb309b63cdf838fce79bd9cb95d4ed7.png",
       "roles": [
-        "Marksman"
+        "Fighter"
       ],
       "lanes": [
-        "Gold Lane"
+        "Jungle"
       ],
       "winRate": 0.5163,
       "pickRate": 0.0094,
@@ -11885,11 +11885,11 @@
       "name": "Esmeralda",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4661a64a2c6b724e7b67032fcbface27.png",
       "roles": [
-        "Tank",
         "Mage"
       ],
       "lanes": [
-        "EXP Lane"
+        "Gold Lane",
+        "Mid Lane"
       ],
       "winRate": 0.4853,
       "pickRate": 0.0073,

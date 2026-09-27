@@ -9744,8 +9744,7 @@
         "Assassin"
       ],
       "lanes": [
-        "Jungle",
-        "Roam"
+        "Jungle"
       ],
       "winRate": 0.5156,
       "pickRate": 0.0036,

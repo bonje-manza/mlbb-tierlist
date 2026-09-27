@@ -12973,12 +12973,10 @@
       "name": "Edith",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_daab57918de01a6d5bb2ed6f45808a7e.png",
       "roles": [
-        "Tank",
-        "Marksman"
+        "Tank"
       ],
       "lanes": [
-        "EXP Lane",
-        "Roam"
+        "EXP Lane"
       ],
       "winRate": 0.5091,
       "pickRate": 0.0029,
@@ -14002,7 +14000,7 @@
         "Fighter"
       ],
       "lanes": [
-        "Jungle"
+        "Gold Lane"
       ],
       "winRate": 0.5051,
       "pickRate": 0.0034,
@@ -20022,8 +20020,8 @@
         "Fighter"
       ],
       "lanes": [
-        "Jungle",
-        "EXP Lane"
+        "EXP Lane",
+        "Roam"
       ],
       "winRate": 0.4629,
       "pickRate": 0.0095,

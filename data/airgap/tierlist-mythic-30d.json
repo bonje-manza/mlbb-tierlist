@@ -7830,10 +7830,10 @@
       "name": "Guinevere",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_901bdd5d4432a2c0290dfc71df615a5a.png",
       "roles": [
-        "Fighter"
+        "Tank"
       ],
       "lanes": [
-        "EXP Lane"
+        "Roam"
       ],
       "winRate": 0.5082,
       "pickRate": 0.0099,
@@ -15213,10 +15213,10 @@
       "name": "Ixia",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f070d82521ecd2e14d4ef3f25880830a.png",
       "roles": [
-        "Marksman"
+        "Fighter"
       ],
       "lanes": [
-        "Gold Lane"
+        "Jungle"
       ],
       "winRate": 0.4888,
       "pickRate": 0.0083,

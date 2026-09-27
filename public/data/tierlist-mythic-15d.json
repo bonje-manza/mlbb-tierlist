@@ -1073,11 +1073,10 @@
       "name": "Masha",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_4d79ba6ebb0a0f2bf542917f0b19d056.png",
       "roles": [
-        "Fighter",
-        "Tank"
+        "Mage"
       ],
       "lanes": [
-        "EXP Lane"
+        "Mid Lane"
       ],
       "winRate": 0.5717,
       "pickRate": 0.0061,
@@ -15486,8 +15485,7 @@
         "Fighter"
       ],
       "lanes": [
-        "EXP Lane",
-        "Jungle"
+        "EXP Lane"
       ],
       "winRate": 0.4899,
       "pickRate": 0.0055,
@@ -22622,10 +22620,10 @@
       "name": "Wanwan",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_44bfa1dc44deb8d7620605faaa9ffae7.png",
       "roles": [
-        "Marksman"
+        "Tank"
       ],
       "lanes": [
-        "Gold Lane"
+        "Roam"
       ],
       "winRate": 0.4706,
       "pickRate": 0.0012,

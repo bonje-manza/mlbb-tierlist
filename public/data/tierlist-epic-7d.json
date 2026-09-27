@@ -5855,7 +5855,7 @@
       "name": "Argus",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_0bd96658e5b8ec578226ea1622bd7231.png",
       "roles": [
-        "Fighter"
+        "Mage"
       ],
       "lanes": [
         "EXP Lane"
@@ -14829,10 +14829,10 @@
       "name": "Irithel",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_a65d1e2ced64fbfdfcefdcfba719b3fd.png",
       "roles": [
-        "Marksman"
+        "Mage"
       ],
       "lanes": [
-        "Gold Lane"
+        "Mid Lane"
       ],
       "winRate": 0.5196,
       "pickRate": 0.0036,
@@ -16503,10 +16503,10 @@
       "name": "Karrie",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_294576f2bd0dcbcc9041031969d0eb09.png",
       "roles": [
-        "Marksman"
+        "Assassin"
       ],
       "lanes": [
-        "Gold Lane"
+        "Jungle"
       ],
       "winRate": 0.4861,
       "pickRate": 0.0048,
@@ -21836,6 +21836,68 @@
           "advantageFormatted": "+9.4% WR",
           "strength": "Very Strong"
         },
+        {
+          "heroId": 17,
+          "name": "Fanny",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_3391df36d6dcc54dd1c417098e15ec59.png",
+          "winRateDelta": 0.0279
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Balmond",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_df9a6990b1946d045e4d3a46c90725cf.png",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Jungle",
+        "EXP Lane"
+      ],
+      "winRate": 0.4537,
+      "pickRate": 0.0079,
+      "banRate": 0.0062,
+      "powerScore": 14.9,
+      "tier": "D",
+      "synergies": [
+        {
+          "heroId": 99,
+          "name": "Barats",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6495be044c2d28106e200f6918391d54.png",
+          "winRateDelta": 0.0244
+        },
+        {
+          "heroId": 127,
+          "name": "Lukas",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_63040edd0cf15b815fcbbb8b2d08d7f7.png",
+          "winRateDelta": 0.0242
+        },
+        {
+          "heroId": 124,
+          "name": "Chip",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_79224d297f14377ad2eda8543432330d.png",
+          "winRateDelta": 0.0199
+        }
+      ]
+    },
+    {
+      "id": 124,
+      "name": "Chip",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_79224d297f14377ad2eda8543432330d.png",
+      "roles": [
+        "Support",
+        "Tank"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "winRate": 0.4702,
+      "pickRate": 0.0004,
+      "banRate": 0.0026,
+      "powerScore": 14.5,
+      "tier": "D",
+      "synergies": [
         {
           "heroId": 98,
           "name": "Khaleed",

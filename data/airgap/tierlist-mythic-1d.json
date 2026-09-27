@@ -12,6 +12,7 @@
         "Support"
       ],
       "lanes": [
+        "EXP Lane",
         "Roam"
       ],
       "winRate": 0.5929,
@@ -3940,10 +3941,11 @@
       "name": "Novaria",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_57eeea6d5bd8d21229de8df79751db9f.png",
       "roles": [
-        "Mage"
+        "Fighter",
+        "Assassin"
       ],
       "lanes": [
-        "Mid Lane"
+        "EXP Lane"
       ],
       "winRate": 0.5028,
       "pickRate": 0.0161,
@@ -9460,6 +9462,7 @@
         "Mage"
       ],
       "lanes": [
+        "Gold Lane",
         "Mid Lane"
       ],
       "winRate": 0.5181,
@@ -12925,10 +12928,49 @@
       "name": "Aurora",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_f9b2be0150361018bb98f941b9667c42.png",
       "roles": [
+        "Assassin"
+      ],
+      "lanes": [
+        "Jungle",
+        "Roam"
+      ],
+      "winRate": 0.547,
+      "pickRate": 0.0014,
+      "banRate": 0.0045,
+      "powerScore": 38.3,
+      "tier": "C",
+      "synergies": [
+        {
+          "heroId": 11,
+          "name": "Bane",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_7e4e74bb161da0f477cc0d1819fa39e6.png",
+          "winRateDelta": 0.3556
+        },
+        {
+          "heroId": 66,
+          "name": "Vale",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2a7a8d1531a1c4f8524880413535348d.png",
+          "winRateDelta": 0.3115
+        },
+        {
+          "heroId": 69,
+          "name": "Hanzo",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d2d28d2fcb060726fa27553920ca1a33.png",
+          "winRateDelta": 0.2557
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Alice",
+      "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_18300163a5a912a84adb52b8d59b4618.png",
+      "roles": [
+        "Tank",
         "Mage"
       ],
       "lanes": [
-        "Mid Lane"
+        "EXP Lane",
+        "Jungle"
       ],
       "winRate": 0.4924,
       "pickRate": 0.0044,

@@ -7133,10 +7133,12 @@
       "name": "Valir",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_bf16690876761b80822df90eb3320d69.png",
       "roles": [
+        "Tank",
         "Mage"
       ],
       "lanes": [
-        "Mid Lane"
+        "EXP Lane",
+        "Jungle"
       ],
       "winRate": 0.5243,
       "pickRate": 0.0089,
@@ -8547,6 +8549,7 @@
         "Tank"
       ],
       "lanes": [
+        "Jungle",
         "Roam"
       ],
       "winRate": 0.5536,
@@ -20674,10 +20677,11 @@
       "name": "Joy",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_d3a3a55c22000ae78732fed8cba2efef.png",
       "roles": [
+        "Fighter",
         "Assassin"
       ],
       "lanes": [
-        "Jungle"
+        "EXP Lane"
       ],
       "winRate": 0.4929,
       "pickRate": 0.0015,

@@ -676,10 +676,10 @@
       "name": "Hanabi",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_8a9c1966feb34e85d7bdcc1ed01ffb5d.png",
       "roles": [
-        "Marksman"
+        "Support"
       ],
       "lanes": [
-        "Gold Lane"
+        "Roam"
       ],
       "winRate": 0.5155,
       "pickRate": 0.0276,
@@ -12470,8 +12470,8 @@
       "name": "Johnson",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_85ff988c6660b4d04f8dd3d40df988bb.png",
       "roles": [
-        "Tank",
-        "Support"
+        "Support",
+        "Tank"
       ],
       "lanes": [
         "Roam"

@@ -2537,12 +2537,12 @@
       "name": "Hilda",
       "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_acd700708dc515f5c63a08f8835a9941.png",
       "roles": [
-        "Fighter",
-        "Tank"
+        "Tank",
+        "Marksman"
       ],
       "lanes": [
-        "Roam",
-        "EXP Lane"
+        "EXP Lane",
+        "Roam"
       ],
       "winRate": 0.529,
       "pickRate": 0.0077,
@@ -5964,6 +5964,12 @@
       "powerScore": 32,
       "tier": "C",
       "synergies": [
+        {
+          "heroId": 99,
+          "name": "Barats",
+          "avatarUrl": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_6495be044c2d28106e200f6918391d54.png",
+          "winRateDelta": 0.0413
+        },
         {
           "heroId": 20,
           "name": "Lolita",
