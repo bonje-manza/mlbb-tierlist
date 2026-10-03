@@ -79,7 +79,7 @@ Implemented Rank Tier and Time Window segment controls, seamless multi-dataset c
 3. **Automated Refresh Workflow (`.github/workflows/update-tierlist.yml`)**:
    - Automated scheduled daily cron workflow at `0 1 * * *` (1 hour after Moonton's 00:00 UTC daily calculation) plus `workflow_dispatch`.
    - Checkout, Node.js 22 setup with npm caching, dependency installation, `npm run sync`, `npm run build`, and `npm run check:bundle`.
-   - Automated git commit & push for updated telemetry datasets and airgap backups (`[skip ci]`).
+   - Automated git commit & push for updated telemetry datasets and airgap backups (standard commit message without `[skip ci]` to ensure Cloudflare Pages builds trigger).
 
 4. **Production Build & Performance Budget**:
    - Optimized Rollup chunking configuration in `vite.config.ts` separating vendor libraries.
